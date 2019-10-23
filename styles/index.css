@@ -1,0 +1,16 @@
+body{
+    background-color:black;
+}
+
+#gameContainer{
+    border: 5px solid grey;
+    border-radius:25px;
+    width:98vw;
+    height:97vh;
+}
+
+#gameCanvas{
+    border-radius:25px;
+    width:1000px;
+    height:600px;
+}
