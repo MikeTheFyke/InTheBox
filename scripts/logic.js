@@ -12,7 +12,6 @@ var redTopX = 20;
 const redXthick = 400;
 const redYthick = 400;
 
-
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -27,6 +26,7 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
+    boxRight();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -37,6 +37,40 @@ window.onload = function() {
         redTopY = topCorner / 2;
         redTopX = topXCorner / 2;
        });
+}
+
+function boxRight(){
+    var yellTopX = topXCorner / 2 + 703;
+    var yellTopY = topCorner / 2;
+    const yellXthick = 400;
+    const yellYthick = 400;
+    if ( yellTopX >= 990){
+        yellTopX = 990;
+    } else if (yellTopX <= 500){
+        yellTopX = 500;
+    } else if (yellTopY >= 125){
+        yellTopY = 125;
+    } else if (yellTopY <= 20){
+        yellTopY = 20;
+    }
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.moveTo(yellTopX, yellTopY);
+    ctx.lineTo(yellTopX + redXthick, yellTopY);
+    ctx.lineTo(yellTopX + redXthick, yellTopY + redYthick);
+    ctx.lineTo(yellTopX, yellTopY + redYthick);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.moveTo(yellTopX, yellTopY);
+    ctx.lineTo(yellTopX + redXthick, yellTopY);
+    ctx.lineTo(yellTopX + redXthick, yellTopY + redYthick);
+    ctx.lineTo(yellTopX, yellTopY + redYthick);
+    ctx.closePath();
+    ctx.fill();
+
 }
 
 function drawEverything() {
@@ -78,6 +112,7 @@ function drawEverything() {
     ctx.strokeStyle = "grey";
     ctx.stroke();
 
+    
     ctx.fillStyle = "blue"; //
     ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
