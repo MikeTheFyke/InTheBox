@@ -7,8 +7,8 @@ var topXCorner = 20;
 const xthick = 800;
 const ythick = 450;
 
-var redTopY = 120;
-var redTopX = 250;
+var redTopY = 20;
+var redTopX = 20;
 const redXthick = 400;
 const redYthick = 400;
 
@@ -34,8 +34,8 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         topCorner = mousePos.y-(ythick/2); // paddle aligns in centre with mouse
         topXCorner = mousePos.x-(xthick/2);
-        redTopY = mousePos.y - 200;
-        redTopX = mousePos.x - 500;
+        redTopY = topCorner / 2;
+        redTopX = topXCorner / 2;
        });
 }
 
@@ -89,14 +89,14 @@ function drawEverything() {
     if(redTopX < 30) {
         redTopX = 30;
     }
-    if (redTopX >= 350){
-        redTopX = 350;
+    if (redTopX > 280){
+        redTopX = 280;
     }
-    if (redTopY < 35){
-        redTopY = 35;
+    if (redTopY < 27){
+        redTopY = 27;
     }
-    if (redTopY > 150){
-        redTopY = 150;
+    if (redTopY > 125){
+        redTopY = 125;
     }
 ////////////////////////////// Left Boundry - STOP
         if (topXCorner <= 50){
