@@ -81,6 +81,15 @@ function drawEverything() {
     ctx.fillStyle = "blue"; //
     ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.moveTo(redTopX + redXthick, redTopY);
+    ctx.lineTo(topXCorner + 5 + 300, topCorner +5);
+    ctx.lineTo(topXCorner + 5 + 300, topCorner + 5 + 300);
+    ctx.lineTo(redTopX + redXthick,redTopY + redYthick);
+    ctx.closePath();
+    ctx.fill();
+
     ctx.fillStyle = "red"; //
     ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
     console.log("topXCorner",topXCorner)
@@ -134,6 +143,15 @@ function drawEverything() {
             ctx.fillStyle = "blue"; //
             ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
+            ctx.fillStyle = "green";
+            ctx.beginPath();
+            ctx.moveTo(redTopX + redXthick, redTopY);
+            ctx.lineTo(topXCorner + 5 + 300, topCorner + 5);
+            ctx.lineTo(topXCorner + 5 + 300, topCorner + 5 + 300);
+            ctx.lineTo(redTopX + redXthick,redTopY + redYthick);
+            ctx.closePath();
+            ctx.fill();        
+
             ctx.fillStyle = "red"; //
             ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
         } 
@@ -175,6 +193,16 @@ function drawEverything() {
         if(redTopY <= 20) {
             redTopY = 20;
         }
+
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(redTopX + redXthick, redTopY);
+        ctx.lineTo(topXCorner + 5 + 300, topCorner + 5);
+        ctx.lineTo(topXCorner + 5 + 300, topCorner + 5 + 300);
+        ctx.lineTo(redTopX + redXthick, redTopY + redYthick);
+        ctx.closePath();
+        ctx.fill();    
+
         ctx.fillStyle = "red"; //
         ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
         }
@@ -213,6 +241,15 @@ function drawEverything() {
 
             ctx.fillStyle = "blue"; //
             ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
+
+            ctx.fillStyle = "green";
+            ctx.beginPath();
+            ctx.moveTo(redTopX + redXthick, redTopY);
+            ctx.lineTo(topXCorner + 5 + 300, topCorner + 5);
+            ctx.lineTo(topXCorner + 5 + 300, topCorner + 5 + 300);
+            ctx.lineTo(redTopX + redXthick,redTopY + redYthick);
+            ctx.closePath();
+            ctx.fill();        
 
             ctx.fillStyle = "red"; //
             ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
@@ -253,6 +290,15 @@ function drawEverything() {
             ctx.fillStyle = "blue"; //
             ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
+            ctx.fillStyle = "green";
+            ctx.beginPath();
+            ctx.moveTo(redTopX + redXthick, redTopY);
+            ctx.lineTo(topXCorner + 5 + 300, topCorner + 5);
+            ctx.lineTo(topXCorner + 5 + 300, topCorner + 5 + 300);
+            ctx.lineTo(redTopX + redXthick,redTopY + redYthick);
+            ctx.closePath();
+            ctx.fill();
+        
             ctx.fillStyle = "red"; //
             ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
         } 
