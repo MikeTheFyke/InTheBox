@@ -15,6 +15,9 @@ const redYthick = 400;
 var yellTopX = (topXCorner / 2) + 703;
 var yellTopY = topCorner / 2;
 
+var greeTopX =  600;
+var greeTopY = 20;
+
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -42,6 +45,8 @@ window.onload = function() {
         redTopX = topXCorner / 2;
         yellTopX = (topXCorner / 2) + 703;
         yellTopY = topCorner / 2;
+        greeTopX = topXCorner / 2 + 30;
+        greeTopY = topCorner + 5;
        });
 }
 
@@ -88,30 +93,32 @@ function boxRight(){
     const yellXthick = 100;
     const yellYthick = 100;
 
-    var greenTopX = yellTopX - 100;
-    var greenTopY = topCorner + 5;
-    
-    const greenthick = 50;
+    const greethick = 50;
 
-    if ( yellTopX >= 990){
-        yellTopX = 990;
-    } else if (yellTopX <= 500){
-        yellTopX = 500;
-    } else if (yellTopY >= 125){
+    if ( yellTopX >= 1000){
+        yellTopX = 1000;
+    } if (yellTopX <= 730){
+        yellTopX = 730;
+    } if (yellTopY >= 125){
         yellTopY = 125;
-    } else if (yellTopY <= 20){
+    } if (yellTopY <= 20){
         yellTopY = 20;
     }
 
-    if (greenTopX <= 200){
-        greentopX = 200;
+    if (greeTopY <= 50){
+        greeTopY = 50;
+    } if (greeTopY >= 248){
+        greeTopY = 248;
+    } if (greeTopX <= 730){
+        greeTopX = 730;
     }
+
     ctx.fillStyle = "green";
     ctx.beginPath();
-    ctx.moveTo(greenTopX, greenTopY);
-    ctx.lineTo(yellTopX, yellTopY);
+    ctx.moveTo(yellTopX, yellTopY);
     ctx.lineTo(yellTopX, yellTopY + yellYthick);
-    ctx.lineTo(greenTopX, greenTopY + 50);
+    ctx.lineTo(greeTopX, greeTopY + greethick);
+    ctx.lineTo(greeTopX, greeTopY);
     ctx.closePath();
     ctx.fill();
 
