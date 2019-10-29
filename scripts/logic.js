@@ -12,7 +12,8 @@ var redTopX = 20;
 const redXthick = 400;
 const redYthick = 400;
 
-
+var yellTopX = (topXCorner / 2) + 703;
+var yellTopY = topCorner / 2;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -39,14 +40,59 @@ window.onload = function() {
         topXCorner = mousePos.x-(xthick/2);
         redTopY = topCorner / 2;
         redTopX = topXCorner / 2;
+        yellTopX = (topXCorner / 2) + 703;
+        yellTopY = topCorner / 2;
        });
 }
 
+function drawEverything() {
+    ctx.fillStyle = "black"; // Canvas Black
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+            if (topCorner <= 50){ // Top Boundry
+                topCorner = 50 ;}
+            if (topCorner >= 240){ // Bottom Boundry
+                topCorner = 240 ;} 
+            if (topXCorner >= 550){ // Right Boundry
+                topXCorner = 550 ;}
+            if (topXCorner <= 50){ // Left Boundry
+                topXCorner = 50 ;}
+    ctx.fillStyle = "grey"; // Back Wall Grey Border
+    ctx.fillRect(topXCorner,topCorner,xthick,ythick);
+    ctx.fillStyle = "black"; // Back Wall Black
+    ctx.fillRect(topXCorner +5,topCorner +5 ,790,440);
+
+    ctx.beginPath(); // Top Left Line
+    ctx.lineWidth = 2;
+    ctx.moveTo(0,0);
+    ctx.lineTo(topXCorner,topCorner);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+    ctx.beginPath(); // Top Right Line
+    ctx.moveTo(1400,0);
+    ctx.lineTo(topXCorner + xthick,topCorner);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Right Line
+    ctx.moveTo(0,720);
+    ctx.lineTo(topXCorner,topCorner + ythick);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Left Line
+    ctx.moveTo(1400,720);
+    ctx.lineTo(topXCorner + xthick,topCorner +ythick);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+  }
+
 function boxRight(){
-    var yellTopX = topXCorner / 2 + 703;
-    var yellTopY = topCorner / 2;
-    const yellXthick = 400;
-    const yellYthick = 400;
+    const yellXthick = 100;
+    const yellYthick = 100;
+
+    var greenTopX = yellTopX - 100;
+    var greenTopY = topCorner + 5;
+    
+    const greenthick = 50;
+
     if ( yellTopX >= 990){
         yellTopX = 990;
     } else if (yellTopX <= 500){
@@ -56,21 +102,25 @@ function boxRight(){
     } else if (yellTopY <= 20){
         yellTopY = 20;
     }
-    ctx.fillStyle = "yellow";
+
+    if (greenTopX <= 200){
+        greentopX = 200;
+    }
+    ctx.fillStyle = "green";
     ctx.beginPath();
-    ctx.moveTo(yellTopX, yellTopY);
-    ctx.lineTo(yellTopX + redXthick, yellTopY);
-    ctx.lineTo(yellTopX + redXthick, yellTopY + redYthick);
-    ctx.lineTo(yellTopX, yellTopY + redYthick);
+    ctx.moveTo(greenTopX, greenTopY);
+    ctx.lineTo(yellTopX, yellTopY);
+    ctx.lineTo(yellTopX, yellTopY + yellYthick);
+    ctx.lineTo(greenTopX, greenTopY + 50);
     ctx.closePath();
     ctx.fill();
 
     ctx.fillStyle = "yellow";
     ctx.beginPath();
     ctx.moveTo(yellTopX, yellTopY);
-    ctx.lineTo(yellTopX + redXthick, yellTopY);
-    ctx.lineTo(yellTopX + redXthick, yellTopY + redYthick);
-    ctx.lineTo(yellTopX, yellTopY + redYthick);
+    ctx.lineTo(yellTopX + yellXthick, yellTopY);
+    ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+    ctx.lineTo(yellTopX, yellTopY + yellYthick);
     ctx.closePath();
     ctx.fill();
 }
@@ -119,47 +169,3 @@ function boxLeft (){
     ctx.closePath();
     ctx.fill();
 }
-
-function drawEverything() {
-    ctx.fillStyle = "black"; // Canvas Black
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    if (topCorner <= 50){ // Top Boundry
-        topCorner = 50 ;
-    }
-    if (topCorner >= 240){ // Bottom Boundry
-        topCorner = 240 ;
-    } 
-    if (topXCorner >= 550){ // Right Boundry
-        topXCorner = 550 ;
-    }
-    if (topXCorner <= 50){ // Left Boundry
-        topXCorner = 50 ;
-    } 
-    ctx.fillStyle = "grey"; // Back Wall Grey Border
-    ctx.fillRect(topXCorner,topCorner,xthick,ythick);
-    ctx.fillStyle = "black"; // Back Wall Black
-    ctx.fillRect(topXCorner +5,topCorner +5 ,790,440);
-    ctx.beginPath(); // Top Left Line
-    ctx.lineWidth = 2;
-    ctx.moveTo(0,0);
-    ctx.lineTo(topXCorner,topCorner);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1400,0);
-    ctx.lineTo(topXCorner + xthick,topCorner);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(0,720);
-    ctx.lineTo(topXCorner,topCorner + ythick);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Left Line
-    ctx.moveTo(1400,720);
-    ctx.lineTo(topXCorner + xthick,topCorner +ythick);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-
-  }
