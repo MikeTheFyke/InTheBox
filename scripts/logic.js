@@ -79,7 +79,7 @@ function drawEverything() {
     ctx.stroke();
 
     ctx.fillStyle = "blue"; //
-    ctx.fillRect(topXCorner + 270,topCorner + 170,100,100);
+    ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
     ctx.fillStyle = "red"; //
     ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
@@ -132,7 +132,7 @@ function drawEverything() {
             ctx.stroke();
 
             ctx.fillStyle = "blue"; //
-            ctx.fillRect(topXCorner + 270,topCorner + 170,100,100);
+            ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
             ctx.fillStyle = "red"; //
             ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
@@ -171,7 +171,7 @@ function drawEverything() {
         ctx.stroke();    
         
         ctx.fillStyle = "blue"; //
-        ctx.fillRect(topXCorner + 270,topCorner + 170,100,100);
+        ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
         if(redTopY <= 20) {
             redTopY = 20;
         }
@@ -212,7 +212,7 @@ function drawEverything() {
             ctx.stroke();
 
             ctx.fillStyle = "blue"; //
-            ctx.fillRect(topXCorner + 270,topCorner + 170,100,100);
+            ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
             ctx.fillStyle = "red"; //
             ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
@@ -251,7 +251,7 @@ function drawEverything() {
             ctx.stroke();
 
             ctx.fillStyle = "blue"; //
-            ctx.fillRect(topXCorner + 270,topCorner + 170,100,100);
+            ctx.fillRect(topXCorner + 5,topCorner + 5,300,300);
 
             ctx.fillStyle = "red"; //
             ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
