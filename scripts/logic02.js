@@ -206,4 +206,35 @@ function drawEverything() {
       ctx.lineTo(topX + 225, topY + 200);
       ctx.lineTo(pointX3, pointY3);
       ctx.fill();
+
+    // Spike 04
+    var pointX4 = topX - 40;
+    var pointY4 = topY + 185;
+
+    if (pointX4 <= 450){
+      pointX4 = 450;}
+    if (pointY4 < 200){
+      pointY4 += -5;}
+    if (pointY4 > 400){
+      pointY4 += 5;}
+
+    ctx.fillStyle = "orange"; // Base
+        ctx.beginPath(); 
+        ctx.arc(topX + 385, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+    ctx.fillStyle = "blue"; // Vertical Spike
+        ctx.beginPath();
+        ctx.moveTo(topX + 385, topY + 150);
+        ctx.lineTo(topX + 385, topY + 250);
+        ctx.lineTo(pointX4, pointY4);
+        ctx.fill();
+
+    ctx.fillStyle = "green"; // Horizontal Spike
+      ctx.beginPath();
+      ctx.moveTo(topX + 435, topY + 200);
+      ctx.lineTo(topX + 335, topY + 200);
+      ctx.lineTo(pointX4, pointY4);
+      ctx.fill();
   }
