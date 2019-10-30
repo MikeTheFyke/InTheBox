@@ -10,6 +10,9 @@ const Xwidth = 800;
 const Ywidth = 450;
 var yellX = 100;
 var yellY = 100;
+var yellWidth = 100;
+var yellThick = 150;
+
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -80,12 +83,54 @@ function drawEverything() {
   }
 
   function drawBox(){
-      ctx.fillStyle = "yellow";
+    
+      ctx.fillStyle = "yellow"; // 01
       ctx.beginPath();
       ctx.moveTo(topX, topY);
-      ctx.lineTo(topX + 50 , topY);
-      ctx.lineTo(topX + 50,topY + 50);
-      ctx.lineTo(topX, topY + 50);
+      ctx.lineTo(topX + yellWidth , topY);
+      ctx.lineTo(topX + yellWidth , topY + yellWidth);
+      ctx.lineTo(topX, topY + yellWidth);
       ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "yellow"; // 02
+      ctx.beginPath();
+      ctx.moveTo(topX + yellThick, topY);
+      ctx.lineTo(topX + yellWidth + yellThick, topY);
+      ctx.lineTo(topX + yellWidth + yellThick, topY + yellWidth);
+      ctx.lineTo(topX + yellThick, topY + yellWidth);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = "yellow"; // 03
+      ctx.beginPath();
+      ctx.moveTo(topX + yellThick + yellThick, topY);
+      ctx.lineTo(topX + yellWidth + yellThick + yellThick, topY);
+      ctx.lineTo(topX + yellWidth + yellThick + yellThick, topY + yellWidth);
+      ctx.lineTo(topX + yellThick + yellThick, topY + yellWidth);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.beginPath(); // circle 01
+      ctx.arc(topX + 55, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
+      ctx.stroke();
+
+      var pointX = topX - 200;
+
+      if (pointX <= 150){
+        pointX = 150;
+      }
+      ctx.fillStyle = "red";
+      ctx.beginPath();
+      ctx.moveTo(topX + 55, topY + 150);
+      ctx.lineTo(topX + 55, topY + 250);
+      ctx.lineTo(pointX, topY + 185);
+      ctx.fill();
+
+      ctx.fillStyle = "red";
+      ctx.beginPath();
+      ctx.moveTo(topX + 105, topY + 200);
+      ctx.lineTo(topX + 5, topY + 200);
+      ctx.lineTo(pointX, topY + 185);
       ctx.fill();
   }
