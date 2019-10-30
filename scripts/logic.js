@@ -15,8 +15,6 @@ const redYthick = 400;
 var yellTopX = (topXCorner / 2) + 703;
 var yellTopY = topCorner / 2;
 
-var greeTopX =  600;
-var greeTopY = 20;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -32,8 +30,8 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    boxRight();
     boxLeft();
+    boxRight();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -45,8 +43,6 @@ window.onload = function() {
         redTopX = topXCorner / 2;
         yellTopX = (topXCorner / 2) + 703;
         yellTopY = topCorner / 2;
-        greeTopX = topXCorner / 2 + 30;
-        greeTopY = topCorner + 5;
        });
 }
 
@@ -93,10 +89,15 @@ function boxRight(){
     const yellXthick = 100;
     const yellYthick = 100;
 
+    var greeTopX =  topXCorner + 500;
+    var greeTopY = topCorner + 5;
     const greethick = 50;
 
-    if ( yellTopX >= 1000){
-        yellTopX = 1000;
+    var bluTopX = topXCorner + 600;
+    var bluTopY = topCorner + 5
+
+    if ( yellTopX >= 800){
+        yellTopX = 800;
     } if (yellTopX <= 730){
         yellTopX = 730;
     } if (yellTopY >= 125){
@@ -105,20 +106,30 @@ function boxRight(){
         yellTopY = 20;
     }
 
-    if (greeTopY <= 50){
-        greeTopY = 50;
-    } if (greeTopY >= 248){
-        greeTopY = 248;
-    } if (greeTopX <= 730){
-        greeTopX = 730;
-    }
-
     ctx.fillStyle = "green";
     ctx.beginPath();
     ctx.moveTo(yellTopX, yellTopY);
     ctx.lineTo(yellTopX, yellTopY + yellYthick);
     ctx.lineTo(greeTopX, greeTopY + greethick);
     ctx.lineTo(greeTopX, greeTopY);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "blue"; // Right Side
+    ctx.beginPath();
+    ctx.moveTo(yellTopX + yellXthick, yellTopY);
+    ctx.lineTo(bluTopX, bluTopY);
+    ctx.lineTo(bluTopX, bluTopY + greethick);
+    ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "red"; // Right Side
+    ctx.beginPath();
+    ctx.moveTo(yellTopX, yellTopY + yellYthick);
+    ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+    ctx.lineTo(bluTopX, bluTopY + greethick);
+    ctx.lineTo(greeTopX , greeTopY + greethick);
     ctx.closePath();
     ctx.fill();
 
