@@ -5,8 +5,8 @@ body{
 #gameContainer{
     border: 5px solid grey;
     border-radius:25px;
-    width:98vw;
-    height:97vh;
+    width:1400px;
+    height:720px;
 }
 
 #gameCanvas{

@@ -2,6 +2,8 @@ var canvas = document.getElementById('gameCanvas');
 var ctx = canvas.getContext('2d');
 var framesPerSecond = 30;
 
+var Xcord = 0;
+var Ycord = 0;
 var topCorner = 20;
 var topXCorner = 20;
 const xthick = 800;
@@ -37,6 +39,8 @@ window.onload = function() {
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
       function(evt) {
         var mousePos = calculateMousePos(evt);
+        Xcord = mousePos.x;
+        Ycord = mousePos.y;
         topCorner = mousePos.y-(ythick/2); // paddle aligns in centre with mouse
         topXCorner = mousePos.x-(xthick/2);
         redTopY = topCorner / 2;
@@ -86,6 +90,9 @@ function drawEverything() {
   }
 
 function boxRight(){
+    console.log("07 Mouse X = " + Xcord);
+    console.log("08 Mouse Y = " + Ycord);
+
     const yellXthick = 100;
     const yellYthick = 100;
 
@@ -106,32 +113,117 @@ function boxRight(){
         yellTopY = 20;
     }
 
-    ctx.fillStyle = "green";
-    ctx.beginPath();
-    ctx.moveTo(yellTopX, yellTopY);
-    ctx.lineTo(yellTopX, yellTopY + yellYthick);
-    ctx.lineTo(greeTopX, greeTopY + greethick);
-    ctx.lineTo(greeTopX, greeTopY);
-    ctx.closePath();
-    ctx.fill();
+    if ( Xcord<=699 && Ycord< 316){
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+    
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
 
-    ctx.fillStyle = "blue"; // Right Side
-    ctx.beginPath();
-    ctx.moveTo(yellTopX + yellXthick, yellTopY);
-    ctx.lineTo(bluTopX, bluTopY);
-    ctx.lineTo(bluTopX, bluTopY + greethick);
-    ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
-    ctx.closePath();
-    ctx.fill();
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
+    } else if ( Xcord>699 && Ycord < 316){
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
 
-    ctx.fillStyle = "red"; // Right Side
-    ctx.beginPath();
-    ctx.moveTo(yellTopX, yellTopY + yellYthick);
-    ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
-    ctx.lineTo(bluTopX, bluTopY + greethick);
-    ctx.lineTo(greeTopX , greeTopY + greethick);
-    ctx.closePath();
-    ctx.fill();
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+
+    } else if ( Xcord>699 && Ycord > 316){
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+
+    } else if (Ycord >= 316){
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
+    
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
+    } 
 
     ctx.fillStyle = "yellow";
     ctx.beginPath();
