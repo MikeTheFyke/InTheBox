@@ -113,17 +113,14 @@ function drawEverything() {
       ctx.fill();
   }
 
-  function drawSpikes(){
+function drawSpikes(){
     // Spike 01
-    var pointX = topX - 200;
-    var pointY = topY + 185;
+        var pointX = topX - 200;
+        var pointY = topY + 185;
 
-    if (pointX <= 150){
-      pointX = 150;}
-    if (pointY < 200){
-      pointY += -5;}
-    if (pointY > 400){
-      pointY += 5;}
+        if (pointX <= 150){ pointX = 150;}
+        if (pointY < 200) { pointY += -5;}
+        if (pointY > 400) { pointY += 5; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -146,15 +143,12 @@ function drawEverything() {
       ctx.fill();
 
     // Spike 02
-    var pointX2 = topX - 100;
-    var pointY2 = topY + 185;
+        var pointX2 = topX - 100;
+        var pointY2 = topY + 185;
 
-    if (pointX2 <= 250){
-      pointX2 = 250;}
-    if (pointY2 < 200){
-      pointY2 += -5;}
-    if (pointY2 > 400){
-      pointY2 += +5;}
+        if (pointX2 <= 250){ pointX2 = 250;}
+        if (pointY2 < 200) { pointY2 += -5;}
+        if (pointY2 > 400) { pointY2 += +5;}
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -177,15 +171,12 @@ function drawEverything() {
       ctx.fill();
 
     // Spike 03
-    var pointX3 = topX - 70;
-    var pointY3 = topY + 185;
+        var pointX3 = topX - 70;
+        var pointY3 = topY + 185;
 
-    if (pointX3 <= 350){
-      pointX3 = 350;}
-    if (pointY3 < 200){
-      pointY3 += -5;}
-    if (pointY3 > 400){
-      pointY3 += 5;}
+        if (pointX3 <= 350) { pointX3 = 350;}
+        if (pointY3 < 200)  { pointY3 += -5;}
+        if (pointY3 > 400)  { pointY3 += 5; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -236,5 +227,99 @@ function drawEverything() {
       ctx.moveTo(topX + 435, topY + 200);
       ctx.lineTo(topX + 335, topY + 200);
       ctx.lineTo(pointX4, pointY4);
+      ctx.fill();
+
+    // Spike 05
+    var pointX5 = topX ;
+    var pointY5 = topY + 185;
+
+    if (pointX5 <= 550){
+      pointX5 = 550;}
+    if (pointY5 < 200){
+      pointY5 += -5;}
+    if (pointY5 > 400){
+      pointY5 += 5;}
+
+    ctx.fillStyle = "orange"; // Base
+        ctx.beginPath(); 
+        ctx.arc(topX + 495, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+    ctx.fillStyle = "red"; // Vertical Spike
+        ctx.beginPath();
+        ctx.moveTo(topX + 495, topY + 150);
+        ctx.lineTo(topX + 495, topY + 250);
+        ctx.lineTo(pointX5, pointY5);
+        ctx.fill();
+
+    ctx.fillStyle = "red"; // Horizontal Spike
+      ctx.beginPath();
+      ctx.moveTo(topX + 545, topY + 200);
+      ctx.lineTo(topX + 445, topY + 200);
+      ctx.lineTo(pointX5, pointY5);
+      ctx.fill();
+
+    // Spike 06
+    var pointX6 = topX + 600;
+    var pointY6 = topY + 185;
+
+    if (pointX6 >= 705){
+      pointX6 = 705;}
+    if (pointY6 < 200){
+      pointY6 += -5;}
+    if (pointY6 > 400){
+      pointY6 += 5;}
+
+    ctx.fillStyle = "orange"; // Base
+        ctx.beginPath(); 
+        ctx.arc(topX + 605, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+    ctx.fillStyle = "green"; // Vertical Spike
+        ctx.beginPath();
+        ctx.moveTo(topX + 605, topY + 150);
+        ctx.lineTo(topX + 605, topY + 250);
+        ctx.lineTo(pointX6, pointY6);
+        ctx.fill();
+
+    ctx.fillStyle = "blue"; // Horizontal Spike
+      ctx.beginPath();
+      ctx.moveTo(topX + 655, topY + 200);
+      ctx.lineTo(topX + 555, topY + 200);
+      ctx.lineTo(pointX6, pointY6);
+      ctx.fill();
+
+    // Spike 07
+    var pointX7 = topX + 750;
+    console.log("pointX7 = " + pointX7);
+    var pointY7 = topY + 185;
+
+    if (pointX7 >= 805){
+      pointX7 = 805;}
+    if (pointY7 < 200){
+      pointY7 += -5;}
+    if (pointY7 > 400){
+      pointY7 += 5;}
+
+    ctx.fillStyle = "orange"; // Base
+        ctx.beginPath(); 
+        ctx.arc(topX + 715, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+    ctx.fillStyle = "red"; // Vertical Spike
+        ctx.beginPath();
+        ctx.moveTo(topX + 715, topY + 150);
+        ctx.lineTo(topX + 715, topY + 250);
+        ctx.lineTo(pointX7, pointY7);
+        ctx.fill();
+
+    ctx.fillStyle = "red"; // Horizontal Spike
+      ctx.beginPath();
+      ctx.moveTo(topX + 765, topY + 200);
+      ctx.lineTo(topX + 665, topY + 200);
+      ctx.lineTo(pointX7, pointY7);
       ctx.fill();
   }
