@@ -12,7 +12,8 @@ var yellX = 100;
 var yellY = 100;
 var yellWidth = 100;
 var yellThick = 150;
-
+var pointX ;
+var pointY ;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -38,9 +39,11 @@ window.onload = function() {
         Xcord = mousePos.x;
         Ycord = mousePos.y;
         topY = mousePos.y-(Ywidth/2); // paddle aligns in centre with mouse
-        topX = mousePos.x-(Xwidth/2);
+        topX = mousePos.x-(Xwidth/2) + 200;
         yellX = topX -200;
         yellY = topY -50;
+         pointX = topX - 200;
+         pointY = topY + 185;
        });
 }
 
@@ -115,12 +118,14 @@ function drawEverything() {
 
 function drawSpikes(){
     // Spike 01
-        var pointX = topX - 200;
-        var pointY = topY + 185;
 
-        if (pointX <= 150){ pointX = 150;}
-        if (pointY < 200) { pointY += -5;}
-        if (pointY > 400) { pointY += 5; }
+
+        if (pointX <= 100){ pointX = 100; }
+        if (pointX >= 300){ pointX = 300; }
+        if (pointY < 275) { pointY = pointY - 10; }
+        if (pointY <= 225) { pointY = 225; }
+        if (pointY > 300) { pointY = pointY + 10; }
+        if (pointY >= 450){ pointY = 450; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -146,7 +151,7 @@ function drawSpikes(){
         var pointX2 = topX - 100;
         var pointY2 = topY + 185;
 
-        if (pointX2 <= 250){ pointX2 = 250;}
+        if (pointX2 <= 220){ pointX2 = 220;}
         if (pointY2 < 200) { pointY2 += -5;}
         if (pointY2 > 400) { pointY2 += +5;}
 
@@ -174,7 +179,7 @@ function drawSpikes(){
         var pointX3 = topX - 70;
         var pointY3 = topY + 185;
 
-        if (pointX3 <= 350) { pointX3 = 350;}
+        if (pointX3 <= 340) { pointX3 = 340;}
         if (pointY3 < 200)  { pointY3 += -5;}
         if (pointY3 > 400)  { pointY3 += 5; }
 
@@ -233,8 +238,8 @@ function drawSpikes(){
     var pointX5 = topX ;
     var pointY5 = topY + 185;
 
-    if (pointX5 <= 550){
-      pointX5 = 550;}
+    if (pointX5 <= 570){
+      pointX5 = 570;}
     if (pointY5 < 200){
       pointY5 += -5;}
     if (pointY5 > 400){
@@ -261,10 +266,10 @@ function drawSpikes(){
       ctx.fill();
 
     // Spike 06
-    var pointX6 = topX + 600;
+    var pointX6 = topX + 40;
     var pointY6 = topY + 185;
 
-    if (pointX6 >= 705){
+    if (pointX6 <= 705){
       pointX6 = 705;}
     if (pointY6 < 200){
       pointY6 += -5;}
