@@ -118,14 +118,15 @@ function drawEverything() {
 
 function drawSpikes(){
     // Spike 01
+        var pointX1 = pointX ;
+        var pointY1 = pointY ;
 
-
-        if (pointX <= 100){ pointX = 100; }
-        if (pointX >= 300){ pointX = 300; }
-        if (pointY < 275) { pointY = pointY - 10; }
-        if (pointY <= 225) { pointY = 225; }
-        if (pointY > 300) { pointY = pointY + 10; }
-        if (pointY >= 450){ pointY = 450; }
+        if (pointX1 <= 100){ pointX1 = 100; }
+        if (pointX1 >= 300){ pointX1 = 300; }
+        if (pointY1 < 275) { pointY1 = pointY1 - 10; }
+        if (pointY1 <= 225) { pointY1 = 225; }
+        if (pointY1 > 300) { pointY1 = pointY1 + 10; }
+        if (pointY1 >= 450){ pointY1 = 450; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -137,14 +138,14 @@ function drawSpikes(){
         ctx.beginPath();
         ctx.moveTo(topX + 55, topY + 150);
         ctx.lineTo(topX + 55, topY + 250);
-        ctx.lineTo(pointX, pointY);
+        ctx.lineTo(pointX1, pointY1);
         ctx.fill();
 
     ctx.fillStyle = "red"; // Horizontal Spike
       ctx.beginPath();
       ctx.moveTo(topX + 105, topY + 200);
       ctx.lineTo(topX + 5, topY + 200);
-      ctx.lineTo(pointX, pointY);
+      ctx.lineTo(pointX1, pointY1);
       ctx.fill();
 
     // Spike 02
@@ -152,8 +153,10 @@ function drawSpikes(){
         var pointY2 = topY + 185;
 
         if (pointX2 <= 220){ pointX2 = 220;}
-        if (pointY2 < 200) { pointY2 += -5;}
-        if (pointY2 > 400) { pointY2 += +5;}
+        if (pointY2 < 275) { pointY2 = pointY2 - 10; }
+        if (pointY2 <= 225) { pointY2 = 225; }
+        if (pointY2 > 300) { pointY2 = pointY2 + 20; }
+        if (pointY2 >= 560) { pointY2 = 560; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -180,8 +183,10 @@ function drawSpikes(){
         var pointY3 = topY + 185;
 
         if (pointX3 <= 340) { pointX3 = 340;}
-        if (pointY3 < 200)  { pointY3 += -5;}
-        if (pointY3 > 400)  { pointY3 += 5; }
+        if (pointY3 < 275) { pointY3 = pointY3 - 10; }
+        if (pointY3 <= 225) { pointY3 = 225; }
+        if (pointY3 > 300) { pointY3 = pointY3 + 20; }
+        if (pointY3 >= 560) { pointY3 = 560; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -209,10 +214,10 @@ function drawSpikes(){
 
     if (pointX4 <= 450){
       pointX4 = 450;}
-    if (pointY4 < 200){
-      pointY4 += -5;}
-    if (pointY4 > 400){
-      pointY4 += 5;}
+      if (pointY4 < 275) { pointY4 = pointY4 - 10; }
+      if (pointY4 <= 225) { pointY4 = 225; }
+      if (pointY4 > 300) { pointY4 = pointY4 + 20; }
+      if (pointY4 >= 560) { pointY4 = 560; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -240,10 +245,10 @@ function drawSpikes(){
 
     if (pointX5 <= 570){
       pointX5 = 570;}
-    if (pointY5 < 200){
-      pointY5 += -5;}
-    if (pointY5 > 400){
-      pointY5 += 5;}
+      if (pointY5 < 275) { pointY5 = pointY5 - 10; }
+      if (pointY5 <= 225) { pointY5 = 225; }
+      if (pointY5 > 300) { pointY5 = pointY5 + 20; }
+      if (pointY5 >= 560) { pointY5 = 560; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -271,10 +276,10 @@ function drawSpikes(){
 
     if (pointX6 <= 705){
       pointX6 = 705;}
-    if (pointY6 < 200){
-      pointY6 += -5;}
-    if (pointY6 > 400){
-      pointY6 += 5;}
+      if (pointY6 < 275) { pointY6 = pointY6 - 10; }
+      if (pointY6 <= 225) { pointY6 = 225; }
+      if (pointY6 > 300) { pointY6 = pointY6 + 20; }
+      if (pointY6 >= 560) { pointY6 = 560; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
@@ -301,12 +306,12 @@ function drawSpikes(){
     console.log("pointX7 = " + pointX7);
     var pointY7 = topY + 185;
 
-    if (pointX7 >= 805){
-      pointX7 = 805;}
-    if (pointY7 < 200){
-      pointY7 += -5;}
-    if (pointY7 > 400){
-      pointY7 += 5;}
+    if (pointX7 >= 805 ) { pointX7 = 805;}
+    if (pointX7 <= 1000) { pointX7 = 1000; }
+      if (pointY7 < 275) { pointY7 = pointY7 - 10; }
+      if (pointY7 <= 225) { pointY7 = 225; }
+      if (pointY7 > 300) { pointY7 = pointY7 + 20; }
+      if (pointY7 >= 560) { pointY7 = 560; }
 
     ctx.fillStyle = "orange"; // Base
         ctx.beginPath(); 
