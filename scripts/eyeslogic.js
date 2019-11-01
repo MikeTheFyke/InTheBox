@@ -77,57 +77,36 @@ ctx.beginPath();
 ctx.arc(Xhead, Yhead - 60,145, 0, 2 * Math.PI);
 ctx.fill();
 ////////////////////////////////////////////////////// Right Eye
-    ctx.fillStyle = "darkred"; // Base
-    ctx.beginPath(); 
-    ctx.arc(Xeye + 80, Yeye + 7, 80, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
-    ctx.fillStyle = "crimson"; // Base
+
+    ctx.fillStyle = "teal"; // Base
     ctx.beginPath(); 
     ctx.arc(Xeye + 80, Yeye + 9, 75, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
-    ctx.fillStyle = "crimson"; // lid
+    ctx.fillStyle = "MediumTurquoise"; // lid
     ctx.beginPath(); 
     ctx.arc(Xeye + 80, Yeye + 9, 70, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
     ctx.fillStyle = "white"; // Pupil
     ctx.beginPath(); 
     ctx.arc(Xeye + 80, Yeye, 70, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
 
 ////////////////////////////////////////////////////// Left Eye
-    ctx.fillStyle = "crimson"; // Base
+    ctx.fillStyle = "MediumTurquoise"; // Base
     ctx.beginPath(); 
     ctx.arc(Xeye - 80, Yeye +  9, 75, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
-    ctx.fillStyle = "darkred"; // bottom lid
+    ctx.fillStyle = "teal"; // bottom lid
     ctx.beginPath(); 
     ctx.arc(Xeye - 80, Yeye + 9, 70, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
-    ctx.fillStyle = "crimson"; // bottom lid
+    ctx.fillStyle = "MediumTurquoise"; // bottom lid
     ctx.beginPath(); 
     ctx.arc(Xeye - 80, Yeye +7, 70, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
-    ctx.fillStyle = "crimson"; // top lid
-    ctx.beginPath(); 
-    ctx.arc(Xeye - 81, Yeye - 13, 72, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
-    ctx.fillStyle = "darkred"; // top lid
-    ctx.beginPath(); 
-    ctx.arc(Xeye - 80, Yeye - 7, 69, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
     ctx.fillStyle = "white"; // Pupil
     ctx.beginPath(); 
     ctx.arc(Xeye - 80, Yeye, 70, 0, 2 * Math.PI);
-    ctx.stroke();
     ctx.fill();
 
     // Right Eyes pupils
