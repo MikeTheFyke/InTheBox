@@ -156,12 +156,54 @@ ctx.fill();
         if (pupilX1 > 695 ) { pupilX1 = 695;}
         if (pupilY1 < 260 ) { pupilY1 = 260;}
         if (pupilY1 > 380 ){ pupilY1 = 380;}
-        if (Xcord > ) { ;}
+
         if (Ycord > 600){ pupilY1 = pupilY1 - 35;}
         
         ctx.fillStyle = "black"; // Pupil
         ctx.beginPath(); 
         ctx.arc(pupilX1 - 80, pupilY1 - 30, 20, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();   
+
+////////////////////////////////////////////////////// Mouth
+        var mouthX1 = Xcord;
+        var mouthY1 = Ycord + 100;
+  
+        if (mouthX1 < 560 ) { mouthX1 = 560;}
+        if (mouthX1 > 630 ) { mouthX1 = 630;}
+        if (mouthY1 < 415 ) { mouthY1 = 415;}
+        if (mouthY1 > 430 ) { mouthY1 = 430;}
+         
+        ctx.fillStyle = "Peru"; // Top
+        ctx.beginPath(); 
+        ctx.arc(mouthX1, mouthY1 - 1, 80, 0, Math.PI, true);
+        ctx.stroke();
+        ctx.fill(); 
+
+        ctx.fillStyle = "Peru"; // Bottom
+        ctx.beginPath(); 
+        ctx.arc(mouthX1, mouthY1, 80, 0, Math.PI, false);
+        ctx.stroke();
+        ctx.fill(); 
+
+ ////////////////////////////////////////////////////// Nose
+        var noseX1 = Xcord;
+        var noseY1 = Ycord + 50;
+ 
+        if (noseX1 < 530 ) { noseX1 = 530;}
+        if (noseX1 > 650 ) { noseX1 = 650;}
+        if (noseY1 < 360 ) { noseY1 = 360;}
+        if (noseY1 > 390 ) { noseY1 = 390;}
+        
+        ctx.fillStyle = "MediumSlateBlue"; // Pupil
+        ctx.beginPath(); 
+        ctx.arc(noseX1, noseY1, 30, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill(); 
+
+        ctx.fillStyle = "MediumOrchid"; // Pupil
+        ctx.beginPath(); 
+        ctx.arc(noseX1, noseY1 - 03, 27, 0, 2 * Math.PI);
         ctx.stroke();
         ctx.fill();      
   }
