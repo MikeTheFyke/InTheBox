@@ -136,11 +136,11 @@ ctx.fill();
         var pupilX = Xcord;
         var pupilY = Ycord;
 
-        if (pupilX < 510 ){ pupilX = 510;}
-        if (pupilX > 710 ){ pupilX = 710;}
+        if (pupilX < 515 ){ pupilX = 515;}
+        if (pupilX > 700 ){ pupilX = 700;}
         if (pupilY < 260 ){ pupilY = 260;}
         if (pupilY > 380 ){ pupilY = 380;}
-        if (Ycord > 600){ pupilY = pupilY - 25;}
+        if (Ycord > 600){ pupilY = pupilY - 35;}
 
         ctx.fillStyle = "black"; // Pupil
         ctx.beginPath(); 
@@ -152,11 +152,12 @@ ctx.fill();
         var pupilX1 = Xcord;
         var pupilY1 = Ycord;
         
-        if (pupilX1 < 500 ){ pupilX1 = 500;}
-        if (pupilX1 > 700 ){ pupilX1 = 700;}
-        if (pupilY1 < 260 ){ pupilY1 = 260;}
+        if (pupilX1 < 510 ) { pupilX1 = 510;}
+        if (pupilX1 > 695 ) { pupilX1 = 695;}
+        if (pupilY1 < 260 ) { pupilY1 = 260;}
         if (pupilY1 > 380 ){ pupilY1 = 380;}
-        if (Ycord > 600){ pupilY1 = pupilY1 - 25;}
+        if (Xcord > ) { ;}
+        if (Ycord > 600){ pupilY1 = pupilY1 - 35;}
         
         ctx.fillStyle = "black"; // Pupil
         ctx.beginPath(); 
