@@ -6,7 +6,7 @@ var Xcord = 0;
 var Ycord = 0;
 var topY = 20;
 var topX = 20;
-const Xwidth = 800;
+const Xwidth = 770;
 const Ywidth = 450;
 var yellX = 100;
 var yellY = 100;
@@ -29,7 +29,6 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    drawBox();
     drawSpikes();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
@@ -58,62 +57,20 @@ function drawEverything() {
                 topX = 550 ;}
             if (topX <= 50){ // Left Boundry
                 topX = 50 ;}
-    ctx.fillStyle = "grey"; // Back Wall Grey Border
+    ctx.fillStyle = "black"; // Back Wall Grey Border
     ctx.fillRect(topX,topY,Xwidth,Ywidth);
-    ctx.fillStyle = "black"; // Back Wall Black
-    ctx.fillRect(topX +5,topY +5 ,790,440);
 
-    ctx.beginPath(); // Top Left Line
-    ctx.lineWidth = 2;
-    ctx.moveTo(0,0);
-    ctx.lineTo(topX,topY);
-    ctx.strokeStyle = "grey";
+    ctx.fillStyle = "darkred"; // Base
+    ctx.beginPath(); 
+    ctx.arc(topX + 385, topY + 210, 335, 0, 2 * Math.PI);
     ctx.stroke();
-    ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1400,0);
-    ctx.lineTo(topX + Xwidth,topY);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(0,720);
-    ctx.lineTo(topX,topY + Ywidth);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Left Line
-    ctx.moveTo(1400,720);
-    ctx.lineTo(topX + Xwidth,topY +Ywidth);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-  }
+    ctx.fill();
 
-  function drawBox(){
-    
-      ctx.fillStyle = "yellow"; // 01
-      ctx.beginPath();
-      ctx.moveTo(topX, topY);
-      ctx.lineTo(topX + yellWidth , topY);
-      ctx.lineTo(topX + yellWidth , topY + yellWidth);
-      ctx.lineTo(topX, topY + yellWidth);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.fillStyle = "yellow"; // 02
-      ctx.beginPath();
-      ctx.moveTo(topX + yellThick, topY);
-      ctx.lineTo(topX + yellWidth + yellThick, topY);
-      ctx.lineTo(topX + yellWidth + yellThick, topY + yellWidth);
-      ctx.lineTo(topX + yellThick, topY + yellWidth);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.fillStyle = "yellow"; // 03
-      ctx.beginPath();
-      ctx.moveTo(topX + yellThick + yellThick, topY);
-      ctx.lineTo(topX + yellWidth + yellThick + yellThick, topY);
-      ctx.lineTo(topX + yellWidth + yellThick + yellThick, topY + yellWidth);
-      ctx.lineTo(topX + yellThick + yellThick, topY + yellWidth);
-      ctx.closePath();
-      ctx.fill();
+    ctx.fillStyle = "crimson"; // Base
+    ctx.beginPath(); 
+    ctx.arc(topX + 385, topY + 210, 325, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
   }
 
 function drawSpikes(){
@@ -121,18 +78,14 @@ function drawSpikes(){
         var pointX1 = pointX ;
         var pointY1 = pointY ;
 
-        if (pointX1 <= 100){ pointX1 = 100; }
-        if (pointX1 >= 300){ pointX1 = 300; }
-        if (pointY1 < 275) { pointY1 = pointY1 - 10; }
-        if (pointY1 <= 225) { pointY1 = 225; }
-        if (pointY1 > 300) { pointY1 = pointY1 + 10; }
-        if (pointY1 >= 450){ pointY1 = 450; }
+        if (pointX1 <= 100){ pointX1 = 100; } // left boundry
+        if (pointX1 >= 350){ pointX1 = 350; } // right boundry
+        
+        if (pointY1 < 300) { pointY1 = pointY1 - 10; }
+        if (pointY1 <= 200) { pointY1 = 200; }
 
-    ctx.fillStyle = "orange"; // Base
-        ctx.beginPath(); 
-        ctx.arc(topX + 55, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fill();
+        if (pointY1 > 300) { pointY1 = pointY1 + 10; } // Bottom boundries
+        if (pointY1 >= 470){ pointY1 = 470; }
 
     ctx.fillStyle = "red"; // Vertical Spike
         ctx.beginPath();
@@ -141,37 +94,34 @@ function drawSpikes(){
         ctx.lineTo(pointX1, pointY1);
         ctx.fill();
 
-    ctx.fillStyle = "red"; // Horizontal Spike
+    ctx.fillStyle = "darkred"; // Horizontal Spike
       ctx.beginPath();
       ctx.moveTo(topX + 105, topY + 200);
-      ctx.lineTo(topX + 5, topY + 200);
+      ctx.lineTo(topX + 45, topY + 200);
       ctx.lineTo(pointX1, pointY1);
       ctx.fill();
 
     // Spike 02
         var pointX2 = topX - 100;
-        var pointY2 = topY + 185;
+        var pointY2 = pointY + 20;
+        
+        if (pointX2 <= 225){ pointX2 = 225;} // Left boundries
+        if (pointX2 >= 450){ pointX2 = 450;} // Right boundries
+        
+        if (pointY2 < 300) { pointY2 = pointY2 - 20; } // Top boundries
+        if (pointY2 <= 180) { pointY2 = 180; }
+        
+        if (pointY2 > 300) { pointY2 = pointY2 + 20; } // Bottom boundries
+        if (pointY2 >= 500) { pointY2 = 500; }
 
-        if (pointX2 <= 220){ pointX2 = 220;}
-        if (pointY2 < 275) { pointY2 = pointY2 - 10; }
-        if (pointY2 <= 225) { pointY2 = 225; }
-        if (pointY2 > 300) { pointY2 = pointY2 + 20; }
-        if (pointY2 >= 560) { pointY2 = 560; }
-
-    ctx.fillStyle = "orange"; // Base
-        ctx.beginPath(); 
-        ctx.arc(topX + 165, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fill();
-
-    ctx.fillStyle = "blue"; // Vertical Spike
+    ctx.fillStyle = "red"; // Vertical Spike
         ctx.beginPath();
         ctx.moveTo(topX + 165, topY + 150);
         ctx.lineTo(topX + 165, topY + 250);
         ctx.lineTo(pointX2, pointY2);
         ctx.fill();
 
-    ctx.fillStyle = "green"; // Horizontal Spike
+    ctx.fillStyle = "darkred"; // Horizontal Spike
       ctx.beginPath();
       ctx.moveTo(topX + 215, topY + 200);
       ctx.lineTo(topX + 115, topY + 200);
@@ -180,21 +130,18 @@ function drawSpikes(){
 
     // Spike 03
         var pointX3 = topX - 70;
-        var pointY3 = topY + 185;
+        var pointY3 = pointY;
 
-        if (pointX3 <= 340) { pointX3 = 340;}
-        if (pointY3 < 275) { pointY3 = pointY3 - 10; }
-        if (pointY3 <= 225) { pointY3 = 225; }
-        if (pointY3 > 300) { pointY3 = pointY3 + 20; }
-        if (pointY3 >= 560) { pointY3 = 560; }
+        if (pointX3 <= 340) { pointX3 = 340;} // Left boundries
+        if (pointX3 <= 400) { pointX3 = 400;} // Right boundries
 
-    ctx.fillStyle = "orange"; // Base
-        ctx.beginPath(); 
-        ctx.arc(topX + 275, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fill();
+        if (pointY3 < 280) { pointY3 = pointY3 - 20; } // Top Boundries
+        if (pointY3 <= 120) { pointY3 = 120; }
 
-    ctx.fillStyle = "red"; // Vertical Spike
+        if (pointY3 > 300) { pointY3 = pointY3 + 20; } // Bottom boundries
+        if (pointY3 >= 540) { pointY3 = 540; }
+
+    ctx.fillStyle = "darkred"; // Vertical Spike
         ctx.beginPath();
         ctx.moveTo(topX + 275, topY + 150);
         ctx.lineTo(topX + 275, topY + 250);
@@ -210,29 +157,25 @@ function drawSpikes(){
 
     // Spike 04
     var pointX4 = topX - 40;
-    var pointY4 = topY + 185;
+    var pointY4 = pointY;
 
-    if (pointX4 <= 450){
-      pointX4 = 450;}
-      if (pointY4 < 275) { pointY4 = pointY4 - 10; }
-      if (pointY4 <= 225) { pointY4 = 225; }
-      if (pointY4 > 300) { pointY4 = pointY4 + 20; }
+    if (pointX4 <= 450) {  pointX4 = 450;}
+      if (pointX4 <= 600) { pointX4 = 600;}
+
+      if (pointY4 < 280) { pointY4 = pointY4 - 20; } // Top Boundries
+      if (pointY4 <= 100) { pointY4 = 100; }
+
+      if (pointY4 > 300) { pointY4 = pointY4 + 20; } // Bottom Boundries
       if (pointY4 >= 560) { pointY4 = 560; }
 
-    ctx.fillStyle = "orange"; // Base
-        ctx.beginPath(); 
-        ctx.arc(topX + 385, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fill();
-
-    ctx.fillStyle = "blue"; // Vertical Spike
+    ctx.fillStyle = "darkred"; // Vertical Spike
         ctx.beginPath();
         ctx.moveTo(topX + 385, topY + 150);
         ctx.lineTo(topX + 385, topY + 250);
         ctx.lineTo(pointX4, pointY4);
         ctx.fill();
 
-    ctx.fillStyle = "green"; // Horizontal Spike
+    ctx.fillStyle = "red"; // Horizontal Spike
       ctx.beginPath();
       ctx.moveTo(topX + 435, topY + 200);
       ctx.lineTo(topX + 335, topY + 200);
@@ -243,8 +186,8 @@ function drawSpikes(){
     var pointX5 = topX ;
     var pointY5 = topY + 185;
 
-    if (pointX5 <= 570){
-      pointX5 = 570;}
+    if (pointX5 <= 570){ pointX5 = 570;}
+      if (pointX5 <= 800){ pointX5 = 800;}
       if (pointY5 < 275) { pointY5 = pointY5 - 10; }
       if (pointY5 <= 225) { pointY5 = 225; }
       if (pointY5 > 300) { pointY5 = pointY5 + 20; }
@@ -270,12 +213,44 @@ function drawSpikes(){
       ctx.lineTo(pointX5, pointY5);
       ctx.fill();
 
-    // Spike 06
+    // Spike 07
+    var pointX7 = topX + 750;
+    console.log("pointX7 = " + pointX7);
+    var pointY7 = topY + 185;
+
+    if (pointX7 >= 805 ) { pointX7 = 805;}
+    if (pointX7 <= 1200) { pointX7 = 1200; }
+      if (pointY7 < 275) { pointY7 = pointY7 - 10; }
+      if (pointY7 <= 225) { pointY7 = 225; }
+      if (pointY7 > 300) { pointY7 = pointY7 + 20; }
+      if (pointY7 >= 560) { pointY7 = 560; }
+
+    ctx.fillStyle = "orange"; // Base
+        ctx.beginPath(); 
+        ctx.arc(topX + 715, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+    ctx.fillStyle = "red"; // Vertical Spike
+        ctx.beginPath();
+        ctx.moveTo(topX + 715, topY + 150);
+        ctx.lineTo(topX + 715, topY + 250);
+        ctx.lineTo(pointX7, pointY7);
+        ctx.fill();
+
+    ctx.fillStyle = "red"; // Horizontal Spike
+      ctx.beginPath();
+      ctx.moveTo(topX + 765, topY + 200);
+      ctx.lineTo(topX + 665, topY + 200);
+      ctx.lineTo(pointX7, pointY7);
+      ctx.fill();
+
+          // Spike 06
     var pointX6 = topX + 40;
     var pointY6 = topY + 185;
 
-    if (pointX6 <= 705){
-      pointX6 = 705;}
+      if (pointX6 <= 705){ pointX6 = 705;}
+      if (pointX6 <= 1000){ pointX6 = 1000;}
       if (pointY6 < 275) { pointY6 = pointY6 - 10; }
       if (pointY6 <= 225) { pointY6 = 225; }
       if (pointY6 > 300) { pointY6 = pointY6 + 20; }
@@ -301,35 +276,4 @@ function drawSpikes(){
       ctx.lineTo(pointX6, pointY6);
       ctx.fill();
 
-    // Spike 07
-    var pointX7 = topX + 750;
-    console.log("pointX7 = " + pointX7);
-    var pointY7 = topY + 185;
-
-    if (pointX7 >= 805 ) { pointX7 = 805;}
-    if (pointX7 <= 1000) { pointX7 = 1000; }
-      if (pointY7 < 275) { pointY7 = pointY7 - 10; }
-      if (pointY7 <= 225) { pointY7 = 225; }
-      if (pointY7 > 300) { pointY7 = pointY7 + 20; }
-      if (pointY7 >= 560) { pointY7 = 560; }
-
-    ctx.fillStyle = "orange"; // Base
-        ctx.beginPath(); 
-        ctx.arc(topX + 715, topY + 50 + yellThick, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fill();
-
-    ctx.fillStyle = "red"; // Vertical Spike
-        ctx.beginPath();
-        ctx.moveTo(topX + 715, topY + 150);
-        ctx.lineTo(topX + 715, topY + 250);
-        ctx.lineTo(pointX7, pointY7);
-        ctx.fill();
-
-    ctx.fillStyle = "red"; // Horizontal Spike
-      ctx.beginPath();
-      ctx.moveTo(topX + 765, topY + 200);
-      ctx.lineTo(topX + 665, topY + 200);
-      ctx.lineTo(pointX7, pointY7);
-      ctx.fill();
   }
