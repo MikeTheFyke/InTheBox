@@ -105,7 +105,7 @@ function drawSpikes(){
 
     // Spike 02
         var pointX2 = topX - 100;
-        var pointY2 = pointY + 20;
+        var pointY2 = pointY;
         
         if (pointX2 <= 225){ pointX2 = 225;} // Left boundries
         if (pointX2 >= 450){ pointX2 = 450;} // Right boundries
@@ -378,7 +378,7 @@ ctx.fillStyle = "red"; // Horizontal Spike
   
       // Spike 02
           var pointX2 = topX - 100;
-          var pointY2 = pointY + 20;
+          var pointY2 = pointY;
           
           if (pointX2 <= 225){ pointX2 = 225;} // Left boundries
           if (pointX2 >= 450){ pointX2 = 450;} // Right boundries

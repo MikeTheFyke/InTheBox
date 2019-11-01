@@ -23,3 +23,14 @@ body{
 #gameCanvas02{
     border-radius:25px;
 }
+
+#gameContainer03{
+    border: 5px solid grey;
+    border-radius:25px;
+    width:1400px;
+    height:720px;
+}
+
+#gameCanvas03{
+    border-radius:25px;
+}
