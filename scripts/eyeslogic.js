@@ -70,13 +70,11 @@ function drawEyes() {
 ctx.fillStyle = "teal"; // Base
 ctx.beginPath(); 
 ctx.arc(Xeye, Yeye - 40,165, 0, 2 * Math.PI);
-ctx.stroke();
 ctx.fill();
 
 ctx.fillStyle = "MediumTurquoise"; // Base
 ctx.beginPath(); 
 ctx.arc(Xhead, Yhead - 60,145, 0, 2 * Math.PI);
-ctx.stroke();
 ctx.fill();
 ////////////////////////////////////////////////////// Right Eye
     ctx.fillStyle = "darkred"; // Base
@@ -174,36 +172,42 @@ ctx.fill();
         if (mouthY1 < 415 ) { mouthY1 = 415;}
         if (mouthY1 > 430 ) { mouthY1 = 430;}
          
+        ctx.fillStyle = "Sienna"; // Top
+        ctx.beginPath(); 
+        ctx.arc(mouthX1, mouthY1  + 3, 80, 0, Math.PI, true);
+        ctx.fill(); 
+
         ctx.fillStyle = "Peru"; // Top
         ctx.beginPath(); 
         ctx.arc(mouthX1, mouthY1 - 1, 80, 0, Math.PI, true);
-        ctx.stroke();
+        ctx.fill(); 
+
+        ctx.fillStyle = "Sienna"; // Bottom
+        ctx.beginPath(); 
+        ctx.arc(mouthX1, mouthY1 + 11, 80, 0, Math.PI, false);
         ctx.fill(); 
 
         ctx.fillStyle = "Peru"; // Bottom
         ctx.beginPath(); 
-        ctx.arc(mouthX1, mouthY1, 80, 0, Math.PI, false);
-        ctx.stroke();
+        ctx.arc(mouthX1, mouthY1 + 6, 80, 0, Math.PI, false);
         ctx.fill(); 
 
  ////////////////////////////////////////////////////// Nose
         var noseX1 = Xcord;
         var noseY1 = Ycord + 50;
  
-        if (noseX1 < 530 ) { noseX1 = 530;}
-        if (noseX1 > 650 ) { noseX1 = 650;}
+        if (noseX1 < 540 ) { noseX1 = 540;}
+        if (noseX1 > 640 ) { noseX1 = 640;}
         if (noseY1 < 360 ) { noseY1 = 360;}
         if (noseY1 > 390 ) { noseY1 = 390;}
         
-        ctx.fillStyle = "MediumSlateBlue"; // Pupil
+        ctx.fillStyle = "Sienna"; // Outer
         ctx.beginPath(); 
         ctx.arc(noseX1, noseY1, 30, 0, 2 * Math.PI);
-        ctx.stroke();
         ctx.fill(); 
 
-        ctx.fillStyle = "MediumOrchid"; // Pupil
+        ctx.fillStyle = "Peru"; // Inner
         ctx.beginPath(); 
         ctx.arc(noseX1, noseY1 - 03, 27, 0, 2 * Math.PI);
-        ctx.stroke();
         ctx.fill();      
   }
