@@ -72,9 +72,27 @@ ctx.beginPath();
 ctx.arc(Xeye, Yeye - 40,165, 0, 2 * Math.PI);
 ctx.fill();
 
+ctx.fillStyle = "teal"; // Base
+ctx.beginPath();
+ctx.moveTo(Xhead - 155, Yhead - 60);
+ctx.lineTo(Xhead + 150, Yhead - 60);
+ctx.lineTo(Xhead + 135, Yhead + 145);
+ctx.lineTo(Xhead - 130, Yhead + 145);
+ctx.closePath();
+ctx.fill();
+
 ctx.fillStyle = "MediumTurquoise"; // Base
 ctx.beginPath(); 
 ctx.arc(Xhead, Yhead - 60,145, 0, 2 * Math.PI);
+ctx.fill();
+
+ctx.fillStyle = "MediumTurquoise"; // Base
+ctx.beginPath();
+ctx.moveTo(Xhead - 145, Yhead - 60);
+ctx.lineTo(Xhead + 145, Yhead - 60);
+ctx.lineTo(Xhead + 125, Yhead + 145);
+ctx.lineTo(Xhead - 125, Yhead + 145);
+ctx.closePath();
 ctx.fill();
 ////////////////////////////////////////////////////// Right Eye
 
