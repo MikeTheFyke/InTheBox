@@ -12,6 +12,8 @@ var pointX = 0;
 var pointY = 0;
 var Xeye = 0;
 var Yeye = 0;
+var Xhead = 0;
+var Yhead = 0;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -38,26 +40,45 @@ window.onload = function() {
         pointY = topY + 185;
         Xeye = Xcord;
         Yeye = Ycord;
+        Xhead = Xcord;
+        Yhead = Ycord;
        });
 }
 
 function drawEyes() {
-console.log(Xeye);
     ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-            if (Yeye <= 280){ // Top Boundry
-                Yeye = 280 ;}
-            if (Yeye >= 300){ // Bottom Boundry
-                Yeye = 300 ;} 
-            if (Xeye >= 650){ // Right Boundry
-                Xeye = 650 ;}
-            if (Xeye <= 550){ // Left Boundry
-                Xeye = 550 ;}
-    ctx.fillStyle = "black"; // Back Wall Grey Border
-    ctx.fillRect(topX,topY,Xwidth,Ywidth);
+////////////////////////////////////////////////////// Eye Boundries
+    if (Yeye <= 280){ // Top Boundry
+        Yeye = 280 ;}
+    if (Yeye >= 300){ // Bottom Boundry
+        Yeye = 300 ;} 
+    if (Xeye >= 650){ // Right Boundry
+        Xeye = 650 ;}
+    if (Xeye <= 550){ // Left Boundry
+        Xeye = 550 ;}
+////////////////////////////////////////////////////// Head Boundries
+    if (Yhead <= 300){ // Top Boundry
+        Yhead = 300 ;}
+    if (Yhead >= 320){ // Bottom Boundry
+        Yhead = 320 ;} 
+    if (Xhead >= 665){ // Right Boundry
+        Xhead = 665 ;}
+    if (Xhead <= 540){ // Left Boundry
+        Xhead = 540 ;}
+////////////////////////////////////////////////////// Head
+ctx.fillStyle = "teal"; // Base
+ctx.beginPath(); 
+ctx.arc(Xeye, Yeye - 40,165, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fill();
 
-    
-/// Right Eye
+ctx.fillStyle = "MediumTurquoise"; // Base
+ctx.beginPath(); 
+ctx.arc(Xhead, Yhead - 60,145, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fill();
+////////////////////////////////////////////////////// Right Eye
     ctx.fillStyle = "darkred"; // Base
     ctx.beginPath(); 
     ctx.arc(Xeye + 80, Yeye + 7, 80, 0, 2 * Math.PI);
@@ -78,7 +99,8 @@ console.log(Xeye);
     ctx.arc(Xeye + 80, Yeye, 70, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.fill();
-/// Left Eye
+
+////////////////////////////////////////////////////// Left Eye
     ctx.fillStyle = "crimson"; // Base
     ctx.beginPath(); 
     ctx.arc(Xeye - 80, Yeye +  9, 75, 0, 2 * Math.PI);
@@ -110,20 +132,35 @@ console.log(Xeye);
     ctx.stroke();
     ctx.fill();
 
-    //  Eyes pupils
-    var pupilX = Xcord;
-    var pupilY = Ycord;
+    // Right Eyes pupils
+        var pupilX = Xcord;
+        var pupilY = Ycord;
 
-    if (pupilX < 550 ){ pupilX = 550;}
-    
+        if (pupilX < 510 ){ pupilX = 510;}
+        if (pupilX > 710 ){ pupilX = 710;}
+        if (pupilY < 260 ){ pupilY = 260;}
+        if (pupilY > 380 ){ pupilY = 380;}
+        if (Ycord > 600){ pupilY = pupilY - 25;}
 
-    if (pupilX > 750 ){ pupilX = 750;}
-    if (pupilY < 260 ){ pupilY = 260;}
-    if (pupilY > 380 ){ pupilY = 380;}
+        ctx.fillStyle = "black"; // Pupil
+        ctx.beginPath(); 
+        ctx.arc(pupilX + 70, pupilY - 30, 20, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
 
-    ctx.fillStyle = "black"; // Pupil
-    ctx.beginPath(); 
-    ctx.arc(pupilX + 30, pupilY - 30, 20, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
+    //  Left Eyes pupils
+        var pupilX1 = Xcord;
+        var pupilY1 = Ycord;
+        
+        if (pupilX1 < 500 ){ pupilX1 = 500;}
+        if (pupilX1 > 700 ){ pupilX1 = 700;}
+        if (pupilY1 < 260 ){ pupilY1 = 260;}
+        if (pupilY1 > 380 ){ pupilY1 = 380;}
+        if (Ycord > 600){ pupilY1 = pupilY1 - 25;}
+        
+        ctx.fillStyle = "black"; // Pupil
+        ctx.beginPath(); 
+        ctx.arc(pupilX1 - 80, pupilY1 - 30, 20, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();      
   }
