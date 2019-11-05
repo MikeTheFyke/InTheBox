@@ -17,6 +17,8 @@ var y3 = centerY;
 var x4 = centerX;
 var y4 = centerY + 200;
 
+var speed = 10;
+
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -31,50 +33,61 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 function handleMouseClick(evt){
     ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-    if ( x1 <= centerX){
-    x1 += 20;
-    y1 -= 20;
-    x2 += 20;
-    y2 += 20;
-    x3 -= 20;
-    y3 += 20;
-    x4 -= 20;
-    y4 -= 20;
-        ctx.fillStyle = "yellow";
-        ctx.beginPath();
-        ctx.moveTo(x1,y1);
-        ctx.lineTo(x2,y2);
-        ctx.lineTo(x3,y3);
-        ctx.lineTo(x4,y4);
-        ctx.closePath();
-        ctx.fill();
+    if ( x1 <= centerX && y1 <= centerY){
+        x1 += speed;
+        y1 -= speed;
+        x2 += speed;
+        y2 += speed;
+        x3 -= speed;
+        y3 += speed;
+        x4 -= speed;
+        y4 -= speed;
     } 
-    else if ( x1 > centerX){
-    ctx.fillStyle = "black"; // Canvas Black
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    x1 = centerX - 200;
-    y1 = centerY;
-    x2 = centerX;
-    y2 = centerY - 200;
-    x3 = centerX + 200;
-    y3 = centerY;
-    x4 = centerX;
-    y4 = centerY + 200;
-        ctx.fillStyle = "yellow";
-        ctx.beginPath();
-        ctx.moveTo(x2,y2);
-        ctx.lineTo(x3,y3);
-        ctx.lineTo(x4,y4);
-        ctx.lineTo(x1,y1);
-        ctx.closePath();
-        ctx.fill();
+    else if (x1 >= centerX && y1 <= centerY) {
+        x1 += speed;
+        y1 += speed;
+        x2 -= speed;
+        y2 += speed;
+        x3 -= speed;
+        y3 -= speed;
+        x4 += speed;
+        y4 -= speed;
     }
+    else if (x1 >= centerX && y1 >= centerY) {
+      x1 -= speed;
+      y1 += speed;
+      x2 -= speed;
+      y2 -= speed;
+      x3 += speed;
+      y3 -= speed;
+      x4 += speed;
+      y4 += speed;
+    }
+    else if (x1 <= centerX && y1 >= centerY ) {
+      x1 -= speed;
+      y1 -= speed;
+      x2 += speed;
+      y2 -= speed;
+      x3 += speed;
+      y3 += speed;
+      x4 -= speed;
+      y4 += speed;
+    }
+
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.lineTo(x3,y3);
+    ctx.lineTo(x4,y4);
+    ctx.closePath();
+    ctx.fill();
 }
 
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    drawBase();
+
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousedown', handleMouseClick); // handles mouseclick
@@ -90,15 +103,13 @@ window.onload = function() {
 function drawEverything() {
     ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-  }
 
-function drawBase(){
-  ctx.fillStyle = "yellow";
-  ctx.beginPath();
-  ctx.moveTo(x1,y1);
-  ctx.lineTo(x2,y2);
-  ctx.lineTo(x3,y3);
-  ctx.lineTo(x4,y4);
-  ctx.closePath();
-  ctx.fill();
-}
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.lineTo(x3,y3);
+    ctx.lineTo(x4,y4);
+    ctx.closePath();
+    ctx.fill();
+  }
