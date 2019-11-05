@@ -2,10 +2,20 @@ var canvas = document.getElementById('gameCanvas04');
 var ctx = canvas.getContext('2d');
 var framesPerSecond = 30;
 
-var Xcord = 0;
-var Ycord = 0;
-var topY = 0;
-var topX = 0;
+var centerX = canvas.width / 2;
+var centerY = canvas.height /2;
+
+var x1 = centerX - 200;
+var y1 = centerY;
+
+var x2 = centerX;
+var y2 = centerY - 200;
+
+var x3 = centerX + 200;
+var y3 = centerY;
+
+var x4 = centerX;
+var y4 = centerY + 200;
 
 
 function calculateMousePos(evt){      // an event fires when mouse moves
@@ -19,19 +29,47 @@ function calculateMousePos(evt){      // an event fires when mouse moves
     };
   }
 
+function handleMouseClick(evt){
+  ctx.fillStyle = "black"; // Canvas Black
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  if ( x1 <= centerX){
+    x1 += 15;
+    y1 -= 15;
+
+    x2 += 15;
+    y2 += 15;
+
+    x3 -= 15;
+    y3 += 15;
+
+    x4 -=15;
+    y4 -=15;
+
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(X2cord,y2);
+    ctx.lineTo(x3,y3);
+    ctx.lineTo(x4,y4);
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+
 window.onload = function() {
     setInterval(function() {
     drawEverything();
     drawBase();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
+    canvas.addEventListener ('mousedown', handleMouseClick); // handles mouseclick
+
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
       function(evt) {
         var mousePos = calculateMousePos(evt);
-        Xcord = mousePos.x;
-        Ycord = mousePos.y;
-        topY = mousePos.y-(Ywidth/2); // paddle aligns in centre with mouse
-        topX = mousePos.x-(Xwidth/2) + 200;
+        var Xcord = mousePos.x;
+        var Ycord = mousePos.y;
        });
 }
 
@@ -43,10 +81,10 @@ function drawEverything() {
 function drawBase(){
   ctx.fillStyle = "yellow";
   ctx.beginPath();
-  ctx.moveTo(200,350);
-  ctx.lineTo(400,250);
-  ctx.lineTo(600,350);
-  ctx.lineTo(400,500);
+  ctx.moveTo(x1,y1);
+  ctx.lineTo(x2,y2);
+  ctx.lineTo(x3,y3);
+  ctx.lineTo(x4,y4);
   ctx.closePath();
   ctx.fill();
 }
