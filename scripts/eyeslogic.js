@@ -15,17 +15,6 @@ var Yeye = 0;
 var Xhead = 0;
 var Yhead = 0;
 
-function calculateMousePos(evt){      // an event fires when mouse moves
-    var rect = canvas.getBoundingClientRect();
-    var root = document.documentElement;
-    var mouseX = evt.clientX - rect.left - root.scrollLeft;
-    var mouseY = evt.clientY - rect.top - root.scrollTop;
-    return {
-      x:mouseX,   // Object Literal
-      y:mouseY    // Object Literal
-    };
-  }
-
 window.onload = function() {
     setInterval(function() {
     drawEyes();
@@ -44,6 +33,17 @@ window.onload = function() {
         Yhead = Ycord;
        });
 }
+
+function calculateMousePos(evt){      // an event fires when mouse moves
+    var rect = canvas.getBoundingClientRect();
+    var root = document.documentElement;
+    var mouseX = evt.clientX - rect.left - root.scrollLeft;
+    var mouseY = evt.clientY - rect.top - root.scrollTop;
+    return {
+      x:mouseX,   // Object Literal
+      y:mouseY    // Object Literal
+    };
+  }
 
 function drawEyes() {
     ctx.fillStyle = "black"; // Canvas Black

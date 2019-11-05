@@ -2,6 +2,18 @@ body{
     background-color:black;
 }
 
+#nav{
+    display:block;
+    margin:auto;
+    text-align: center;
+}
+
+a{
+    font-size:30px;
+    color:white;
+    text-decoration: none;
+}
+
 #gameContainer{
     border: 5px solid grey;
     border-radius:25px;
@@ -28,9 +40,23 @@ body{
     border: 5px solid grey;
     border-radius:25px;
     width:1000px;
-    height:720px;
+    height:620px;
 }
 
 #gameCanvas03{
+    border-radius:25px;
+}
+
+#gameContainer04{
+    display:block;
+    margin:auto;
+    border: 5px solid grey;
+    border-radius:25px;
+    width:800px;
+    height:620px;
+}
+
+#gameCanvas04{
+    margin:auto;
     border-radius:25px;
 }
