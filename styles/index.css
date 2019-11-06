@@ -60,3 +60,35 @@ a{
     margin:auto;
     border-radius:25px;
 }
+
+#canvases{
+    display:block;
+    margin:auto;
+    text-align: center;
+}
+
+#gameContainer05{
+    display:inline-block;
+    margin:auto;
+    border: 5px solid grey;
+    border-radius:25px;
+    width:300px;
+    height:300px;
+}
+
+#gameCanvas05{
+    border-radius:25px;
+}
+
+#gameContainer06{
+    display:inline-block;
+    margin:auto;
+    border: 5px solid grey;
+    border-radius:25px;
+    width:300px;
+    height:300px;
+}
+
+#gameCanvas06{
+    border-radius:25px;
+}
