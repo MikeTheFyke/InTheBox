@@ -5,40 +5,77 @@ var framesPerSecond = 30;
 var centerX = canvas.width / 2;
 var centerY = canvas.height /2;
 
-var x1 = centerX - 50;
-var y1 = centerY;
+var width = 50;
 
-var x2 = centerX;
-var y2 = centerY - 50;
+var x01 = centerX - width;
+var y01 = centerY;
 
-var x3 = centerX + 50;
-var y3 = centerY;
+var x02 = centerX;
+var y02 = centerY - width;
 
-var x4 = centerX;
-var y4 = centerY + 50;
+var x03 = centerX + width;
+var y03 = centerY;
 
-function calculateMousePos(evt){      // an event fires when mouse moves
-    var rect = canvas.getBoundingClientRect();
-    var root = document.documentElement;
-    var mouseX = evt.clientX - rect.left - root.scrollLeft;
-    var mouseY = evt.clientY - rect.top - root.scrollTop;
-    return {
-      x:mouseX,   // Object Literal
-      y:mouseY    // Object Literal
-    };
-  }
+var x04 = centerX;
+var y04 = centerY + width;
+
+var speed = 10;
+var Yspeed = 10;
 
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    },1000/framesPerSecond); // Hundredth of seconds, ballX movement
+    },3000/framesPerSecond); // Hundredth of seconds, ballX movement
 
-    canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
-      function(evt) {
-        var mousePos = calculateMousePos(evt);
-        var Xcord = mousePos.x;
-        var Ycord = mousePos.y;
-       });
+    canvas.addEventListener ('mousedown', handleMouseClick); // handles mouseclick
+
+}
+
+function handleMouseClick(evt){
+  if ( x01 <= centerX && y01 <= centerY){ // Less than or equal to Position 2
+    console.log("Less than Position 2 X " + x01 + " Y " + y01);
+    x01 += speed;
+    y01 -= Yspeed;
+    x02 += speed;
+    y02 += Yspeed;
+    x03 -= speed;
+    y03 += Yspeed;
+    x04 -= speed;
+    y04 -= Yspeed;
+}
+else if (x01 > centerX && y01 < centerY) { // Less than or equal to Position 3
+  console.log("Less than Position 3 X " + x01 + " Y " + y01);
+    x01 += speed;
+    y01 += Yspeed;
+    x02 -= speed;
+    y02 += Yspeed;
+    x03 -= speed;
+    y03 -= Yspeed;
+    x04 += speed;
+    y04 -= Yspeed;
+}
+else if (x01 > centerX && y01 > centerY) { // Less more than or eqaul to Position 4
+  console.log("Less than Position 4 X " + x01 + " Y " + y01);
+  x01 -= speed;
+  y01 += Yspeed;
+  x02 -= speed;
+  y02 -= Yspeed;
+  x03 += speed;
+  y03 -= Yspeed;
+  x04 += speed;
+  y04 += Yspeed;
+}
+else if (x01 < centerX && y01 > centerY) { // Less than or equal to Posiiton 1
+  console.log("Less than Position 1 X " + x01 + " Y " + y01);
+  x01 -= speed;
+  y01 -= Yspeed;
+  x02 += speed;
+  y02 -= Yspeed;
+  x03 += speed;
+  y03 += Yspeed;
+  x04 -= speed;
+  y04 += Yspeed;
+}
 }
 
 function drawEverything() {
@@ -47,11 +84,10 @@ function drawEverything() {
 
     ctx.fillStyle = "green";
     ctx.beginPath();
-    ctx.moveTo(x1,y1);
-    ctx.lineTo(x2,y2);
-    ctx.lineTo(x3,y3);
-    ctx.lineTo(x4,y4);
+    ctx.moveTo(x01,y01);
+    ctx.lineTo(x02,y02);
+    ctx.lineTo(x03,y03);
+    ctx.lineTo(x04,y04);
     ctx.closePath();
     ctx.fill();
-    
   }
