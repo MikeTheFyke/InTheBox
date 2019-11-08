@@ -1,105 +1,93 @@
 var canvas02 = document.getElementById('gameCanvas06');
-var ct = canvas02.getContext('2d');
-var framesPerSecond = 30;
+var c = canvas02.getContext('2d');
 
 var centerX2 = canvas02.width / 2;
 var centerY2 = canvas02.height /2;
 
-var x1 = centerX2 - 50;
+const boxWidth = 50;
+const speed2 = 1;
+const Yspeed2 = 1;
+
+var x1 = centerX2 - boxWidth;
 var y1 = centerY2;
 
 var x2 = centerX2;
-var y2 = centerY2 - 50;
+var y2 = centerY2 - boxWidth;
 
-var x3 = centerX2 + 50;
+var x3 = centerX2 + boxWidth;
 var y3 = centerY2;
 
 var x4 = centerX2;
-var y4 = centerY2 + 50;
+var y4 = centerY2 + boxWidth;
 
-var speed = 5;
+function animate() {
+  requestAnimationFrame(animate);
+  c.fillStyle = "black"; // Canvas Black
+  c.fillRect(0,0,canvas02.width,canvas02.height);
 
-window.onload = function() {
-    setInterval(function() {
-    drawEverything();
-    },3000/framesPerSecond); // Hundredth of seconds
+  c.fillStyle = "yellow";
+  c.beginPath();
+  c.moveTo(x1,y1);
+  c.lineTo(x2,y2);
+  c.lineTo(x3,y3);
+  c.lineTo(x4,y4);
+  c.closePath();
+  c.fill();
 
-    canvas.addEventListener ('mousedown', handleMouseClick2); // handles mouseclick
-
-    canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
-    function(evt) {
-      var mousePos = calculateMousePos(evt);
-      var Xcord2 = mousePos.x;
-      var Ycord2 = mousePos.y;
-     });
+  if ( x1 <= centerX2 && y1 <= centerY2){ // Less than or equal to Position 2
+    console.log("Less than Position 2 X " + x1 + " Y " + y1);
+    x1 += speed2;
+    y1 -= Yspeed2;
+    x2 += speed2;
+    y2 += Yspeed2;
+    x3 -= speed2;
+    y3 += Yspeed2;
+    x4 -= speed2;
+    y4 -= Yspeed2;
+}
+else if (x1 >= centerX2 && y1 < centerY2) { // Less than or equal to Position 3
+  console.log("Less than Position 3 X " + x1 + " Y " + y1);
+    x1 += speed2;
+    y1 += Yspeed2;
+    x2 -= speed2;
+    y2 += Yspeed2;
+    x3 -= speed2;
+    y3 -= Yspeed2;
+    x4 += speed2;
+    y4 -= Yspeed2;
+}
+else if (x1 >= centerX2 && y1 >= centerY2) { // Less more than or eqaul to Position 4
+  console.log("Less than Position 4 X " + x1 + " Y " + y1);
+  x1 -= speed2;
+  y1 += Yspeed2;
+  x2 -= speed2;
+  y2 -= Yspeed2;
+  x3 += speed2;
+  y3 -= Yspeed2;
+  x4 += speed2;
+  y4 += Yspeed2;
+}
+else if (x1 <= centerX2 && y1 > centerY2) { // Less than or equal to Posiiton 1
+  console.log("Less than Position 1 X " + x1 + " Y " + y1);
+  x1 -= speed2;
+  y1 -= Yspeed2;
+  x2 += speed2;
+  y2 -= Yspeed2;
+  x3 += speed2;
+  y3 += Yspeed2;
+  x4 -= speed2;
+  y4 += Yspeed2;
+} else if (x1 < centerX2 - boxWidth){
+  x1 = centerX2 - boxWidth;
+  y1 = centerY2;
+  x2 = centerX2;
+  y2 = centerY2 - boxWidth;
+  x3 = centerX2 + boxWidth;
+  y3 = centerY2;
+  x4 = centerX2;
+  y4 = centerY2 + boxWidth;
+}
+  console.log("Animation Function Firing");
 }
 
-function calculateMousePos(evt){      // an event fires when mouse moves
-    var rect = canvas.getBoundingClientRect();
-    var root = document.documentElement;
-    var mouseX = evt.clientX - rect.left - root.scrollLeft;
-    var mouseY = evt.clientY - rect.top - root.scrollTop;
-    return {
-      x:mouseX,   // Object Literal
-      y:mouseY    // Object Literal
-    };
-  }
-
-function drawEverything() {
-    ct.fillStyle = "black"; // Canvas Black
-    ct.fillRect(0,0,canvas02.width,canvas02.height);
-    requestAnimationFrame(drawEverything);
-    console.log("animated");
-
-    ct.fillStyle = "blue";
-    ct.beginPath();
-    ct.moveTo(x1,y1);
-    ct.lineTo(x2,y2);
-    ct.lineTo(x3,y3);
-    ct.lineTo(x4,y4);
-    ct.closePath();
-    ct.fill();
-}
-
-function handleMouseClick2(evt){
-if ( x1 <= centerX2 && y1 <= centerY2){
-        x1 += speed;
-        y1 -= speed;
-        x2 += speed;
-        y2 += speed;
-        x3 -= speed;
-        y3 += speed;
-        x4 -= speed;
-        y4 -= speed;
-    } 
-    else if (x1 >= centerX2 && y1 <= centerY2) {
-        x1 += speed;
-        y1 += speed;
-        x2 -= speed;
-        y2 += speed;
-        x3 -= speed;
-        y3 -= speed;
-        x4 += speed;
-        y4 -= speed;
-    }
-    else if (x1 >= centerX2 && y1 >= centerY2) {
-      x1 -= speed;
-      y1 += speed;
-      x2 -= speed;
-      y2 -= speed;
-      x3 += speed;
-      y3 -= speed;
-      x4 += speed;
-      y4 += speed;
-    }
-    else if (x1 <= centerX2 && y1 >= centerY2 ) {
-      x1 -= speed;
-      y1 -= speed;
-      x2 += speed;
-      y2 -= speed;
-      x3 += speed;
-      y3 += speed;
-      x4 -= speed;
-      y4 += speed;
-    }
-}
+animate();

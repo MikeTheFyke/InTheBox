@@ -20,7 +20,7 @@ var x04 = centerX;
 var y04 = centerY + width;
 
 var speed = 10;
-var Yspeed = 10;
+var Yspeed = 8;
 
 window.onload = function() {
     setInterval(function() {
@@ -32,7 +32,7 @@ window.onload = function() {
 }
 
 function handleMouseClick(evt){
-  if ( x01 <= centerX && y01 <= centerY){ // Less than or equal to Position 2
+  if ( x01 < centerX && y01 <= centerY){ // Less than or equal to Position 2
     console.log("Less than Position 2 X " + x01 + " Y " + y01);
     x01 += speed;
     y01 -= Yspeed;
@@ -43,7 +43,7 @@ function handleMouseClick(evt){
     x04 -= speed;
     y04 -= Yspeed;
 }
-else if (x01 > centerX && y01 < centerY) { // Less than or equal to Position 3
+else if (x01 >= centerX && y01 < centerY) { // Less than or equal to Position 3
   console.log("Less than Position 3 X " + x01 + " Y " + y01);
     x01 += speed;
     y01 += Yspeed;
@@ -54,7 +54,7 @@ else if (x01 > centerX && y01 < centerY) { // Less than or equal to Position 3
     x04 += speed;
     y04 -= Yspeed;
 }
-else if (x01 > centerX && y01 > centerY) { // Less more than or eqaul to Position 4
+else if (x01 >= centerX && y01 >= centerY) { // Less more than or eqaul to Position 4
   console.log("Less than Position 4 X " + x01 + " Y " + y01);
   x01 -= speed;
   y01 += Yspeed;
@@ -65,7 +65,7 @@ else if (x01 > centerX && y01 > centerY) { // Less more than or eqaul to Positio
   x04 += speed;
   y04 += Yspeed;
 }
-else if (x01 < centerX && y01 > centerY) { // Less than or equal to Posiiton 1
+else if (x01 <= centerX && y01 >= centerY) { // Less than or equal to Posiiton 1
   console.log("Less than Position 1 X " + x01 + " Y " + y01);
   x01 -= speed;
   y01 -= Yspeed;
@@ -75,6 +75,15 @@ else if (x01 < centerX && y01 > centerY) { // Less than or equal to Posiiton 1
   y03 += Yspeed;
   x04 -= speed;
   y04 += Yspeed;
+} else if (x01 <= 51 && y01 == 10){
+  x01 = centerX - width;
+  y01 = centerY;
+  x02 = centerX;
+  y02 = centerY - width;
+  x03 = centerX + width;
+  y03 = centerY;
+  x04 = centerX;
+  y04 = centerY + width;
 }
 }
 
