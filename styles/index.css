@@ -92,3 +92,16 @@ a{
 #gameCanvas06{
     border-radius:25px;
 }
+
+#gameContainer07{
+    display:inline-block;
+    margin:auto;
+    border: 5px solid grey;
+    border-radius:25px;
+    width:600px;
+    height:300px;
+}
+
+#gameCanvas07{
+    border-radius:25px;
+}
