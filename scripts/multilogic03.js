@@ -65,9 +65,26 @@ function drawEverything02() {
                 topX = 250 ;}
             if (topX <= 100){ // Left Boundry
                 topX = 100 ;}
-    Row01();
-    Tops();
-    Sides();
+            
+            if (Xcord < 300 && Ycord < 150) {
+                Backs();
+                SidesLeft();
+                SidesRight();
+                Bottoms();
+                Tops();
+            } else if (Xcord >= 300 && Ycord <= 150) {
+                Backs();
+                SidesRight();
+                SidesLeft();
+                Bottoms();
+                Tops();
+            } else {
+                SidesLeft();
+                Bottoms();
+                SidesRight();
+                Backs();
+                Tops();
+            }
 }
 
 
@@ -80,173 +97,72 @@ function Tops(){
     }
 }
 
-function Sides (){
-    co.beginPath(); // Left Side Face
-    co.fillStyle = "red";
-    co.moveTo(backX,backY);
-    co.lineTo(topX,topY);
-    co.lineTo(topX,topY + topYthick);
-    co.lineTo(backX,backY + topXthick);
-    co.fill();
-
-    co.beginPath(); // Right Side Face
-    co.fillStyle = "red";
-    co.moveTo(topX + topXthick,topY);
-    co.lineTo(backX + topXthick,backY);
-    co.lineTo(backX + topXthick,backY + topYthick);
-    co.lineTo(topX + topXthick,topY + topYthick);
-    co.fill();
+function SidesLeft (){
+    for (var i2 = 0; i2 < 5; i2++){
+        for (var j2 = 0; j2 < 3; j2++){
+            co.beginPath(); // Left Side Face
+            co.fillStyle = "red";
+            co.moveTo(backX + (spacing * i2),backY  + (spacing * j2));
+            co.lineTo(topX + (spacing * i2),topY  + (spacing * j2));
+            co.lineTo(topX + (spacing * i2),topY + topYthick  + (spacing * j2));
+            co.lineTo(backX + (spacing * i2),backY + topXthick  + (spacing * j2));
+            co.fill();
+            co.beginPath(); // Right Side Face
+            co.moveTo(topX + topXthick + (spacing * i2),topY  + (spacing * j2));
+            co.lineTo(backX + topXthick + (spacing * i2),backY  + (spacing * j2));
+            co.lineTo(backX + topXthick + (spacing * i2),backY + topYthick  + (spacing * j2));
+            co.lineTo(topX + topXthick + (spacing * i2),topY + topYthick  + (spacing * j2));
+            co.fill();
+        }
+    }
 }
 
-function Row01(){
-    /// Box 01
-    co.beginPath(); // Back Face
-    co.fillStyle = "darkred";
-    co.moveTo(backX,backY);
-    co.lineTo(backX + topYthick,backY);
-    co.lineTo(topX + topXthick,topY);
-    co.lineTo(topX,topY);
-    co.fill();
-
-    co.beginPath(); // Bottom Face
-    co.fillStyle = "darkred";
-    co.moveTo(topX,topY + topYthick);
-    co.lineTo(topX + topXthick,topY + topYthick);
-    co.lineTo(backX + topXthick,backY + topYthick);
-    co.lineTo(backX,backY + topYthick);
-    co.fill();
-
-/// Box 02
-    co.beginPath(); // Back Face
-    co.fillStyle = "darkred";
-    co.moveTo(backX + spacing,backY);
-    co.lineTo(backX + topYthick + spacing,backY);
-    co.lineTo(topX + topXthick + spacing,topY);
-    co.lineTo(topX + spacing,topY);
-    co.fill();
-
-    co.beginPath(); // Left Side Face
-    co.fillStyle = "red";
-    co.moveTo(backX + spacing,backY);
-    co.lineTo(topX + spacing,topY);
-    co.lineTo(topX + spacing,topY + topYthick);
-    co.lineTo(backX + spacing,backY + topXthick);
-    co.fill();
-
-    co.beginPath(); // Right Side Face
-    co.fillStyle = "red";
-    co.moveTo(topX + topXthick + spacing,topY);
-    co.lineTo(backX + topXthick + spacing,backY);
-    co.lineTo(backX + topXthick  + spacing,backY + topYthick);
-    co.lineTo(topX + topXthick + spacing,topY + topYthick);
-    co.fill();
-
-    co.beginPath(); // Bottom Face
-    co.fillStyle = "darkred";
-    co.moveTo(topX + spacing,topY + topYthick);
-    co.lineTo(topX + topXthick + spacing,topY + topYthick);
-    co.lineTo(backX + topXthick + spacing,backY + topYthick);
-    co.lineTo(backX + spacing,backY + topYthick);
-    co.fill();
-
-
-/// Box 03
-    co.beginPath(); // Back Face
-    co.fillStyle = "darkred";
-    co.moveTo(backX + spacing + spacing,backY);
-    co.lineTo(backX + topYthick + spacing + spacing,backY);
-    co.lineTo(topX + topXthick + spacing + spacing,topY);
-    co.lineTo(topX + spacing + spacing,topY);
-    co.fill();
-
-    co.beginPath(); // Left Side Face
-    co.fillStyle = "red";
-    co.moveTo(backX + spacing + spacing,backY);
-    co.lineTo(topX + spacing + spacing,topY);
-    co.lineTo(topX + spacing + spacing,topY + topYthick);
-    co.lineTo(backX + spacing + spacing,backY + topXthick);
-    co.fill();
-
-    co.beginPath(); // Right Side Face
-    co.fillStyle = "red";
-    co.moveTo(topX + topXthick + spacing + spacing,topY);
-    co.lineTo(backX + topXthick + spacing + spacing,backY);
-    co.lineTo(backX + topXthick  + spacing + spacing,backY + topYthick);
-    co.lineTo(topX + topXthick + spacing + spacing,topY + topYthick);
-    co.fill();
-
-    co.beginPath(); // Bottom Face
-    co.fillStyle = "darkred";
-    co.moveTo(topX + spacing + spacing,topY + topYthick);
-    co.lineTo(topX + topXthick + spacing + spacing,topY + topYthick);
-    co.lineTo(backX + topXthick + spacing + spacing,backY + topYthick);
-    co.lineTo(backX + spacing + spacing,backY + topYthick);
-    co.fill();
-
-/// Box 04
-    co.beginPath(); // Back Face
-    co.fillStyle = "darkred";
-    co.moveTo(backX + spacing + spacing + spacing,backY);
-    co.lineTo(backX + topYthick + spacing + spacing + spacing,backY);
-    co.lineTo(topX + topXthick + spacing + spacing + spacing,topY);
-    co.lineTo(topX + spacing + spacing + spacing,topY);
-    co.fill();
-
-    co.beginPath(); // Left Side Face
-    co.fillStyle = "red";
-    co.moveTo(backX + spacing + spacing+ spacing,backY);
-    co.lineTo(topX + spacing + spacing+ spacing,topY);
-    co.lineTo(topX + spacing + spacing+ spacing,topY + topYthick);
-    co.lineTo(backX + spacing + spacing+ spacing,backY + topXthick);
-    co.fill();
-
-    co.beginPath(); // Right Side Face
-    co.fillStyle = "red";
-    co.moveTo(topX + topXthick + spacing + spacing+ spacing,topY);
-    co.lineTo(backX + topXthick + spacing + spacing+ spacing,backY);
-    co.lineTo(backX + topXthick  + spacing + spacing+ spacing,backY + topYthick);
-    co.lineTo(topX + topXthick + spacing + spacing+ spacing,topY + topYthick);
-    co.fill();
-
-    co.beginPath(); // Bottom Face
-    co.fillStyle = "darkred";
-    co.moveTo(topX + spacing + spacing+ spacing,topY + topYthick);
-    co.lineTo(topX + topXthick + spacing + spacing+ spacing,topY + topYthick);
-    co.lineTo(backX + topXthick + spacing + spacing+ spacing,backY + topYthick);
-    co.lineTo(backX + spacing + spacing+ spacing,backY + topYthick);
-    co.fill();
-    
-/// Box 05
-    co.beginPath(); // Back Face
-    co.fillStyle = "darkred";
-    co.moveTo(backX + spacing + spacing + spacing + spacing,backY);
-    co.lineTo(backX + topYthick + spacing + spacing + spacing + spacing,backY);
-    co.lineTo(topX + topXthick + spacing + spacing + spacing + spacing,topY);
-    co.lineTo(topX + spacing + spacing + spacing + spacing,topY);
-    co.fill();
-
-    co.beginPath(); // Left Side Face
-    co.fillStyle = "red";
-    co.moveTo(backX + spacing + spacing + spacing + spacing,backY);
-    co.lineTo(topX + spacing + spacing+ spacing + spacing,topY);
-    co.lineTo(topX + spacing + spacing+ spacing + spacing,topY + topYthick);
-    co.lineTo(backX + spacing + spacing+ spacing + spacing,backY + topXthick);
-    co.fill();
-
-    co.beginPath(); // Right Side Face
-    co.fillStyle = "red";
-    co.moveTo(topX + topXthick + spacing + spacing+ spacing + spacing,topY);
-    co.lineTo(backX + topXthick + spacing + spacing+ spacing + spacing,backY);
-    co.lineTo(backX + topXthick  + spacing + spacing+ spacing + spacing,backY + topYthick);
-    co.lineTo(topX + topXthick + spacing + spacing+ spacing + spacing,topY + topYthick);
-    co.fill();
-
-    co.beginPath(); // Bottom Face
-    co.fillStyle = "darkred";
-    co.moveTo(topX + spacing + spacing+ spacing + spacing,topY + topYthick);
-    co.lineTo(topX + topXthick + spacing + spacing+ spacing + spacing,topY + topYthick);
-    co.lineTo(backX + topXthick + spacing + spacing+ spacing + spacing,backY + topYthick);
-    co.lineTo(backX + spacing + spacing+ spacing + spacing,backY + topYthick);
-    co.fill();
+function SidesRight (){
+    for (var i2 = 0; i2 < 5; i2++){
+        for (var j2 = 0; j2 < 3; j2++){
+            co.beginPath(); // Right Side Face
+            co.moveTo(topX + topXthick + (spacing * i2),topY  + (spacing * j2));
+            co.lineTo(backX + topXthick + (spacing * i2),backY  + (spacing * j2));
+            co.lineTo(backX + topXthick + (spacing * i2),backY + topYthick  + (spacing * j2));
+            co.lineTo(topX + topXthick + (spacing * i2),topY + topYthick  + (spacing * j2));
+            co.fill();
+            co.beginPath(); // Left Side Face
+            co.fillStyle = "red";
+            co.moveTo(backX + (spacing * i2),backY  + (spacing * j2));
+            co.lineTo(topX + (spacing * i2),topY  + (spacing * j2));
+            co.lineTo(topX + (spacing * i2),topY + topYthick  + (spacing * j2));
+            co.lineTo(backX + (spacing * i2),backY + topXthick  + (spacing * j2));
+            co.fill();
+        }
     }
+}
+
+
+function Backs (){
+    for (var i3 = 0; i3 < 5; i3++){
+        for (var j3 = 0; j3 < 3; j3++){
+            co.beginPath(); // Back Face
+            co.fillStyle = "darkred";
+            co.moveTo(backX + (spacing * i3),backY + (spacing * j3));
+            co.lineTo(backX + topYthick + (spacing * i3),backY) + (spacing * j3);
+            co.lineTo(topX + topXthick + (spacing * i3),topY + (spacing * j3));
+            co.lineTo(topX + (spacing * i3),topY + (spacing * j3));
+            co.fill();
+        }
+    }
+}
+
+function Bottoms(){
+    for (var i4 = 0; i4 < 5; i4++){
+        for (var j4 = 0; j4 < 3; j4++){
+            co.beginPath(); // Bottom Face
+            co.fillStyle = "darkred";
+            co.moveTo(topX + (spacing * i4),topY + topYthick + (spacing * j4));
+            co.lineTo(topX + topXthick + (spacing * i4),topY + topYthick + (spacing * j4));
+            co.lineTo(backX + topXthick + (spacing * i4),backY + topYthick + (spacing * j4));
+            co.lineTo(backX + (spacing * i4),backY + topYthick + (spacing * j4));
+            co.fill();
+        }
+    }
+}
 
