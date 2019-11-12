@@ -10,9 +10,9 @@ const xthick = 400;
 const ythick = 200;
 var topX;
 var topY;
-const topXthick = 40;
-const topYthick = 40;
-var spacing = 45;
+const topXthick = 60;
+const topYthick = 60;
+var spacing = 80;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas07.getBoundingClientRect();
@@ -37,8 +37,8 @@ window.onload = function() {
         Ycord = mousePos.y;
         var Xcenter = canvas07.width/2;
         var Ycenter = canvas07.height/2;
-        backY = Ycord - 100;
-        backX = Xcord;
+        backY = Ycord - 100 - spacing;
+        backX = Xcord - 40 - spacing;
         topX = mousePos.x - 140;
         topY = mousePos.y - 80;
 
@@ -48,40 +48,46 @@ window.onload = function() {
 function drawEverything02() {
     co.fillStyle = "black"; // canvas07 Black
     co.fillRect(0,0,canvas07.width,canvas07.height);
-            if (backY <= 100){ // Top Boundry
-                backY = 100 ;}
-            if (backY >= 120){ // Bottom Boundry
-                backY = 120 ;} 
-            if (backX >= 200){ // Right Boundry
-                backX = 200 ;}
+            if (backY <= 60){ // Top Boundry
+                backY = 60 ;}
+            if (backY >= 80){ // Bottom Boundry
+                backY = 80 ;} 
+            if (backX >= 150){ // Right Boundry
+                backX = 150 ;}
             if (backX <= 140){ // Left Boundry
                 backX = 140 ;}
 
             if (topY <= 40){ // Top Boundry
                 topY = 40 ;}
-            if (topY >= 175){ // Bottom Boundry
-                topY = 175 ;} 
-            if (topX >= 250){ // Right Boundry
-                topX = 250 ;}
-            if (topX <= 100){ // Left Boundry
-                topX = 100 ;}
+            if (topY >= 80){ // Bottom Boundry
+                topY = 80 ;} 
+            if (topX >= 170){ // Right Boundry
+                topX = 170 ;}
+            if (topX <= 120){ // Left Boundry
+                topX = 120 ;}
             
-            if (Xcord < 300 && Ycord < 150) {
+            if (Xcord <= 300 && Ycord <= 140) {
                 Backs();
                 SidesLeft();
                 SidesRight();
                 Bottoms();
                 Tops();
-            } else if (Xcord >= 300 && Ycord <= 150) {
+            } else if (Xcord >= 300 && Ycord <= 140) {
                 Backs();
                 SidesRight();
                 SidesLeft();
                 Bottoms();
                 Tops();
-            } else {
+            } else if (Xcord <= 300 && Ycord >= 140){
+                Bottoms();
                 SidesLeft();
+                SidesRight();
+                Backs();
+                Tops();
+            } else if (Xcord >=300 && Ycord >= 140){
                 Bottoms();
                 SidesRight();
+                SidesLeft();
                 Backs();
                 Tops();
             }
@@ -144,7 +150,7 @@ function Backs (){
             co.beginPath(); // Back Face
             co.fillStyle = "darkred";
             co.moveTo(backX + (spacing * i3),backY + (spacing * j3));
-            co.lineTo(backX + topYthick + (spacing * i3),backY) + (spacing * j3);
+            co.lineTo(backX + topYthick + (spacing * i3),backY + (spacing * j3));
             co.lineTo(topX + topXthick + (spacing * i3),topY + (spacing * j3));
             co.lineTo(topX + (spacing * i3),topY + (spacing * j3));
             co.fill();
