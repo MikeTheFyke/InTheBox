@@ -21,7 +21,9 @@ var frontTopX = 20;
 const frontWidth = 400;
 const frontHeight = 500;
 
-
+var backTopX = 250;
+var backTopY = 250;
+var backThick = 150;
 
 
 function calculateMousePos(evt){      // an event fires when mouse moves
@@ -39,6 +41,7 @@ window.onload = function() {
     setInterval(function() {
     drawEverything();
     drawTruck();
+    drawGrid();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -87,9 +90,7 @@ function drawEverything() {
   }
 
 function drawTruck (){
-    var backTopX = 250;
-    var backTopY = 250;
-    var backThick = 150;
+    ctx.strokeStyle = "black";
 
     roof_gradient = ctx.createLinearGradient(200,40,200,300);
     wall_gradient = ctx.createLinearGradient(200,40,200,600)
@@ -182,6 +183,60 @@ function drawTruck (){
     ctx.stroke();
     ctx.fill();
 
+////////////// Tires
+
+        ////////////// Left Tire
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.moveTo(frontTopX - 25, frontTopY + frontHeight + 30);
+        ctx.lineTo(frontTopX - 15, frontTopY + frontHeight + 10);
+        ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 10);
+        ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 100);
+        ctx.lineTo(frontTopX - 10,frontTopY + frontHeight + 100);
+        ctx.lineTo(frontTopX - 25,frontTopY + frontHeight + 75);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    
+        ////////////// Left Tire Side
+        ctx.fillStyle = "grey";
+        ctx.beginPath();
+        ctx.moveTo(frontTopX + 35, frontTopY + frontHeight + 35);
+        ctx.lineTo(frontTopX + 45, frontTopY + frontHeight + 10);
+        ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 25);
+        ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 70);
+        ctx.lineTo(frontTopX + 45,frontTopY + frontHeight + 100);
+        ctx.lineTo(frontTopX + 35,frontTopY + frontHeight + 75);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    
+        ////////////// Right Tire
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.moveTo(frontTopX + frontWidth - 45, frontTopY + frontHeight + 10);
+        ctx.lineTo(frontTopX + frontWidth + 15, frontTopY + frontHeight + 10);
+        ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 30);
+        ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 75);
+        ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 100);
+        ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    
+        ////////////// Right Tire Side
+        ctx.fillStyle = "grey";
+        ctx.beginPath();
+        ctx.moveTo(frontTopX + frontWidth - 20, frontTopY + frontHeight + 35);
+        ctx.lineTo(frontTopX + frontWidth -45, frontTopY + frontHeight + 10);
+        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 25);
+        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 70);
+        ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+        ctx.lineTo(frontTopX + frontWidth - 20,frontTopY + frontHeight + 75);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
 ////////////// Edges
 
     ////////////// Top
@@ -240,55 +295,119 @@ function drawTruck (){
     ctx.stroke();
     ctx.fill();
 
-    ////////////// Left Tire
-    ctx.fillStyle = "black";
+}
+
+function drawGrid (){
+    ctx.strokeStyle = "red";
     ctx.beginPath();
-    ctx.moveTo(frontTopX - 25, frontTopY + frontHeight + 30);
-    ctx.lineTo(frontTopX - 15, frontTopY + frontHeight + 10);
-    ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 10);
-    ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 100);
-    ctx.lineTo(frontTopX - 10,frontTopY + frontHeight + 100);
-    ctx.lineTo(frontTopX - 25,frontTopY + frontHeight + 75);
+    ctx.moveTo(frontTopX, frontTopY);
+    ctx.lineTo(frontTopX + frontWidth, frontTopY);
+    ctx.lineTo(frontTopX + frontWidth,frontTopY + frontHeight);
+    ctx.lineTo(frontTopX,frontTopY + frontHeight);
     ctx.closePath();
     ctx.stroke();
-    ctx.fill();
 
-    ////////////// Left Tire Side
-    ctx.fillStyle = "grey";
-    ctx.beginPath();
-    ctx.moveTo(frontTopX + 35, frontTopY + frontHeight + 35);
-    ctx.lineTo(frontTopX + 45, frontTopY + frontHeight + 10);
-    ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 25);
-    ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 70);
-    ctx.lineTo(frontTopX + 45,frontTopY + frontHeight + 100);
-    ctx.lineTo(frontTopX + 35,frontTopY + frontHeight + 75);
+// Bottom Vertical Lines
+    ctx.strokeStyle = "red";
+    ctx.beginPath(); // Bottom Vertical 00 Line
+    ctx.moveTo(frontTopX,frontTopY + frontHeight);
+    ctx.lineTo(backTopX,backTopY + backThick);
     ctx.closePath();
     ctx.stroke();
-    ctx.fill();
-
-    ////////////// Right Tire
-    ctx.fillStyle = "black";
-    ctx.beginPath();
-    ctx.moveTo(frontTopX + frontWidth - 45, frontTopY + frontHeight + 10);
-    ctx.lineTo(frontTopX + frontWidth + 15, frontTopY + frontHeight + 10);
-    ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 30);
-    ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 75);
-    ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 100);
-    ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+    ctx.beginPath(); // Bottom Vertical 01 Line
+    ctx.moveTo(frontTopX + (((frontWidth/2)/2)/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + (((backThick/2)/2)/2),backTopY + backThick);
     ctx.closePath();
     ctx.stroke();
-    ctx.fill();
+    ctx.beginPath(); // Bottom Vertical 02 Line
+    ctx.moveTo(frontTopX + ((frontWidth/2)/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + ((backThick/2)/2),backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Vertical 03 Line
+    ctx.moveTo(frontTopX + (((frontWidth/2)/2)/2) + ((frontWidth/2)/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + (((backThick/2)/2)/2) + ((backThick/2)/2) ,backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.strokeStyle = "blue";
+    ctx.beginPath(); // Bottom Vertical Center Line
+    ctx.moveTo(frontTopX + (frontWidth/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + (backThick/2),backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.strokeStyle = "red";
+    ctx.beginPath(); // Bottom Vertical 05 Line
+    ctx.moveTo(frontTopX + (frontWidth/2) + (((frontWidth/2)/2)/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + (backThick/2) + (((backThick/2)/2)/2) ,backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Vertical 06 Line
+    ctx.moveTo(frontTopX + (frontWidth/2) + ((frontWidth/2)/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + (backThick/2) + ((backThick/2)/2) ,backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Vertical 07 Line
+    ctx.moveTo(frontTopX + frontWidth - (((frontWidth/2)/2)/2),frontTopY + frontHeight);
+    ctx.lineTo(backTopX + backThick - (((backThick/2)/2)/2) ,backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Vertical 08 Line
+    ctx.moveTo(frontTopX + frontWidth,frontTopY + frontHeight);
+    ctx.lineTo(backTopX + backThick,backTopY + backThick);
+    ctx.closePath();
+    ctx.stroke();
 
-        ////////////// Right Tire Side
-        ctx.fillStyle = "grey";
-        ctx.beginPath();
-        ctx.moveTo(frontTopX + frontWidth - 20, frontTopY + frontHeight + 35);
-        ctx.lineTo(frontTopX + frontWidth -45, frontTopY + frontHeight + 10);
-        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 25);
-        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 70);
-        ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
-        ctx.lineTo(frontTopX + frontWidth - 20,frontTopY + frontHeight + 75);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
+// Bottom Horizontal  Lines
+    ctx.strokeStyle = "red";
+    ctx.beginPath(); // Bottom Horizontal  - 01 Line
+    ctx.moveTo(frontTopX + 142,backTopY + backThick + 7);
+    ctx.lineTo(frontTopX + frontWidth - 120,backTopY + backThick + 7);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Horizontal  - 02 Line
+    ctx.moveTo(frontTopX + 122,backTopY + backThick + 17);
+    ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 17);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Horizontal  - 03 Line
+    ctx.moveTo(frontTopX + 122,backTopY + backThick + 27);
+    ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 27);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.strokeStyle = "blue";
+    ctx.beginPath(); // Bottom Horizontal - 04 Line
+    ctx.moveTo(frontTopX + 122,backTopY + backThick + 38);
+    ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 38);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.strokeStyle = "red";
+    ctx.beginPath(); // Bottom Horizontal Center - 05 Line
+    ctx.moveTo(frontTopX + 100,backTopY + backThick + 55);
+    ctx.lineTo(frontTopX + frontWidth - 70,backTopY + backThick + 55);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Horizontal Center - 06 Line
+    ctx.moveTo(frontTopX + 80,backTopY + backThick + 75);
+    ctx.lineTo(frontTopX + frontWidth - 65,backTopY + backThick + 75);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Horizontal Center - 07 Line
+    ctx.moveTo(frontTopX + 60,backTopY + backThick + 100);
+    ctx.lineTo(frontTopX + frontWidth - 60,backTopY + backThick + 100);
+    ctx.closePath();
+    ctx.stroke();
+
+    // ctx.strokeStyle = "red";
+    // ctx.beginPath(); // Bottom Cross Left - Right Line
+    // ctx.moveTo(frontTopX + frontWidth - 90,backTopY + backThick + 17);
+    // ctx.lineTo(frontTopX + 122,backTopY + backThick + 38);
+    // ctx.closePath();
+    // ctx.stroke();
+
+    // ctx.strokeStyle = "green";
+    // ctx.beginPath(); // Bottom Cross Right - Left Line
+    // ctx.moveTo(frontTopX,frontTopY + frontHeight);
+    // ctx.lineTo(backTopX + (backThick/2),backTopY + backThick);
+    // ctx.closePath();
+    // ctx.stroke();
 }
