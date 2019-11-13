@@ -3,6 +3,7 @@ var ctx = canvas.getContext('2d');
 var framesPerSecond = 30;
 
 var roof_gradient;
+var wall_gradient;
 
 var Xcord = 0;
 var Ycord = 0;
@@ -11,10 +12,10 @@ var topXCorner = 20;
 const xthick = 400;
 const ythick = 500;
 
-var redTopY = 20;
-var redTopX = 20;
-const redXthick = 400;
-const redYthick = 500;
+var frontTopY = 20;
+var frontTopX = 20;
+const frontWidth = 400;
+const frontHeight = 500;
 
 
 
@@ -41,11 +42,12 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        topCorner = mousePos.y-(ythick/2); // paddle aligns in centre with mouse
+        topCorner = mousePos.y-(ythick/2); // aligns to centre with mouse
         topXCorner = mousePos.x-(xthick/2);
-        redTopY = topCorner / 2;
-        redTopX = topXCorner / 2;
-        roof_gradient = ctx.createLinearGradient(redTopX,redTopY,200,180);
+        frontTopY = topCorner / 2;
+        frontTopX = topXCorner / 2;
+        roof_gradient = ctx.createLinearGradient(200,frontTopY,200,300);
+        wall_gradient = ctx.createLinearGradient(200,frontTopY,200,600);
        });
 }
 
@@ -66,21 +68,21 @@ function drawEverything() {
 
 function boxLeft (){
 
-    var blueTopX = 250;
-    var blueTopY = 250;
-    var blueThick = 150;
+    var backTopX = 250;
+    var backTopY = 250;
+    var backThick = 150;
 
-    if(redTopX < 30) {
-        redTopX = 30;
+    if(frontTopX < 30) {
+        frontTopX = 30;
     }
-    if (redTopX > 280){
-        redTopX = 280;
+    if (frontTopX > 280){
+        frontTopX = 280;
     }
-    if (redTopY < 27){
-        redTopY = 27;
+    if (frontTopY < 27){
+        frontTopY = 27;
     } 
-    if (redTopY > 125){
-        redTopY = 125;
+    if (frontTopY > 125){
+        frontTopY = 125;
     }
       
     roof_gradient.addColorStop(0, "#85a3e0");
@@ -90,50 +92,55 @@ function boxLeft (){
 
     // Roof
     ctx.beginPath();
-    ctx.moveTo(redTopX, redTopY);
-    ctx.lineTo(redTopX + redXthick, redTopY);
-    ctx.lineTo(blueTopX + blueThick,blueTopY);
-    ctx.lineTo(blueTopX,blueTopY);
+    ctx.moveTo(frontTopX, frontTopY);
+    ctx.lineTo(frontTopX + frontWidth, frontTopY);
+    ctx.lineTo(backTopX + backThick,backTopY);
+    ctx.lineTo(backTopX,backTopY);
     ctx.stroke();
     ctx.closePath();
     ctx.fill();
 
-    // Right Side
+    wall_gradient.addColorStop(0, "#85a3e0");
+    wall_gradient.addColorStop(1, "#193366");
+
+    ctx.fillStyle = wall_gradient;
+
+    // Back Wall
     ctx.beginPath();
-    ctx.moveTo(blueTopX, blueTopY);
-    ctx.lineTo(blueTopX + blueThick, blueTopY);
-    ctx.lineTo(blueTopX + blueThick, blueTopY + blueThick);
-    ctx.lineTo(blueTopX,blueTopY + blueThick);
+    ctx.moveTo(backTopX, backTopY);
+    ctx.lineTo(backTopX + backThick, backTopY);
+    ctx.lineTo(backTopX + backThick, backTopY + backThick);
+    ctx.lineTo(backTopX,backTopY + backThick);
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
 
     // Right Side
     ctx.beginPath();
-    ctx.moveTo(blueTopX + blueThick, blueTopY);
-    ctx.lineTo(redTopX + redXthick, redTopY);
-    ctx.lineTo(redTopX + redXthick, redTopY + redYthick);
-    ctx.lineTo(blueTopX + blueThick,blueTopY + blueThick);
+    ctx.moveTo(backTopX + backThick, backTopY);
+    ctx.lineTo(frontTopX + frontWidth, frontTopY);
+    ctx.lineTo(frontTopX + frontWidth, frontTopY + frontHeight);
+    ctx.lineTo(backTopX + backThick,backTopY + backThick);
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
 
     // Left Side
     ctx.beginPath();
-    ctx.moveTo(redTopX,redTopY);
-    ctx.lineTo(blueTopX,blueTopY);
-    ctx.lineTo(blueTopX,blueTopY + blueThick);
-    ctx.lineTo(redTopX,redTopY + redYthick);
+    ctx.moveTo(frontTopX,frontTopY);
+    ctx.lineTo(backTopX,backTopY);
+    ctx.lineTo(backTopX,backTopY + backThick);
+    ctx.lineTo(frontTopX,frontTopY + frontHeight);
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
 
     // Floor
     ctx.beginPath();
-    ctx.moveTo(blueTopX,blueTopY + blueThick);
-    ctx.lineTo(blueTopX + blueThick,blueTopY + blueThick);
-    ctx.lineTo(redTopX + redXthick,redTopY + redYthick);
-    ctx.lineTo(redTopX,redTopY + redYthick);
+    ctx.moveTo(backTopX,backTopY + backThick);
+    ctx.lineTo(backTopX + backThick,backTopY + backThick);
+    ctx.lineTo(frontTopX + frontWidth,frontTopY + frontHeight);
+    ctx.lineTo(frontTopX,frontTopY + frontHeight);
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
