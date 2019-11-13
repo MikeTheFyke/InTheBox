@@ -361,111 +361,108 @@ function drawGrid (){
     ctx.closePath();
     ctx.stroke();
 
-// Bottom Horizontal  Lines
-    ctx.strokeStyle = "red";
-    ctx.beginPath(); // Bottom Horizontal  - 01 Line
-    ctx.moveTo(frontTopX + 142,backTopY + backThick + 7);
-    ctx.lineTo(frontTopX + frontWidth - 120,backTopY + backThick + 7);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Horizontal  - 02 Line
-    ctx.moveTo(frontTopX + 122,backTopY + backThick + 17);
-    ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 17);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Horizontal  - 03 Line
-    ctx.moveTo(frontTopX + 122,backTopY + backThick + 27);
-    ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 27);
-    ctx.closePath();
-    ctx.stroke();
+
     ctx.strokeStyle = "blue";
     ctx.beginPath(); // Bottom Horizontal - 04 Line
     ctx.moveTo(frontTopX + 122,backTopY + backThick + 38);
     ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 38);
     ctx.closePath();
     ctx.stroke();
-    ctx.strokeStyle = "red";
-    ctx.beginPath(); // Bottom Horizontal Center - 05 Line
-    ctx.moveTo(frontTopX + 100,backTopY + backThick + 55);
-    ctx.lineTo(frontTopX + frontWidth - 70,backTopY + backThick + 55);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Horizontal Center - 06 Line
-    ctx.moveTo(frontTopX + 80,backTopY + backThick + 75);
-    ctx.lineTo(frontTopX + frontWidth - 65,backTopY + backThick + 75);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Horizontal Center - 07 Line
-    ctx.moveTo(frontTopX + 60,backTopY + backThick + 100);
-    ctx.lineTo(frontTopX + frontWidth - 60,backTopY + backThick + 100);
-    ctx.closePath();
-    ctx.stroke();
 
-// Left Side 
-
-    //  Vertical Lines
+    //  Orange Lines
     vertX = (backTopX - frontTopX)/2;
     vertY = (backTopY - frontTopY)/2;
 
     ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Left Vertical center Line
+    ctx.beginPath(); // 1/4 Line
     ctx.moveTo(frontTopX + ((vertX/2)*2) + 65,vertY + 116);
+    ctx.lineTo(frontTopX + ((vertX/2)*2) + (frontWidth/2) + 30,vertY + 116);
+    ctx.lineTo(frontTopX + ((vertX/2)*2) + (frontWidth/2) + 30,vertY + backThick + 160);
     ctx.lineTo(frontTopX + ((vertX/2)*2) + 65,vertY + backThick + 160);
     ctx.closePath();
     ctx.stroke();
 
     ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Left Vertical center Line
+    ctx.beginPath(); // 1/2
     ctx.moveTo(frontTopX + vertX + 40,vertY + 86);
+    ctx.lineTo(frontTopX + vertX + 40 + (frontWidth/2) + 10,vertY + 86);
+    ctx.lineTo(frontTopX + vertX + 40 + (frontWidth/2) + 10,vertY + backThick + 180);
     ctx.lineTo(frontTopX + vertX + 40,vertY + backThick + 180);
     ctx.closePath();
     ctx.stroke();
 
     ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Left Vertical center Line
+    ctx.beginPath(); // 3/4
     ctx.moveTo(frontTopX + (vertX/2) + 30,vertY + 32);
+    ctx.lineTo(frontTopX + (vertX/2) + (frontWidth/2) + 110,vertY + 32);
+    ctx.lineTo(frontTopX + (vertX/2) + (frontWidth/2) + 110,vertY + backThick + 223);
     ctx.lineTo(frontTopX + (vertX/2) + 30,vertY + backThick + 223);
     ctx.closePath();
     ctx.stroke();
 
-    // Horizontal Lines
-
-
-// Right Side
+// Verticals
     ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Left 1/4 Vertical center Line
-    ctx.moveTo(frontTopX + ((vertX/2)*2) + (frontWidth/2) + 30,vertY + 116);
-    ctx.lineTo(frontTopX + ((vertX/2)*2) + (frontWidth/2) + 30,vertY + backThick + 160);
-    ctx.closePath();
+    ctx.beginPath(); // 1/4 Line
+    ctx.moveTo(frontTopX + ((frontWidth/2)/2),frontTopY);
+    ctx.lineTo(backTopX + ((backThick/2)/2),backTopY);
+    ctx.lineTo(backTopX + ((backThick/2)/2),backTopY + backThick);
+    ctx.lineTo(frontTopX + ((frontWidth/2)/2),frontTopY + frontHeight);
     ctx.stroke();
 
     ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Left  1/2 Vertical center Line
-    ctx.moveTo(frontTopX + vertX + 40 + (frontWidth/2) + 10,vertY + 86);
-    ctx.lineTo(frontTopX + vertX + 40 + (frontWidth/2) + 10,vertY + backThick + 180);
-    ctx.closePath();
+    ctx.beginPath(); // 1/2 Line
+    ctx.moveTo(frontTopX + (frontWidth/2),frontTopY);
+    ctx.lineTo(backTopX + (backThick/2),backTopY);
+    ctx.lineTo(backTopX + (backThick/2),backTopY + backThick);
+    ctx.lineTo(frontTopX + (frontWidth/2),frontTopY + frontHeight);
     ctx.stroke();
 
     ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Left 3/4 Vertical center Line
-    ctx.moveTo(frontTopX + (vertX/2) + (frontWidth/2) + 110,vertY + 32);
-    ctx.lineTo(frontTopX + (vertX/2) + (frontWidth/2) + 110,vertY + backThick + 223);
-    ctx.closePath();
+    ctx.beginPath(); // 3/4 Line
+    ctx.moveTo(frontTopX + (frontWidth/2) + ((frontWidth/2)/2),frontTopY);
+    ctx.lineTo(backTopX + (backThick/2) + ((backThick/2)/2),backTopY);
+    ctx.lineTo(backTopX + (backThick/2) + ((backThick/2)/2),backTopY + backThick);
+    ctx.lineTo(frontTopX + (frontWidth/2) + ((frontWidth/2)/2),frontTopY + frontHeight);
     ctx.stroke();
-    
+
+// Back Wall
+
+ctx.strokeStyle = "orange";
+ctx.beginPath(); // 1/4 Line
+ctx.moveTo(frontTopX,frontTopY + ((frontHeight/2)/2));
+ctx.lineTo(backTopX,backTopY + ((backThick/2)/2));
+ctx.lineTo(backTopX + backThick,backTopY + ((backThick/2)/2));
+ctx.lineTo(frontTopX + frontWidth,frontTopY + ((frontHeight/2)/2));
+ctx.stroke();
+
+ctx.strokeStyle = "orange";
+ctx.beginPath(); // 1/2 Line
+ctx.moveTo(frontTopX,frontTopY + (frontHeight/2));
+ctx.lineTo(backTopX,backTopY + (backThick/2));
+ctx.lineTo(backTopX + backThick,backTopY + (backThick/2));
+ctx.lineTo(frontTopX + frontWidth,frontTopY + (frontHeight/2));
+ctx.stroke();
+
+ctx.strokeStyle = "orange";
+ctx.beginPath(); // 3/4 Line
+ctx.moveTo(frontTopX,frontTopY + (frontHeight/2)+ (frontTopY + ((frontHeight/2)/2))- 10);
+ctx.lineTo(backTopX,backTopY + (backThick/2) + ((backThick/2)/2));
+ctx.lineTo(backTopX + backThick,backTopY + (backThick/2) + ((backThick/2)/2));
+ctx.lineTo(frontTopX + frontWidth,frontTopY + (frontHeight/2)+ (frontTopY + ((frontHeight/2)/2))- 10);
+ctx.stroke();
 
 // Cross 
     ctx.strokeStyle = "green";
     ctx.beginPath(); // Bottom Cross Left - Right Line
-    ctx.moveTo(backTopX,backTopY);
-    ctx.lineTo(frontTopX,frontTopY + frontHeight);
+    ctx.moveTo(frontTopX,frontTopY);
+    ctx.lineTo(frontTopX + frontWidth,frontTopY + frontHeight);
     ctx.closePath();
     ctx.stroke();
 
     ctx.strokeStyle = "green";
     ctx.beginPath(); // Bottom Cross Right - Left Line
-    ctx.moveTo(backTopX,backTopY + backThick);
-    ctx.lineTo(frontTopX,frontTopY);
+    ctx.moveTo(frontTopX + frontWidth,frontTopY);
+    ctx.lineTo(frontTopX,frontTopY + frontHeight);
     ctx.closePath();
     ctx.stroke();
 }
