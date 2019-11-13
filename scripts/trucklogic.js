@@ -25,6 +25,9 @@ var backTopX = 250;
 var backTopY = 250;
 var backThick = 150;
 
+var vertX;
+var vertY;
+
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -298,6 +301,7 @@ function drawTruck (){
 }
 
 function drawGrid (){
+// Frame Outter
     ctx.strokeStyle = "red";
     ctx.beginPath();
     ctx.moveTo(frontTopX, frontTopY);
@@ -397,17 +401,71 @@ function drawGrid (){
     ctx.closePath();
     ctx.stroke();
 
-    // ctx.strokeStyle = "red";
-    // ctx.beginPath(); // Bottom Cross Left - Right Line
-    // ctx.moveTo(frontTopX + frontWidth - 90,backTopY + backThick + 17);
-    // ctx.lineTo(frontTopX + 122,backTopY + backThick + 38);
-    // ctx.closePath();
-    // ctx.stroke();
+// Left Side 
 
-    // ctx.strokeStyle = "green";
-    // ctx.beginPath(); // Bottom Cross Right - Left Line
-    // ctx.moveTo(frontTopX,frontTopY + frontHeight);
-    // ctx.lineTo(backTopX + (backThick/2),backTopY + backThick);
-    // ctx.closePath();
-    // ctx.stroke();
+    //  Vertical Lines
+    vertX = (backTopX - frontTopX)/2;
+    vertY = (backTopY - frontTopY)/2;
+
+    ctx.strokeStyle = "orange";
+    ctx.beginPath(); // Left Vertical center Line
+    ctx.moveTo(frontTopX + ((vertX/2)*2) + 65,vertY + 116);
+    ctx.lineTo(frontTopX + ((vertX/2)*2) + 65,vertY + backThick + 160);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "orange";
+    ctx.beginPath(); // Left Vertical center Line
+    ctx.moveTo(frontTopX + vertX + 40,vertY + 86);
+    ctx.lineTo(frontTopX + vertX + 40,vertY + backThick + 180);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "orange";
+    ctx.beginPath(); // Left Vertical center Line
+    ctx.moveTo(frontTopX + (vertX/2) + 30,vertY + 32);
+    ctx.lineTo(frontTopX + (vertX/2) + 30,vertY + backThick + 223);
+    ctx.closePath();
+    ctx.stroke();
+
+    // Horizontal Lines
+
+
+// Right Side
+    ctx.strokeStyle = "orange";
+    ctx.beginPath(); // Left 1/4 Vertical center Line
+    ctx.moveTo(frontTopX + ((vertX/2)*2) + (frontWidth/2) + 30,vertY + 116);
+    ctx.lineTo(frontTopX + ((vertX/2)*2) + (frontWidth/2) + 30,vertY + backThick + 160);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "orange";
+    ctx.beginPath(); // Left  1/2 Vertical center Line
+    ctx.moveTo(frontTopX + vertX + 40 + (frontWidth/2) + 10,vertY + 86);
+    ctx.lineTo(frontTopX + vertX + 40 + (frontWidth/2) + 10,vertY + backThick + 180);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "orange";
+    ctx.beginPath(); // Left 3/4 Vertical center Line
+    ctx.moveTo(frontTopX + (vertX/2) + (frontWidth/2) + 110,vertY + 32);
+    ctx.lineTo(frontTopX + (vertX/2) + (frontWidth/2) + 110,vertY + backThick + 223);
+    ctx.closePath();
+    ctx.stroke();
+    
+
+// Cross 
+    ctx.strokeStyle = "green";
+    ctx.beginPath(); // Bottom Cross Left - Right Line
+    ctx.moveTo(backTopX,backTopY);
+    ctx.lineTo(frontTopX,frontTopY + frontHeight);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "green";
+    ctx.beginPath(); // Bottom Cross Right - Left Line
+    ctx.moveTo(backTopX,backTopY + backThick);
+    ctx.lineTo(frontTopX,frontTopY);
+    ctx.closePath();
+    ctx.stroke();
 }
