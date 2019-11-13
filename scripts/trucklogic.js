@@ -466,3 +466,19 @@ ctx.stroke();
     ctx.closePath();
     ctx.stroke();
 }
+
+function drawBox(){
+    length = document.getElementById("lengthSize");
+    width = document.getElementById("widthSize");
+    height = document.getElementById("heightSize");
+
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.moveTo(backTopX,backTopY + (backThick/2));
+    ctx.lineTo(backTopX + (backThick/2),backTopY + (backThick/2));
+    ctx.lineTo(backTopX + (backThick/2),backTopY + (backThick/2) + ((backThick/2)/2));
+    ctx.lineTo(backTopX,backTopY + (backThick/2) + ((backThick/2)/2));
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+}
