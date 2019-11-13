@@ -4,14 +4,17 @@ var framesPerSecond = 30;
 
 var Xcord = 0;
 var Ycord = 0;
+
 var backY = 20;
 var backX = 20;
 const xthick = 400;
 const ythick = 200;
+
 var topX;
 var topY;
 const topXthick = 60;
 const topYthick = 60;
+
 var spacing = 80;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
@@ -37,8 +40,8 @@ window.onload = function() {
         Ycord = mousePos.y;
         var Xcenter = canvas07.width/2;
         var Ycenter = canvas07.height/2;
-        backY = Ycord - 100 - spacing;
-        backX = Xcord - 40 - spacing;
+        backY = 40;
+        backX = 40;
         topX = mousePos.x - 140;
         topY = mousePos.y - 80;
 
@@ -48,43 +51,36 @@ window.onload = function() {
 function drawEverything02() {
     co.fillStyle = "black"; // canvas07 Black
     co.fillRect(0,0,canvas07.width,canvas07.height);
-            if (backY <= 60){ // Top Boundry
-                backY = 60 ;}
-            if (backY >= 80){ // Bottom Boundry
-                backY = 80 ;} 
-            if (backX >= 150){ // Right Boundry
-                backX = 150 ;}
-            if (backX <= 140){ // Left Boundry
-                backX = 140 ;}
 
-            if (topY <= 40){ // Top Boundry
-                topY = 40 ;}
-            if (topY >= 80){ // Bottom Boundry
-                topY = 80 ;} 
-            if (topX >= 170){ // Right Boundry
-                topX = 170 ;}
-            if (topX <= 120){ // Left Boundry
-                topX = 120 ;}
+
+            if (topY <= 20){ // Top Boundry
+                topY = 20 ;}
+            if (topY >= 60){ // Bottom Boundry
+                topY = 60 ;} 
+            if (topX >= 60){ // Right Boundry
+                topX = 60 ;}
+            if (topX <= 20){ // Left Boundry
+                topX = 20 ;}
             
-            if (Xcord <= 300 && Ycord <= 140) {
+            if (Xcord <= 300 && Ycord <= 120) {
                 Backs();
                 SidesLeft();
                 SidesRight();
                 Bottoms();
                 Tops();
-            } else if (Xcord >= 300 && Ycord <= 140) {
+            } else if (Xcord >= 300 && Ycord <= 120) {
                 Backs();
                 SidesRight();
                 SidesLeft();
                 Bottoms();
                 Tops();
-            } else if (Xcord <= 300 && Ycord >= 140){
+            } else if (Xcord <= 300 && Ycord >= 120){
                 Bottoms();
                 SidesLeft();
                 SidesRight();
                 Backs();
                 Tops();
-            } else if (Xcord >=300 && Ycord >= 140){
+            } else if (Xcord >=300 && Ycord >= 120){
                 Bottoms();
                 SidesRight();
                 SidesLeft();
@@ -95,7 +91,7 @@ function drawEverything02() {
 
 
 function Tops(){
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < 3; i++){
         for (var j = 0; j < 3; j++){
             co.fillStyle = "crimson"; // Top Side Face 01 02
             co.fillRect(topX + (spacing * i),topY +(spacing * j),topXthick,topYthick);
@@ -104,7 +100,7 @@ function Tops(){
 }
 
 function SidesLeft (){
-    for (var i2 = 0; i2 < 5; i2++){
+    for (var i2 = 0; i2 < 3; i2++){
         for (var j2 = 0; j2 < 3; j2++){
             co.beginPath(); // Left Side Face
             co.fillStyle = "red";
@@ -124,7 +120,7 @@ function SidesLeft (){
 }
 
 function SidesRight (){
-    for (var i2 = 0; i2 < 5; i2++){
+    for (var i2 = 0; i2 < 3; i2++){
         for (var j2 = 0; j2 < 3; j2++){
             co.beginPath(); // Right Side Face
             co.moveTo(topX + topXthick + (spacing * i2),topY  + (spacing * j2));
@@ -145,7 +141,7 @@ function SidesRight (){
 
 
 function Backs (){
-    for (var i3 = 0; i3 < 5; i3++){
+    for (var i3 = 0; i3 < 3; i3++){
         for (var j3 = 0; j3 < 3; j3++){
             co.beginPath(); // Back Face
             co.fillStyle = "darkred";
@@ -159,7 +155,7 @@ function Backs (){
 }
 
 function Bottoms(){
-    for (var i4 = 0; i4 < 5; i4++){
+    for (var i4 = 0; i4 < 3; i4++){
         for (var j4 = 0; j4 < 3; j4++){
             co.beginPath(); // Bottom Face
             co.fillStyle = "darkred";
