@@ -7,10 +7,11 @@ var wall_gradient;
 var back_gradient;
 var floor_gradient;
 var edge_gradient;
+var bottomedge_gradient;
 
 var Xcord = 0;
 var Ycord = 0;
-var topCorner = 20;
+var topYCorner = 20;
 var topXCorner = 20;
 const xthick = 400;
 const ythick = 500;
@@ -37,7 +38,7 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    boxLeft();
+    drawTruck();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -45,20 +46,47 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        topCorner = mousePos.y-(ythick/2); // aligns to centre with mouse
+        topYCorner = mousePos.y-(ythick/2); // aligns to centre with mouse
         topXCorner = mousePos.x-(xthick/2);
-        frontTopY = topCorner / 2;
+        frontTopY = 40;
         frontTopX = topXCorner / 2;;
        });
 }
 
 function drawEverything() {
-    ctx.fillStyle = "lightskyblue"; // Canvas Black
+    ctx.fillStyle = "lightskyblue"; // Sky
     ctx.fillRect(0,0,canvas.width,canvas.height);
+
+
+    ctx.fillStyle = "green"; // Grass
+    ctx.fillRect(0,300,canvas.width,canvas.height);
+
+    ctx.fillStyle = "LightSlateGrey"; // Far Curb
+    ctx.fillRect(0,310,canvas.width,10);
+
+    ctx.fillStyle = "LightSlateGrey"; // Far Curb
+    ctx.fillRect(0,325,canvas.width,30);
+
+    ctx.fillStyle = "black"; // Road
+    ctx.fillRect(0,335,canvas.width,90);
+
+    ctx.fillStyle = "LightSlateGrey"; // Curb
+    ctx.fillRect(0,425,canvas.width,30);
+
+    ctx.fillStyle = "LightSlateGrey"; // Road
+    ctx.fillRect(0,460,canvas.width,30);
+
+    ctx.beginPath(); // Drive Way
+    ctx.moveTo(0, canvas.height);
+    ctx.lineTo(275, 300);
+    ctx.lineTo(300, 300);
+    ctx.lineTo(canvas.width,canvas.height);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
   }
 
-function boxLeft (){
-
+function drawTruck (){
     var backTopX = 250;
     var backTopY = 250;
     var backThick = 150;
@@ -68,19 +96,20 @@ function boxLeft (){
     back_gradient = ctx.createLinearGradient(backTopX,backTopY,backTopX,backTopY + backThick);
     floor_gradient = ctx.createLinearGradient(100,150,100,450);
     edge_gradient = ctx.createLinearGradient(100,40,100,80);
+    bottomedge_gradient = ctx.createLinearGradient(100,540,100,580);
 
-    if(frontTopX < 100) {
-        frontTopX = 100;
+    if(frontTopX < 80) {
+        frontTopX = 80;
     }
     if (frontTopX > 120){
         frontTopX = 120;
     }
-    if (frontTopY < 40){
-        frontTopY = 40;
-    } 
-    if (frontTopY > 50){
-        frontTopY = 50;
-    }
+    // if (frontTopY < 40){
+    //     frontTopY = 40;
+    // } 
+    // if (frontTopY > 50){
+    //     frontTopY = 50;
+    // }
 
 ////////////// Roof
     roof_gradient.addColorStop(0, "#85a3e0");
@@ -191,4 +220,75 @@ function boxLeft (){
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
+
+    ////////////// Bottom Edge
+    bottomedge_gradient.addColorStop(0, "#85a3e0");
+    bottomedge_gradient.addColorStop(1, "#193366");
+    ctx.fillStyle = bottomedge_gradient;
+    ctx.beginPath();
+    ctx.moveTo(frontTopX - 20, frontTopY + frontHeight);
+    ctx.lineTo(frontTopX + frontWidth + 20, frontTopY + frontHeight);
+    ctx.lineTo(frontTopX + frontWidth + 20, frontTopY + frontHeight + 20);
+    ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 20);
+    ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 40);
+
+    ctx.lineTo(frontTopX - 10, frontTopY + frontHeight + 40);
+    ctx.lineTo(frontTopX - 10, frontTopY + frontHeight + 20);
+
+    ctx.lineTo(frontTopX - 20,frontTopY + frontHeight + 20);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+    ////////////// Left Tire
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX - 25, frontTopY + frontHeight + 30);
+    ctx.lineTo(frontTopX - 15, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX - 10,frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX - 25,frontTopY + frontHeight + 75);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+    ////////////// Left Tire Side
+    ctx.fillStyle = "grey";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX + 35, frontTopY + frontHeight + 35);
+    ctx.lineTo(frontTopX + 45, frontTopY + frontHeight + 10);
+    ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 25);
+    ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 70);
+    ctx.lineTo(frontTopX + 45,frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX + 35,frontTopY + frontHeight + 75);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+    ////////////// Right Tire
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX + frontWidth - 45, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX + frontWidth + 15, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 30);
+    ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 75);
+    ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
+        ////////////// Right Tire Side
+        ctx.fillStyle = "grey";
+        ctx.beginPath();
+        ctx.moveTo(frontTopX + frontWidth - 20, frontTopY + frontHeight + 35);
+        ctx.lineTo(frontTopX + frontWidth -45, frontTopY + frontHeight + 10);
+        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 25);
+        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 70);
+        ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+        ctx.lineTo(frontTopX + frontWidth - 20,frontTopY + frontHeight + 75);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
 }
