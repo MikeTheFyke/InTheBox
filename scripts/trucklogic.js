@@ -465,20 +465,36 @@ ctx.stroke();
     ctx.lineTo(frontTopX,frontTopY + frontHeight);
     ctx.closePath();
     ctx.stroke();
+
+    drawBox();
 }
 
 function drawBox(){
-    length = document.getElementById("lengthSize");
-    width = document.getElementById("widthSize");
-    height = document.getElementById("heightSize");
+    var boxes = document.getElementById("boxes").value;
+    var spacing = 38;
+    var Xspace = 9;
+    console.log("Number of Boxes " + boxes);
+    if (boxes <= 0){
+        ctx.fillStyle = "transparent"; // Top Side Face 01 02
+        ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
+        ctx.stroke();
+        ctx.fill();
+        ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
+        ctx.stroke();
+        ctx.fill();
+    } else {
 
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.moveTo(backTopX,backTopY + (backThick/2));
-    ctx.lineTo(backTopX + (backThick/2),backTopY + (backThick/2));
-    ctx.lineTo(backTopX + (backThick/2),backTopY + (backThick/2) + ((backThick/2)/2));
-    ctx.lineTo(backTopX,backTopY + (backThick/2) + ((backThick/2)/2));
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
+        for (var i = 0; i < boxes; i++){
+            ctx.fillStyle = "crimson"; // back face
+            ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
+            ctx.stroke();
+            ctx.fill();
+        }
+        for (var j = 0; j < boxes; j++){
+            ctx.fillStyle = "darkred"; // back face
+            ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
+            ctx.stroke();
+            ctx.fill();
+        }
+    }
 }
