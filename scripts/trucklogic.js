@@ -447,197 +447,196 @@ function drawBox(){
     console.log("Number of Boxes " + boxes);
         if (boxes <= 0){
             ctx.fillStyle = "transparent"; // Top Side Face 01 02
-            ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
+            ctx.fillRect(backTopX,backTopY + 112,spacing,spacing);
             ctx.stroke();
             ctx.fill();
-            ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
+            ctx.fillRect(frontTopX + 150,frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
             ctx.stroke();
             ctx.fill();
         } else  if (boxes > 0 && boxes <= 4) {
             Row1();
-        }
-        else  if (boxes > 4 && boxes <=8) {
+        } else  if (boxes > 4 && boxes <=8) {
+            boxes = 4;
+            Row1();
             Row2();
-        }   else if (boxes > 8 && boxes <= 12) {
-            boxesB -= 8;
-            for (var i = 0; i < 4; i++){
-                ctx.fillStyle = "blue"; // back face
-                ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var i = 0; i < 4; i++){
-                ctx.fillStyle = "blue"; // back face
-                ctx.fillRect(backTopX + (spacing * i),backTopY + 73,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var i3 = 0; i3 < boxesB; i3++){
-                ctx.fillStyle = "blue"; // back face
-                ctx.fillRect(backTopX + (spacing * i3),backTopY + 36,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j = 0; j < 4; j++){
-                ctx.fillStyle = "lightblue"; // back face
-                ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j = 0; j < 4; j++){
-                ctx.fillStyle = "lightblue"; // back face
-                ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 220,spacing + 5,spacing + 12); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j3 = 0; j3 < boxesB; j3++){
-                ctx.fillStyle = "lightblue"; // back face
-                ctx.fillRect(frontTopX + 150 + (spacing * j3) + (Xspace * j3),frontTopY + frontHeight - 271,spacing + 5,spacing + 12); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-        }   else {
-            boxesC -= 12;
-            for (var i = 0; i < 4; i++){
-                ctx.fillStyle = "blue"; // back face 01
-                ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var i = 0; i < 4; i++){
-                ctx.fillStyle = "blue"; // back face 02
-                ctx.fillRect(backTopX + (spacing * i),backTopY + 73,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var i3 = 0; i3 < 4; i3++){
-                ctx.fillStyle = "blue"; // back face 03
-                ctx.fillRect(backTopX + (spacing * i3),backTopY + 36,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var i4 = 0; i4 < boxesC; i4++){
-                ctx.fillStyle = "blue"; // back face 04
-                ctx.fillRect(backTopX + (spacing * i4),backTopY - 3 ,spacing,spacing);
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j = 0; j < 4; j++){
-                ctx.fillStyle = "lightblue"; // front face 01
-                ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j = 0; j < 4; j++){
-                ctx.fillStyle = "lightblue"; // front face 02
-                ctx.fillRect(frontTopX + 150 + (spacing * j) + (Xspace * j),frontTopY + frontHeight - 220,spacing + 5,spacing + 12); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j3 = 0; j3 < 4; j3++){
-                ctx.fillStyle = "lightblue"; // front face 03
-                ctx.fillRect(frontTopX + 150 + (spacing * j3) + (Xspace * j3),frontTopY + frontHeight - 271,spacing + 5,spacing + 12); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-            for (var j4 = 0; j4 < boxesC; j4++){
-                ctx.fillStyle = "lightblue"; // front face 04
-                ctx.fillRect(frontTopX + 150 + (spacing * j4) + (Xspace * j4),frontTopY + frontHeight - 322,spacing + 5,spacing + 12); // front face
-                ctx.stroke();
-                ctx.fill();
-            }
-
-
+        } else if (boxes > 8 && boxes <= 12) {
+            boxes = 4;
+            boxesA = 8;
+            Row1();
+            Row2();
+            Row3();
+        } 
+        else if (boxes > 12 && boxes <= 16){
+            boxes = 4;
+            boxesA = 8;
+            boxesB = 12;
+            Row4();
+            Row1();
+            Row2();
+            Row3();
+        }
+        else {
+            boxes = 4;
+            boxesA = 8;
+            boxesB = 12;
+            boxesC = 16;
+            Row4();
+            Row1();
+            Row2();
+            Row3();
         }
 
-    function Row1 (){
-            for (var i = 0; i < boxes; i++){
-                ctx.fillStyle = "crimson"; // back face
-                ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
-                ctx.stroke();
+            function Row1 (){
+                    for (var i = 0; i < boxes; i++){
+                        ctx.fillStyle = "crimson"; // back face
+                        ctx.fillRect(backTopX + (spacing * i),backTopY + 112,spacing,spacing);
+                        ctx.stroke();
+                        ctx.fill();
+                    }
+                    for (var k = 0; k < boxes; k++){
+                        ctx.fillStyle = "yellow"; // Left side face
+                        ctx.beginPath();
+                        ctx.moveTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 168 + (spacing + 5));
+                        ctx.lineTo(backTopX + (spacing * k), backTopY + 112 + spacing);
+                        ctx.lineTo(backTopX + (spacing * k), backTopY + 112);
+                        ctx.lineTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 212 + (spacing + 5));
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                    for (var j = 0; j < boxes; j++){
+                        ctx.fillStyle = "orange"; // right side face
+                        ctx.beginPath();
+                        ctx.moveTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 166 + (spacing + 5));
+                        ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 112 + spacing);
+                        ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 112);
+                        ctx.lineTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 212 + (spacing + 5));
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                    for (var m = 0; m < boxes; m++){
+                        ctx.fillStyle = "green"; // top face
+                        ctx.beginPath();
+                        ctx.moveTo(backTopX + (spacing * m),backTopY + backThick - (backThick/4));
+                        ctx.lineTo(backTopX + (backThick/4) + (spacing * m),backTopY + backThick - (backThick/4));
+                        ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m) + (spacing + 5),frontTopY + frontHeight - 168);
+                        ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m),frontTopY + frontHeight - 168);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                    for (var h = 0; h < boxes; h++){
+                        ctx.fillStyle = "darkred"; // front face
+                        ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
+                    }
+            }
+
+            function Row2(){
+                boxesA -= 4;
+                for (var i = 0; i < boxesA; i++){
+                    ctx.fillStyle = "crimson"; // back 
+                    ctx.fillRect(backTopX + (spacing * i),backTopY + 73,spacing,spacing);
+                    ctx.fill();
+                }
+                for (var k = 0; k < boxesA; k++){
+                    ctx.fillStyle = "yellow"; // Left side face
+                    ctx.beginPath();
+                    ctx.moveTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 220 + (spacing + 12));
+                    ctx.lineTo(backTopX + (spacing * k), backTopY + 73 + spacing);
+                    ctx.lineTo(backTopX + (spacing * k), backTopY + 73);
+                    ctx.lineTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 270 + (spacing + 12));
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                for (var j = 0; j < boxesA; j++){
+                    ctx.fillStyle = "orange"; // right side face
+                    ctx.beginPath();
+                    ctx.moveTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 220 + (spacing + 12));
+                    ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 73 + spacing);
+                    ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 73);
+                    ctx.lineTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 270 + (spacing + 12));
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                for (var m = 0; m < boxesA; m++){
+                    ctx.fillStyle = "green"; // top face
+                    ctx.beginPath();
+                    ctx.moveTo(backTopX + (spacing * m),backTopY + backThick - (backThick/2));
+                    ctx.lineTo(backTopX + (backThick/4) + (spacing * m),backTopY + backThick - (backThick/2));
+                    ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m) + (spacing + 5),frontTopY + frontHeight - 220);
+                    ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m),frontTopY + frontHeight - 220);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                for (var h = 0; h < boxesA; h++){
+                    ctx.fillStyle = "darkred"; // front
+                    ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 220,spacing + 5,spacing + 12); // front face
+                }
+            }
+        function Row3() {
+            boxesB -= 8;
+            for (var i = 0; i < boxesB; i++){
+                ctx.fillStyle = "blue"; // back face
+                ctx.fillRect(backTopX + (spacing * i),backTopY + 36,spacing,spacing);
                 ctx.fill();
             }
-            for (var k = 0; k < boxes; k++){
+            for (var k = 0; k < boxesB; k++){
                 ctx.fillStyle = "yellow"; // Left side face
                 ctx.beginPath();
-                ctx.moveTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 168 + (spacing + 5));
-                ctx.lineTo(backTopX + (spacing * k), backTopY + 112 + spacing);
-                ctx.lineTo(backTopX + (spacing * k), backTopY + 112);
-                ctx.lineTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 212 + (spacing + 5));
+                ctx.moveTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 268 + (spacing + 12));
+                ctx.lineTo(backTopX + (spacing * k), backTopY + 36 + spacing);
+                ctx.lineTo(backTopX + (spacing * k), backTopY + 36);
+                ctx.lineTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 318 + (spacing + 12));
                 ctx.closePath();
                 ctx.fill();
             }
-            for (var j = 0; j < boxes; j++){
+            for (var j = 0; j < boxesB; j++){
                 ctx.fillStyle = "orange"; // right side face
                 ctx.beginPath();
-                ctx.moveTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 166 + (spacing + 5));
-                ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 112 + spacing);
-                ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 112);
-                ctx.lineTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 212 + (spacing + 5));
+                ctx.moveTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 268 + (spacing + 12));
+                ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 36 + spacing);
+                ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 36);
+                ctx.lineTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 318 + (spacing + 12));
                 ctx.closePath();
                 ctx.fill();
             }
-            for (var m = 0; m < boxes; m++){
-                ctx.fillStyle = "green"; // top face
-                ctx.beginPath();
-                ctx.moveTo(backTopX + (spacing * m),backTopY + backThick - (backThick/4));
-                ctx.lineTo(backTopX + (backThick/4) + (spacing * m),backTopY + backThick - (backThick/4));
-                ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m) + (spacing + 5),frontTopY + frontHeight - 168);
-                ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m),frontTopY + frontHeight - 168);
-                ctx.closePath();
-                ctx.fill();
-            }
-            for (var h = 0; h < boxes; h++){
+            for (var h = 0; h < boxesB; h++){
                 ctx.fillStyle = "darkred"; // front face
-                ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 168,spacing + 5,spacing + 5); // front face
+                ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 268,spacing + 5,spacing + 12); // front face
+                ctx.fill();
             }
-    }
+        }
+        function Row4 (){
+            boxesC -= 12;
+            for (var i = 0; i < boxesC; i++){
+                ctx.fillStyle = "crimson"; // back face 04
+                ctx.fillRect(backTopX + (spacing * i),backTopY - 3 ,spacing,spacing);
+                ctx.fill();
+            }
 
-    function Row2(){
-        boxesA -= 4;
-        boxes = 4;
-        Row1();
-
-        for (var m = 0; m < boxesA; m++){
-            ctx.fillStyle = "green"; // top face
-            ctx.beginPath();
-            ctx.moveTo(backTopX + (spacing * m),backTopY + backThick - (backThick/2));
-            ctx.lineTo(backTopX + (backThick/4) + (spacing * m),backTopY + backThick - (backThick/2));
-            ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m) + (spacing + 5),frontTopY + frontHeight - 220);
-            ctx.lineTo(frontTopX + 150 + (spacing * m) + (Xspace * m),frontTopY + frontHeight - 220);
-            ctx.closePath();
-            ctx.fill();
+            for (var k = 0; k < boxesC; k++){
+                ctx.fillStyle = "yellow"; // Left side face
+                ctx.beginPath();
+                ctx.moveTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 320 + (spacing + 12));
+                ctx.lineTo(backTopX + (spacing * k), backTopY - 3 + spacing);
+                ctx.lineTo(backTopX + (spacing * k), backTopY - 3);
+                ctx.lineTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 370 + (spacing + 12));
+                ctx.closePath();
+                ctx.fill();
+            }
+            for (var j = 0; j < boxesC; j++){
+                ctx.fillStyle = "orange"; // right side face
+                ctx.beginPath();
+                ctx.moveTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 320 + (spacing + 12));
+                ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY - 3 + spacing);
+                ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY - 3);
+                ctx.lineTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 370 + (spacing + 12));
+                ctx.closePath();
+                ctx.fill();
+            }
+            for (var h = 0; h < boxesC; h++){
+                ctx.fillStyle = "darkred"; // front face 04
+                ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 320,spacing + 5,spacing + 12); // front face
+            }
         }
-        for (var i = 0; i < boxesA; i++){
-            ctx.fillStyle = "crimson"; // back 
-            ctx.fillRect(backTopX + (spacing * i),backTopY + 73,spacing,spacing);
-            ctx.fill();
-        }
-        for (var k = 0; k < boxesA; k++){
-            ctx.fillStyle = "yellow"; // Left side face
-            ctx.beginPath();
-            ctx.moveTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 220 + (spacing + 12));
-            ctx.lineTo(backTopX + (spacing * k), backTopY + 73 + spacing);
-            ctx.lineTo(backTopX + (spacing * k), backTopY + 73);
-            ctx.lineTo(frontTopX + 150 + (spacing * k) + (Xspace * k),frontTopY + frontHeight - 270 + (spacing + 12));
-            ctx.closePath();
-            ctx.fill();
-        }
-        for (var j = 0; j < boxesA; j++){
-            ctx.fillStyle = "orange"; // right side face
-            ctx.beginPath();
-            ctx.moveTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 220 + (spacing + 12));
-            ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 73 + spacing);
-            ctx.lineTo(backTopX + (spacing * j) + spacing, backTopY + 73);
-            ctx.lineTo((frontTopX + 150 + (spacing * j) + (Xspace * j)) + (spacing + 5),frontTopY + frontHeight - 270 + (spacing + 12));
-            ctx.closePath();
-            ctx.fill();
-        }
-        for (var h = 0; h < boxesA; h++){
-            ctx.fillStyle = "darkred"; // front
-            ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 220,spacing + 5,spacing + 12); // front face
-        }
-    }
 
 }
 
