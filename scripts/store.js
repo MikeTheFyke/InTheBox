@@ -66,6 +66,7 @@ function drawEverything() {
   function drawCloset(){
     const hUnit = 60;
     const xUnit = 100;
+    
     cLength = document.getElementById("closetLength").value;
     cWidth = document.getElementById("closetWidth").value;
     cHeight = document.getElementById("closetHeight").value;
@@ -82,16 +83,18 @@ function drawEverything() {
 
     console.log ("frontX1 - " + frontX1 + " frontY1 - " + frontY1);
 
-    backX1 = frontX1 + 50;
-    backY1 = frontY1 + 50;
-    backX2 = frontX2 - 50;
-    backY2 = frontY2 + 50;
-    backX3 = frontX3 - 50;
-    backY3 = frontY3 - 50;
-    backX4 = frontX4 + 50;
-    backY4 = frontY4 - 50;
+    const wUnit = (cWidth * 30);
 
-    ctx.strokeStyle = "yellow"; // Back side face
+    backX1 = frontX1 + wUnit;
+    backY1 = frontY1 + wUnit;
+    backX2 = frontX2 - wUnit;
+    backY2 = frontY2 + wUnit;
+    backX3 = frontX3 - wUnit;
+    backY3 = frontY3 - wUnit;
+    backX4 = frontX4 + wUnit;
+    backY4 = frontY4 - wUnit;
+
+    ctx.strokeStyle = "red"; // Back side face
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
     ctx.lineTo(backX2,backY2);
@@ -106,6 +109,24 @@ function drawEverything() {
     ctx.lineTo(frontX2,frontY2);
     ctx.lineTo(frontX3,frontY3);
     ctx.lineTo(frontX4,frontY4);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "orange"; // Left side face
+    ctx.beginPath();
+    ctx.moveTo(frontX1,frontY1);
+    ctx.lineTo(backX1,backY1);
+    ctx.lineTo(backX4,backY4);
+    ctx.lineTo(frontX4,frontY4);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.strokeStyle = "orange"; // Right side face
+    ctx.beginPath();
+    ctx.moveTo(backX2,backY1);
+    ctx.lineTo(frontX2,frontY2);
+    ctx.lineTo(frontX3,frontY3);
+    ctx.lineTo(backX3,backY3);
     ctx.closePath();
     ctx.stroke();
   }
