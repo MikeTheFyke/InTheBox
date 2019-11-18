@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../styles/storestyles.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/index.css" type="text/css" />
+    <style></style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="../index.html">INDEX</a>
+        <a href="./spikes.html">SPIKEY</a>
+        <a href="./eyes.html">EYES</a>
+        <a href="./spin.html">SPIN</a>
+        <a href="./multi.html">MULTI</a>
+        <a href="./cubes.html">CUBES</a>
+        <a href="./store.html">STORAGE</a>
+    </div>
+
+    <input id="closetLength" type="text" placeholder="Length? (feet)">
+    <input id="closetWidth" type="text" placeholder="Width? (feet)">
+    <input id="closetHeight" type="text" placeholder="Height? (feet)">
+    <button id="closetButton" onClick="drawCloset">Enter Dimensions</button>
+
+    <div id="storageContainer">
+        <canvas id="storageCanvas" width="1000px" height="600px"></canvas>
+    </div>
+
+        <script src="../scripts/store.js"></script>
+</body>
+</html>

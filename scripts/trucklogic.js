@@ -45,6 +45,7 @@ window.onload = function() {
     drawEverything();
     drawTruck();
     drawGrid();
+    drawBox();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -442,6 +443,7 @@ function drawBox(){
     var boxesA = boxes;
     var boxesB = boxes;
     var boxesC = boxes;
+    var bulk = boxes;
     var spacing = 38;
     var Xspace = 9;
     console.log("Number of Boxes " + boxes);
@@ -484,6 +486,7 @@ function drawBox(){
             Row1();
             Row2();
             Row3();
+            Bulk1();
         }
 
             function Row1 (){
@@ -637,7 +640,39 @@ function drawBox(){
                 ctx.fillRect(frontTopX + 150 + (spacing * h) + (Xspace * h),frontTopY + frontHeight - 320,spacing + 5,spacing + 12); // front face
             }
         }
-
+        function Bulk1 (){
+            bulk -= 16;
+            for (var k = 0; k < bulk; k++){
+                ctx.fillStyle = "blue"; // Left side face
+                ctx.beginPath();
+                ctx.moveTo(550,600 - ( 50* k));
+                ctx.lineTo(575,550 - ( 50 * k));
+                ctx.lineTo(575,600 - ( 50* k));
+                ctx.lineTo(550,575 - ( 50* k));
+                ctx.closePath();
+                ctx.fill();
+            }
+            for (var j = 0; j < bulk; j++){
+                ctx.fillStyle = "darkblue"; // right side face
+                ctx.beginPath();
+                ctx.moveTo(600,600 - (50*j));
+                ctx.lineTo(575,625 - (50*j));
+                ctx.lineTo(575,650 - (50*j));
+                ctx.lineTo(600,650 - (50*j));
+                ctx.closePath();
+                ctx.fill();
+            }
+            for (var m = 0; m < bulk; m++){
+                ctx.fillStyle = "lightblue"; // top face
+                ctx.beginPath();
+                ctx.moveTo(575,550 - (50 * m));
+                ctx.lineTo(600,600 - (50 * m));
+                ctx.lineTo(575,650 - (50 * m));
+                ctx.lineTo(550,600 - (50 * m));
+                ctx.closePath();
+                ctx.fill();
+            }
+    }
 }
 
 function drawEverything() {
