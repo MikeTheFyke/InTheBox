@@ -94,21 +94,39 @@ function drawEverything() {
     backX4 = frontX4 + wUnit;
     backY4 = frontY4 - wUnit;
 
+//// GRID
+    //// Horizontal
+        ctx.strokeStyle = "blue"; // X center
+        ctx.beginPath();
+        ctx.moveTo(frontX4 + ((backX4 - frontX4)/2), frontY4 + ((backY4 - frontY4)/2));
+        ctx.lineTo(frontX3 - ((frontX3 - backX3)/2), frontY3 - ((frontY3 - backY3)/2));
+        ctx.closePath();
+        ctx.stroke();
+        ctx.beginPath(); // 3/4
+        ctx.moveTo(frontX4 + ((backX4 - frontX4)/4), frontY4 + ((backY4 - frontY4)/4));
+        ctx.lineTo(frontX3 - ((frontX3 - backX3)/4), frontY3 - ((frontY3 - backY3)/4));
+        ctx.closePath();
+        ctx.stroke();
+        ctx.beginPath(); // 1/4
+        ctx.moveTo(backX4 - ((backX4 - frontX4)/4), backY4 + ((frontY4 - backY4)/4));
+        ctx.lineTo(backX3 + ((frontX3 - backX3)/4), backY3 + ((frontY3 - backY3)/4));
+        ctx.closePath();
+        ctx.stroke();
+    //// Vertical Plane
+        ctx.strokeStyle = "lightblue"; // Z center
+        ctx.beginPath();
+        ctx.moveTo(frontX4 + ((backX4 - frontX4)/2), frontY4 + ((backY4 - frontY4)/2));
+        ctx.lineTo(frontX3 - ((frontX3 - backX3)/2), frontY3 - ((frontY3 - backY3)/2));
+        ctx.closePath();
+        ctx.stroke();
+////
+
     ctx.strokeStyle = "red"; // Back side face
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
     ctx.lineTo(backX2,backY2);
     ctx.lineTo(backX3,backY3);
     ctx.lineTo(backX4,backY4);
-    ctx.closePath();
-    ctx.stroke();
-
-    ctx.strokeStyle = "yellow"; // Front side face
-    ctx.beginPath();
-    ctx.moveTo(frontX1,frontY1);
-    ctx.lineTo(frontX2,frontY2);
-    ctx.lineTo(frontX3,frontY3);
-    ctx.lineTo(frontX4,frontY4);
     ctx.closePath();
     ctx.stroke();
 
@@ -129,4 +147,18 @@ function drawEverything() {
     ctx.lineTo(backX3,backY3);
     ctx.closePath();
     ctx.stroke();
+
+    ctx.strokeStyle = "yellow"; // Front side face
+    ctx.beginPath();
+    ctx.moveTo(frontX1,frontY1);
+    ctx.lineTo(frontX2,frontY2);
+    ctx.lineTo(frontX3,frontY3);
+    ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY3);
+    ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
+    ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
+    ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY4);
+    ctx.lineTo((frontX4),frontY4);
+    ctx.closePath();
+    ctx.stroke();
+    
   }
