@@ -213,4 +213,22 @@ function drawEverything() {
     ctx.closePath();
     ctx.stroke();
     }
+
+    if (document.getElementById("shelfCount").value >= 1){
+      ctx.strokeStyle = "yellow"; // Shelf back side face
+      ctx.beginPath();
+      ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*3));
+      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3));
+      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
+      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();  // Shelf Front side face
+      ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*3));
+      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3));
+      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
+      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
+      ctx.closePath();
+      ctx.stroke();
+    }
   }
