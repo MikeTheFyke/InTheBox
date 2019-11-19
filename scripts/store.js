@@ -33,6 +33,7 @@ var backY4;
 var clicked = false;
 const gridCtr = 8;
 var doors = 0;
+var shelfCtr = 0;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -213,9 +214,12 @@ function drawEverything() {
     ctx.closePath();
     ctx.stroke();
     }
+  /// Shelves
+  shelfCtr = document.getElementById("shelfCount").value;
 
-    if (document.getElementById("shelfCount").value >= 1){
-      ctx.strokeStyle = "yellow"; // Shelf back side face
+
+    if (shelfCtr >= 1){
+      ctx.strokeStyle = "red"; // Shelf back side face
       ctx.beginPath();
       ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*3));
       ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3));
@@ -223,12 +227,48 @@ function drawEverything() {
       ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
       ctx.closePath();
       ctx.stroke();
-      ctx.beginPath();  // Shelf Front side face
-      ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*3));
-      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3));
+      ctx.beginPath();  
+      ctx.strokeStyle = "yellow"; // Shelf Front side face
+      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 20);
+      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 20);
+      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
+      ctx.lineTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();  
+      ctx.strokeStyle = "orange"; // Shelf bottom side face
+      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
+      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
       ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
       ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
       ctx.closePath();
+      ctx.stroke(); 
+    } 
+    if (shelfCtr > 1){
+      ctx.strokeStyle = "red"; // Shelf back side face
+      ctx.beginPath();
+      ctx.moveTo(backX1, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2));
+      ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2));
+      ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
+      ctx.lineTo(backX4, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.beginPath();  
+      ctx.beginPath();  
+      ctx.strokeStyle = "orange"; // Shelf bottom side face
+      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
+      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
+      ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
+      ctx.lineTo(backX4, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
+      ctx.closePath();
+      ctx.stroke(); 
+      ctx.strokeStyle = "yellow"; // Shelf Front side face
+      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 50);
+      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 50);
+      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
+      ctx.lineTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
+      ctx.closePath();
       ctx.stroke();
     }
+
   }
