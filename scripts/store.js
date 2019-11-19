@@ -61,7 +61,7 @@ window.onload = function() {
 }
 
 function drawEverything() {
-    ctx.fillStyle = "grey"; // Canvas Black
+    ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
 }
 
