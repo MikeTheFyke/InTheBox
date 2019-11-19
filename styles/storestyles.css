@@ -39,29 +39,29 @@ a{
 #dimensionContainer{
     position:absolute;
     left: 2px;
-    width:180px;
-    height:180px;
+    width:136px;
+    height:187px;
     border: 5px solid rgb(146, 91, 9);
     border-radius:45px;
     background-color: rgb(218, 211, 211); 
 }
 
 #dimensionContainer h1{
+    margin-top: 17px;
     color:white;
-    font-size:15px;
+    font-size:.75em;
     text-wrap:10em;
 }
 
 #dimensionContainer input{
     background-color:white;
     color:green;
-    font-size:10px;
+    font-size:.5em;
     text-align:center;
     width: 50px;
     height:50px;
     border: 5px solid rgb(146, 91, 9);
     border-radius:45px;
-    background-color: rgb(218, 211, 211);
     border-style:inset;
     outline:none;
 }

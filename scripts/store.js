@@ -97,45 +97,25 @@ function drawEverything() {
     backY4 = frontY4 - wUnit;
 
 //// GRID
-    //// Horizontal
-        ctx.strokeStyle = "blue"; // X center
-        ctx.beginPath();
-        ctx.moveTo(frontX4 + ((backX4 - frontX4)/2), frontY4 + ((backY4 - frontY4)/2));
-        ctx.lineTo(frontX3 - ((frontX3 - backX3)/2), frontY3 - ((frontY3 - backY3)/2));
-        ctx.closePath();
-        ctx.stroke();
-        ctx.beginPath(); // 3/4
-        ctx.moveTo(frontX4 + ((backX4 - frontX4)/4), frontY4 + ((backY4 - frontY4)/4));
-        ctx.lineTo(frontX3 - ((frontX3 - backX3)/4), frontY3 - ((frontY3 - backY3)/4));
-        ctx.closePath();
-        ctx.stroke();
-        ctx.beginPath(); // 1/4
-        ctx.moveTo(backX4 - ((backX4 - frontX4)/4), backY4 + ((frontY4 - backY4)/4));
-        ctx.lineTo(backX3 + ((frontX3 - backX3)/4), backY3 + ((frontY3 - backY3)/4));
-        ctx.closePath();
-        ctx.stroke();
-    //// Vertical Plane
-        ctx.beginPath(); // Z Center
-        ctx.moveTo(frontX4 + ((frontX3 - frontX4)/2), frontY4);
-        ctx.lineTo(backX4 + ((backX3 - backX4)/2), backY4);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.beginPath(); // 1/4
-        ctx.moveTo(frontX4 + ((frontX3 - frontX4)/4), frontY4);
-        ctx.lineTo(backX4 + ((backX3 - backX4)/4), backY4);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.beginPath(); // 3/4
-        ctx.moveTo(frontX3 - ((frontX3 - frontX4)/4), frontY4);
-        ctx.lineTo(backX3 - ((backX3 - backX4)/4), backY4);
-        ctx.closePath();
-        ctx.stroke();
-    //// Back Vertical
     for (var i =1; i < 5; i++){
         // Back Wall Vertical
         ctx.strokeStyle = "darkblue"; 
         ctx.beginPath();
         ctx.moveTo(backX1 + (((backX3 - backX4)/4)*i), backY1);
+        ctx.lineTo(backX4 + (((backX3 - backX4)/4)*i), backY4);
+        ctx.closePath();
+        ctx.stroke();
+        // Roof Vertical
+        ctx.strokeStyle = "darkblue"; 
+        ctx.beginPath();
+        ctx.moveTo(backX1 + (((backX3 - backX4)/4)*i), backY1);
+        ctx.lineTo(frontX1 + (((frontX2 - frontX1)/4)*i), frontY1);
+        ctx.closePath();
+        ctx.stroke();
+        // Floor Vertical
+        ctx.strokeStyle = "darkblue"; 
+        ctx.beginPath();
+        ctx.moveTo(frontX4 + (((frontX3 - frontX4)/4)*i), frontY4);
         ctx.lineTo(backX4 + (((backX3 - backX4)/4)*i), backY4);
         ctx.closePath();
         ctx.stroke();
@@ -155,6 +135,12 @@ function drawEverything() {
         ctx.beginPath();
         ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/4)*i));
         ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/4)*i));
+        ctx.closePath();
+        ctx.stroke();
+        // Floor Horizontal
+        ctx.beginPath();
+        ctx.moveTo(frontX1 + (((backX1 - frontX1)/4)*i) , frontY4 - (((frontY4 - backY4)/4)*i));
+        ctx.lineTo(frontX3 - (((frontX3 - backX3)/4)*i) , frontY4 - (((frontY4 - backY4)/4)*i));
         ctx.closePath();
         ctx.stroke();
         // Left Wall Horizontal
