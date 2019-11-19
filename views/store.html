@@ -19,10 +19,15 @@
 
     <div id="dimensionContainer">
         <h1>LETS BUILD YOUR CLOSET</h1>
-        <input id="closetLength" type="text" placeholder="LENGTH" maxlength="2">
-        <input id="closetWidth" type="text" placeholder="WIDTH" maxlength="2">
-        <input id="closetHeight" type="text" placeholder="HEIGHT" maxlength="2">
+        <input id="closetLength" type="number" placeholder="LENGTH" max="9" min="0">
+        <input id="closetHeight" type="number" placeholder="HEIGHT"  max="9" min="0">
+        <input id="closetWidth" type="number" placeholder="WIDTH"  max="5" min="0">
         <button id="closetButton" onClick="drawCloset">Enter</button>
+    </div>
+
+    <div id="doorContainer">
+        <input id="doorCount" type="number" value="1"  max="2" min="1">
+        <h1>HOW MANY DOORS?</h1>
     </div>
 
     <div id="storageContainer">
@@ -30,5 +35,6 @@
     </div>
 
         <script src="../scripts/store.js"></script>
+        <script src="../scripts/storeLogic.js"></script>
 </body>
 </html>

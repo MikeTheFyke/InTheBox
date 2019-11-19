@@ -21,8 +21,8 @@ a{
     display:block;
     margin:auto;
     text-align: center;
-    width:1100px;
-    height:650px;
+    width:1050px;
+    height:675px;
     border: 5px solid rgb(70, 50, 20);
     border-radius:25px;
     background-color: rgb(126, 113, 113);
@@ -38,11 +38,11 @@ a{
 
 #dimensionContainer{
     position:absolute;
-    left: 2px;
+    left: 20px;
     width:136px;
     height:187px;
     border: 5px solid rgb(146, 91, 9);
-    border-radius:45px;
+    border-radius:25px;
     background-color: rgb(218, 211, 211); 
 }
 
@@ -56,18 +56,21 @@ a{
 #dimensionContainer input{
     background-color:white;
     color:green;
-    font-size:.5em;
+    font-size:20px;
     text-align:center;
     width: 50px;
     height:50px;
+    margin: 2px auto 2px auto;
     border: 5px solid rgb(146, 91, 9);
     border-radius:45px;
     border-style:inset;
     outline:none;
+    appearance: none;
 }
 
 ::-webkit-input-placeholder{
     color:green;
+    font-size:.5em;
 }
 
 #dimensionContainer button{
@@ -82,4 +85,39 @@ a{
     border: 5px solid rgb(146, 91, 9);
     border-style:inset;
     outline:none;
+}
+
+#doorContainer{
+    position:absolute;
+    left: 20px;
+    top: 245px;
+    width:136px;
+    height:70px;
+    border: 5px solid rgb(146, 91, 9);
+    border-radius:25px;
+    background-color: rgb(218, 211, 211); 
+}
+
+#doorContainer input{
+    float:left;
+    background-color:white;
+    color:green;
+    font-size:20px;
+    text-align:center;
+    width: 50px;
+    height:50px;
+    margin: 4px auto 2px auto;
+    border: 5px solid rgb(146, 91, 9);
+    border-radius:45px;
+    border-style:inset;
+    outline:none;
+    appearance: none;
+    margin-left:10px;
+}
+
+#doorContainer h1{
+    margin: 10px;
+    color:white;
+    font-size:.75em;
+    text-wrap:10em;
 }

@@ -31,7 +31,8 @@ var backX4;
 var backY4;
 
 var clicked = false;
-
+const gridCtr = 8;
+var doors = 0;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -72,7 +73,7 @@ function drawEverything() {
     cLength = document.getElementById("closetLength").value;
     cWidth = document.getElementById("closetWidth").value;
     cHeight = document.getElementById("closetHeight").value;
-    console.log ("Length - " + cLength + " Width - " + cWidth + " Height -  " + cHeight);
+    // console.log ("Length - " + cLength + " Width - " + cWidth + " Height -  " + cHeight);
 
     frontX1 = (canvasWidth/2) - ((cLength*xUnit)/2);
     frontY1 = (canvasHeight/2) - ((cHeight*hUnit)/2);
@@ -83,7 +84,7 @@ function drawEverything() {
     frontX4 = (canvasWidth/2) - ((cLength*xUnit)/2);
     frontY4 = (canvasHeight/2) + ((cHeight*hUnit)/2);
 
-    console.log ("frontX1 - " + frontX1 + " frontY1 - " + frontY1);
+    // console.log ("frontX1 - " + frontX1 + " frontY1 - " + frontY1);
 
     const wUnit = (cWidth * 30);
 
@@ -97,67 +98,65 @@ function drawEverything() {
     backY4 = frontY4 - wUnit;
 
 //// GRID
-    for (var i =1; i < 5; i++){
+    for (var i =1; i < gridCtr; i++){
         // Back Wall Vertical
         ctx.strokeStyle = "darkblue"; 
         ctx.beginPath();
-        ctx.moveTo(backX1 + (((backX3 - backX4)/4)*i), backY1);
-        ctx.lineTo(backX4 + (((backX3 - backX4)/4)*i), backY4);
+        ctx.moveTo(backX1 + (((backX3 - backX4)/gridCtr)*i), backY1);
+        ctx.lineTo(backX4 + (((backX3 - backX4)/gridCtr)*i), backY4);
         ctx.closePath();
         ctx.stroke();
         // Roof Vertical
         ctx.strokeStyle = "darkblue"; 
         ctx.beginPath();
-        ctx.moveTo(backX1 + (((backX3 - backX4)/4)*i), backY1);
-        ctx.lineTo(frontX1 + (((frontX2 - frontX1)/4)*i), frontY1);
+        ctx.moveTo(backX1 + (((backX3 - backX4)/gridCtr)*i), backY1);
+        ctx.lineTo(frontX1 + (((frontX2 - frontX1)/gridCtr)*i), frontY1);
         ctx.closePath();
         ctx.stroke();
         // Floor Vertical
         ctx.strokeStyle = "darkblue"; 
         ctx.beginPath();
-        ctx.moveTo(frontX4 + (((frontX3 - frontX4)/4)*i), frontY4);
-        ctx.lineTo(backX4 + (((backX3 - backX4)/4)*i), backY4);
+        ctx.moveTo(frontX4 + (((frontX3 - frontX4)/gridCtr)*i), frontY4);
+        ctx.lineTo(backX4 + (((backX3 - backX4)/gridCtr)*i), backY4);
         ctx.closePath();
         ctx.stroke();
         //  Left Wall Vertical
         ctx.beginPath();
-        ctx.moveTo(frontX1 + (((backX1 - frontX1)/4)*i) , frontY1 + (((backY1 - frontY1)/4)*i));
-        ctx.lineTo(frontX1 + (((backX1 - frontX1)/4)*i) , frontY4 - (((frontY4 - backY4)/4)*i));
+        ctx.moveTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY1 + (((backY1 - frontY1)/gridCtr)*i));
+        ctx.lineTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
         //  Right Wall Vertical
         ctx.beginPath();
-        ctx.moveTo(frontX3 - (((frontX3 - backX3)/4)*i) , frontY1 + (((backY1 - frontY1)/4)*i));
-        ctx.lineTo(frontX3 - (((frontX3 - backX3)/4)*i) , frontY4 - (((frontY4 - backY4)/4)*i));
+        ctx.moveTo(frontX3 - (((frontX3 - backX3)/gridCtr)*i) , frontY1 + (((backY1 - frontY1)/gridCtr)*i));
+        ctx.lineTo(frontX3 - (((frontX3 - backX3)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
         // Back Wall Horizontal
         ctx.beginPath();
-        ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/4)*i));
-        ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/4)*i));
+        ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*i));
+        ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
         // Floor Horizontal
         ctx.beginPath();
-        ctx.moveTo(frontX1 + (((backX1 - frontX1)/4)*i) , frontY4 - (((frontY4 - backY4)/4)*i));
-        ctx.lineTo(frontX3 - (((frontX3 - backX3)/4)*i) , frontY4 - (((frontY4 - backY4)/4)*i));
+        ctx.moveTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
+        ctx.lineTo(frontX3 - (((frontX3 - backX3)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
         // Left Wall Horizontal
         ctx.beginPath();
-        ctx.moveTo(frontX1, frontY1 + (((frontY4 - frontY1)/4)*i));
-        ctx.lineTo(backX1 , backY1 + (((backY4 - backY1)/4)*i));
+        ctx.moveTo(frontX1, frontY1 + (((frontY4 - frontY1)/gridCtr)*i));
+        ctx.lineTo(backX1 , backY1 + (((backY4 - backY1)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
         // Left Wall Horizontal
         ctx.beginPath();
-        ctx.moveTo(frontX2, frontY1 + (((frontY4 - frontY1)/4)*i));
-        ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/4)*i));
+        ctx.moveTo(frontX2, frontY1 + (((frontY4 - frontY1)/gridCtr)*i));
+        ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
- 
     }
-
 ////
 
     ctx.strokeStyle = "red"; // Back side face
@@ -187,17 +186,31 @@ function drawEverything() {
     ctx.closePath();
     ctx.stroke();
 
+    if (document.getElementById("doorCount").value < 2){
+      ctx.strokeStyle = "yellow"; // Front side face
+      ctx.beginPath();
+      ctx.moveTo(frontX1,frontY1);
+      ctx.lineTo(frontX2,frontY2);
+      ctx.lineTo(frontX3,frontY3);
+      ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY3);
+      ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
+      ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
+      ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY4);
+      ctx.lineTo((frontX4),frontY4);
+      ctx.closePath();
+      ctx.stroke();
+    } else {
     ctx.strokeStyle = "yellow"; // Front side face
     ctx.beginPath();
     ctx.moveTo(frontX1,frontY1);
     ctx.lineTo(frontX2,frontY2);
     ctx.lineTo(frontX3,frontY3);
-    ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY3);
-    ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
-    ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
-    ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY4);
+    ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY3);
+    ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY1 + ((cHeight*hUnit)/4));
+    ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY1 + ((cHeight*hUnit)/4));
+    ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY4);
     ctx.lineTo((frontX4),frontY4);
     ctx.closePath();
     ctx.stroke();
-    
+    }
   }
