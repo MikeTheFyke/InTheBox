@@ -139,6 +139,7 @@ function drawEverything() {
         ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*i));
         ctx.closePath();
         ctx.stroke();
+
         // Floor Horizontal
         ctx.beginPath();
         ctx.moveTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
@@ -159,7 +160,6 @@ function drawEverything() {
         ctx.stroke();
     }
 ////
-
     ctx.strokeStyle = "red"; // Back side face
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
@@ -186,7 +186,38 @@ function drawEverything() {
     ctx.lineTo(backX3,backY3);
     ctx.closePath();
     ctx.stroke();
-
+//// Grid Texts
+    //// Length
+    if (document.getElementById("closetLength").value > 0){
+      ctx.strokeStyle = "red";
+      ctx.font = "30px Comic Sans MS"; // Length text 
+      ctx.strokeText("LENGTH : ", backX4 + 5, backY4 - 5);
+    } else{
+      ctx.strokeStyle = "transparent";
+      ctx.font = "30px Comic Sans MS"; // Length text 
+      ctx.strokeText("LENGTH : ", backX4 + 5, backY4 - 5); 
+    }
+    //// Height
+    if (document.getElementById("closetHeight").value > 0){
+      ctx.strokeStyle = "orange";
+      ctx.font = "30px Comic Sans MS"; // Length text 
+      ctx.strokeText("HEIGHT : ", backX1 + 5, backY1 + 30);
+    } else{
+      ctx.strokeStyle = "transparent";
+      ctx.font = "30px Comic Sans MS"; // Length text 
+      ctx.strokeText("HEIGHT : ", backX1 + 5, backY1 + 30); 
+    }
+    //// Width
+    if (document.getElementById("closetWidth").value > 0){
+      ctx.strokeStyle = "yellow";
+      ctx.font = "30px Comic Sans MS"; // Length text 
+      ctx.strokeText("WIDTH : ", frontX1 + 35, frontY1 + 35);
+    } else{
+      ctx.strokeStyle = "transparent";
+      ctx.font = "30px Comic Sans MS"; // Length text 
+      ctx.strokeText("WIDTH : ", frontX1 + 35, frontY1 + 35); 
+    }
+////
     if (document.getElementById("doorCount").value < 2){
       ctx.strokeStyle = "yellow"; // Front side face
       ctx.beginPath();
@@ -252,10 +283,9 @@ function drawEverything() {
       ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
       ctx.lineTo(backX4, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
       ctx.closePath();
-      ctx.stroke();
-      ctx.beginPath();  
-      ctx.beginPath();  
+      ctx.stroke();  
       ctx.strokeStyle = "orange"; // Shelf bottom side face
+      ctx.beginPath(); 
       ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
       ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
       ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
