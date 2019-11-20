@@ -50,6 +50,7 @@ window.onload = function() {
     setInterval(function() {
     drawEverything();
     drawCloset();
+    drawBox();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove

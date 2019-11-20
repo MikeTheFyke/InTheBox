@@ -1,31 +1,54 @@
 var canvas02 = document.getElementById('storageCanvas');
 var ct = canvas02.getContext('2d');
-var framesPerSecond = 30;
 
-var Xcord02 = 0;
-var Ycord02 = 0;
-const canvasWidth02 = 1000;
-const canvasHeight02 = 600;
-
-var box01X1;
-var box01Y1;
-var box01X2;
-var box01Y2;
-var box01X3;
-var box01Y3;
-var box01X4;
-var box01Y4;
 
   function drawBox(){
+//// Box 01
+    var box01X1 = backX4;
+    var box01Y1 = backY4 - ((backY4 - backY1)/4);
+    
+    var box01X2 = backX1 + ((backX2 - backX1)/4);
+    var box01Y2 = backY4 - ((backY4 - backY1)/4);
+    
+    var box01X3 = backX1 + ((backX2 - backX1)/4);
+    var box01Y3 = backY4;
+    
+    var box01X4 = backX4;
+    var box01Y4 = backY4;
 
-    ct.strokeStyle = "orange"; // Right side face
-    ct.beginPath();
-    ct.moveTo(100 , 100);
-    ct.lineTo(150 , 100);
-    ct.lineTo(150, 150);
-    ct.lineTo(100, 150);
-    ct.closePath();
-    ct.stroke();
+//// Box 02
+    var box02X1 = backX1 - ((backX1 - frontX1)/4);
+    var box02Y1 = frontY4 - (((frontY4 - frontY1)/4)+30);
 
+    var box02X2 = (box02X1 + ((frontX2 - frontX1)/4));
+    var box02Y2 = box02Y1;
 
+    var box02X3 = (box02X1 + ((frontX2 - frontX1)/4));
+    var box02Y3 = box02Y1 + 95;
+
+    var box02X4 = box02X1;
+    var box02Y4 = box02Y1 + 95;
+////
+    var boxCtr = document.getElementById("boxCount").value;
+
+    if (document.getElementById("boxCount").value > 0){
+        for (var i = 0; i < boxCtr; i ++){
+            ct.strokeStyle = "orange"; // back side face
+            ct.beginPath();
+            ct.moveTo(box01X1 + (((backX2 - backX1)/4) * i) , box01Y1);
+            ct.lineTo(box01X2 + (((backX2 - backX1)/4) * i) , box01Y2);
+            ct.lineTo(box01X3 + (((backX2 - backX1)/4) * i) , box01Y3);
+            ct.lineTo(box01X4 + (((backX2 - backX1)/4) * i) , box01Y4);
+            ct.closePath();
+            ct.stroke();
+            ct.strokeStyle = "orange"; // front side face
+            ct.beginPath();
+            ct.moveTo((box02X1 + (((frontX2 - frontX1)/4) * i)-35) , box02Y1);
+            ct.lineTo((box02X2 + (((frontX2 - frontX1)/4) * i)-35) , box02Y2);
+            ct.lineTo((box02X3 + (((frontX2 - frontX1)/4) * i)-35) , box02Y3);
+            ct.lineTo((box02X4 + (((frontX2 - frontX1)/4) * i)-35) , box02Y4);
+            ct.closePath();
+            ct.stroke();
+        }
+    }
 }
