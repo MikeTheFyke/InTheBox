@@ -49,7 +49,6 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-      
     drawCloset();
     drawBox();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
@@ -70,26 +69,25 @@ function drawEverything() {
 }
 
   function drawCloset(){
-    const hUnit = 60;
-    const xUnit = 100;
-    
-    cLength = document.getElementById("closetLength").value;
-    cWidth = document.getElementById("closetWidth").value;
+    const yUnit = 60;  /// Defining a foot -> pixel scale - Y meaning Height scale
+    const xUnit = 100; /// Defining a foot -> pixel scale - X meaning Length scale
+
+    cLength = document.getElementById("closetLength").value; /// Receiving Closet Dimensions
+    cWidth = document.getElementById("closetWidth").value; /// as whole numbers... hopefully.
     cHeight = document.getElementById("closetHeight").value;
-    // console.log ("Length - " + cLength + " Width - " + cWidth + " Height -  " + cHeight);
 
-    frontX1 = (canvasWidth/2) - ((cLength*xUnit)/2);
-    frontY1 = (canvasHeight/2) - ((cHeight*hUnit)/2);
-    frontX2 = (canvasWidth/2) + ((cLength*xUnit)/2);
-    frontY2 = (canvasHeight/2) - ((cHeight*hUnit)/2);
+    /// Defining front face of storage face co-ordinates. 
+    frontX1 = (canvasWidth/2) - ((cLength*xUnit)/2);  /// converted to a pixel scale
+    frontY1 = (canvasHeight/2) - ((cHeight*yUnit)/2); /// ie: 7 = 420px (7 X yUnit(60))
+    frontX2 = (canvasWidth/2) + ((cLength*xUnit)/2);  /// ie: 7 = 700px (7 X xUnit(100))
+    frontY2 = (canvasHeight/2) - ((cHeight*yUnit)/2);
     frontX3 = (canvasWidth/2) + ((cLength*xUnit)/2);
-    frontY3 = (canvasHeight/2) + ((cHeight*hUnit)/2);
+    frontY3 = (canvasHeight/2) + ((cHeight*yUnit)/2);
     frontX4 = (canvasWidth/2) - ((cLength*xUnit)/2);
-    frontY4 = (canvasHeight/2) + ((cHeight*hUnit)/2);
+    frontY4 = (canvasHeight/2) + ((cHeight*yUnit)/2);
 
-    // console.log ("frontX1 - " + frontX1 + " frontY1 - " + frontY1);
-
-    const wUnit = (cWidth * 30);
+    /// Defining back face of storage face co-ordinates. 
+    const wUnit = (cWidth * 30); /// Defining a foot -> pixel scale - W meaning Width scale
 
     backX1 = frontX1 + wUnit;
     backY1 = frontY1 + wUnit;
@@ -100,66 +98,54 @@ function drawEverything() {
     backX4 = frontX4 + wUnit;
     backY4 = frontY4 - wUnit;
 
-    drawGrid();
-
-    ctx.strokeStyle = "red"; // Back side face
+    ctx.fillStyle = "red"; // Back side face
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
     ctx.lineTo(backX2,backY2);
     ctx.lineTo(backX3,backY3);
     ctx.lineTo(backX4,backY4);
     ctx.closePath();
-    ctx.stroke();
+    ctx.fill();
 
-    ctx.strokeStyle = "orange"; // Left side face
+    ctx.fillStyle = "orange"; // Left side face
     ctx.beginPath();
     ctx.moveTo(frontX1,frontY1);
     ctx.lineTo(backX1,backY1);
     ctx.lineTo(backX4,backY4);
     ctx.lineTo(frontX4,frontY4);
     ctx.closePath();
-    ctx.stroke();
+    ctx.fill();
 
-    ctx.strokeStyle = "orange"; // Right side face
+    ctx.fillStyle = "orange"; // Right side face
     ctx.beginPath();
     ctx.moveTo(backX2,backY1);
     ctx.lineTo(frontX2,frontY2);
     ctx.lineTo(frontX3,frontY3);
     ctx.lineTo(backX3,backY3);
     ctx.closePath();
-    ctx.stroke();
-//// Grid Texts
-    //// Length
-    if (document.getElementById("closetLength").value > 0){
-      ctx.strokeStyle = "red";
-      ctx.font = "30px Comic Sans MS"; // Length text 
-      ctx.strokeText("LENGTH : ", backX4 + 5, backY4 - 5);
-    } else{
-      ctx.strokeStyle = "transparent";
-      ctx.font = "30px Comic Sans MS"; // Length text 
-      ctx.strokeText("LENGTH : ", backX4 + 5, backY4 - 5); 
-    }
-    //// Height
-    if (document.getElementById("closetHeight").value > 0){
-      ctx.strokeStyle = "orange";
-      ctx.font = "30px Comic Sans MS"; // Length text 
-      ctx.strokeText("HEIGHT : ", backX1 + 5, backY1 + 30);
-    } else{
-      ctx.strokeStyle = "transparent";
-      ctx.font = "30px Comic Sans MS"; // Length text 
-      ctx.strokeText("HEIGHT : ", backX1 + 5, backY1 + 30); 
-    }
-    //// Width
-    if (document.getElementById("closetWidth").value > 0){
-      ctx.strokeStyle = "yellow";
-      ctx.font = "30px Comic Sans MS"; // Length text 
-      ctx.strokeText("WIDTH : ", frontX1 + 35, frontY1 + 35);
-    } else{
-      ctx.strokeStyle = "transparent";
-      ctx.font = "30px Comic Sans MS"; // Length text 
-      ctx.strokeText("WIDTH : ", frontX1 + 35, frontY1 + 35); 
-    }
-////
+    ctx.fill();
+
+    ctx.fillStyle = "darkred"; // Roof face
+    ctx.beginPath();
+    ctx.moveTo(frontX1,frontY1);
+    ctx.lineTo(frontX2,frontY2);
+    ctx.lineTo(backX2,backY2);
+    ctx.lineTo(backX1,backY1);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "darkred"; // Floor face
+    ctx.beginPath();
+    ctx.moveTo(backX4,backY4);
+    ctx.lineTo(backX3,backY3);
+    ctx.lineTo(frontX3,frontY3);
+    ctx.lineTo(frontX4,frontY4);
+    ctx.closePath();
+    ctx.fill();
+
+  drawGrid();
+
+    //// Front Side Face & Door Logic
     if (document.getElementById("doorCount").value < 2){
       ctx.strokeStyle = "yellow"; // Front side face
       ctx.beginPath();
@@ -167,80 +153,51 @@ function drawEverything() {
       ctx.lineTo(frontX2,frontY2);
       ctx.lineTo(frontX3,frontY3);
       ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY3);
-      ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
-      ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY1 + ((cHeight*hUnit)/4));
+      ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY1 + ((cHeight*yUnit)/4));
+      ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY1 + ((cHeight*yUnit)/4));
       ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY4);
       ctx.lineTo((frontX4),frontY4);
       ctx.closePath();
       ctx.stroke();
     } else {
-    ctx.strokeStyle = "yellow"; // Front side face
-    ctx.beginPath();
-    ctx.moveTo(frontX1,frontY1);
-    ctx.lineTo(frontX2,frontY2);
-    ctx.lineTo(frontX3,frontY3);
-    ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY3);
-    ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY1 + ((cHeight*hUnit)/4));
-    ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY1 + ((cHeight*hUnit)/4));
-    ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY4);
-    ctx.lineTo((frontX4),frontY4);
-    ctx.closePath();
-    ctx.stroke();
-    }
-  /// Shelves
-  shelfCtr = document.getElementById("shelfCount").value;
-
-
-    if (shelfCtr >= 1){
-      ctx.strokeStyle = "red"; // Shelf back side face
+      ctx.strokeStyle = "yellow"; // Front side face
       ctx.beginPath();
-      ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*3));
-      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3));
-      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
-      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
+      ctx.moveTo(frontX1,frontY1);
+      ctx.lineTo(frontX2,frontY2);
+      ctx.lineTo(frontX3,frontY3);
+      ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY3);
+      ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY1 + ((cHeight*yUnit)/4));
+      ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY1 + ((cHeight*yUnit)/4));
+      ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY4);
+      ctx.lineTo((frontX4),frontY4);
       ctx.closePath();
       ctx.stroke();
-      ctx.beginPath();  
-      ctx.strokeStyle = "yellow"; // Shelf Front side face
-      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 20);
-      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 20);
-      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
-      ctx.lineTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
+    }
+  
+    //// Shelf Logic
+    shelfCtr = document.getElementById("shelfCount").value;
+    var shelfFrontX1 = frontX1 + ((backX1 - frontX1)/cWidth);
+    var shelfFrontY1 = frontY1 + ((frontY4 - frontY1)/cHeight);
+    console.log("Shelf  X1 : "+ shelfFrontX1 + "  Y1 : "+shelfFrontY1);
+
+    for (var i2 = 0; i2 < shelfCtr; i2++){
+      ctx.strokeStyle = "blue"; // Shelf back side face 01
+      ctx.beginPath();
+      ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
+      ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
+      ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
       ctx.closePath();
       ctx.stroke();
-      ctx.beginPath();  
-      ctx.strokeStyle = "orange"; // Shelf bottom side face
-      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
-      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + (((frontY4 - frontY1)/gridCtr)*3) + 25);
-      ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
-      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/gridCtr)*3) + 10);
+
+      ctx.beginPath();
+      ctx.moveTo( (frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
+      ctx.lineTo( (frontX2 - (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY2 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
+      ctx.lineTo( (frontX2 - (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY2 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
+      ctx.lineTo( (frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
       ctx.closePath();
-      ctx.stroke(); 
+      ctx.stroke();
+
     } 
-    if (shelfCtr > 1){
-      ctx.strokeStyle = "red"; // Shelf back side face
-      ctx.beginPath();
-      ctx.moveTo(backX1, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2));
-      ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2));
-      ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
-      ctx.lineTo(backX4, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
-      ctx.closePath();
-      ctx.stroke();  
-      ctx.strokeStyle = "orange"; // Shelf bottom side face
-      ctx.beginPath(); 
-      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
-      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
-      ctx.lineTo(backX2 , backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
-      ctx.lineTo(backX4, backY1 + ((((backY4 - backY1)/gridCtr)*3)/2) + 10);
-      ctx.closePath();
-      ctx.stroke(); 
-      ctx.strokeStyle = "yellow"; // Shelf Front side face
-      ctx.moveTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 50);
-      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 50);
-      ctx.lineTo(frontX3 - ((((frontX3 - backX3)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
-      ctx.lineTo(frontX1 + ((((backX1 - frontX1)/gridCtr)*3)*2) ,  frontY1 + ((((frontY4 - frontY1)/gridCtr)*3)/2) + 55);
-      ctx.closePath();
-      ctx.stroke();
-    }
 
   }

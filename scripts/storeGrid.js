@@ -72,7 +72,6 @@ function drawGrid (){
         ctx.moveTo( (frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*m)) , frontY1 + (((frontY4 - backY4)/document.getElementById("closetWidth").value)*m));
         ctx.lineTo( (frontX3 - (((frontX3 - backX3)/document.getElementById("closetWidth").value)*m)) , frontY1 + (((frontY4 - backY4)/document.getElementById("closetWidth").value)*m));
         //  Right Wall Vertical
-        ctx.beginPath();
         ctx.lineTo( (frontX3 - (((frontX3 - backX3)/document.getElementById("closetWidth").value)*m)) , frontY1 + (((backY1 - frontY1)/document.getElementById("closetWidth").value)*m));
         ctx.lineTo( (frontX3 - (((frontX3 - backX3)/document.getElementById("closetWidth").value)*m)) , frontY4 - (((frontY4 - backY4)/document.getElementById("closetWidth").value)*m));
         // Floor Horizontal
