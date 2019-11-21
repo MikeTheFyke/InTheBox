@@ -49,7 +49,7 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-
+      
     drawCloset();
     drawBox();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
