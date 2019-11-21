@@ -49,6 +49,7 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
+
     drawCloset();
     drawBox();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
@@ -99,68 +100,8 @@ function drawEverything() {
     backX4 = frontX4 + wUnit;
     backY4 = frontY4 - wUnit;
 
-//// GRID
-    for (var i =1; i < gridCtr; i++){
-        // Back Wall Vertical
-        ctx.strokeStyle = "darkblue"; 
-        ctx.beginPath();
-        ctx.moveTo(backX1 + (((backX3 - backX4)/gridCtr)*i), backY1);
-        ctx.lineTo(backX4 + (((backX3 - backX4)/gridCtr)*i), backY4);
-        ctx.closePath();
-        ctx.stroke();
-        // Roof Vertical
-        ctx.strokeStyle = "darkblue"; 
-        ctx.beginPath();
-        ctx.moveTo(backX1 + (((backX3 - backX4)/gridCtr)*i), backY1);
-        ctx.lineTo(frontX1 + (((frontX2 - frontX1)/gridCtr)*i), frontY1);
-        ctx.closePath();
-        ctx.stroke();
-        // Floor Vertical
-        ctx.strokeStyle = "darkblue"; 
-        ctx.beginPath();
-        ctx.moveTo(frontX4 + (((frontX3 - frontX4)/gridCtr)*i), frontY4);
-        ctx.lineTo(backX4 + (((backX3 - backX4)/gridCtr)*i), backY4);
-        ctx.closePath();
-        ctx.stroke();
-        //  Left Wall Vertical
-        ctx.beginPath();
-        ctx.moveTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY1 + (((backY1 - frontY1)/gridCtr)*i));
-        ctx.lineTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
-        ctx.closePath();
-        ctx.stroke();
-        //  Right Wall Vertical
-        ctx.beginPath();
-        ctx.moveTo(frontX3 - (((frontX3 - backX3)/gridCtr)*i) , frontY1 + (((backY1 - frontY1)/gridCtr)*i));
-        ctx.lineTo(frontX3 - (((frontX3 - backX3)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
-        ctx.closePath();
-        ctx.stroke();
-        // Back Wall Horizontal
-        ctx.beginPath();
-        ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/gridCtr)*i));
-        ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*i));
-        ctx.closePath();
-        ctx.stroke();
+    drawGrid();
 
-        // Floor Horizontal
-        ctx.beginPath();
-        ctx.moveTo(frontX1 + (((backX1 - frontX1)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
-        ctx.lineTo(frontX3 - (((frontX3 - backX3)/gridCtr)*i) , frontY4 - (((frontY4 - backY4)/gridCtr)*i));
-        ctx.closePath();
-        ctx.stroke();
-        // Left Wall Horizontal
-        ctx.beginPath();
-        ctx.moveTo(frontX1, frontY1 + (((frontY4 - frontY1)/gridCtr)*i));
-        ctx.lineTo(backX1 , backY1 + (((backY4 - backY1)/gridCtr)*i));
-        ctx.closePath();
-        ctx.stroke();
-        // Left Wall Horizontal
-        ctx.beginPath();
-        ctx.moveTo(frontX2, frontY1 + (((frontY4 - frontY1)/gridCtr)*i));
-        ctx.lineTo(backX2 , backY1 + (((backY4 - backY1)/gridCtr)*i));
-        ctx.closePath();
-        ctx.stroke();
-    }
-////
     ctx.strokeStyle = "red"; // Back side face
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
