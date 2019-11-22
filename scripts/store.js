@@ -176,8 +176,11 @@ function drawEverything() {
   
     //// Shelf Logic
     shelfCtr = document.getElementById("shelfCount").value;
-    var shelfFrontX1 = frontX1 + ((backX1 - frontX1)/cWidth);
-    var shelfFrontY1 = frontY1 + ((frontY4 - frontY1)/cHeight);
+    var shelfFrontX1 = frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2);
+    var shelfFrontY1 = frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) + 20;
+    var shelfFrontX2 = frontX2 - (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2);
+    var shelfFrontY2 = frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) + 30;
+
     console.log("Shelf  X1 : "+ shelfFrontX1 + "  Y1 : "+shelfFrontY1);
 
     for (var i2 = 0; i2 < shelfCtr; i2++){
@@ -191,10 +194,10 @@ function drawEverything() {
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.moveTo( (frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
-      ctx.lineTo( (frontX2 - (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY2 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
-      ctx.lineTo( (frontX2 - (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY2 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
-      ctx.lineTo( (frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2)) , frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (canvas.Height - frontY4) );
+      ctx.moveTo( shelfFrontX1, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+      ctx.lineTo( shelfFrontX2, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+      ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+      ctx.lineTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.closePath();
       ctx.stroke();
 
