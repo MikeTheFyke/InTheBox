@@ -1,0 +1,48 @@
+body{
+    background-color:black;
+}
+
+#indexNav{
+    position: absolute;
+    top: 10px;
+    left: 45%;
+    margin: auto;
+    text-align: center;
+    width: 175px;
+    height: 275px;
+    background-color:black;
+    border: 5px solid grey;
+    border-radius:25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    padding:0px;
+}
+
+a{
+    width: 20px;
+    margin:auto;
+    text-align: center;
+    font-size:30px;
+    color:white;
+    text-decoration: none;
+}
+
+ul{
+    padding:0px 20px;
+}
+
+#canvasContainer{
+    text-align:center;
+    margin: 30px auto;
+    border: 5px solid grey;
+    border-radius:25px;
+    width:1000px;
+    height:600px;
+}
+
+#indexCanvas{
+    display:inline-block;
+    border-radius:25px;
+}

@@ -176,9 +176,11 @@ function drawEverything() {
   
     //// Shelf Logic
     shelfCtr = document.getElementById("shelfCount").value;
-    var shelfFrontX1 = frontX1 + (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2);
+    var closetShelfWidth = document.getElementById("closetWidth").value;
+
+    var shelfFrontX1 = frontX1 + (((backX1 - frontX1)/closetShelfWidth)*2);
     var shelfFrontY1 = frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) + 20;
-    var shelfFrontX2 = frontX2 - (((backX1 - frontX1)/document.getElementById("closetWidth").value)*2);
+    var shelfFrontX2 = frontX2 - (((backX1 - frontX1)/closetShelfWidth)*2);
     var shelfFrontY2 = frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) + 30;
 
     console.log("Shelf  X1 : "+ shelfFrontX1 + "  Y1 : "+shelfFrontY1);
@@ -193,14 +195,13 @@ function drawEverything() {
       ctx.closePath();
       ctx.stroke();
 
-      ctx.beginPath();
+      ctx.beginPath(); // Shelf Front side face
       ctx.moveTo( shelfFrontX1, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.lineTo( shelfFrontX2, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.lineTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.closePath();
       ctx.stroke();
-
     } 
 
   }
