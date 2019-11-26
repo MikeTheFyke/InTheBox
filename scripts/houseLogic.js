@@ -7,7 +7,7 @@ var Ycord = 0;
 var topYCorner;
 var topXCorner;
 const Xwidth = 700;
-const Yheight = 400;
+const Yheight = 300;
 
 var backX1 = canvas.width/2 - 200;
 var backY1 = canvas.height/2 + 50;
@@ -33,28 +33,29 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        topYCorner = mousePos.y-(Yheight/2);
-        topXCorner = mousePos.x-(Xwidth/2);
+        topYCorner = (mousePos.y-(Yheight/2) );
+        topXCorner = (mousePos.x-(Xwidth/2) );
        });
 }
 
 function drawEverything() {
-    ctx.fillStyle = 'rgb(197, 215, 221)'; // Canvas Black
+    ctx.fillStyle = 'rgb(197, 215, 221)'; // Canvas Clear
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
-            if (topYCorner <= 70){ // Top Boundry
-                topYCorner = 70 ;}
-            if (topYCorner >= 155){ // Bottom Boundry
-                topYCorner = 155 ;} 
-                
-            if (topXCorner >= 130){ // Right Boundry
-                topXCorner = 130 ;}
-            if (topXCorner <= 90){ // Left Boundry
-                topXCorner = 90 ;}
-/// Perspective Lines
-    ctx.strokeStyle = "grey";
+        if (topYCorner <= 110){ // Top Boundry
+            topYCorner = 110 ;}
+        if (topYCorner >= 255){ // Bottom Boundry
+            topYCorner = 255 ;} 
+            
+        if (topXCorner >= 130){ // Right Boundry
+            topXCorner = 130 ;}
+        if (topXCorner <= 90){ // Left Boundry
+            topXCorner = 90 ;}
+
+/// House Frame
+    ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
-    
+
     ctx.beginPath(); // Top Left Line
     ctx.moveTo(topXCorner,topYCorner);
     ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 100); // Peak
@@ -63,6 +64,11 @@ function drawEverything() {
     ctx.lineTo(topXCorner,topYCorner + Yheight);
     ctx.lineTo(topXCorner,topYCorner);
     ctx.stroke();
+
+/// Perspective Lines
+
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
 
     ctx.beginPath(); // Top Left Line
     ctx.moveTo(0,0);
@@ -84,62 +90,11 @@ function drawEverything() {
     ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     ctx.stroke();
 
-/// Back Walls
-    ctx.strokeStyle = "grey";
-    ctx.lineWidth = 2;
-    // Ground Floor Left Front // Back Wall
-    ctx.beginPath();
-    ctx.moveTo(backX1,backY1);
-    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1);
-    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1 + 100);
-    ctx.lineTo(backX1,backY1 + 100);
-    ctx.lineTo(backX1,backY1);
-    ctx.stroke();
-    // Ground Floor Left Front // left Wall
-    ctx.beginPath();
-    ctx.moveTo(backX1,backY1);
-    ctx.lineTo(topXCorner + 10,topYCorner + ((Yheight/2) - 10));
-    ctx.lineTo(topXCorner + 10,topYCorner + Yheight - 10);
-    ctx.lineTo(backX1,backY1 + 100);
-    ctx.lineTo(backX1,backY1);
-    ctx.stroke();
-    // Ground Floor Left Front // right Wall
-    ctx.beginPath();
-    ctx.moveTo(backX1 + ((Xwidth/2) - 150),backY1);
-    ctx.lineTo(topXCorner + ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
-    ctx.lineTo(topXCorner + ((Xwidth/2)-10),topYCorner + Yheight - 10);
-    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1 + 100);
-    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1);
-    ctx.stroke();
-
-        // Ground Floor right Front // Back Wall
-        ctx.beginPath();
-        ctx.moveTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1);
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1 + 100);
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1 + 100);
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
-        ctx.stroke();
-        // Ground Floor right Front // right Wall
-        ctx.beginPath();
-        ctx.moveTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 10));
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1);
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1 + 100);
-        ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight - 10);
-        ctx.stroke();
-        // Ground Floor right Front // left Wall
-        ctx.beginPath();
-        ctx.moveTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
-        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1 + 100);
-        ctx.lineTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + Yheight - 10);
-        ctx.stroke();
-
     drawRooms();
 }
 
 function drawRooms(){
-    ctx.strokeStyle = "grey";
+    ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
 /// Ground Floor
     ctx.beginPath(); // Ground Floor Left Front
@@ -181,5 +136,136 @@ function drawRooms(){
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 20));
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + 10);
     ctx.stroke();
+/// Attic
+    ctx.beginPath(); // Top Left Line
+    ctx.moveTo(topXCorner + 30,topYCorner);
+    ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 90); // Peak
+    ctx.lineTo(topXCorner + Xwidth - 30,topYCorner);
+    ctx.lineTo(topXCorner + 30,topYCorner);
+    ctx.stroke();
 
+    drawBackWalls ();
+
+}
+
+function drawBackWalls (){
+    ctx.strokeStyle = "grey";
+    ctx.lineWidth = 1;
+/// Ground Floor Left
+    // Back Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1,backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1 + 100);
+    ctx.lineTo(backX1,backY1 + 100);
+    ctx.lineTo(backX1,backY1);
+    ctx.stroke();
+    // Left Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1,backY1);
+    ctx.lineTo(topXCorner + 10,topYCorner + ((Yheight/2) - 10));
+    ctx.lineTo(topXCorner + 10,topYCorner + Yheight - 10);
+    ctx.lineTo(backX1,backY1 + 100);
+    ctx.lineTo(backX1,backY1);
+    ctx.stroke();
+    // Right Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1 + ((Xwidth/2) - 150),backY1);
+    ctx.lineTo(topXCorner + ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
+    ctx.lineTo(topXCorner + ((Xwidth/2)-10),topYCorner + Yheight - 10);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1 + 100);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1);
+    ctx.stroke();
+/// Ground Floor Right
+    // Back Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1 + 100);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1 + 100);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
+    ctx.stroke();
+    // Right Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 10));
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1 + 100);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight - 10);
+    ctx.stroke();
+    // Left Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1 + 100);
+    ctx.lineTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + Yheight - 10);
+    ctx.stroke();
+/// 2nd Floor Left 
+    // Back Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1,backY1 - 100 );
+    ctx.lineTo(backX1 + ((Xwidth/2) - 210),backY1  - 100 );
+    ctx.lineTo(backX1 + ((Xwidth/2) - 210),backY1  - 10);
+    ctx.lineTo(backX1,backY1  - 10);
+    ctx.lineTo(backX1,backY1 - 100 );
+    ctx.stroke();
+    // left Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + 10, topYCorner + 10);
+    ctx.lineTo(backX1,backY1 - 100 );
+    ctx.lineTo(backX1,backY1  - 10);
+    ctx.lineTo(topXCorner + 10, topYCorner + ((Yheight/2) - 20));
+    ctx.stroke();
+    // right Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + ((Xwidth/3) + 50) - 10,topYCorner + 10);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 210),backY1  - 100 );
+    ctx.lineTo(backX1 + ((Xwidth/2) - 210),backY1  - 10);
+    ctx.lineTo(topXCorner + ((Xwidth/3) + 50) - 10,topYCorner + ((Yheight/2) - 20));
+    ctx.stroke();
+/// 2nd Floor Right 
+    // Back Wall
+    ctx.beginPath();
+    ctx.moveTo( (backX1 + (Xwidth/2)) - 70 ,backY1  - 100 );
+    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 100 );
+    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 10);
+    ctx.lineTo( (backX1 + (Xwidth/2)) - 70 ,backY1  - 10 );
+    ctx.lineTo( (backX1 + (Xwidth/2)) - 70 ,backY1  - 100 );
+    ctx.stroke();
+    // left Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + Xwidth - ((Xwidth/3)+50) + 10,topYCorner + 10);
+    ctx.lineTo( (backX1 + (Xwidth/2)) - 70 ,backY1  - 100 );
+    ctx.lineTo( (backX1 + (Xwidth/2)) - 70 ,backY1  - 10 );
+    ctx.lineTo(topXCorner + Xwidth - ((Xwidth/3)+50) + 10,topYCorner + ((Yheight/2) - 20));   
+    ctx.stroke();
+    // right Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + Xwidth - 10, topYCorner + 10); //
+    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 100 );
+    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 10);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 20));
+    ctx.stroke();
+/// 2nd Floor Middle 
+    // Back Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1 + 150,backY1 - 100 );
+    ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 100 );
+    ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 10);
+    ctx.lineTo(backX1 + 150,backY1  - 10);
+    ctx.lineTo(backX1 + 150,backY1 - 100 );
+    ctx.stroke();
+    // left Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + ((Xwidth/3) + 50),topYCorner + 10);
+    ctx.lineTo(backX1 + 150,backY1 - 100 );
+    ctx.lineTo(backX1 + 150,backY1  - 10);
+    ctx.lineTo(topXCorner + ((Xwidth/3) + 50), topYCorner + ((Yheight/2) - 20));
+    ctx.stroke();
+    // right Wall
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + Xwidth - ((Xwidth/3)+50),topYCorner + 10);
+    ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 100 );
+    ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 10);
+    ctx.lineTo(topXCorner + Xwidth - ((Xwidth/3)+50),topYCorner + ((Yheight/2) - 20));
+    ctx.stroke();
 }
