@@ -268,4 +268,27 @@ function drawBackWalls (){
     ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 10);
     ctx.lineTo(topXCorner + Xwidth - ((Xwidth/3)+50),topYCorner + ((Yheight/2) - 20));
     ctx.stroke();
+/// Attic
+    ctx.beginPath(); // Back Wall
+    ctx.moveTo( backX1,backY1 - 110 );
+    ctx.lineTo(backX1 + ((Xwidth - backX1)/2) - 15,backY1 - 175);
+    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 110 );
+    ctx.lineTo( backX1,backY1 - 110 );
+    ctx.stroke();
+
+    ctx.beginPath(); // Right Side
+    ctx.moveTo(topXCorner + (Xwidth/2),topYCorner - 90);
+    ctx.lineTo(backX1 + ((Xwidth - backX1)/2) - 15,backY1 - 175);
+    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 110 );
+    ctx.lineTo(topXCorner + Xwidth - 30,topYCorner);
+    ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 90);
+    ctx.stroke();
+
+    ctx.beginPath(); // Left Side
+    ctx.moveTo( topXCorner + (Xwidth/2),topYCorner - 90);
+    ctx.lineTo( backX1 + ((Xwidth - backX1)/2) - 15,backY1 - 175);
+    ctx.lineTo( backX1,backY1 - 110 );
+    ctx.lineTo( topXCorner + 30,topYCorner);
+    ctx.lineTo( topXCorner + (Xwidth/2),topYCorner - 90);
+    ctx.stroke();
 }
