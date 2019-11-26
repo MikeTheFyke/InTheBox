@@ -33,7 +33,7 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        topYCorner = (mousePos.y-(Yheight/2) );
+        topYCorner = (mousePos.y-(Yheight/2) - 50);
         topXCorner = (mousePos.x-(Xwidth/2) );
        });
 }
@@ -81,15 +81,17 @@ function drawEverything() {
     ctx.stroke();
 
     ctx.beginPath(); // Bottom Leftt Line
-    ctx.moveTo(0,600);
+    ctx.moveTo(0,650);
     ctx.lineTo(topXCorner,topYCorner + Yheight);
     ctx.stroke();
 
     ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(900,600);
+    ctx.moveTo(900,650);
     ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     ctx.stroke();
 
+    drawBasement ();
+    drawBackWalls ();
     drawRooms();
 }
 
@@ -143,14 +145,9 @@ function drawRooms(){
     ctx.lineTo(topXCorner + Xwidth - 30,topYCorner);
     ctx.lineTo(topXCorner + 30,topYCorner);
     ctx.stroke();
-
-    drawBackWalls ();
-
 }
 
 function drawBackWalls (){
-    ctx.strokeStyle = "grey";
-    ctx.lineWidth = 1;
 /// Ground Floor Left
     // Back Wall
     ctx.beginPath();
@@ -290,5 +287,57 @@ function drawBackWalls (){
     ctx.lineTo( backX1,backY1 - 110 );
     ctx.lineTo( topXCorner + 30,topYCorner);
     ctx.lineTo( topXCorner + (Xwidth/2),topYCorner - 90);
+    ctx.stroke();
+}
+
+function drawBasement(){
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1;
+    // Back Wall
+    ctx.fillStyle = '#465353';
+    ctx.beginPath();
+    ctx.moveTo(backX1,backY1 + 110);
+    ctx.lineTo(backX1 + 450,backY1 + 110);
+    ctx.lineTo(backX1 + 450,backY1 + 200);
+    ctx.lineTo(backX1,backY1 + 200);
+    ctx.lineTo(backX1,backY1 + 110);
+    ctx.stroke();
+    ctx.fill();
+    // Left Wall
+    ctx.fillStyle = '#758a8a'
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
+    ctx.lineTo(backX1,backY1 + 110);
+    ctx.lineTo(backX1,backY1 + 200);
+    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
+    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 10);
+    ctx.fill();
+    // Right Wall
+    ctx.fillStyle = '#758a8a'
+    ctx.beginPath();
+    ctx.moveTo(backX1 + 450,backY1 + 110);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
+    ctx.lineTo(backX1 + 450,backY1 + 200);
+    ctx.lineTo(backX1 + 450,backY1 + 110);
+    ctx.fill();
+    // Floor
+    ctx.fillStyle = '#9fadad'
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 150);
+    ctx.lineTo(backX1,backY1 + 200);
+    ctx.lineTo(backX1 + 450,backY1 + 200);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
+    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
+    ctx.fill();
+
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.beginPath(); // Basement Front
+    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
+    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
+    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 10);
     ctx.stroke();
 }
