@@ -2,21 +2,37 @@ body{
     background-color:black;
 }
 
+#buttonContainer{
+    background-color:white;
+    border-radius: 25px;
+    border: 2px solid grey;
+    width:50px;
+    height:50px;
+    position: fixed;
+    top: 5px;
+    left: 50%;
+}
+
+#btn1{
+    background-color:transparent;
+    border-radius: 25px;
+    width:50px;
+    height:50px;
+    outline:none;
+}
+
 #indexNav{
-    position: absolute;
-    top: 10px;
+    display:none;
+    position: fixed;
+    top: 35px;
     left: 45%;
     margin: auto;
     text-align: center;
     width: 175px;
-    height: 275px;
+    height: 300px;
     background-color:black;
     border: 5px solid grey;
     border-radius:25px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap:wrap;
-    align-content:flex-start;
     padding:0px;
 }
 

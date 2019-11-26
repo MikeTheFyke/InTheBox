@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="../styles/indexCanvas.css" type="text/css" />
+        <link rel="stylesheet" href="../styles/house.css" type="text/css" />
+</head>
+
+<body>
+
+    <div id="houseContainer">
+        <canvas id="houseCanvas" width="900px" height="600px"></canvas>
+    </div>
+
+    <div id="indexNav">
+            <ul>
+                <li><a href="./cubes.html">CUBES</a></li>
+                <li><a href="./spikes.html">SPIKES</a></li>
+                <li><a href="./eyes.html">EYES</a></li>
+                <li><a href="./spin.html">SPIN</a></li>
+                <li><a href="./multi.html">MULTI</a></li>
+                <li><a href="./truck.html">TRUCK</a></li>
+                <li><a href="./store.html">STORAGE</a></li>
+                <li><a href="../index.html">INDEX</a></li>
+            </ul>
+    </div>
+
+    <div id="buttonContainer">
+        <button  id="btn1" style="width:50px">Links</button>
+    </div>
+
+    <script src="../scripts/houseLogic.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var clicked = false;
+    $("#btn1").click(function(){
+        if (clicked == false){
+            $("#indexNav").slideDown(1000);
+            clicked = true;
+        } else if (clicked == true) {
+            $("#indexNav").slideUp(1000);
+            clicked = false;
+        }
+    });
+    });
+    </script>
+
+</body>
+</html>
