@@ -4,36 +4,37 @@ body{
 
 #buttonContainer{
     background-color:white;
-    border-radius: 25px;
+    border-radius: 90px;
     border: 2px solid grey;
-    width:50px;
-    height:50px;
+    text-align: center;
+    width:100px;
+    height:100px;
     position: fixed;
-    top: 5px;
-    left: 50%;
+    top: 45px;
+    left: 55px;
 }
 
 #btn1{
     background-color:transparent;
-    border-radius: 25px;
-    width:50px;
-    height:50px;
+    border-color:transparent;
+    color : grey;
+    border-radius: 90px;
+    width:100px;
+    height:100px;
     outline:none;
+    font-size: 25px;
 }
 
 #indexNav{
     display:none;
     position: fixed;
-    top: 35px;
-    left: 45%;
-    margin: auto;
+    top: 130px;
+    left: 0px;
     text-align: center;
     width: 175px;
     height: 300px;
-    background-color:black;
-    border: 5px solid grey;
-    border-radius:25px;
-    padding:0px;
+    background-color:transparent;
+
 }
 
 a{
@@ -46,7 +47,7 @@ a{
 }
 
 ul{
-    padding:0px 20px;
+    list-style-type: none;
 }
 
 #canvasContainer{

@@ -1,15 +1,14 @@
 #houseContainer{
     text-align:center;
     margin: 30px auto;
-    border: 5px solid grey;
+    border: 5px solid white;
+    background-color:rgb(197, 215, 221);
     border-radius:25px;
-    width:1000px;
+    width:90%vw;
     height:675px;
 }
 
 #houseCanvas{
     margin:30px auto;
     display:inline-block;
-    border-radius:25px;
-    border: 5px solid grey;
 }

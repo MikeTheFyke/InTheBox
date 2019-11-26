@@ -9,6 +9,9 @@ var topXCorner;
 const Xwidth = 700;
 const Yheight = 400;
 
+var backX1 = canvas.width/2 - 200;
+var backY1 = canvas.height/2 + 50;
+
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -30,31 +33,31 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        topYCorner = mousePos.y-(Yheight/2); // paddle aligns in centre with mouse
+        topYCorner = mousePos.y-(Yheight/2);
         topXCorner = mousePos.x-(Xwidth/2);
        });
 }
 
 function drawEverything() {
-    ctx.fillStyle = "black"; // Canvas Black
+    ctx.fillStyle = 'rgb(197, 215, 221)'; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
-            if (topYCorner <= 90){ // Top Boundry
-                topYCorner = 90 ;}
-            if (topYCorner >= 120){ // Bottom Boundry
-                topYCorner = 120 ;} 
+            if (topYCorner <= 70){ // Top Boundry
+                topYCorner = 70 ;}
+            if (topYCorner >= 155){ // Bottom Boundry
+                topYCorner = 155 ;} 
                 
             if (topXCorner >= 130){ // Right Boundry
                 topXCorner = 130 ;}
             if (topXCorner <= 90){ // Left Boundry
                 topXCorner = 90 ;}
-
+/// Perspective Lines
     ctx.strokeStyle = "grey";
     ctx.lineWidth = 2;
-
+    
     ctx.beginPath(); // Top Left Line
     ctx.moveTo(topXCorner,topYCorner);
-    ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 50); // Peak
+    ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 100); // Peak
     ctx.lineTo(topXCorner + Xwidth,topYCorner);
     ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     ctx.lineTo(topXCorner,topYCorner + Yheight);
@@ -81,10 +84,9 @@ function drawEverything() {
     ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     ctx.stroke();
 
-    var backX1 = canvas.width/2 - 200;
-    var backY1 = canvas.height/2 + 50;
-
 /// Back Walls
+    ctx.strokeStyle = "grey";
+    ctx.lineWidth = 2;
     // Ground Floor Left Front // Back Wall
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
