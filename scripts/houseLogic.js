@@ -38,14 +38,16 @@ window.onload = function() {
 function drawEverything() {
     ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
+
             if (topYCorner <= 90){ // Top Boundry
                 topYCorner = 90 ;}
-            if (topYCorner >= 140){ // Bottom Boundry
-                topYCorner = 140 ;} 
-            if (topXCorner >= 150){ // Right Boundry
-                topXCorner = 150 ;}
-            if (topXCorner <= 50){ // Left Boundry
-                topXCorner = 50 ;}
+            if (topYCorner >= 120){ // Bottom Boundry
+                topYCorner = 120 ;} 
+                
+            if (topXCorner >= 130){ // Right Boundry
+                topXCorner = 130 ;}
+            if (topXCorner <= 90){ // Left Boundry
+                topXCorner = 90 ;}
 
     ctx.strokeStyle = "grey";
     ctx.lineWidth = 2;
@@ -79,17 +81,57 @@ function drawEverything() {
     ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     ctx.stroke();
 
-    var backX1 = topXCorner + 50;
-    var backY1 = topYCorner + 30;
+    var backX1 = canvas.width/2 - 200;
+    var backY1 = canvas.height/2 + 50;
 
 /// Back Walls
-ctx.beginPath(); // Ground Floor Left Front
-ctx.moveTo(backX1,backY1);
-ctx.lineTo(backX1 + ((Xwidth/2)-10),backY1);
-ctx.lineTo(backX1 + ((Xwidth/2)-10),backY1 + 50);
-ctx.lineTo(backX1,backY1 + 50);
-ctx.lineTo(backX1,backY1);
-ctx.stroke();
+    // Ground Floor Left Front // Back Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1,backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1 + 100);
+    ctx.lineTo(backX1,backY1 + 100);
+    ctx.lineTo(backX1,backY1);
+    ctx.stroke();
+    // Ground Floor Left Front // left Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1,backY1);
+    ctx.lineTo(topXCorner + 10,topYCorner + ((Yheight/2) - 10));
+    ctx.lineTo(topXCorner + 10,topYCorner + Yheight - 10);
+    ctx.lineTo(backX1,backY1 + 100);
+    ctx.lineTo(backX1,backY1);
+    ctx.stroke();
+    // Ground Floor Left Front // right Wall
+    ctx.beginPath();
+    ctx.moveTo(backX1 + ((Xwidth/2) - 150),backY1);
+    ctx.lineTo(topXCorner + ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
+    ctx.lineTo(topXCorner + ((Xwidth/2)-10),topYCorner + Yheight - 10);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1 + 100);
+    ctx.lineTo(backX1 + ((Xwidth/2) - 150),backY1);
+    ctx.stroke();
+
+        // Ground Floor right Front // Back Wall
+        ctx.beginPath();
+        ctx.moveTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1);
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1 + 100);
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1 + 100);
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
+        ctx.stroke();
+        // Ground Floor right Front // right Wall
+        ctx.beginPath();
+        ctx.moveTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 10));
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1);
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 250,backY1 + 100);
+        ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight - 10);
+        ctx.stroke();
+        // Ground Floor right Front // left Wall
+        ctx.beginPath();
+        ctx.moveTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1);
+        ctx.lineTo(backX1 + ((Xwidth/2) - 150) + 20,backY1 + 100);
+        ctx.lineTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + Yheight - 10);
+        ctx.stroke();
 
     drawRooms();
 }
@@ -106,7 +148,7 @@ function drawRooms(){
     ctx.lineTo(topXCorner + 10,topYCorner + ((Yheight/2) - 10));
     ctx.stroke();
 
-    ctx.beginPath(); // Ground Floor Front
+    ctx.beginPath(); // Ground Floor Right Front
     ctx.moveTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 10));
     ctx.lineTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + ((Yheight/2) - 10));
     ctx.lineTo(topXCorner + Xwidth - ((Xwidth/2)-10),topYCorner + Yheight - 10);
