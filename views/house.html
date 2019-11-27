@@ -32,18 +32,19 @@
     </div>
 
     <script src="../scripts/houseLogic.js"></script>
+
     <script>
     $(document).ready(function(){
         var clicked = false;
-    $("#btn1").click(function(){
-        if (clicked == false){
-            $("#indexNav").slideDown(1000);
-            clicked = true;
-        } else if (clicked == true) {
-            $("#indexNav").slideUp(1000);
-            clicked = false;
-        }
-    });
+        $("#btn1").click(function(){
+            if (clicked == false){
+                $("#indexNav").slideDown(1000);
+                clicked = true;
+            } else if (clicked == true) {
+                $("#indexNav").slideUp(1000);
+                clicked = false;
+            }
+        });
     });
     </script>
 

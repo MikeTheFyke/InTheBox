@@ -80,15 +80,57 @@ function drawEverything() {
     ctx.lineTo(topXCorner + Xwidth,topYCorner);
     ctx.stroke();
 
-    ctx.beginPath(); // Bottom Leftt Line
-    ctx.moveTo(0,650);
-    ctx.lineTo(topXCorner,topYCorner + Yheight);
-    ctx.stroke();
+    // ctx.beginPath(); // Bottom Leftt Line
+    // ctx.moveTo(0,650);
+    // ctx.lineTo(topXCorner,topYCorner + Yheight);
+    // ctx.stroke();
 
-    ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(900,650);
-    ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
-    ctx.stroke();
+    // ctx.beginPath(); // Bottom Right Line
+    // ctx.moveTo(900,650);
+    // ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
+    // ctx.stroke();
+
+    var grass_gradient = ctx.createLinearGradient(0, topYCorner + Yheight + 20, 0, topYCorner + Yheight + 40);
+    grass_gradient.addColorStop(0, '#2db300');
+    grass_gradient.addColorStop(1, '#134d00');
+
+    ctx.fillStyle = '#2db300'; // Grass Top
+    ctx.beginPath();
+    ctx.moveTo(0 , topYCorner + Yheight + 20 );
+    ctx.lineTo(backX1 - 120 ,backY1 + 140);
+    ctx.lineTo(backX1 + Xwidth - 160,backY1 + 140);
+    ctx.lineTo(900, topYCorner + Yheight + 20 );
+    ctx.fill();
+
+    ctx.beginPath(); // Grass first layer
+    ctx.fillStyle = grass_gradient;
+    ctx.moveTo(0 , topYCorner + Yheight + 20 );
+    ctx.lineTo(topXCorner, topYCorner + Yheight + 20 ) ;
+    ctx.lineTo(topXCorner, topYCorner + Yheight + 160 );
+    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 160 );
+    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 20 );
+    ctx.lineTo(900, topYCorner + Yheight + 20 );
+    ctx.lineTo(900, 650 );
+    ctx.lineTo(0, 650 );
+    ctx.lineTo(0 , topYCorner + Yheight + 20 );
+    ctx.fill();
+
+    var dirt_gradient = ctx.createLinearGradient(0, 400, 00, 650);
+    dirt_gradient.addColorStop(0, '#734d26');
+    dirt_gradient.addColorStop(1, '#261a0d');
+
+    ctx.beginPath(); // Dirt
+    ctx.fillStyle = dirt_gradient;
+    ctx.moveTo(0 , topYCorner + Yheight + 40);
+    ctx.lineTo(topXCorner, topYCorner + Yheight + 40) ;
+    ctx.lineTo(topXCorner, topYCorner + Yheight + 160 );
+    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 160 );
+    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight  + 40 );
+    ctx.lineTo(900, topYCorner + Yheight + 40);
+    ctx.lineTo(900, 650 );
+    ctx.lineTo(0, 650 );
+    ctx.lineTo(0 , topYCorner + Yheight + 40);
+    ctx.fill();
 
     drawBasement ();
     drawBackWalls ();
@@ -291,8 +333,20 @@ function drawBackWalls (){
 }
 
 function drawBasement(){
+
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 1;
+    ctx.fillStyle = '#465353';
+    ctx.lineWidth = 4;
+
+    ctx.beginPath(); // Basement Front
+    ctx.moveTo(topXCorner , topYCorner + Yheight );
+    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight );
+    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 160 );
+    ctx.lineTo(topXCorner, topYCorner + Yheight + 160 );
+    ctx.lineTo(topXCorner, topYCorner + Yheight ) ;
+    ctx.stroke();
+    ctx.fill();
+
     // Back Wall
     ctx.fillStyle = '#465353';
     ctx.beginPath();
@@ -301,7 +355,6 @@ function drawBasement(){
     ctx.lineTo(backX1 + 450,backY1 + 200);
     ctx.lineTo(backX1,backY1 + 200);
     ctx.lineTo(backX1,backY1 + 110);
-    ctx.stroke();
     ctx.fill();
     // Left Wall
     ctx.fillStyle = '#758a8a'
@@ -321,6 +374,14 @@ function drawBasement(){
     ctx.lineTo(backX1 + 450,backY1 + 200);
     ctx.lineTo(backX1 + 450,backY1 + 110);
     ctx.fill();
+    // Roof
+    ctx.fillStyle = '#171c1c';
+    ctx.beginPath();
+    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
+    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
+    ctx.lineTo(backX1 + 450,backY1 + 110);
+    ctx.lineTo(backX1,backY1 + 110);
+    ctx.fill();
     // Floor
     ctx.fillStyle = '#9fadad'
     ctx.beginPath();
@@ -330,10 +391,10 @@ function drawBasement(){
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
     ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
     ctx.fill();
-
+    // Basement Front
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
-    ctx.beginPath(); // Basement Front
+    ctx.beginPath(); 
     ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
