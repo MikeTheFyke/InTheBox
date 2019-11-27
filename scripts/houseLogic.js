@@ -89,52 +89,12 @@ function drawEverything() {
     // ctx.moveTo(900,650);
     // ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     // ctx.stroke();
-
-    var grass_gradient = ctx.createLinearGradient(0, topYCorner + Yheight + 20, 0, topYCorner + Yheight + 40);
-    grass_gradient.addColorStop(0, '#2db300');
-    grass_gradient.addColorStop(1, '#134d00');
-
-    ctx.fillStyle = '#2db300'; // Grass Top
-    ctx.beginPath();
-    ctx.moveTo(0 , topYCorner + Yheight + 20 );
-    ctx.lineTo(backX1 - 120 ,backY1 + 140);
-    ctx.lineTo(backX1 + Xwidth - 160,backY1 + 140);
-    ctx.lineTo(900, topYCorner + Yheight + 20 );
-    ctx.fill();
-
-    ctx.beginPath(); // Grass first layer
-    ctx.fillStyle = grass_gradient;
-    ctx.moveTo(0 , topYCorner + Yheight + 20 );
-    ctx.lineTo(topXCorner, topYCorner + Yheight + 20 ) ;
-    ctx.lineTo(topXCorner, topYCorner + Yheight + 160 );
-    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 160 );
-    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 20 );
-    ctx.lineTo(900, topYCorner + Yheight + 20 );
-    ctx.lineTo(900, 650 );
-    ctx.lineTo(0, 650 );
-    ctx.lineTo(0 , topYCorner + Yheight + 20 );
-    ctx.fill();
-
-    var dirt_gradient = ctx.createLinearGradient(0, 400, 00, 650);
-    dirt_gradient.addColorStop(0, '#734d26');
-    dirt_gradient.addColorStop(1, '#261a0d');
-
-    ctx.beginPath(); // Dirt
-    ctx.fillStyle = dirt_gradient;
-    ctx.moveTo(0 , topYCorner + Yheight + 40);
-    ctx.lineTo(topXCorner, topYCorner + Yheight + 40) ;
-    ctx.lineTo(topXCorner, topYCorner + Yheight + 160 );
-    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 160 );
-    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight  + 40 );
-    ctx.lineTo(900, topYCorner + Yheight + 40);
-    ctx.lineTo(900, 650 );
-    ctx.lineTo(0, 650 );
-    ctx.lineTo(0 , topYCorner + Yheight + 40);
-    ctx.fill();
-
+    
+    drawOutside ();
     drawBasement ();
     drawBackWalls ();
     drawRooms();
+    drawAttic();
 }
 
 function drawRooms(){
@@ -179,13 +139,6 @@ function drawRooms(){
     ctx.lineTo(topXCorner + Xwidth - ((Xwidth/3)+50) + 10,topYCorner + ((Yheight/2) - 20));
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + ((Yheight/2) - 20));
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + 10);
-    ctx.stroke();
-/// Attic
-    ctx.beginPath(); // Top Left Line
-    ctx.moveTo(topXCorner + 30,topYCorner);
-    ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 90); // Peak
-    ctx.lineTo(topXCorner + Xwidth - 30,topYCorner);
-    ctx.lineTo(topXCorner + 30,topYCorner);
     ctx.stroke();
 }
 
@@ -306,99 +259,5 @@ function drawBackWalls (){
     ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 100 );
     ctx.lineTo(backX1 + 150 + ((Xwidth/2) - 230),backY1  - 10);
     ctx.lineTo(topXCorner + Xwidth - ((Xwidth/3)+50),topYCorner + ((Yheight/2) - 20));
-    ctx.stroke();
-/// Attic
-    ctx.beginPath(); // Back Wall
-    ctx.moveTo( backX1,backY1 - 110 );
-    ctx.lineTo(backX1 + ((Xwidth - backX1)/2) - 15,backY1 - 175);
-    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 110 );
-    ctx.lineTo( backX1,backY1 - 110 );
-    ctx.stroke();
-
-    ctx.beginPath(); // Right Side
-    ctx.moveTo(topXCorner + (Xwidth/2),topYCorner - 90);
-    ctx.lineTo(backX1 + ((Xwidth - backX1)/2) - 15,backY1 - 175);
-    ctx.lineTo( (backX1 + (Xwidth/2)) + 100 ,backY1  - 110 );
-    ctx.lineTo(topXCorner + Xwidth - 30,topYCorner);
-    ctx.lineTo(topXCorner + (Xwidth/2),topYCorner - 90);
-    ctx.stroke();
-
-    ctx.beginPath(); // Left Side
-    ctx.moveTo( topXCorner + (Xwidth/2),topYCorner - 90);
-    ctx.lineTo( backX1 + ((Xwidth - backX1)/2) - 15,backY1 - 175);
-    ctx.lineTo( backX1,backY1 - 110 );
-    ctx.lineTo( topXCorner + 30,topYCorner);
-    ctx.lineTo( topXCorner + (Xwidth/2),topYCorner - 90);
-    ctx.stroke();
-}
-
-function drawBasement(){
-
-    ctx.strokeStyle = "black";
-    ctx.fillStyle = '#465353';
-    ctx.lineWidth = 4;
-
-    ctx.beginPath(); // Basement Front
-    ctx.moveTo(topXCorner , topYCorner + Yheight );
-    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight );
-    ctx.lineTo(topXCorner + Xwidth, topYCorner + Yheight + 160 );
-    ctx.lineTo(topXCorner, topYCorner + Yheight + 160 );
-    ctx.lineTo(topXCorner, topYCorner + Yheight ) ;
-    ctx.stroke();
-    ctx.fill();
-
-    // Back Wall
-    ctx.fillStyle = '#465353';
-    ctx.beginPath();
-    ctx.moveTo(backX1,backY1 + 110);
-    ctx.lineTo(backX1 + 450,backY1 + 110);
-    ctx.lineTo(backX1 + 450,backY1 + 200);
-    ctx.lineTo(backX1,backY1 + 200);
-    ctx.lineTo(backX1,backY1 + 110);
-    ctx.fill();
-    // Left Wall
-    ctx.fillStyle = '#758a8a'
-    ctx.beginPath();
-    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
-    ctx.lineTo(backX1,backY1 + 110);
-    ctx.lineTo(backX1,backY1 + 200);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 10);
-    ctx.fill();
-    // Right Wall
-    ctx.fillStyle = '#758a8a'
-    ctx.beginPath();
-    ctx.moveTo(backX1 + 450,backY1 + 110);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
-    ctx.lineTo(backX1 + 450,backY1 + 200);
-    ctx.lineTo(backX1 + 450,backY1 + 110);
-    ctx.fill();
-    // Roof
-    ctx.fillStyle = '#171c1c';
-    ctx.beginPath();
-    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
-    ctx.lineTo(backX1 + 450,backY1 + 110);
-    ctx.lineTo(backX1,backY1 + 110);
-    ctx.fill();
-    // Floor
-    ctx.fillStyle = '#9fadad'
-    ctx.beginPath();
-    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 150);
-    ctx.lineTo(backX1,backY1 + 200);
-    ctx.lineTo(backX1 + 450,backY1 + 200);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
-    ctx.fill();
-    // Basement Front
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.beginPath(); 
-    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 10);
     ctx.stroke();
 }
