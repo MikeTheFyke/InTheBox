@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <link rel="stylesheet" href="../styles/indexCanvas.css" type="text/css" />
+        <link rel="stylesheet" href="../styles/index.css" type="text/css" />
         <link rel="stylesheet" href="../styles/house.css" type="text/css" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -14,13 +14,10 @@
         <canvas id="houseCanvas" width="900px" height="650px"></canvas>
     </div>
 
+<div id="navPad"> 
+
     <div id="indexNav">
             <ul>
-                <li><a href="./cubes.html">CUBES</a></li>
-                <li><a href="./spikes.html">SPIKES</a></li>
-                <li><a href="./eyes.html">EYES</a></li>
-                <li><a href="./spin.html">SPIN</a></li>
-                <li><a href="./multi.html">MULTI</a></li>
                 <li><a href="./truck.html">TRUCK</a></li>
                 <li><a href="./store.html">STORAGE</a></li>
                 <li><a href="../index.html">INDEX</a></li>
@@ -28,8 +25,24 @@
     </div>
 
     <div id="buttonContainer">
-        <button  id="btn1" style="width:100px">LINKS</button>
+            <button  id="btn1" style="width:100px"><img id="linkIconLr" src="../images/link-icon.png"></button>
     </div>
+
+    <div id ="sandboxNav">
+            <ul>
+                <li><a href="./sandbox/cubes.html">CUBES</a></li>
+                <li><a href="./sandbox/spikes.html">SPIKES</a></li>
+                <li><a href="./sandbox/eyes.html">EYES</a></li>
+                <li><a href="./sandbox/spin.html">SPIN</a></li>
+                <li><a href="./sandbox/multi.html">MULTI</a></li>
+            </ul>
+    </div>
+
+    <div id="sandboxbuttonContainer">
+            <button  id="btn2" style="width:50px"><img id="linkIconSm"src="../images/link-icon.png"></button>
+    </div>
+
+</div>
 
     <script src="../scripts/house/houseLogic.js"></script>
     <script src="../scripts/house/outside.js"></script>
