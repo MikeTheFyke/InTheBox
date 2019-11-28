@@ -3,7 +3,7 @@
 <head>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="./styles/indexCanvas.css" type="text/css" />
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
@@ -15,11 +15,6 @@
 
     <div id="indexNav">
             <ul>
-                <li><a href="./views/cubes.html">CUBES</a></li>
-                <li><a href="./views/spikes.html">SPIKES</a></li>
-                <li><a href="./views/eyes.html">EYES</a></li>
-                <li><a href="./views/spin.html">SPIN</a></li>
-                <li><a href="./views/multi.html">MULTI</a></li>
                 <li><a href="./views/truck.html">TRUCK</a></li>
                 <li><a href="./views/store.html">STORAGE</a></li>
                 <li><a href="./views/house.html">HOUSE</a></li>
@@ -27,7 +22,21 @@
     </div>
 
     <div id="buttonContainer">
-            <button  id="btn1" style="width:100px">LINKS</button>
+            <button  id="btn1" style="width:100px"><img id="linkIconLr" src="./images/link-icon.png"></button>
+    </div>
+    
+    <div id ="sandboxNav">
+            <ul>
+                <li><a href="./views/sandbox/cubes.html">CUBES</a></li>
+                <li><a href="./views/sandbox/spikes.html">SPIKES</a></li>
+                <li><a href="./views/sandbox/eyes.html">EYES</a></li>
+                <li><a href="./views/sandbox/spin.html">SPIN</a></li>
+                <li><a href="./views/sandbox/multi.html">MULTI</a></li>
+            </ul>
+    </div>
+
+    <div id="sandboxbuttonContainer">
+            <button  id="btn2" style="width:50px"><img id="linkIconSm"src="./images/link-icon.png"></button>
     </div>
 
         <script src="./scripts/index.js"></script>
@@ -45,6 +54,20 @@
                         }
                     });
                 });
-                </script>
+        </script>
+        <script>
+                $(document).ready(function(){
+                    var clicked = false;
+                    $("#btn2").click(function(){
+                        if (clicked == false){
+                            $("#sandboxNav").slideDown(1000);
+                            clicked = true;
+                        } else if (clicked == true) {
+                            $("#sandboxNav").slideUp(1000);
+                            clicked = false;
+                        }
+                    });
+                });
+        </script>
 </body>
 </html>
