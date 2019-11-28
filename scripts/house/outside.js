@@ -1,9 +1,11 @@
+
 function drawOutside (){
-    var grass_gradient = ctx.createLinearGradient(0, topYCorner + Yheight + 20, 0, topYCorner + Yheight + 40);
+    
+    var grass_gradient = ctx.createLinearGradient(0,topYCorner + Yheight + 20,0,topYCorner + Yheight + 40);
     grass_gradient.addColorStop(0, '#2db300');
     grass_gradient.addColorStop(1, '#134d00');
 
-    ctx.fillStyle = '#2db300'; // Grass Top
+    ctx.fillStyle = '#2db300'; // Grass TopX
     ctx.beginPath();
     ctx.moveTo(0 , topYCorner + Yheight + 20 );
     ctx.lineTo(backX1 - 120 ,backY1 + 140);

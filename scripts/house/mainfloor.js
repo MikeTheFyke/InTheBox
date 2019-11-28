@@ -2,9 +2,21 @@ function drawMainFloor(){
     ctx.strokeStyle = "black";
     ctx.lineWidth = 2;
 
-    rightRoom();
-    leftRoom();
-    middleRoom();
+/// Layering Logic - Horizontal - X Axis
+    if (Xcord >= 475){
+        rightRoom();
+        middleRoom();
+        leftRoom();
+    } else if (Xcord < 475 && Xcord > 445){
+        leftRoom();
+        rightRoom();
+        middleRoom();
+    } else if (Xcord <= 445){
+        leftRoom();
+        middleRoom();
+        rightRoom();
+    }
+///    
 }
 
 function rightRoom(){

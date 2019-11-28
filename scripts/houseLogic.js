@@ -47,8 +47,8 @@ function drawEverything() {
         if (topYCorner >= 255){ // Bottom Boundry
             topYCorner = 255 ;} 
             
-        if (topXCorner >= 130){ // Right Boundry
-            topXCorner = 130 ;}
+        if (topXCorner >= 150){ // Right Boundry
+            topXCorner = 150 ;}
         if (topXCorner <= 90){ // Left Boundry
             topXCorner = 90 ;}
 
@@ -89,10 +89,27 @@ function drawEverything() {
     // ctx.moveTo(900,650);
     // ctx.lineTo(topXCorner + Xwidth,topYCorner + Yheight);
     // ctx.stroke();
-    
-    drawOutside ();
-    drawBasement ();
-    drawSecondFloor();
-    drawAttic();
-    drawMainFloor();
+    console.log("Ycord : " + Ycord);
+    console.log("Xcord : " + Xcord);
+    if (Ycord <= 380){
+        drawOutside();
+        drawAttic();
+        drawSecondFloor();
+        drawMainFloor();
+        drawBasement ();
+    } else if (Ycord > 380 && Ycord <= 445){
+        drawOutside();
+        drawBasement ();
+        drawAttic();
+        drawSecondFloor();
+        drawMainFloor();
+    }
+    else if (Ycord > 445){
+        drawOutside();
+        drawBasement ();
+        drawMainFloor();
+        drawAttic();
+        drawSecondFloor();
+    }
+
 }

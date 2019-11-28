@@ -57,14 +57,5 @@ function drawBasement(){
     ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
     ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
     ctx.fill();
-    // Basement Front
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.beginPath(); 
-    ctx.moveTo(topXCorner + 10, topYCorner + Yheight + 10);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 10);
-    ctx.lineTo(topXCorner + Xwidth - 10, topYCorner + Yheight + 150);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 150);
-    ctx.lineTo(topXCorner + 10, topYCorner + Yheight + 10);
-    ctx.stroke();
+
 }
