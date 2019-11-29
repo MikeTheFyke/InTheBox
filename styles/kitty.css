@@ -1,0 +1,12 @@
+#kittycanvasContainer{
+    text-align:center;
+    margin: 85px auto;
+    border-radius:25px;
+    width:1000px;
+    height:600px;
+}
+
+#kittyCanvas{
+    display:inline-block;
+    border-radius:25px;
+}
