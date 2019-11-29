@@ -52,27 +52,9 @@ function drawEverything() {
     ctx.fillStyle = '#ffad33'; // Canvas Orangish...
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
-    ctx.beginPath(); // Top Left Line
-    ctx.lineWidth = 2;
-    ctx.moveTo(0,0);
-    ctx.lineTo(topXCorner,topCorner);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1400,0);
-    ctx.lineTo(topXCorner + xthick,topCorner);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(0,720);
-    ctx.lineTo(topXCorner,topCorner + ythick);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
-    ctx.beginPath(); // Bottom Left Line
-    ctx.moveTo(1400,720);
-    ctx.lineTo(topXCorner + xthick,topCorner +ythick);
-    ctx.strokeStyle = "grey";
-    ctx.stroke();
+    ctx.fillStyle = "#800040" // Ground Layer
+    ctx.fillRect (0,400,1000,250);
+
   }
 
 
