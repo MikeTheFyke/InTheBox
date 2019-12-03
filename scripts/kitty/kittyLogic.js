@@ -1,5 +1,6 @@
 var canvas = document.getElementById('kittyCanvas');
 var ctx = canvas.getContext('2d');
+var yarnImg = document.getElementById("yarnBall");
 var framesPerSecond = 30;
 
 var Xcord = 0;

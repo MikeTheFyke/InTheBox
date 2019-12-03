@@ -14,8 +14,5 @@ function drawYarn (){
         yarnX = 900;
     }
 
-    ctx.fillStyle = "teal"; // Base
-    ctx.beginPath(); 
-    ctx.arc(yarnX, yarnY ,80, 0, 2 * Math.PI);
-    ctx.fill();
+    ctx.drawImage(yarnImg, yarnX - 50, yarnY - 50);
   }
