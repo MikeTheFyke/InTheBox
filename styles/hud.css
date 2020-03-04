@@ -1,0 +1,14 @@
+#hudContainer{
+    text-align:center;
+    margin: 30px auto;
+    border: 5px solid white;
+    background-color:rgb(197, 215, 221);
+    border-radius:25px;
+    width:90%vw;
+    height:675px;
+}
+
+#hudCanvas{
+    margin:20px auto;
+    display:inline-block;
+}
