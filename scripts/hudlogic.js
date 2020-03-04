@@ -4,36 +4,19 @@ var framesPerSecond = 30;
 
 var Xcord = 0;
 var Ycord = 0;
-var frontY1;
-var frontX1;
-const canvasWidth = 1000;
-const canvasHeight = 600;
-var cLength;
-var cWidth;
-var cHeight;
+var topCorner = 20;
+var topXCorner = 20;
+const xthick = 800;
+const ythick = 450;
 
-var frontX1;
-var frontY1;
-var frontX2;
-var frontY2;
-var frontX3;
-var frontY3;
-var frontX4;
-var frontY4;
+var redTopY = 20;
+var redTopX = 20;
+const redXthick = 400;
+const redYthick = 400;
 
-var backX1;
-var backY1;
-var backX2;
-var backY2;
-var backX3;
-var backY3;
-var backX4;
-var backY4;
+var yellTopX = (topXCorner / 2) + 703;
+var yellTopY = topCorner / 2;
 
-var clicked = false;
-const gridCtr = 8;
-var doors = 0;
-var shelfCtr = 0;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -49,8 +32,8 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    drawCloset();
-    drawBox();
+    boxLeft();
+    boxRight();
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -58,150 +41,241 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        frontY1 = mousePos.y-(canvasHeight/2); // paddle aligns in centre with mouse
-        frontX1 = mousePos.x-(canvasWidth/2);
+        topCorner = mousePos.y-(ythick/2); // paddle aligns in centre with mouse
+        topXCorner = mousePos.x-(xthick/2);
+        redTopY = topCorner / 2;
+        redTopX = topXCorner / 2;
+        yellTopX = (topXCorner / 2) + 703;
+        yellTopY = topCorner / 2;
        });
 }
 
 function drawEverything() {
     ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-}
+            if (topCorner <= 50){ // Top Boundry
+                topCorner = 50 ;}
+            if (topCorner >= 240){ // Bottom Boundry
+                topCorner = 240 ;} 
+            if (topXCorner >= 550){ // Right Boundry
+                topXCorner = 550 ;}
+            if (topXCorner <= 50){ // Left Boundry
+                topXCorner = 50 ;}
+    ctx.fillStyle = "grey"; // Back Wall Grey Border
+    ctx.fillRect(topXCorner,topCorner,xthick,ythick);
+    ctx.fillStyle = "black"; // Back Wall Black
+    ctx.fillRect(topXCorner +5,topCorner +5 ,790,440);
 
-  function drawCloset(){
-    const yUnit = 60;  /// Defining a foot -> pixel scale - Y meaning Height scale
-    const xUnit = 100; /// Defining a foot -> pixel scale - X meaning Length scale
+    ctx.beginPath(); // Top Left Line
+    ctx.lineWidth = 2;
+    ctx.moveTo(0,0);
+    ctx.lineTo(topXCorner,topCorner);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+    ctx.beginPath(); // Top Right Line
+    ctx.moveTo(1400,0);
+    ctx.lineTo(topXCorner + xthick,topCorner);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Right Line
+    ctx.moveTo(0,720);
+    ctx.lineTo(topXCorner,topCorner + ythick);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+    ctx.beginPath(); // Bottom Left Line
+    ctx.moveTo(1400,720);
+    ctx.lineTo(topXCorner + xthick,topCorner +ythick);
+    ctx.strokeStyle = "grey";
+    ctx.stroke();
+  }
 
-    cLength = document.getElementById("closetLength").value; /// Receiving Closet Dimensions
-    cWidth = document.getElementById("closetWidth").value; /// as whole numbers... hopefully.
-    cHeight = document.getElementById("closetHeight").value;
+function boxRight(){
+    console.log("07 Mouse X = " + Xcord);
+    console.log("08 Mouse Y = " + Ycord);
 
-    /// Defining front face of storage face co-ordinates. 
-    frontX1 = (canvasWidth/2) - ((cLength*xUnit)/2);  /// converted to a pixel scale
-    frontY1 = (canvasHeight/2) - ((cHeight*yUnit)/2); /// ie: 7 = 420px (7 X yUnit(60))
-    frontX2 = (canvasWidth/2) + ((cLength*xUnit)/2);  /// ie: 7 = 700px (7 X xUnit(100))
-    frontY2 = (canvasHeight/2) - ((cHeight*yUnit)/2);
-    frontX3 = (canvasWidth/2) + ((cLength*xUnit)/2);
-    frontY3 = (canvasHeight/2) + ((cHeight*yUnit)/2);
-    frontX4 = (canvasWidth/2) - ((cLength*xUnit)/2);
-    frontY4 = (canvasHeight/2) + ((cHeight*yUnit)/2);
+    const yellXthick = 100;
+    const yellYthick = 100;
 
-    /// Defining back face of storage face co-ordinates. 
-    const wUnit = (cWidth * 30); /// Defining a foot -> pixel scale - W meaning Width scale
+    var greeTopX =  topXCorner + 500;
+    var greeTopY = topCorner + 5;
+    const greethick = 50;
 
-    backX1 = frontX1 + wUnit;
-    backY1 = frontY1 + wUnit;
-    backX2 = frontX2 - wUnit;
-    backY2 = frontY2 + wUnit;
-    backX3 = frontX3 - wUnit;
-    backY3 = frontY3 - wUnit;
-    backX4 = frontX4 + wUnit;
-    backY4 = frontY4 - wUnit;
+    var bluTopX = topXCorner + 600;
+    var bluTopY = topCorner + 5
 
-    ctx.fillStyle = "red"; // Back side face
-    ctx.beginPath();
-    ctx.moveTo(backX1,backY1);
-    ctx.lineTo(backX2,backY2);
-    ctx.lineTo(backX3,backY3);
-    ctx.lineTo(backX4,backY4);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = "orange"; // Left side face
-    ctx.beginPath();
-    ctx.moveTo(frontX1,frontY1);
-    ctx.lineTo(backX1,backY1);
-    ctx.lineTo(backX4,backY4);
-    ctx.lineTo(frontX4,frontY4);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = "orange"; // Right side face
-    ctx.beginPath();
-    ctx.moveTo(backX2,backY1);
-    ctx.lineTo(frontX2,frontY2);
-    ctx.lineTo(frontX3,frontY3);
-    ctx.lineTo(backX3,backY3);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = "darkred"; // Roof face
-    ctx.beginPath();
-    ctx.moveTo(frontX1,frontY1);
-    ctx.lineTo(frontX2,frontY2);
-    ctx.lineTo(backX2,backY2);
-    ctx.lineTo(backX1,backY1);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = "darkred"; // Floor face
-    ctx.beginPath();
-    ctx.moveTo(backX4,backY4);
-    ctx.lineTo(backX3,backY3);
-    ctx.lineTo(frontX3,frontY3);
-    ctx.lineTo(frontX4,frontY4);
-    ctx.closePath();
-    ctx.fill();
-
-  drawGrid();
-
-    //// Front Side Face & Door Logic
-    if (document.getElementById("doorCount").value < 2){
-      ctx.strokeStyle = "yellow"; // Front side face
-      ctx.beginPath();
-      ctx.moveTo(frontX1,frontY1);
-      ctx.lineTo(frontX2,frontY2);
-      ctx.lineTo(frontX3,frontY3);
-      ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY3);
-      ctx.lineTo((frontX3) - ((cLength*xUnit)/3),frontY1 + ((cHeight*yUnit)/4));
-      ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY1 + ((cHeight*yUnit)/4));
-      ctx.lineTo((frontX4) + ((cLength*xUnit)/3),frontY4);
-      ctx.lineTo((frontX4),frontY4);
-      ctx.closePath();
-      ctx.stroke();
-    } else {
-      ctx.strokeStyle = "yellow"; // Front side face
-      ctx.beginPath();
-      ctx.moveTo(frontX1,frontY1);
-      ctx.lineTo(frontX2,frontY2);
-      ctx.lineTo(frontX3,frontY3);
-      ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY3);
-      ctx.lineTo((frontX3) - ((cLength*xUnit)/6),frontY1 + ((cHeight*yUnit)/4));
-      ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY1 + ((cHeight*yUnit)/4));
-      ctx.lineTo((frontX4) + ((cLength*xUnit)/6),frontY4);
-      ctx.lineTo((frontX4),frontY4);
-      ctx.closePath();
-      ctx.stroke();
+    if ( yellTopX >= 800){
+        yellTopX = 800;
+    } if (yellTopX <= 730){
+        yellTopX = 730;
+    } if (yellTopY >= 125){
+        yellTopY = 125;
+    } if (yellTopY <= 20){
+        yellTopY = 20;
     }
-  
-    //// Shelf Logic
-    shelfCtr = document.getElementById("shelfCount").value;
-    var closetShelfWidth = document.getElementById("closetWidth").value;
 
-    var shelfFrontX1 = frontX1 + (((backX1 - frontX1)/closetShelfWidth)*2);
-    var shelfFrontY1 = frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) + 20;
-    var shelfFrontX2 = frontX2 - (((backX1 - frontX1)/closetShelfWidth)*2);
-    var shelfFrontY2 = frontY1 + (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*3) + 30;
+    if ( Xcord<=699 && Ycord< 316){
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+    
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
 
-    console.log("Shelf  X1 : "+ shelfFrontX1 + "  Y1 : "+shelfFrontY1);
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
+    } else if ( Xcord>699 && Ycord < 316){
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
 
-    for (var i2 = 0; i2 < shelfCtr; i2++){
-      ctx.strokeStyle = "blue"; // Shelf back side face 01
-      ctx.beginPath();
-      ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
-      ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
-      ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
-      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
-      ctx.closePath();
-      ctx.stroke();
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
 
-      ctx.beginPath(); // Shelf Front side face
-      ctx.moveTo( shelfFrontX1, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX2, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.closePath();
-      ctx.stroke();
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+
+    } else if ( Xcord>699 && Ycord > 316){
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+
+    } else if (Ycord >= 316){
+        ctx.fillStyle = "blue"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX + yellXthick, yellTopY);
+        ctx.lineTo(bluTopX, bluTopY);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = "green";
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY);
+        ctx.lineTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(greeTopX, greeTopY + greethick);
+        ctx.lineTo(greeTopX, greeTopY);
+        ctx.closePath();
+        ctx.fill();
+    
+        ctx.fillStyle = "red"; // Right Side
+        ctx.beginPath();
+        ctx.moveTo(yellTopX, yellTopY + yellYthick);
+        ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+        ctx.lineTo(bluTopX, bluTopY + greethick);
+        ctx.lineTo(greeTopX , greeTopY + greethick);
+        ctx.closePath();
+        ctx.fill();
     } 
 
-  }
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.moveTo(yellTopX, yellTopY);
+    ctx.lineTo(yellTopX + yellXthick, yellTopY);
+    ctx.lineTo(yellTopX + yellXthick, yellTopY + yellYthick);
+    ctx.lineTo(yellTopX, yellTopY + yellYthick);
+    ctx.closePath();
+    ctx.fill();
+}
+
+function boxLeft (){
+
+    var blueTopX = topXCorner + 5;
+    var blueTopY = topCorner + 5;
+    var blueYthick = 300;
+
+    if(redTopX < 30) {
+        redTopX = 30;
+    }
+    if (redTopX > 280){
+        redTopX = 280;
+    }
+    if (redTopY < 27){
+        redTopY = 27;
+    } 
+    if (redTopY > 125){
+        redTopY = 125;
+    }
+
+    if (blueTopX > 555){
+        blueTopX = 555;
+    }
+    if (blueTopY > 190){
+        blueYthick += -15;
+    }
+    if (blueTopY > 219){
+        blueYthick += -20;
+    }
+        
+    ctx.fillStyle = "red"; // Top Side
+    ctx.fillRect(redTopX,redTopY,redXthick,redYthick);
+
+    ctx.fillStyle = "blue"; // Bottom Side
+    ctx.fillRect(blueTopX,blueTopY,300,blueYthick);
+
+    ctx.fillStyle = "green"; // Right Side
+    ctx.beginPath();
+    ctx.moveTo(redTopX + redXthick, redTopY);
+    ctx.lineTo(topXCorner + 5 + 300, blueTopY);
+    ctx.lineTo(topXCorner + 5 + 300, blueTopY + blueYthick);
+    ctx.lineTo(redTopX + redXthick,redTopY + redYthick);
+    ctx.closePath();
+    ctx.fill();
+}
