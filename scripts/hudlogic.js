@@ -49,6 +49,7 @@ function drawEverything() {
     drawRect()
     drawLines()
     drawHudFrame()
+    drawIcons()
   }
 
   function drawRect() {
@@ -97,6 +98,7 @@ function drawEverything() {
     ctx.moveTo((topXCorner),topYCorner); // Left Top Corner
     ctx.lineTo((topXCorner + 250),topYCorner); // LeTop Mid Top Corner
     ctx.lineTo((topXCorner + 275),topYCorner + 25); // LeTop SubMid 
+    //_______________________________________________________________________________________
     ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25); // RT SubMid
     ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner); // RT Mid Top Corner
     ctx.lineTo( (topXCorner + xthick),topYCorner);  // Right Top Corner
@@ -109,13 +111,19 @@ function drawEverything() {
     ctx.lineTo( ((topXCorner + xthick) - 250),topYCorner + ythick); // RiBot Mid Corner
     ctx.lineTo( ((topXCorner + xthick) - 275),(topYCorner + ythick) -25); // RiBto SubMid
     ctx.lineTo((topXCorner + 275),((topYCorner + ythick) - 25 ) ); // LeBot SubMid
+    //_______________________________________________________________________________________
     ctx.lineTo((topXCorner + 250),(topYCorner + ythick)); // LeBot Mid Corner
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.lineTo((topXCorner) - 50,(topYCorner + ythick) - 100);  // LeBot Point 01
     ctx.lineTo((topXCorner) - 25,(topYCorner + ythick) - 125);  // LeBot Point 02
+    //_______________________________________________________________________________________
     ctx.lineTo( (topXCorner) - 25,topYCorner + 125); // LeTop Point 02
     ctx.lineTo( (topXCorner) - 50,topYCorner + 100); // LeTop Point 01
     ctx.closePath();
     ctx.stroke();
+
+  }
+
+  function drawIcons () {
 
   }
