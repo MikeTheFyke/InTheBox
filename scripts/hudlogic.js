@@ -47,36 +47,37 @@ function drawEverything() {
     ctx.fillRect(0,0,canvas.width,canvas.height);
             if (topCorner <= 50){ // Top Boundry
                 topCorner = 50 ;}
-            if (topCorner >= 240){ // Bottom Boundry
-                topCorner = 240 ;} 
-            if (topXCorner >= 550){ // Right Boundry
-                topXCorner = 550 ;}
+            if (topCorner >= 150){ // Bottom Boundry
+                topCorner = 150 ;} 
+            if (topXCorner >= 300){ // Right Boundry
+                topXCorner = 300 ;}
             if (topXCorner <= 50){ // Left Boundry
                 topXCorner = 50 ;}
-    ctx.fillStyle = "grey"; // Back Wall Grey Border
+    ctx.fillStyle = "teal"; // Back Wall Grey Border
     ctx.fillRect(topXCorner,topCorner,xthick,ythick);
     ctx.fillStyle = "black"; // Back Wall Black
     ctx.fillRect(topXCorner +5,topCorner +5 ,790,440);
-
+    
+    ctx.strokeStyle = "teal";
     ctx.beginPath(); // Top Left Line
     ctx.lineWidth = 2;
     ctx.moveTo(0,0);
     ctx.lineTo(topXCorner,topCorner);
-    ctx.strokeStyle = "grey";
+    
     ctx.stroke();
     ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1400,0);
+    ctx.moveTo(1150,0);
     ctx.lineTo(topXCorner + xthick,topCorner);
-    ctx.strokeStyle = "grey";
+    
     ctx.stroke();
     ctx.beginPath(); // Bottom Right Line
     ctx.moveTo(0,720);
     ctx.lineTo(topXCorner,topCorner + ythick);
-    ctx.strokeStyle = "grey";
+    
     ctx.stroke();
     ctx.beginPath(); // Bottom Left Line
     ctx.moveTo(1400,720);
     ctx.lineTo(topXCorner + xthick,topCorner +ythick);
-    ctx.strokeStyle = "grey";
+    
     ctx.stroke();
   }
