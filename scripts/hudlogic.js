@@ -117,6 +117,8 @@ function drawEverything() {
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.lineTo((topXCorner) - 50,(topYCorner + ythick) - 100);  // LeBot Point 01
     ctx.lineTo((topXCorner) - 25,(topYCorner + ythick) - 125);  // LeBot Point 02
+    ctx.lineTo( (topXCorner) - 25,topYCorner + 125); // LeTop Point 02
+    ctx.lineTo( (topXCorner) - 50,topYCorner + 100); // LeTop Point 01
     ctx.stroke();
 
   }
