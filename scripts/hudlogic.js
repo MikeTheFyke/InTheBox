@@ -49,8 +49,8 @@ function drawEverything() {
                 topCorner = 50 ;}
             if (topCorner >= 150){ // Bottom Boundry
                 topCorner = 150 ;} 
-            if (topXCorner >= 300){ // Right Boundry
-                topXCorner = 300 ;}
+            if (topXCorner >= 550){ // Right Boundry
+                topXCorner = 550 ;}
             if (topXCorner <= 50){ // Left Boundry
                 topXCorner = 50 ;}
     ctx.fillStyle = "teal"; // Back Wall Grey Border
@@ -66,17 +66,17 @@ function drawEverything() {
     
     ctx.stroke();
     ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1150,0);
+    ctx.moveTo(1400,0);
     ctx.lineTo(topXCorner + xthick,topCorner);
     
     ctx.stroke();
     ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(0,720);
+    ctx.moveTo(0,675);
     ctx.lineTo(topXCorner,topCorner + ythick);
     
     ctx.stroke();
     ctx.beginPath(); // Bottom Left Line
-    ctx.moveTo(1400,720);
+    ctx.moveTo(1400,675);
     ctx.lineTo(topXCorner + xthick,topCorner +ythick);
     
     ctx.stroke();

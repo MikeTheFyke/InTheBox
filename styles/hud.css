@@ -9,6 +9,7 @@
 }
 
 #hudCanvas{
-    margin:20px auto;
+    margin:0px auto;
     display:inline-block;
+    border-radius:25px;
 }
