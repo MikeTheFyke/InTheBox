@@ -99,13 +99,17 @@ function drawEverything() {
     ctx.lineTo((topXCorner + 275),topYCorner + 25);
     ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25);
     ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner);
-    ctx.lineTo( (topXCorner + xthick),topYCorner);  //Right Top Corner
+    ctx.lineTo( (topXCorner + xthick),topYCorner);  // Right Top Corner
+    ctx.lineTo( ((topXCorner + xthick) + 50),topYCorner + 100); // RT Point 1
+    ctx.lineTo( ((topXCorner + xthick) + 25),topYCorner + 125); // RT Point 2
     ctx.stroke();
 
 
     ctx.beginPath(); // Bottom Line
     ctx.lineWidth = 10;
-    ctx.moveTo( (topXCorner + xthick),(topYCorner + ythick) );  // Right Bottom Corner 
+    ctx.moveTo( (topXCorner + xthick) + 25,((topYCorner + ythick) - 125) ); // RiBot Point 02
+    ctx.lineTo( (topXCorner + xthick) + 50,((topYCorner + ythick) - 100) ); // Ribot Point 01
+    ctx.lineTo( (topXCorner + xthick),(topYCorner + ythick) );  // Right Bottom Corner 
     ctx.lineTo( ((topXCorner + xthick) - 250),topYCorner + ythick);
     ctx.lineTo( ((topXCorner + xthick) - 275),(topYCorner + ythick) -25);
     ctx.lineTo((topXCorner + 275),((topYCorner + ythick) - 25 ) ); 
