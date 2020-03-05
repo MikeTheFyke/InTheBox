@@ -102,18 +102,15 @@ function drawEverything() {
     ctx.lineTo( (topXCorner + xthick),topYCorner);  //Right Top Corner
     ctx.stroke();
 
-    ctx.beginPath(); // Bottom Left Line
-    ctx.lineWidth = 10;
-    ctx.moveTo((topXCorner),(topYCorner + ythick));
-    ctx.lineTo((topXCorner + 250),(topYCorner + ythick));
-    ctx.lineTo((topXCorner + 275),((topYCorner + ythick) - 25 ) );
-    ctx.stroke();
 
-    ctx.beginPath(); // Bottom Right Line
+    ctx.beginPath(); // Bottom Line
     ctx.lineWidth = 10;
-    ctx.moveTo( (topXCorner + xthick),(topYCorner + ythick) );
+    ctx.moveTo( (topXCorner + xthick),(topYCorner + ythick) );  // Right Bottom Corner 
     ctx.lineTo( ((topXCorner + xthick) - 250),topYCorner + ythick);
     ctx.lineTo( ((topXCorner + xthick) - 275),(topYCorner + ythick) -25);
+    ctx.lineTo((topXCorner + 275),((topYCorner + ythick) - 25 ) ); 
+    ctx.lineTo((topXCorner + 250),(topYCorner + ythick));
+    ctx.lineTo((topXCorner),(topYCorner + ythick));  // Left Bottom Corner   
     ctx.stroke();
 
   }
