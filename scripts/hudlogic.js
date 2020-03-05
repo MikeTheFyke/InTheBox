@@ -55,12 +55,12 @@ function drawEverything() {
   function drawRect() {
             if (topYCorner <= 50){ // Top Boundry
                 topYCorner = 50 ;}
-            if (topYCorner >= 150){ // Bottom Boundry
-                topYCorner = 150 ;} 
-            if (topXCorner >= 550){ // Right Boundry
-                topXCorner = 550 ;}
-            if (topXCorner <= 50){ // Left Boundry
-                topXCorner = 50 ;}
+            if (topYCorner >= 100){ // Bottom Boundry
+                topYCorner = 100 ;} 
+            if (topXCorner >= 325){ // Right Boundry
+                topXCorner = 325 ;}
+            if (topXCorner <= 75){ // Left Boundry
+                topXCorner = 75 ;}
     ctx.fillStyle = "teal"; // Back Wall Grey Border
     ctx.fillRect(topXCorner,topYCorner,xthick,ythick);
     ctx.fillStyle = "black"; // Back Wall Black
@@ -125,7 +125,7 @@ function drawEverything() {
   }
 
   function drawIcons () {
-    ctx.strokeStyle = "teal";
+    ctx.strokeStyle = "red";
     ctx.beginPath(); // Top Middle Icon
     ctx.lineWidth = 5;
     ctx.moveTo((topXCorner + 270),topYCorner); // LeTop Mid Top Corner
