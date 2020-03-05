@@ -95,10 +95,10 @@ function drawEverything() {
     ctx.beginPath(); // Top Line
     ctx.lineWidth = 10;
     ctx.moveTo((topXCorner),topYCorner); // Left Top Corner
-    ctx.lineTo((topXCorner + 250),topYCorner);
-    ctx.lineTo((topXCorner + 275),topYCorner + 25);
-    ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25);
-    ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner);
+    ctx.lineTo((topXCorner + 250),topYCorner); // LeTop Mid Top Corner
+    ctx.lineTo((topXCorner + 275),topYCorner + 25); // LeTop SubMid 
+    ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25); // RT SubMid
+    ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner); // RT Mid Top Corner
     ctx.lineTo( (topXCorner + xthick),topYCorner);  // Right Top Corner
     ctx.lineTo( ((topXCorner + xthick) + 50),topYCorner + 100); // RT Point 1
     ctx.lineTo( ((topXCorner + xthick) + 25),topYCorner + 125); // RT Point 2
