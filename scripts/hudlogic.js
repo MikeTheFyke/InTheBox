@@ -125,7 +125,7 @@ function drawEverything() {
   }
 
   function drawIcons () {
-    ctx.strokeStyle = "orange";
+    ctx.strokeStyle = "teal";
     ctx.beginPath(); // Top Middle Icon
     ctx.lineWidth = 5;
     ctx.moveTo((topXCorner + 270),topYCorner); // LeTop Mid Top Corner
@@ -135,8 +135,7 @@ function drawEverything() {
     ctx.closePath();
     ctx.stroke();
 
-    ctx.strokeStyle = "orange";
-    ctx.beginPath(); // Top Middle Icon
+    ctx.beginPath(); // Bottom Middle Icon
     ctx.lineWidth = 5;
     ctx.moveTo( ((topXCorner + xthick) - 270),topYCorner + ythick); // RiBot Mid Corner
     ctx.lineTo((topXCorner + 270),(topYCorner + ythick)); // LeBot Mid Corner
@@ -144,4 +143,15 @@ function drawEverything() {
     ctx.lineTo( ((topXCorner + xthick) - 285),(topYCorner + ythick) -15); // RiBto SubMid
     ctx.closePath();
     ctx.stroke();
+
+    ctx.beginPath(); // Bottom SubMiddle Icon
+    ctx.lineWidth = 5;
+    ctx.moveTo( ((topXCorner + xthick) - 270),(topYCorner + ythick + 30) )  ; // Right Top Corner
+    ctx.lineTo((topXCorner + 270),(topYCorner + ythick) + 30 ); // Left Top Corner
+    ctx.lineTo((topXCorner + 270),(topYCorner + ythick) + 50 ); // Left Bottom Corner
+    ctx.lineTo( ((topXCorner + xthick) - 270),(topYCorner + ythick) + 50 ) ; // Right Bottom Corner
+    ctx.closePath();
+    ctx.stroke();
+
+
   }
