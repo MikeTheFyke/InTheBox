@@ -92,11 +92,14 @@ function drawEverything() {
 
   function drawHudFrame() {
     ctx.strokeStyle = "red";
-    ctx.beginPath(); // Top Left Line
+    ctx.beginPath(); // Top Line
     ctx.lineWidth = 10;
-    ctx.moveTo((topXCorner),topYCorner);
+    ctx.moveTo((topXCorner),topYCorner); // Left Top Corner
     ctx.lineTo((topXCorner + 250),topYCorner);
     ctx.lineTo((topXCorner + 275),topYCorner + 25);
+    ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25);
+    ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner);
+    ctx.lineTo( (topXCorner + xthick),topYCorner);  //Right Top Corner
     ctx.stroke();
 
     ctx.beginPath(); // Bottom Left Line
@@ -104,13 +107,6 @@ function drawEverything() {
     ctx.moveTo((topXCorner),(topYCorner + ythick));
     ctx.lineTo((topXCorner + 250),(topYCorner + ythick));
     ctx.lineTo((topXCorner + 275),((topYCorner + ythick) - 25 ) );
-    ctx.stroke();
-
-    ctx.beginPath(); // Top Right Line
-    ctx.lineWidth = 10;
-    ctx.moveTo( (topXCorner + xthick),topYCorner);
-    ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner);
-    ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25);
     ctx.stroke();
 
     ctx.beginPath(); // Bottom Right Line
