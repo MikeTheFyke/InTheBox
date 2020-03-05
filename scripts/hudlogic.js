@@ -6,7 +6,7 @@ var Xcord = 0;
 var Ycord = 0;
 var topYCorner = 20;
 var topXCorner = 20;
-const xthick = 900;
+const xthick = 950;
 const ythick = 525;
 
 
@@ -48,6 +48,7 @@ function drawEverything() {
     ctx.fillRect(0,0,canvas.width,canvas.height);
     drawRect()
     drawLines()
+    drawHudFrame()
   }
 
   function drawRect() {
@@ -87,4 +88,32 @@ function drawEverything() {
     ctx.moveTo(1400,675);
     ctx.lineTo(topXCorner + xthick,topYCorner +ythick); 
     ctx.stroke();
+  }
+
+  function drawHudFrame() {
+    ctx.strokeStyle = "red";
+    ctx.beginPath(); // Top Left Line
+    ctx.lineWidth = 10;
+    ctx.moveTo((topXCorner),topYCorner);
+    ctx.lineTo((topXCorner + 250),topYCorner);
+    ctx.stroke();
+
+    ctx.beginPath(); // Bottom Left Line
+    ctx.lineWidth = 10;
+    ctx.moveTo((topXCorner),(topYCorner + ythick));
+    ctx.lineTo((topXCorner + 250),(topYCorner + ythick));
+    ctx.stroke();
+
+    ctx.beginPath(); // Top Right Line
+    ctx.lineWidth = 10;
+    ctx.moveTo( (topXCorner + xthick),topYCorner);
+    ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner);
+    ctx.stroke();
+
+    ctx.beginPath(); // Bottom Right Line
+    ctx.lineWidth = 10;
+    ctx.moveTo( (topXCorner + xthick),(topYCorner + ythick) );
+    ctx.lineTo( ((topXCorner + xthick) - 250),topYCorner + ythick);
+    ctx.stroke();
+
   }
