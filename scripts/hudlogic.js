@@ -124,7 +124,7 @@ function drawEverything() {
 
   }
 
-  function drawIcons () {
+function drawIcons () {
     ctx.strokeStyle = "red";
     ctx.beginPath(); // Top Middle Icon
     ctx.lineWidth = 5;
@@ -144,6 +144,7 @@ function drawEverything() {
     ctx.closePath();
     ctx.stroke();
 
+    ctx.fillStyle = "red"; // Right Side
     ctx.beginPath(); // Bottom SubMiddle Icon
     ctx.lineWidth = 5;
     ctx.moveTo( ((topXCorner + xthick) - 270),(topYCorner + ythick + 30) )  ; // Right Top Corner
@@ -151,7 +152,5 @@ function drawEverything() {
     ctx.lineTo((topXCorner + 270),(topYCorner + ythick) + 50 ); // Left Bottom Corner
     ctx.lineTo( ((topXCorner + xthick) - 270),(topYCorner + ythick) + 50 ) ; // Right Bottom Corner
     ctx.closePath();
-    ctx.stroke();
-
-
-  }
+    ctx.fill();
+}
