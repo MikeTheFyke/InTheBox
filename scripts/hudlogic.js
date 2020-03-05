@@ -96,24 +96,28 @@ function drawEverything() {
     ctx.lineWidth = 10;
     ctx.moveTo((topXCorner),topYCorner);
     ctx.lineTo((topXCorner + 250),topYCorner);
+    ctx.lineTo((topXCorner + 275),topYCorner + 25);
     ctx.stroke();
 
     ctx.beginPath(); // Bottom Left Line
     ctx.lineWidth = 10;
     ctx.moveTo((topXCorner),(topYCorner + ythick));
     ctx.lineTo((topXCorner + 250),(topYCorner + ythick));
+    ctx.lineTo((topXCorner + 275),((topYCorner + ythick) - 25 ) );
     ctx.stroke();
 
     ctx.beginPath(); // Top Right Line
     ctx.lineWidth = 10;
     ctx.moveTo( (topXCorner + xthick),topYCorner);
     ctx.lineTo( ( (topXCorner + xthick) - 250),topYCorner);
+    ctx.lineTo( ( (topXCorner + xthick) - 275),topYCorner + 25);
     ctx.stroke();
 
     ctx.beginPath(); // Bottom Right Line
     ctx.lineWidth = 10;
     ctx.moveTo( (topXCorner + xthick),(topYCorner + ythick) );
     ctx.lineTo( ((topXCorner + xthick) - 250),topYCorner + ythick);
+    ctx.lineTo( ((topXCorner + xthick) - 275),(topYCorner + ythick) -25);
     ctx.stroke();
 
   }
