@@ -171,9 +171,9 @@ function drawArc () {
     ctx.strokeStyle = "blue"
     ctx.beginPath();
     ctx.moveTo((topXCorner) - 25,(topYCorner + ythick) - 125);  // LeBot Point 02
-    ctx.arc(topXCorner - 25, topYCorner + ( ythick/2 ), 135, 90, 1.5 * Math.PI, false);
-    
+    ctx.arc(topXCorner - 25, topYCorner + ( ythick/2 ), 135, .5 * Math.PI, 1.5 * Math.PI, false); // Middle Arc
     ctx.lineTo( (topXCorner) - 25,topYCorner + 125); // LeTop Point 02
+
     ctx.arc(topXCorner + 10, topYCorner + ( ( ythick/2)/2 ) - 30 , 100, 110, 1.5 * Math.PI, false);
     ctx.lineTo((topXCorner),topYCorner); // Left Top Corner
     ctx.lineTo((topXCorner + 250),topYCorner); // LeTop Mid Top Corner
