@@ -35,6 +35,7 @@ window.onload = function() {
             Ycord = mousePos.y;
             topYCorner = mousePos.y-((ythick/2) + 75);
             topXCorner = mousePos.x-((xthick/2) + 50);
+            
        }
     );
     canvas.addEventListener("click", 
@@ -53,6 +54,7 @@ function drawEverything() {
     drawIcons()
     blueHud()
     rectile()
+    moveBar()
   }
 
   function drawRect() {
