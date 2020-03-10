@@ -60,6 +60,8 @@ function drawBullets(){
         ctx.arc(topXCorner + 5 + (i * 10) + (i*10), topYCorner + 55, 5, 1 * Math.PI, 0 * Math.PI, false);
         ctx.closePath();
         ctx.fill();
+
+        ammoHash();
     }
 }
 
