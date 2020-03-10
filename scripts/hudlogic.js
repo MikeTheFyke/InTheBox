@@ -52,7 +52,7 @@ function drawEverything() {
     drawHudFrame()
     drawIcons()
     blueHud()
-    
+    rectile()
   }
 
   function drawRect() {
