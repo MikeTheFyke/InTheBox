@@ -217,8 +217,13 @@ function drawIconsBlue() {
     ctx.fill()
     ctx.stroke()
 
-    ctx.beginPath()
+    ctx.beginPath() // Hozizontal Radar Lines
     ctx.moveTo( topXCorner - 35 ,(topYCorner + ythick) - 62.5)
     ctx.lineTo( topXCorner + 35 ,(topYCorner + ythick) - 62.5)
+    ctx.stroke()
+
+    ctx.beginPath() // Vertical Radar Lines
+    ctx.moveTo( topXCorner, (topYCorner + ythick) - 97.5)
+    ctx.lineTo( topXCorner, (topYCorner + ythick) - 27)
     ctx.stroke()
 }
