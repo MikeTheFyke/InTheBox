@@ -1,7 +1,7 @@
 var width = 5;
 var width2 = 3;
 
-function drawRadar() {
+function radarBits() {
     ctx.fillStyle="blue"
     ctx.beginPath();
     ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, 50, 0 * Math.PI, 2.0 * Math.PI, false); // Boundry Point
@@ -51,8 +51,8 @@ function drawRadar() {
     ctx.stroke()
 }
 
-function drawMap() {
-    drawRadar();
+function drawRadar() {
+    radarBits();
     if ( width > 50){
         width = 5;
         width2 = 3
@@ -60,4 +60,4 @@ function drawMap() {
     width = width + 1;
     width2 = width2 + 1;
 }
-setInterval(drawMap, 2000);
+setInterval(drawRadar, 2000);

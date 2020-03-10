@@ -179,5 +179,5 @@ function blueHud () {
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.stroke()
 
-    drawMap()
+    drawRadar()
 }
