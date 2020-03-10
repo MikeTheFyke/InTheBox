@@ -34,10 +34,6 @@ window.onload = function() {
             Ycord = mousePos.y;
             topYCorner = mousePos.y-((ythick/2) + 75);
             topXCorner = mousePos.x-((xthick/2) + 50);
-            // redTopY = topYCorner / 2;
-            // redTopX = topXCorner / 2;
-            // yellTopX = (topXCorner / 2) + 703;
-            // yellTopY = topYCorner / 2;
        }
     );
 }
@@ -49,20 +45,20 @@ function drawEverything() {
     drawLines()
     drawHudFrame()
     drawIcons()
-    drawArc()
-    drawRadar() // hud/radar.js
-    flashing()  // hud/radar.js
+    blueHud()
+    // drawRadar() // hud/radar.js
+    // flashing()  // hud/radar.js
   }
 
   function drawRect() {
             if (topYCorner <= 50){ // Top Boundry
                 topYCorner = 50 ;}
-            if (topYCorner >= 100){ // Bottom Boundry
-                topYCorner = 100 ;} 
-            if (topXCorner >= 325){ // Right Boundry
-                topXCorner = 325 ;}
-            if (topXCorner <= 75){ // Left Boundry
-                topXCorner = 75 ;}
+            if (topYCorner >= 90){ // Bottom Boundry
+                topYCorner = 90 ;} 
+            if (topXCorner >= 275){ // Right Boundry
+                topXCorner = 275 ;}
+            if (topXCorner <= 175 ){ // Left Boundry
+                topXCorner = 175 ;}
     ctx.fillStyle = "teal"; // Back Wall Grey Border
     ctx.fillRect(topXCorner,topYCorner,xthick,ythick);
     ctx.fillStyle = "black"; // Back Wall Black
@@ -157,18 +153,9 @@ function drawIcons () {
     ctx.fill();
 }
 
-function drawArc () {
-    ctx.strokeStyle = "green";
-    ctx.beginPath(); // Top Line
+function blueHud () {
+    // context.arc(x, y, radius, startAngle, endAngle, counterClockwise);\
     ctx.lineWidth = 10;
-    ctx.moveTo((topXCorner),topYCorner); // Left Top Corner
-    ctx.lineTo((topXCorner),topYCorner + (ythick/2) ); // Middle 
-    ctx.lineTo(topXCorner - 130,topYCorner + (ythick / 2) ) // SubMiddle
-    ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
-    ctx.stroke()
-
-
-    // context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
     ctx.strokeStyle = "blue"
     ctx.beginPath();
     //--------------------Right Side Arcs
