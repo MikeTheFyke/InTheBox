@@ -60,4 +60,4 @@ function drawMap() {
     width = width + 1;
     width2 = width2 + 1;
 }
-setInterval(drawMap, 50);
+setInterval(drawMap, 2000);
