@@ -1,18 +1,11 @@
 function ammoHash(){
-    // for (var b = 0; b <= ammoText; b++){
-    // ctx.strokeStyle = "green";
-    // ctx.beginPath(); // Health Icon
-    // ctx.lineWidth = 5;
-    // ctx.moveTo( topXCorner + 10 + ( b * 10),topYCorner + 25); // LeTop Mid Top Corner
-    // ctx.lineTo( topXCorner + 195 + ( b * 10),topYCorner + 5);      // RT Mid Top Corner
-    // ctx.lineTo( topXCorner + 220 + ( b * 10),topYCorner + 30); // RT SubMid
-    // ctx.lineTo( topXCorner + 10 + ( b * 10),topYCorner + 30); // LeTop SubMid 
-    // ctx.closePath();
-    // ctx.stroke();
-    // }
-    ctx.strokeStyle="white"
+    ctx.strokeStyle="darkblue";
+    ctx.fillStyle="blue";
     ctx.lineWidth = 5;
+
     bar08();
+    bar07();
+    bar06();
     bar05();
     bar04();
     bar03();
@@ -28,6 +21,29 @@ function bar08(){
     ctx.lineTo( topXCorner + 10,topYCorner + 30); // LeTop SubMid 
     ctx.closePath();
     ctx.stroke();
+    ctx.fill();
+}
+
+function bar07(){
+    ctx.beginPath(); // Health Icon
+    ctx.moveTo( topXCorner + 10,topYCorner + 25); // LeTop Mid Top Corner
+    ctx.lineTo( topXCorner + 140,topYCorner + 11);      // RT Mid Top Corner
+    ctx.lineTo( topXCorner + 155,topYCorner + 30); // RT SubMid
+    ctx.lineTo( topXCorner + 10,topYCorner + 30); // LeTop SubMid 
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+}
+
+function bar06(){
+    ctx.beginPath(); // Health Icon
+    ctx.moveTo( topXCorner + 10,topYCorner + 25); // LeTop Mid Top Corner
+    ctx.lineTo( topXCorner + 115,topYCorner + 13);      // RT Mid Top Corner
+    ctx.lineTo( topXCorner + 130,topYCorner + 30); // RT SubMid
+    ctx.lineTo( topXCorner + 10,topYCorner + 30); // LeTop SubMid 
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
 }
 
 function bar05(){
