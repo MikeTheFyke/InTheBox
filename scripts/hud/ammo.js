@@ -6,7 +6,7 @@ function ammoCtr(){
         ammoText = ammoCount;
         console.log("AmmoCount = " + ammoCount)
     } else {
-        ammoCount = ammoCount + 8;
+        ammoCount = ammoCount + 9;
     }
 }
 
@@ -21,6 +21,20 @@ function ammoBar(){
     ctx.closePath();
     ctx.stroke();
 
+    drawBars()
+
     ctx.font = "30px Verdana";
-    ctx.fillText(ammoText,topXCorner + 20,topYCorner + 30, 90,100);
+    ctx.fillText(ammoText,topXCorner + 180,topYCorner + 30, 90,100);
+}
+
+function drawBars() {
+    ctx.strokeStyle = "green";
+    ctx.beginPath(); // Health Icon
+    ctx.lineWidth = 5;
+    ctx.moveTo( topXCorner + 10,topYCorner + 25); // LeTop Mid Top Corner
+    ctx.lineTo( topXCorner + 195,topYCorner + 5);      // RT Mid Top Corner
+    ctx.lineTo( topXCorner + 220,topYCorner + 30); // RT SubMid
+    ctx.lineTo( topXCorner + 10,topYCorner + 30); // LeTop SubMid 
+    ctx.closePath();
+    ctx.stroke();
 }
