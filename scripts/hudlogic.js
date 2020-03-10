@@ -55,6 +55,7 @@ function drawEverything() {
     blueHud()
     rectile()
     moveBar()
+    drawHealthBar()
   }
 
   function drawRect() {
@@ -131,14 +132,15 @@ function drawEverything() {
 
 function drawIcons () {
     ctx.strokeStyle = "red";
-    ctx.beginPath(); // Top Middle Icon
-    ctx.lineWidth = 5;
-    ctx.moveTo((topXCorner + 270),topYCorner); // LeTop Mid Top Corner
-    ctx.lineTo( ( (topXCorner + xthick) - 270),topYCorner); // RT Mid Top Corner
-    ctx.lineTo( ( (topXCorner + xthick) - 285),topYCorner + 15); // RT SubMid
-    ctx.lineTo((topXCorner + 285),topYCorner + 15); // LeTop SubMid 
-    ctx.closePath();
-    ctx.stroke();
+
+    // ctx.beginPath(); // Top Middle Icon
+    // ctx.lineWidth = 5;
+    // ctx.moveTo((topXCorner + 270),topYCorner); // LeTop Mid Top Corner
+    // ctx.lineTo( ( (topXCorner + xthick) - 270),topYCorner); // RT Mid Top Corner
+    // ctx.lineTo( ( (topXCorner + xthick) - 285),topYCorner + 15); // RT SubMid
+    // ctx.lineTo((topXCorner + 285),topYCorner + 15); // LeTop SubMid 
+    // ctx.closePath();
+    // ctx.stroke();
 
     ctx.beginPath(); // Bottom Middle Icon
     ctx.lineWidth = 5;
