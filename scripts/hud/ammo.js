@@ -69,8 +69,8 @@ function reloadBullets (){
         ctx.lineWidth = 2;
         ctx.moveTo( topXCorner ,topYCorner + 50); // LeTop Mid Top Corner
         ctx.lineTo( topXCorner + 250,topYCorner + 50);      // RT Mid Top Corner
-        ctx.lineTo( topXCorner + 265, topYCorner + 65); // RT SubMid
-        ctx.lineTo( topXCorner , topYCorner + 65); // LeTop SubMid 
+        ctx.lineTo( topXCorner + 265, topYCorner + 75); // RT SubMid
+        ctx.lineTo( topXCorner , topYCorner + 75); // LeTop SubMid 
         ctx.closePath();
         ctx.fill();
 
@@ -79,12 +79,12 @@ function reloadBullets (){
         ctx.lineWidth = 2;
         ctx.moveTo( topXCorner + 2 ,topYCorner + 52); // LeTop Mid Top Corner
         ctx.lineTo( topXCorner + 248,topYCorner + 52);      // RT Mid Top Corner
-        ctx.lineTo( topXCorner + 258, topYCorner + 63); // RT SubMid
-        ctx.lineTo( topXCorner + 2, topYCorner + 63); // LeTop SubMid 
+        ctx.lineTo( topXCorner + 263, topYCorner + 73); // RT SubMid
+        ctx.lineTo( topXCorner + 2, topYCorner + 73); // LeTop SubMid 
         ctx.closePath();
         ctx.stroke();
 
-        ctx.font = "9px Verdana";
+        ctx.font = "20px Verdana";
         ctx.fillStyle="white";
-        ctx.fillText("-- RELOAD --",topXCorner + 80,topYCorner + 61, 90,100);
+        ctx.fillText("-- RELOAD --",topXCorner + 80,topYCorner + 70, 90,100);
 }
