@@ -1,7 +1,7 @@
-var ctr = 0;
+var width = 5;
+var width2 = 3;
 
 function drawRadar() {
-
     ctx.fillStyle="blue"
     ctx.beginPath();
     ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, 50, 0 * Math.PI, 2.0 * Math.PI, false); // Boundry Point
@@ -23,6 +23,23 @@ function drawRadar() {
     ctx.fill()
     ctx.stroke()
 
+    ctx.fillStyle="White"
+    ctx.beginPath();
+    ctx.arc(topXCorner, (topYCorner + ythick) - 62.5, width, 0, Math.PI*2);
+    ctx.fill();
+    ctx.closePath();
+    
+    ctx.fillStyle="Blue"
+    ctx.beginPath();
+    ctx.arc(topXCorner, (topYCorner + ythick) - 62.5, width2, 0, Math.PI*2);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.strokeStyle="black"
+    ctx.beginPath();
+    ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, 35, 0 * Math.PI, 2.0 * Math.PI, false); // Edge Point
+    ctx.stroke()
+
     ctx.beginPath() // Hozizontal Radar Lines
     ctx.moveTo( topXCorner - 35 ,(topYCorner + ythick) - 62.5)
     ctx.lineTo( topXCorner + 35 ,(topYCorner + ythick) - 62.5)
@@ -32,44 +49,15 @@ function drawRadar() {
     ctx.moveTo( topXCorner, (topYCorner + ythick) - 97.5)
     ctx.lineTo( topXCorner, (topYCorner + ythick) - 27)
     ctx.stroke()
-    
 }
 
-function flashing(){
-      
-    if ( ctr <= 50 ) {
-        for (var a = 0; a <= 50; a ++){
-            ctx.strokeStyle="white"
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (5 + a), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
-            ctx.stroke()
-
-            ctx.strokeStyle="blue"
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (5 + a), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
-            ctx.stroke()
-        
-            ctr = ctr + 1
-            console.log("ctr = " + ctr)
-        }
-    } else {
-        for (var b = 0; b <= 50; b ++){
-            ctx.strokeStyle="white"
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (50 - b), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
-            ctx.stroke()
-
-            ctx.strokeStyle="blue"
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (50 - b), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
-            ctx.stroke()
-        
-            ctr = ctr - 1
-            console.log("ctr = " + ctr)
-        }
+function drawMap() {
+    drawRadar();
+    if ( width > 50){
+        width = 5;
+        width2 = 3
     }
+    width = width + 1;
+    width2 = width2 + 1;
 }
+setInterval(drawMap, 50);

@@ -46,8 +46,7 @@ function drawEverything() {
     drawHudFrame()
     drawIcons()
     blueHud()
-    // drawRadar() // hud/radar.js
-    // flashing()  // hud/radar.js
+    
   }
 
   function drawRect() {
@@ -179,4 +178,6 @@ function blueHud () {
     ctx.lineTo((topXCorner + 220),(topYCorner + ythick) + 30); // LeBot Mid Corner
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.stroke()
+
+    drawMap()
 }
