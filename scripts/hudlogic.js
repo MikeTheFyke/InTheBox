@@ -24,8 +24,7 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 window.onload = function() {
     setInterval(function() {
     drawEverything();
-    boxLeft();
-    boxRight();
+    
     },1000/framesPerSecond); // Hundredth of seconds, ballX movement
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -52,6 +51,7 @@ function drawEverything() {
     drawIcons()
     drawArc()
     drawIconsBlue()
+    flashing()
   }
 
   function drawRect() {
@@ -226,4 +226,46 @@ function drawIconsBlue() {
     ctx.moveTo( topXCorner, (topYCorner + ythick) - 97.5)
     ctx.lineTo( topXCorner, (topYCorner + ythick) - 27)
     ctx.stroke()
+    
+}
+
+var ctr = 0;
+
+function flashing(){
+      
+    if ( ctr <= 50 ) {
+        for (var a = 0; a <= 50; a ++){
+            ctx.strokeStyle="white"
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (5 + a), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
+            ctx.stroke()
+
+            ctx.strokeStyle="blue"
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (5 + a), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
+            ctx.stroke()
+        
+            ctr = ctr + 1
+            console.log("ctr = " + ctr)
+        }
+    } else {
+        for (var a = 0; a <= 50; a ++){
+            ctx.strokeStyle="white"
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (50 - a), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
+            ctx.stroke()
+
+            ctx.strokeStyle="blue"
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, (50 - a), 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
+            ctx.stroke()
+        
+            ctr = ctr - 1
+            console.log("ctr = " + ctr)
+        }
+    }
 }
