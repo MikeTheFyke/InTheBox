@@ -194,6 +194,10 @@ function drawArc () {
     ctx.stroke()
 }
 
-function drawIconsBlue {
+function drawIconsBlue() {
 
+    ctx.fillStyle="blue"
+    ctx.beginPath();
+    ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, 50, 0 * Math.PI, 2.0 * Math.PI, false); // Bottom Left Arc
+    ctx.fill()
 }
