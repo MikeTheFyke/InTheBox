@@ -9,6 +9,7 @@ var topXCorner = 20;
 const xthick = 950;
 const ythick = 525;
 
+ammoCount = 8;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -35,6 +36,11 @@ window.onload = function() {
             topYCorner = mousePos.y-((ythick/2) + 75);
             topXCorner = mousePos.x-((xthick/2) + 50);
        }
+    );
+    canvas.addEventListener("click", 
+        function (){
+            ammoCtr()
+        }
     );
 }
 
@@ -180,4 +186,5 @@ function blueHud () {
     ctx.stroke()
 
     drawRadar()
+    ammoBar()
 }
