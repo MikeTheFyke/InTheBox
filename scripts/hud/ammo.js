@@ -1,4 +1,4 @@
-var ammoText = "8"
+var ammoText = 8
 
 function ammoCtr(){
     if (ammoCount >= 1){
@@ -22,7 +22,11 @@ function ammoBar(){
     ctx.stroke();
 
     // drawBars() Health Like Interior Bar
-    drawBullets()
+    if (ammoText >= 1 ){
+        drawBullets();
+    } else {
+        reloadBullets();
+    }
 
     ctx.font = "30px Verdana";
     ctx.fillText(ammoText,topXCorner + 180,topYCorner + 30, 90,100);
@@ -41,7 +45,7 @@ function ammoBar(){
 // }
 
 function drawBullets(){
-    for (var i = 0; i < ammoCount; i++){
+    for (var i = 1; i <= ammoText; i++){
         ctx.strokeStyle = "blue";
         ctx.beginPath(); // Top Middle Icon
         ctx.lineWidth = 2;
@@ -52,4 +56,16 @@ function drawBullets(){
         ctx.closePath();
         ctx.stroke();
     }
+}
+
+function reloadBullets (){
+        ctx.strokeStyle = "red";
+        ctx.beginPath(); // Top Middle Icon
+        ctx.lineWidth = 2;
+        ctx.moveTo( topXCorner ,topYCorner + 50); // LeTop Mid Top Corner
+        ctx.lineTo( topXCorner + 250,topYCorner + 50);      // RT Mid Top Corner
+        ctx.lineTo( topXCorner + 265, topYCorner + 65); // RT SubMid
+        ctx.lineTo( topXCorner , topYCorner + 65); // LeTop SubMid 
+        ctx.closePath();
+        ctx.stroke();
 }
