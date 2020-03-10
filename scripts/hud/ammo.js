@@ -1,9 +1,13 @@
-var clipRemain = 8;
-var ammoText = "YOU HAVE " + clipRemain + " Left";
+var ammoText = "8"
 
 function ammoCtr(){
-    ammoCount = ammoCount - 1;
-    console.log("AmmoCount = " + ammoCount)
+    if (ammoCount >= 1){
+        ammoCount = ammoCount - 1;
+        ammoText = ammoCount;
+        console.log("AmmoCount = " + ammoCount)
+    } else {
+        ammoCount = ammoCount + 8;
+    }
 }
 
 function ammoBar(){
