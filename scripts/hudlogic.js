@@ -216,4 +216,9 @@ function drawIconsBlue() {
     ctx.arc( topXCorner,(topYCorner + ythick) - 62.5, 5, 0 * Math.PI, 2.0 * Math.PI, false); // Middle Point
     ctx.fill()
     ctx.stroke()
+
+    ctx.beginPath()
+    ctx.moveTo( topXCorner - 35 ,(topYCorner + ythick) - 62.5)
+    ctx.lineTo( topXCorner + 35 ,(topYCorner + ythick) - 62.5)
+    ctx.stroke()
 }
