@@ -49,17 +49,22 @@ function drawBullets(){
         ctx.strokeStyle = "blue";
         ctx.beginPath(); // Top Middle Icon
         ctx.lineWidth = 2;
-        ctx.moveTo( topXCorner + (i * 10) + (i*10),topYCorner + 50); // LeTop Mid Top Corner
-        ctx.lineTo( topXCorner + ((i * 10) + 10) + (i*10),topYCorner + 50);      // RT Mid Top Corner
-        ctx.lineTo( topXCorner + ((i * 10) + 10) + (i*10),topYCorner + 65); // RT SubMid
-        ctx.lineTo( topXCorner + (i * 10) + (i*10),topYCorner + 65); // LeTop SubMid 
+        ctx.moveTo( topXCorner + (i * 10) + (i*10),topYCorner + 60); // LeTop Mid Top Corner
+        ctx.lineTo( topXCorner + ((i * 10) + 10) + (i*10),topYCorner + 60);      // RT Mid Top Corner
+        ctx.lineTo( topXCorner + ((i * 10) + 10) + (i*10),topYCorner + 75); // RT SubMid
+        ctx.lineTo( topXCorner + (i * 10) + (i*10),topYCorner + 75); // LeTop SubMid 
         ctx.closePath();
-        ctx.stroke();
+        ctx.fill();
+
+        ctx.beginPath() // Bullet Arc
+        ctx.arc(topXCorner + 5 + (i * 10) + (i*10), topYCorner + 55, 5, 1 * Math.PI, 0 * Math.PI, false);
+        ctx.closePath();
+        ctx.fill();
     }
 }
 
 function reloadBullets (){
-        ctx.strokeStyle = "red";
+        ctx.fillStyle = "red";
         ctx.beginPath(); // Top Middle Icon
         ctx.lineWidth = 2;
         ctx.moveTo( topXCorner ,topYCorner + 50); // LeTop Mid Top Corner
@@ -67,5 +72,19 @@ function reloadBullets (){
         ctx.lineTo( topXCorner + 265, topYCorner + 65); // RT SubMid
         ctx.lineTo( topXCorner , topYCorner + 65); // LeTop SubMid 
         ctx.closePath();
+        ctx.fill();
+
+        ctx.strokeStyle = "white";
+        ctx.beginPath(); // Top Middle Icon
+        ctx.lineWidth = 2;
+        ctx.moveTo( topXCorner + 2 ,topYCorner + 52); // LeTop Mid Top Corner
+        ctx.lineTo( topXCorner + 248,topYCorner + 52);      // RT Mid Top Corner
+        ctx.lineTo( topXCorner + 258, topYCorner + 63); // RT SubMid
+        ctx.lineTo( topXCorner + 2, topYCorner + 63); // LeTop SubMid 
+        ctx.closePath();
         ctx.stroke();
+
+        ctx.font = "9px Verdana";
+        ctx.fillStyle="white";
+        ctx.fillText("-- RELOAD --",topXCorner + 80,topYCorner + 61, 90,100);
 }
