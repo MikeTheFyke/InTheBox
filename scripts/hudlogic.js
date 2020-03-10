@@ -189,6 +189,21 @@ function blueHud () {
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.stroke()
 
+    
     drawRadar()
     ammoBar()
 }
+
+function drawHealthBar() {
+    ctx.strokeStyle = "white";
+    ctx.beginPath(); // main frame
+    ctx.lineWidth = 5;
+    ctx.moveTo( topXCorner + xthick, topYCorner + 20 ); // LeTop Mid Top Corner
+    ctx.lineTo( topXCorner + xthick - 200, topYCorner - 5 );      // RT Mid Top Corner
+    ctx.lineTo( topXCorner + xthick - 240, topYCorner + 40 ); // RT SubMid
+    ctx.lineTo( topXCorner + xthick, topYCorner + 40 ); // LeTop SubMid 
+    ctx.closePath();
+    ctx.stroke();
+}
+
+ctx.lineTo( (topXCorner + xthick),topYCorner);  // Right Top Corner
