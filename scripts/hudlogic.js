@@ -51,6 +51,7 @@ function drawEverything() {
     drawHudFrame()
     drawIcons()
     drawArc()
+    drawIconsBlue()
   }
 
   function drawRect() {
@@ -191,6 +192,8 @@ function drawArc () {
     ctx.lineTo((topXCorner + 220),(topYCorner + ythick) + 30); // LeBot Mid Corner
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.stroke()
+}
 
+function drawIconsBlue {
 
 }
