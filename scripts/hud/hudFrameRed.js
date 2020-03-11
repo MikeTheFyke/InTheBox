@@ -28,5 +28,4 @@ function hudFrameRed() {
     ctx.lineTo( (topXCorner) - 50,topYCorner + 100); // LeTop Point 01
     ctx.closePath();
     ctx.stroke();
-
   }
