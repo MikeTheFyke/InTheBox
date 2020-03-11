@@ -56,7 +56,8 @@ function drawEverything() {
     rectile()
     moveBar()
     drawHealthBar()
-    
+    drawRadar()
+    ammoBar()
   }
 
   function drawRect() {
@@ -189,8 +190,4 @@ function blueHud () {
     ctx.lineTo((topXCorner + 220),(topYCorner + ythick) + 30); // LeBot Mid Corner
     ctx.lineTo((topXCorner),(topYCorner + ythick) );  // Left Bottom Corner
     ctx.stroke()
-
-    
-    drawRadar()
-    ammoBar()
 }
