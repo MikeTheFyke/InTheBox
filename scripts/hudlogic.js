@@ -57,24 +57,19 @@ function drawEverything() {
     if (topXCorner <= 175 ){ // Left Boundry
         topXCorner = 175 ;}
 
-    // ctx.fillStyle = "teal"; // Back Wall Grey Border
-    // ctx.fillRect(topXCorner,topYCorner,xthick,ythick);
-    // ctx.fillStyle = "black"; // Back Wall Black
-    // ctx.fillRect(topXCorner +5,topYCorner +5 ,(xthick -10),(ythick -10));
-
     drawLines()
 
     hudFrameRed()
     drawIcons()
 
+    rectile()
+
     blueHud()
     
-    rectile()
     moveBar()
     drawHealthBar()
     drawRadar()
     ammoBar()
-    
   }
 
   function drawLines() {
