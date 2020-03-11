@@ -29,6 +29,24 @@ function innerBar(){
     ctx.fill();
     ctx.stroke();
 
+    ctx.lineWidth = 1; // Blue Cross
+    ctx.beginPath();
+    ctx.moveTo( topXCorner + xthick - 250 , topYCorner + 90 ); // Leftt edge Bottom Corner
+    ctx.lineTo( topXCorner + xthick - 250 , topYCorner + 80 ); // Left edge Top Corner
+    ctx.lineTo( topXCorner + xthick - 240 , topYCorner + 80 ); // Left Edge Center Top
+    ctx.lineTo( topXCorner + xthick - 240 , topYCorner + 70 ); // Top left Corner 
+    ctx.lineTo( topXCorner + xthick - 230 , topYCorner + 70 ); // Top Right Corner
+    ctx.lineTo( topXCorner + xthick - 230 , topYCorner + 80 ); // Right Edge Center
+    ctx.lineTo( topXCorner + xthick - 220 , topYCorner + 80 ); // Right edge Top Corner
+    ctx.lineTo( topXCorner + xthick - 220 , topYCorner + 90 ); // Right edge Bottom Corner
+    ctx.lineTo( topXCorner + xthick - 230 , topYCorner + 90 ); // Right Edge Center
+    ctx.lineTo( topXCorner + xthick - 230 , topYCorner + 100 ); // Bottom Right Corner
+    ctx.lineTo( topXCorner + xthick - 240 , topYCorner + 100 ); // Bottom Left Corner
+    ctx.lineTo( topXCorner + xthick - 240 , topYCorner + 90 );
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+
     drawBar01()
 }
 
