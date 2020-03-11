@@ -1,15 +1,15 @@
 function drawHealthBar() {
     ctx.lineWidth = 6;
     ctx.strokeStyle = "blue";
-    ctx.fillStyle = "lightblue";
+    ctx.fillStyle = "blue";
     ctx.beginPath(); // main frame
     ctx.lineWidth = 5;
 
     ctx.beginPath();
     ctx.arc(topXCorner + xthick -220 , topYCorner + 30, 20, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
     ctx.arc(topXCorner + xthick -200 , topYCorner + 10, 20, 1.25 * Math.PI, 1.5 * Math.PI, false); // Top Left Arc
-    ctx.arc(topXCorner + xthick + 20 , topYCorner + 65, 40, 1.5 * Math.PI, 2.25 * Math.PI, false); // Top Right Arc
-    ctx.arc(topXCorner + xthick + 20 , topYCorner + 65, 40, 0 * Math.PI, .5 * Math.PI, false); // Top Right Arc
+    ctx.arc(topXCorner + xthick + 20 , topYCorner + 65, 40, 1.5 * Math.PI, 2.55 * Math.PI, false); // Top Right Arc
+    
     ctx.arc(topXCorner + xthick - 30 , topYCorner + 100, 40, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
     ctx.closePath();
     // ctx.fill();
@@ -18,9 +18,9 @@ function drawHealthBar() {
     ctx.beginPath();
     ctx.arc(topXCorner + xthick -210 , topYCorner + 27, 15, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
     ctx.arc(topXCorner + xthick -200 , topYCorner + 13, 15, 1.25 * Math.PI, 1.5 * Math.PI, false); // Top Left Arc
-    ctx.arc(topXCorner + xthick + 17 , topYCorner + 63, 35, 1.5 * Math.PI, 2.25 * Math.PI, false); // Top Right Arc
-    ctx.arc(topXCorner + xthick + 17 , topYCorner + 63, 35, 0 * Math.PI, .5 * Math.PI, false); // Top Right Arc
-    ctx.arc(topXCorner + xthick - 18 , topYCorner + 90, 35, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
+    ctx.arc(topXCorner + xthick + 17 , topYCorner + 65, 30, 1.5 * Math.PI, 2.5 * Math.PI, false); // Top Right Arc
+    
+    ctx.arc(topXCorner + xthick - 16 , topYCorner + 86, 33, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
     ctx.closePath();
     ctx.fill();
     
