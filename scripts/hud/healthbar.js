@@ -2,53 +2,44 @@ function drawHealthBar() {
     ctx.lineWidth = 6;
     ctx.strokeStyle = "blue";
     ctx.fillStyle = "blue";
-    ctx.beginPath(); // main frame
-    ctx.lineWidth = 5;
 
-    ctx.beginPath();
+    ctx.beginPath(); // Outter Frame
     ctx.arc(topXCorner + xthick -220 , topYCorner + 30, 20, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
     ctx.arc(topXCorner + xthick -200 , topYCorner + 10, 20, 1.25 * Math.PI, 1.5 * Math.PI, false); // Top Left Arc
     ctx.arc(topXCorner + xthick + 20 , topYCorner + 65, 40, 1.5 * Math.PI, 2.55 * Math.PI, false); // Top Right Arc
-    
     ctx.arc(topXCorner + xthick - 30 , topYCorner + 100, 40, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
     ctx.closePath();
-    // ctx.fill();
     ctx.stroke();
 
-    ctx.beginPath();
-    ctx.arc(topXCorner + xthick -210 , topYCorner + 27, 15, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
-    ctx.arc(topXCorner + xthick -200 , topYCorner + 13, 15, 1.25 * Math.PI, 1.5 * Math.PI, false); // Top Left Arc
-    ctx.arc(topXCorner + xthick + 17 , topYCorner + 65, 30, 1.5 * Math.PI, 2.5 * Math.PI, false); // Top Right Arc
-    
-    ctx.arc(topXCorner + xthick - 16 , topYCorner + 86, 33, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
+    innerBars();
+}
+
+var width1 = 15;
+var width2 = 12;
+var width3 = 25;
+var width4 = 33;
+
+
+function innerBars(){
+    ctx.lineWidth = 6;
+    ctx.strokeStyle="white";
+    ctx.fillStyle = "blue";
+    ctx.beginPath(); // Inner Cell
+    ctx.arc(topXCorner + xthick - 205 , topYCorner + 24, width1, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
+    ctx.arc(topXCorner + xthick - 200 , topYCorner + 13, 12, 1.25 * Math.PI, 1.5 * Math.PI, false); // Top Left Arc
+    ctx.arc(topXCorner + xthick +  22 , topYCorner + 65, width3, 1.5 * Math.PI, 2.5 * Math.PI, false); // Top Right Arc
+    ctx.arc(topXCorner + xthick -  12 , topYCorner + 84, width4, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
     ctx.closePath();
     ctx.fill();
-    
+    ctx.stroke();
 
-    // var healthBarWidth = ( (topXCorner + xthick) - (topXCorner + xthick - 240) ) / 8;
-    // console.log("health Bar Width = " + healthBarWidth);
+    bar01();
+}
 
-    // for (c = 0; c <= 7; c++) {   
-    //     ctx.strokeStyle = "darkblue";
-    //     ctx.fillStyle = "blue";
-    //     ctx.beginPath()
-    //     ctx.moveTo( topXCorner + xthick - ( c * healthBarWidth ) + ( c * 5 ) , topYCorner + 20 - ( c * 3 ) ); // Right Top
-    //     ctx.lineTo( topXCorner + xthick - ( c * healthBarWidth ), topYCorner + 40 ); // Right Bottom
-    //     ctx.lineTo(topXCorner + xthick - ( healthBarWidth ) - ( c * healthBarWidth ) - ( c * .75 ) , topYCorner + 40 ) // Left Bottom
-    //     ctx.lineTo(topXCorner + xthick - ( healthBarWidth ) - ( c * healthBarWidth ) + ( c * 5.5 ) , topYCorner + 20  - ( c * 4 ) ) // Left Top
-    //     ctx.closePath()
-    //     ctx.stroke()
-        
-    // }
-
-    // ctx.strokeStyle = "darkblue";
-    // ctx.beginPath(); // main frame
-    // ctx.lineWidth = 6;
-    // ctx.moveTo( topXCorner + xthick, topYCorner + 20 ); // Left Top Corner
-    // ctx.lineTo( topXCorner + xthick - 200, topYCorner - 5 ); // Right Top Corner
-    // ctx.lineTo( topXCorner + xthick - 240, topYCorner + 40 ); // Right Bottom Corner
-    // ctx.lineTo( topXCorner + xthick, topYCorner + 40 ); // Left Bottom Corner 
-    // ctx.closePath();
-    // ctx.stroke();
-
+function bar01() {
+    ctx.fillStyle = "blue";
+    ctx.beginPath(); // Inner Cell
+    ctx.arc(topXCorner + xthick - 205 , topYCorner + 75, 15, 0 * Math.PI, 2 * Math.PI, false); // Bottom Left Arc
+    ctx.closePath();
+    ctx.fill();
 }
