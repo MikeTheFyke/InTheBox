@@ -19,6 +19,7 @@ var width2 = 12;
 var width3 = 25;
 var width4 = 33;
 
+var d = 11 ;
 
 function innerBars(){
     ctx.lineWidth = 6;
@@ -33,13 +34,35 @@ function innerBars(){
     ctx.fill();
     ctx.stroke();
 
-    bar01();
+    drawBar01()
 }
 
 function bar01() {
-    ctx.fillStyle = "blue";
-    ctx.beginPath(); // Inner Cell
-    ctx.arc(topXCorner + xthick - 205 , topYCorner + 75, 15, 0 * Math.PI, 2 * Math.PI, false); // Bottom Left Arc
-    ctx.closePath();
-    ctx.fill();
+
+    for (var b = 0; b <= 6; b++){
+
+        ctx.fillStyle = "white";
+        ctx.beginPath(); // Inner Cell
+        ctx.arc(topXCorner + xthick - 230 + ( b * 34) , topYCorner + 85, d, 0 * Math.PI, 2 * Math.PI, false); // Bottom Left Arc
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "blue";
+        ctx.beginPath(); // Inner Cell
+        ctx.arc(topXCorner + xthick - 230 + ( b * 34) , topYCorner + 85, 12, 0 * Math.PI, 2 * Math.PI, false); // Bottom Left Arc
+        ctx.closePath();
+        ctx.fill();
+    }
+}
+
+
+
+function drawBar01() {
+    bar01();
+    if ( d >= 15){
+        d = 11;
+    
+    }
+    d = d + 0.05;
+
 }

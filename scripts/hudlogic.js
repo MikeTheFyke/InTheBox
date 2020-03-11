@@ -74,6 +74,7 @@ function drawEverything() {
     drawHealthBar()
     drawRadar()
     ammoBar()
+    
   }
 
   function drawLines() {
