@@ -48,9 +48,24 @@ window.onload = function() {
 function drawEverything() {
     ctx.fillStyle = "black"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-    drawRect()
+
+    if (topYCorner <= 50){ // Top Boundry
+        topYCorner = 50 ;}
+    if (topYCorner >= 90){ // Bottom Boundry
+        topYCorner = 90 ;} 
+    if (topXCorner >= 275){ // Right Boundry
+        topXCorner = 275 ;}
+    if (topXCorner <= 175 ){ // Left Boundry
+        topXCorner = 175 ;}
+
+    // ctx.fillStyle = "teal"; // Back Wall Grey Border
+    // ctx.fillRect(topXCorner,topYCorner,xthick,ythick);
+    // ctx.fillStyle = "black"; // Back Wall Black
+    // ctx.fillRect(topXCorner +5,topYCorner +5 ,(xthick -10),(ythick -10));
+
     drawLines()
-    drawHudFrame()
+
+    hudFrameRed()
     drawIcons()
     blueHud()
     rectile()
@@ -58,21 +73,6 @@ function drawEverything() {
     drawHealthBar()
     drawRadar()
     ammoBar()
-  }
-
-  function drawRect() {
-            if (topYCorner <= 50){ // Top Boundry
-                topYCorner = 50 ;}
-            if (topYCorner >= 90){ // Bottom Boundry
-                topYCorner = 90 ;} 
-            if (topXCorner >= 275){ // Right Boundry
-                topXCorner = 275 ;}
-            if (topXCorner <= 175 ){ // Left Boundry
-                topXCorner = 175 ;}
-    ctx.fillStyle = "teal"; // Back Wall Grey Border
-    ctx.fillRect(topXCorner,topYCorner,xthick,ythick);
-    ctx.fillStyle = "black"; // Back Wall Black
-    ctx.fillRect(topXCorner +5,topYCorner +5 ,(xthick -10),(ythick -10));
   }
 
   function drawLines() {
@@ -99,7 +99,7 @@ function drawEverything() {
     ctx.stroke();
   }
 
-  function drawHudFrame() {
+  function hudFrameRed() {
     ctx.strokeStyle = "red";
     ctx.beginPath(); // Top Line
     ctx.lineWidth = 10;
