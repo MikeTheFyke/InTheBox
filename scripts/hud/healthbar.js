@@ -22,7 +22,7 @@ function drawHealthBar() {
         ctx.lineTo(topXCorner + xthick - ( healthBarWidth ) - ( c * healthBarWidth ) + ( c * 5.5 ) , topYCorner + 20  - ( c * 4 ) ) // Left Top
         ctx.closePath()
         ctx.stroke()
-        ctx.fill()
+        
     }
 
     ctx.strokeStyle = "darkblue";
