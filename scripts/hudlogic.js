@@ -9,7 +9,7 @@ var topXCorner = 20;
 const xthick = 950;
 const ythick = 525;
 
-ammoCount = 8;
+var ammoCount = 8;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -24,9 +24,8 @@ function calculateMousePos(evt){      // an event fires when mouse moves
 
 window.onload = function() {
     setInterval(function() {
-    drawEverything();
-    
-    },1000/framesPerSecond); // Hundredth of seconds, ballX movement
+    drawEverything();  
+    },1000/framesPerSecond); // Hundredth of seconds
 
     canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
         function(evt) {
@@ -67,7 +66,9 @@ function drawEverything() {
 
     hudFrameRed()
     drawIcons()
+
     blueHud()
+    
     rectile()
     moveBar()
     drawHealthBar()

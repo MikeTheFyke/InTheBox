@@ -49,7 +49,9 @@ function ammoBar(){
 // }
 
 function drawBullets(){
+    
     for (var i = 1; i <= ammoText; i++){
+        ctx.fillStyle = "blue";
         ctx.strokeStyle = "blue";
         ctx.beginPath(); // Top Middle Icon
         ctx.lineWidth = 2;
@@ -65,7 +67,25 @@ function drawBullets(){
         ctx.closePath();
         ctx.fill();
     }
+    
+    shotDot();
+
 }
+
+function shotDot (){
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc( Xcord, Ycord, 5, 0 * Math.PI, 2 * Math.PI, false);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "red";
+        ctx.beginPath();
+        ctx.arc( Xcord, Ycord, 5, 0 * Math.PI, 2 * Math.PI, false);
+        ctx.closePath();
+        ctx.fill();
+}
+
 
 function reloadBullets (){
         ctx.fillStyle = "red";
