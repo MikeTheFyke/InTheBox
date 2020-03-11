@@ -17,8 +17,8 @@ function drawHealthBar() {
 var diameter = 11 ;
 
 function innerBar(){
-    ctx.lineWidth = 6;
-    ctx.strokeStyle="white";
+    ctx.lineWidth = 4;
+    ctx.strokeStyle="lightblue";
     ctx.fillStyle = "blue";
     ctx.beginPath(); // Inner Cell
     ctx.arc(topXCorner + xthick - 205 , topYCorner + 24, 15, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc

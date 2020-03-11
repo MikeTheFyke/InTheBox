@@ -57,7 +57,7 @@ function drawRadar() {
         width = 5;
         width2 = 3
     }
-    width = width + 1;
-    width2 = width2 + 1;
+    width = width + .5;
+    width2 = width2 + .5;
 }
 setInterval(drawRadar, 2000);
