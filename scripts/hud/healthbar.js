@@ -11,25 +11,20 @@ function drawHealthBar() {
     ctx.closePath();
     ctx.stroke();
 
-    innerBars();
+    innerBar();
 }
 
-var width1 = 15;
-var width2 = 12;
-var width3 = 25;
-var width4 = 33;
+var diameter = 11 ;
 
-var d = 11 ;
-
-function innerBars(){
+function innerBar(){
     ctx.lineWidth = 6;
     ctx.strokeStyle="white";
     ctx.fillStyle = "blue";
     ctx.beginPath(); // Inner Cell
-    ctx.arc(topXCorner + xthick - 205 , topYCorner + 24, width1, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
+    ctx.arc(topXCorner + xthick - 205 , topYCorner + 24, 15, 0.5 * Math.PI, 1.25 * Math.PI, false); // Bottom Left Arc
     ctx.arc(topXCorner + xthick - 200 , topYCorner + 13, 12, 1.25 * Math.PI, 1.5 * Math.PI, false); // Top Left Arc
-    ctx.arc(topXCorner + xthick +  22 , topYCorner + 65, width3, 1.5 * Math.PI, 2.5 * Math.PI, false); // Top Right Arc
-    ctx.arc(topXCorner + xthick -  12 , topYCorner + 84, width4, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
+    ctx.arc(topXCorner + xthick +  22 , topYCorner + 65, 25, 1.5 * Math.PI, 2.5 * Math.PI, false); // Top Right Arc
+    ctx.arc(topXCorner + xthick -  12 , topYCorner + 84, 33, 0 * Math.PI, 1.5 * Math.PI, true); // Bottom Interior Arc
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
@@ -39,11 +34,11 @@ function innerBars(){
 
 function bar01() {
 
-    for (var b = 0; b <= 6; b++){
+    for (var b = 1; b <= 6; b++){
 
         ctx.fillStyle = "white";
         ctx.beginPath(); // Inner Cell
-        ctx.arc(topXCorner + xthick - 230 + ( b * 34) , topYCorner + 85, d, 0 * Math.PI, 2 * Math.PI, false); // Bottom Left Arc
+        ctx.arc(topXCorner + xthick - 230 + ( b * 34) , topYCorner + 85, diameter, 0 * Math.PI, 2 * Math.PI, false); // Bottom Left Arc
         ctx.closePath();
         ctx.fill();
 
@@ -56,13 +51,11 @@ function bar01() {
 }
 
 
-
 function drawBar01() {
     bar01();
-    if ( d >= 15){
-        d = 11;
+    if ( diameter >= 14){
+        diameter = 11;
     
     }
-    d = d + 0.05;
-
+    diameter = diameter + 0.025;
 }
