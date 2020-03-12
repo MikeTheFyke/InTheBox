@@ -1,3 +1,130 @@
+body{
+    background-color:black;
+}
+
+/* NavPad - Links Pad */
+#navPad{
+    background-image: linear-gradient( to bottom,rgb(156, 115, 115), rgb(214, 63, 63), rgb(68, 34, 34) );
+    border: 2px solid black;
+    color:black;
+    border-radius: 45px;
+    width:150px;
+    height:180px;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+
+#navPad-inner-upper{
+   background-color:linear-gradient( to top, rgb(156, 115, 115), rgb(68, 34, 34));
+    border-radius: 45px;
+    width:152px;
+    height:170px;
+    position: fixed;
+    bottom: 52px;
+    right: 22px;
+}
+
+#navPad-inner-lower{
+    background-image: linear-gradient( -30deg, rgb(68, 34, 34), rgb(214, 63, 63),rgb(156, 115, 115) );
+    border-radius: 45px;
+    width:141px;
+    height:175px;
+    position: fixed;
+    bottom: 42px;
+    right: 22px;
+}
+
+#navPad-inner{
+    background-image: linear-gradient( -30deg, rgb(68, 34, 34), rgb(214, 63, 63), rgb(156, 115, 115) );
+    border-radius: 25px;
+    width: 124px;
+    height: 149px;
+    position: fixed;
+    bottom: 53px;
+    right: 36px;
+    
+}
+/* //////////////////// */
+
+/*  Link Button */
+#buttonContainer{
+    background-color:white;
+    border-radius: 90px;
+    border: 2px solid black;
+    text-align: center;
+    width:100px;
+    height:100px;
+    position: fixed;
+    bottom: 55px;
+    right: 55px;
+}
+#btn1{
+    background-image: linear-gradient( -30deg,rgb(32, 32, 109),rgb(66, 66, 221),white );
+    border-color:black;
+    border-style:inset;
+    border-radius: 90px;
+    width:100px;
+    height:100px;
+    outline:none;
+    font-size: 25px;
+}
+#linkIconLr{
+    background-color: transparent;
+    width:50px;
+    height:50px;
+}
+#indexNav{
+    display:none;
+    position: fixed;
+    top: 130px;
+    left: 10px;
+    width: 175px;
+    height: 300px;
+    background-color:transparent;
+
+}
+/* //////////////////// */
+
+/* Sandbox Links Container*/
+#sandboxbuttonContainer{
+    background-color:white;
+    border-radius: 90px;
+    border: 2px solid black;
+    text-align: center;
+    width:50px;
+    height:50px;
+    position: fixed;
+    bottom: 155px;
+    right: 35px;
+}
+
+#btn2{
+    background-image: linear-gradient( -30deg,rgb(17, 66, 43),rgb(44, 165, 109),rgb(152, 221, 189) );
+    border-color:black;
+    border-radius: 90px;
+    width:50px;
+    height:50px;
+    outline:none;
+    font-size: 10px;
+    padding : 1px 3px;
+}
+
+/* //////////////////// */
+a{
+    width: 20px;
+    margin:auto;
+    text-align: center;
+    font-size:30px;
+    color:white;
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+
 #hudContainer{
     text-align:center;
     margin: 30px auto;
