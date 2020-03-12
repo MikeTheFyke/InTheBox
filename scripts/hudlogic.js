@@ -111,17 +111,18 @@ function drawEverything() {
   function background(){
 
 
-      if ( imgMouseX <= 100 ){
+
+      if ( imgMouseX <= 300 && imgX != 0){ // X Movement
         imgX = imgX + 10;
         console.log("Background is here = " + imgX)
       }
 
-      if ( imgMouseX >= 1200 ){
+      if ( imgMouseX >= 1100 && imgX != -1400){
         imgX = imgX - 10;
         console.log("Background is here = " + imgX)
       }
 
-      if ( imgMouseY <= 150 ){
+      if ( imgMouseY <= 150 ){ // Y Movement
           imgY = imgY +10;
       }
 
