@@ -11,7 +11,9 @@ const ythick = 525;
 
 var ammoCount = 8;
 
-var imgMouse = 0;
+var imgMouseX = 0;
+var imgMouseY = 0;
+var imgY = -100;
 var imgX = -700;
 var img = document.getElementById("field");
 
@@ -38,8 +40,9 @@ window.onload = function() {
             Ycord = mousePos.y;
             topYCorner = mousePos.y-((ythick/2) + 75);
             topXCorner = mousePos.x-((xthick/2) + 50);
-            imgMouse = mousePos.x;
-            console.log ("  Mouse X Position = " + imgMouse)
+            imgMouseX = mousePos.x;
+            imgMouseY = mousePos.y;
+            console.log ("  Mouse X Position = " + imgMouseX)
        }
     );
     canvas.addEventListener("click", 
@@ -108,16 +111,24 @@ function drawEverything() {
   function background(){
 
 
-      if ( imgMouse <= 100 ){
+      if ( imgMouseX <= 100 ){
         imgX = imgX + 10;
         console.log("Background is here = " + imgX)
       }
 
-      if ( imgMouse >= 1200 ){
+      if ( imgMouseX >= 1200 ){
         imgX = imgX - 10;
         console.log("Background is here = " + imgX)
       }
 
+      if ( imgMouseY <= 150 ){
+          imgY = imgY +10;
+      }
 
-    ctx.drawImage(img, imgX, 0, 2800, 700);
+      if ( imgMouseY >= 400 ){
+        imgY = imgY - 10;
+    }
+
+
+    ctx.drawImage(img, imgX, imgY, 2800, 1000);
   }
