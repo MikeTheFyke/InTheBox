@@ -120,14 +120,14 @@ function drawFrame(){
     ctx.stroke();
 
     ctx.beginPath(); // Left side X 01
-    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
-    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.moveTo(frameTopX  - 50, frameTopY - 100 ); // Top Left
+    ctx.lineTo(  250 ,  590 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
 
     ctx.beginPath(); // Leftt side X 02
-    ctx.moveTo( 1100 ,  90 ); // Top Right
-    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.moveTo(  250 ,  90 ); // Top Left
+    ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
 }
