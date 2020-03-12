@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="../styles/antfarm.css" type="text/css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div id="antContainer">
+        <canvas id="antCanvas" width="1200px" height="650px"></canvas>
+    </div>
+
+ 
+    <div id="indexNav">          
+        <a href="./truck.html">TRUCK</a>
+        <a href="./store.html">STORAGE</a>
+        <a href="../index.html">INDEX</a>
+        <a href="./sandbox/cubes.html">CUBES</a>
+        <a href="./sandbox/spikes.html">SPIKES</a>
+        <a href="./sandbox/eyes.html">EYES</a>
+        <a href="./sandbox/spin.html">SPIN</a>
+        <a href="./sandbox/multi.html">MULTI</a>           
+    </div>
+
+    <button  id="btn1" style="width:60px"><img id="linkIcon" src="../images/link-icon.png"></button>
+
+    <script>
+    $(document).ready(function(){
+        var clicked = false;
+        $("#btn1").click(function(){
+            if (clicked == false){
+                $("#indexNav").slideDown(1000);
+                clicked = true;
+            } else if (clicked == true) {
+                $("#indexNav").slideUp(1000);
+                clicked = false;
+            }
+        });
+    });
+    </script>
+
+    <script src="../scripts/antfarm.js"></script>
+
+</body>
+</html>

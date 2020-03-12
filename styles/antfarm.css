@@ -1,0 +1,64 @@
+body{
+    background-color:white;
+}
+/* ///  Link Button /// */
+#btn1{
+    background-color: blue;
+    border-color:white;
+    border: 6px solid;
+    border-radius: 90px;
+    text-align: center;
+    width:60px;
+    height:60px;
+    outline:none;
+    font-size: 10px;
+    position: fixed;
+    top: 55px;
+    left: 55px;
+}
+#linkIcon{
+    background-color: transparent;
+    width:30px;
+    height:30px;
+}
+/* ///// Nav List ///// */
+#indexNav{
+    text-align:center;
+    display:none;
+    position: fixed;
+    top: 250px;
+    left: 700px;
+    width: 175px;
+    height: 300px;
+    background-color:transparent;
+
+}
+
+a{
+    width: 20px;
+    margin:auto;
+    text-align: center;
+    font-family: clockFont;
+    font-size:30px;
+    color:blue;
+    text-decoration: none;
+}
+/* //////////////////// */
+
+/* //// HUD Canvas //// */
+#antContainer{
+    text-align:center;
+    margin: 30px auto;
+    border: 5px solid white;
+    background-color:black;
+    border-radius:25px;
+    width:90%vw;
+    height:675px;
+}
+
+#antCanvas{
+    margin:0px auto;
+    display:inline-block;
+    border-radius:25px;
+}
+/* //////////////////// */
