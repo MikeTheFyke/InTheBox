@@ -11,11 +11,14 @@ const ythick = 525;
 
 var ammoCount = 8;
 
+// Background variables
 var imgMouseX = 0;
 var imgMouseY = 0;
 var imgY = -100;
 var imgX = -700;
 var img = document.getElementById("field");
+////////////////////////
+
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -69,11 +72,13 @@ function drawEverything() {
 
     background()
 
-    drawLines()
+    // drawLines()
 
     // hudFrameRed()
 
     rectile()
+
+    frameInterior()
 
     blueHud()
     drawSensor()
@@ -109,9 +114,6 @@ function drawEverything() {
   }
 
   function background(){
-
-
-
       if ( imgMouseX <= 300 && imgX != 0){ // X Movement
         imgX = imgX + 10;
         console.log("Background is here = " + imgX)
@@ -129,7 +131,9 @@ function drawEverything() {
       if ( imgMouseY >= 400 && imgY != -300 ){
         imgY = imgY - 10;
     }
-
-
     ctx.drawImage(img, imgX, imgY, 2800, 1000);
+  }
+
+  function frameInterior() {
+      
   }
