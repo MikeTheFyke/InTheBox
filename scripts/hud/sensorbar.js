@@ -28,42 +28,42 @@ function drawSensor(){
     ctx.closePath();
     ctx.stroke();    
 
-    if (sensorCTR = 1 ){
-        for ( var m = 0; m <= 200; m++ ) {   
-            ctx.beginPath(); // Moving Box
-            ctx.moveTo( sbX1 + m, sbY1 );
-            ctx.lineTo( sbX2 + m, sbY1 );
-            ctx.lineTo( sbX2 + m, sbY2 );
-            ctx.lineTo( sbX1 + m, sbY2 );
-            ctx.closePath();
-            ctx.stroke();
-            ctx.fill();
-            sensorCTR = sensorCTR + 1;
-        }
-    }
+    // if (sensorCTR = 1 ){
+    //     for ( var m = 0; m <= 200; m++ ) {   
+    //         ctx.beginPath(); // Moving Box
+    //         ctx.moveTo( sbX1 + m, sbY1 );
+    //         ctx.lineTo( sbX2 + m, sbY1 );
+    //         ctx.lineTo( sbX2 + m, sbY2 );
+    //         ctx.lineTo( sbX1 + m, sbY2 );
+    //         ctx.closePath();
+    //         ctx.stroke();
+    //         ctx.fill();
+    //         sensorCTR = sensorCTR + 1;
+    //     }
+    // }
 
-    if (sensorCTR = 2 ){
-        for ( var m = 0; m <= 200; m++ ) {   
-            ctx.beginPath(); // Moving Box
-            ctx.moveTo( sbX1 - m, sbY1 );
-            ctx.lineTo( sbX2 - m, sbY1 );
-            ctx.lineTo( sbX2 - m, sbY2 );
-            ctx.lineTo( sbX1 - m, sbY2 );
-            ctx.closePath();
-            ctx.stroke();
-            ctx.fill();
-            sensorCTR = 1;
-        }
-    }
-    console.log("SensorCTR = " + sensorCTR);
+    // if (sensorCTR = 2 ){
+    //     for ( var m = 0; m <= 200; m++ ) {   
+    //         ctx.beginPath(); // Moving Box
+    //         ctx.moveTo( sbX1 - m, sbY1 );
+    //         ctx.lineTo( sbX2 - m, sbY1 );
+    //         ctx.lineTo( sbX2 - m, sbY2 );
+    //         ctx.lineTo( sbX1 - m, sbY2 );
+    //         ctx.closePath();
+    //         ctx.stroke();
+    //         ctx.fill();
+    //         sensorCTR = 1;
+    //     }
+    // }
+    // console.log("SensorCTR = " + sensorCTR);
 }
 
-function movingSensor() {
-    drawSensor();
-    if (sensorCTR = 2){
-        sensorCTR = 1;
-    } else {
-        sensorCtr ++;
-    }
-}
-setInterval(movingSensor, 2000);
+// function movingSensor() {
+//     drawSensor();
+//     if (sensorCTR = 2){
+//         sensorCTR = 1;
+//     } else {
+//         sensorCtr ++;
+//     }
+// }
+// setInterval(movingSensor, 2000);

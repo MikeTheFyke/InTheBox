@@ -59,7 +59,7 @@ function drawEverything() {
 
     drawLines()
 
-    hudFrameRed()
+    // hudFrameRed()
 
     rectile()
 
