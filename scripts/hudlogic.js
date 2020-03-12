@@ -57,6 +57,8 @@ function drawEverything() {
     if (topXCorner <= 175 ){ // Left Boundry
         topXCorner = 175 ;}
 
+    background()
+
     drawLines()
 
     // hudFrameRed()
@@ -69,6 +71,7 @@ function drawEverything() {
     drawHealthBar()
     drawRadar()
     ammoBar()
+    
   }
 
   function drawLines() {
@@ -93,4 +96,9 @@ function drawEverything() {
     ctx.moveTo(1400,675);
     ctx.lineTo(topXCorner + xthick,topYCorner +ythick); 
     ctx.stroke();
+  }
+
+
+  function background(){
+      
   }
