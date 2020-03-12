@@ -38,12 +38,19 @@ body{
     background-color:transparent;
 
 }
+
+@font-face{
+    font-family: clockFont;
+    src: url(.digital-7.ttf);
+}
+
 a{
     width: 20px;
     margin:auto;
     text-align: center;
+    font-family: clockFont;
     font-size:30px;
-    color:white;
+    color:blue;
     text-decoration: none;
 }
 /* //////////////////// */
