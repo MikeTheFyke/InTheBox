@@ -49,15 +49,15 @@ a{
 #antContainer{
     text-align:center;
     margin: 30px auto;
-    border: 5px solid white;
-    background-color:black;
+    border: 5px solid black;
+    background-color:white;
     border-radius:25px;
     width:90%vw;
     height:675px;
 }
 
 #antCanvas{
-    margin:0px auto;
+    margin:10px auto;
     display:inline-block;
     border-radius:25px;
 }

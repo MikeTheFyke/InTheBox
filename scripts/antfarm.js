@@ -4,10 +4,10 @@ var framesPerSecond = 30;
 
 var Xcord = 0;
 var Ycord = 0;
-var topCorner = 20;
-var topXCorner = 20;
-const xthick = 800;
-const ythick = 450;
+var frameTopY = 20;
+var frameTopX = 20;
+const frameWidthX = 800;
+const frameHeightY = 450;
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -30,46 +30,56 @@ window.onload = function() {
         var mousePos = calculateMousePos(evt);
         Xcord = mousePos.x;
         Ycord = mousePos.y;
-        topCorner = mousePos.y-(ythick/2); 
-        topXCorner = mousePos.x-(xthick/2);
+        frameTopY = mousePos.y-(frameHeightY/2) + 50; 
+        frameTopX = mousePos.x-(frameWidthX/2) + 50;
        });
 }
 
 function drawEverything() {
-    ctx.fillStyle = "black"; // Canvas Black
+    ctx.fillStyle = "white"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-            if (topCorner <= 50){ // Top Boundry
-                topCorner = 50 ;}
-            if (topCorner >= 240){ // Bottom Boundry
-                topCorner = 240 ;} 
-            if (topXCorner >= 550){ // Right Boundry
-                topXCorner = 550 ;}
-            if (topXCorner <= 50){ // Left Boundry
-                topXCorner = 50 ;}
-    ctx.fillStyle = "grey"; // Back Wall Grey Border
-    ctx.fillRect(topXCorner,topCorner,xthick,ythick);
-    ctx.fillStyle = "black"; // Back Wall Black
-    ctx.fillRect(topXCorner +5,topCorner +5 ,790,440);
+            if (frameTopY <= 100){ // Top Boundry
+                frameTopY = 100 ;}
+            if (frameTopY >= 102){ // Bottom Boundry
+                frameTopY = 102 ;} 
+            if (frameTopX >= 252){ // Right Boundry
+                frameTopX = 252 ;}
+            if (frameTopX <= 250){ // Left Boundry
+                frameTopX = 250 ;}
 
     ctx.beginPath(); // Top Left Line
     ctx.lineWidth = 2;
     ctx.moveTo(0,0);
-    ctx.lineTo(topXCorner,topCorner);
+    ctx.lineTo(frameTopX,frameTopY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1400,0);
-    ctx.lineTo(topXCorner + xthick,topCorner);
+    ctx.moveTo(1200,0);
+    ctx.lineTo(frameTopX + frameWidthX,frameTopY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(0,720);
-    ctx.lineTo(topXCorner,topCorner + ythick);
+    ctx.moveTo(0,650);
+    ctx.lineTo(frameTopX,frameTopY + frameHeightY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Bottom Left Line
-    ctx.moveTo(1400,720);
-    ctx.lineTo(topXCorner + xthick,topCorner +ythick);
+    ctx.moveTo(1200,650);
+    ctx.lineTo(frameTopX + frameWidthX,frameTopY +frameHeightY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
+
+    drawFrame();
   }
+
+function drawFrame(){
+    ctx.strokeStyle="brown";
+    ctx.beginPath();
+    ctx.moveTo(frameTopX ,  frameTopY - 50 ); // Top Left
+    ctx.lineTo(frameTopX + frameWidthX - 100, frameTopY - 50); // Top Right
+    ctx.lineTo(frameTopX + frameWidthX - 100, frameTopY + frameHeightY ); // Bottom Right
+    ctx.lineTo(frameTopX , frameTopY + frameHeightY ); // Bottom Left
+    ctx.closePath();
+    ctx.stroke();
+
+}
