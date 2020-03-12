@@ -11,7 +11,8 @@ const ythick = 525;
 
 var ammoCount = 8;
 
-var imgX = - 1400;
+var imgMouse = 0;
+var imgX = -1400;
 var img = document.getElementById("field");
 
 function calculateMousePos(evt){      // an event fires when mouse moves
@@ -37,7 +38,8 @@ window.onload = function() {
             Ycord = mousePos.y;
             topYCorner = mousePos.y-((ythick/2) + 75);
             topXCorner = mousePos.x-((xthick/2) + 50);
-            
+            imgMouse = mousePos.x;
+            console.log ("  Mouse X Position = " + imgMouse)
        }
     );
     canvas.addEventListener("click", 
@@ -59,6 +61,8 @@ function drawEverything() {
         topXCorner = 275 ;}
     if (topXCorner <= 175 ){ // Left Boundry
         topXCorner = 175 ;}
+
+
 
     background()
 
@@ -102,11 +106,18 @@ function drawEverything() {
   }
 
   function background(){
-      if ( Xcord <= 350 ){
-        if ( imgX = 0 ){
-            imgX = 0;
-        }
-        imgX = imgX + 1;
+
+
+      if ( imgMouse <= 400 ){
+        imgX = imgX + 10;
+        console.log("Background is here = " + imgX)
       }
+
+      if ( imgMouse >= 800 ){
+        imgX = imgX - 10;
+        console.log("Background is here = " + imgX)
+      }
+
+
     ctx.drawImage(img, imgX, 0, 2800, 700);
   }
