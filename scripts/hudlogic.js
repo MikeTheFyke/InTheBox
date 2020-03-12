@@ -19,7 +19,6 @@ var imgX = -700;
 var img = document.getElementById("field");
 ////////////////////////
 
-
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -78,8 +77,6 @@ function drawEverything() {
 
     rectile()
 
-    frameInterior()
-
     blueHud()
     drawSensor()
     moveBar()
@@ -132,8 +129,4 @@ function drawEverything() {
         imgY = imgY - 10;
     }
     ctx.drawImage(img, imgX, imgY, 2800, 1000);
-  }
-
-  function frameInterior() {
-      
   }
