@@ -12,7 +12,7 @@ const ythick = 525;
 var ammoCount = 8;
 
 var imgMouse = 0;
-var imgX = -1400;
+var imgX = -700;
 var img = document.getElementById("field");
 
 function calculateMousePos(evt){      // an event fires when mouse moves
@@ -108,12 +108,12 @@ function drawEverything() {
   function background(){
 
 
-      if ( imgMouse <= 400 ){
+      if ( imgMouse <= 100 ){
         imgX = imgX + 10;
         console.log("Background is here = " + imgX)
       }
 
-      if ( imgMouse >= 800 ){
+      if ( imgMouse >= 1200 ){
         imgX = imgX - 10;
         console.log("Background is here = " + imgX)
       }
