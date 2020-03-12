@@ -105,4 +105,29 @@ function drawFrame(){
     ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
     ctx.closePath();
     ctx.stroke();
+
+    ctx.strokeStyle="blue"; // Right side X 01
+    ctx.beginPath();
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
+    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath(); // Right side X 02
+    ctx.moveTo( 1100 ,  90 ); // Top Right
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath(); // Left side X 01
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
+    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath(); // Leftt side X 02
+    ctx.moveTo( 1100 ,  90 ); // Top Right
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
 }
