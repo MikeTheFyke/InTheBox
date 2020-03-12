@@ -49,23 +49,23 @@ function drawEverything() {
 
     ctx.beginPath(); // Top Left Line
     ctx.lineWidth = 2;
-    ctx.moveTo(0,0);
+    ctx.moveTo(frameTopX  - 50,  frameTopY - 100 );
     ctx.lineTo(frameTopX,frameTopY - 50);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Top Right Line
-    ctx.moveTo(1200,0);
-    ctx.lineTo(frameTopX + frameWidthX - 100,frameTopY - 50);
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100);
+    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY - 50);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Bottom Left Line
-    ctx.moveTo(0,650);
+    ctx.moveTo(frameTopX  - 50, frameTopY + frameHeightY + 50 );
     ctx.lineTo(frameTopX,frameTopY + frameHeightY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Bottom Right Line
-    ctx.moveTo(1200,650);
-    ctx.lineTo(frameTopX + frameWidthX - 100,frameTopY +frameHeightY);
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 );
+    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY + frameHeightY );
     ctx.strokeStyle = "grey";
     ctx.stroke();
 
@@ -73,15 +73,22 @@ function drawEverything() {
   }
 
 function drawFrame(){
-    ctx.strokeStyle="brown";
+    ctx.strokeStyle="brown"; // Back Frame
     ctx.beginPath();
     ctx.moveTo(frameTopX ,  frameTopY - 50 ); // Top Left
-    ctx.lineTo(frameTopX + frameWidthX - 100, frameTopY - 50); // Top Right
-    ctx.lineTo(frameTopX + frameWidthX - 100, frameTopY + frameHeightY ); // Bottom Right
+    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY - 50); // Top Right
+    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY + frameHeightY ); // Bottom Right
     ctx.lineTo(frameTopX , frameTopY + frameHeightY ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
 
-    
+    ctx.strokeStyle="brown"; // Front Frame
+    ctx.beginPath();
+    ctx.moveTo(frameTopX  - 50,  frameTopY - 100 ); // Top Left
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
+    ctx.closePath();
+    ctx.stroke();
 
 }
