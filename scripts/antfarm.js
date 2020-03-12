@@ -42,31 +42,30 @@ function drawEverything() {
                 frameTopY = 140 ;}
             if (frameTopY >= 142){ // Bottom Boundry
                 frameTopY = 142 ;} 
-            if (frameTopX >= 252){ // Right Boundry
-                frameTopX = 252 ;}
-            if (frameTopX <= 250){ // Left Boundry
-                frameTopX = 250 ;}
+            if (frameTopX >= 300){ // Right Boundry
+                frameTopX = 300 ;}
+            if (frameTopX <= 200){ // Left Boundry
+                frameTopX = 200 ;}
 
-    ctx.beginPath(); // Top Left Line
-    ctx.lineWidth = 2;
-    ctx.moveTo(frameTopX  - 50,  frameTopY - 100 );
-    ctx.lineTo(frameTopX,frameTopY - 50);
+    
     ctx.strokeStyle = "grey";
+    ctx.lineWidth = 2;
+    
+    ctx.beginPath(); // Top Left Line - out to in
+    ctx.moveTo(frameTopX  - 50,  frameTopY - 100 );
+    ctx.lineTo( 250, 90);
     ctx.stroke();
     ctx.beginPath(); // Top Right Line
     ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100);
-    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY - 50);
-    ctx.strokeStyle = "grey";
+    ctx.lineTo( 1100 ,  90 );
     ctx.stroke();
     ctx.beginPath(); // Bottom Left Line
     ctx.moveTo(frameTopX  - 50, frameTopY + frameHeightY + 50 );
-    ctx.lineTo(frameTopX,frameTopY + frameHeightY);
-    ctx.strokeStyle = "grey";
+    ctx.lineTo(  250 ,  590 );
     ctx.stroke();
     ctx.beginPath(); // Bottom Right Line
     ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 );
-    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY + frameHeightY );
-    ctx.strokeStyle = "grey";
+    ctx.lineTo( 1100 ,  590 );
     ctx.stroke();
 
     drawFrame();
@@ -75,10 +74,10 @@ function drawEverything() {
 function drawFrame(){
     ctx.strokeStyle="brown"; // Back Frame
     ctx.beginPath();
-    ctx.moveTo(frameTopX ,  frameTopY - 50 ); // Top Left
-    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY - 50); // Top Right
-    ctx.lineTo(frameTopX + frameWidthX + 50, frameTopY + frameHeightY ); // Bottom Right
-    ctx.lineTo(frameTopX , frameTopY + frameHeightY ); // Bottom Left
+    ctx.moveTo(  250 ,  90 ); // Top Left
+    ctx.lineTo( 1100 ,  90 ); // Top Right
+    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.lineTo(  250 ,  590 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
 
