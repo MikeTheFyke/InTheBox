@@ -122,11 +122,11 @@ function drawEverything() {
         console.log("Background is here = " + imgX)
       }
 
-      if ( imgMouseY <= 150 ){ // Y Movement
+      if ( imgMouseY <= 150 && imgY != 0 ){ // Y Movement
           imgY = imgY +10;
       }
 
-      if ( imgMouseY >= 400 ){
+      if ( imgMouseY >= 400 && imgY != -300 ){
         imgY = imgY - 10;
     }
 
