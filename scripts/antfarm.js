@@ -38,10 +38,10 @@ window.onload = function() {
 function drawEverything() {
     ctx.fillStyle = "white"; // Canvas Black
     ctx.fillRect(0,0,canvas.width,canvas.height);
-            if (frameTopY <= 100){ // Top Boundry
-                frameTopY = 100 ;}
-            if (frameTopY >= 102){ // Bottom Boundry
-                frameTopY = 102 ;} 
+            if (frameTopY <= 140){ // Top Boundry
+                frameTopY = 140 ;}
+            if (frameTopY >= 142){ // Bottom Boundry
+                frameTopY = 142 ;} 
             if (frameTopX >= 252){ // Right Boundry
                 frameTopX = 252 ;}
             if (frameTopX <= 250){ // Left Boundry
@@ -50,22 +50,22 @@ function drawEverything() {
     ctx.beginPath(); // Top Left Line
     ctx.lineWidth = 2;
     ctx.moveTo(0,0);
-    ctx.lineTo(frameTopX,frameTopY);
+    ctx.lineTo(frameTopX,frameTopY - 50);
     ctx.strokeStyle = "grey";
     ctx.stroke();
     ctx.beginPath(); // Top Right Line
     ctx.moveTo(1200,0);
-    ctx.lineTo(frameTopX + frameWidthX,frameTopY);
+    ctx.lineTo(frameTopX + frameWidthX - 100,frameTopY - 50);
     ctx.strokeStyle = "grey";
     ctx.stroke();
-    ctx.beginPath(); // Bottom Right Line
+    ctx.beginPath(); // Bottom Left Line
     ctx.moveTo(0,650);
     ctx.lineTo(frameTopX,frameTopY + frameHeightY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
-    ctx.beginPath(); // Bottom Left Line
+    ctx.beginPath(); // Bottom Right Line
     ctx.moveTo(1200,650);
-    ctx.lineTo(frameTopX + frameWidthX,frameTopY +frameHeightY);
+    ctx.lineTo(frameTopX + frameWidthX - 100,frameTopY +frameHeightY);
     ctx.strokeStyle = "grey";
     ctx.stroke();
 
@@ -81,5 +81,7 @@ function drawFrame(){
     ctx.lineTo(frameTopX , frameTopY + frameHeightY ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
+
+    
 
 }
