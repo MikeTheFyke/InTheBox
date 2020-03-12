@@ -98,5 +98,11 @@ function drawFrame(){
     ctx.closePath();
     ctx.stroke();
 
-    
+    ctx.beginPath(); // Right Side Frame
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
+    ctx.lineTo( 1100 ,  90 ); // Top Right
+    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
 }
