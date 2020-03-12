@@ -11,6 +11,9 @@ const ythick = 525;
 
 var ammoCount = 8;
 
+var imgX = - 1400;
+var img = document.getElementById("field");
+
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
@@ -98,7 +101,12 @@ function drawEverything() {
     ctx.stroke();
   }
 
-
   function background(){
-      
+      if ( Xcord <= 350 ){
+        if ( imgX = 0 ){
+            imgX = 0;
+        }
+        imgX = imgX + 1;
+      }
+    ctx.drawImage(img, imgX, 0, 2800, 700);
   }
