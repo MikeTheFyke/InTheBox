@@ -174,41 +174,56 @@ ctx.lineTo( frameBackX1  - 20,  frameBackY2); // Bottom Right
 ctx.closePath();
 ctx.stroke();
 
-ctx.fillStyle="brown"; // Front Face
-ctx.beginPath();
-ctx.moveTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Left
-ctx.lineTo( frameTopX    - 70,  frameTopY - 100 );               // Outter Top Left
-ctx.lineTo( frameTopX - 50, frameTopY - 100 );                   // Inner  Top Left
-ctx.lineTo( frameTopX  - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Left
-ctx.closePath();
-ctx.fill();
+ctx.fillStyle="brown";
 ctx.beginPath(); // Bottom And Back Faces
-ctx.moveTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Left
-ctx.lineTo( frameTopX  - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Left
+ctx.moveTo( frameTopX    - 70, frameTopY + frameHeightY + 50 ); // Outter Bottom Left
+ctx.lineTo( frameTopX    - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Left
 ctx.lineTo( frameBackX1, frameBackY2);                           // Inner Bottom Right
 ctx.lineTo( frameBackX1, frameBackY1);                           // Inner  Top Right
-ctx.lineTo( frameBackX1  - 20,  frameBackY1);                    // Outter Top Right
-ctx.lineTo( frameBackX1  - 20,  frameBackY2);                    // Outter Bottom Right
+ctx.lineTo( frameBackX1  - 20, frameBackY1);                    // Outter Top Right
+ctx.lineTo( frameBackX1  - 20, frameBackY2);                    // Outter Bottom Right
 ctx.closePath();
 ctx.fill();
 
-ctx.fillStyle="lightbrown"; // Front Top Face
+ // Front Top Face
+ctx.fillStyle="orange";
 ctx.beginPath();
 ctx.moveTo( frameTopX    - 70,  frameTopY - 100 ); // Outter Top Left
-ctx.lineTo( frameTopX - 50, frameTopY - 100 );     // Inner Top Left
-ctx.lineTo( sideLeftOutX, sideLeftOutY1);          // Inner  Top Left inner 01
+ctx.lineTo( frameTopX    - 50,  frameTopY - 100 );     // Inner Top Left
+ctx.lineTo( sideLeftOutX,       sideLeftOutY1);          // Inner  Top Left inner 01
 ctx.lineTo( sideLeftOutX - 20,  sideLeftOutY1);    // Outter Top Left inner 01
 ctx.closePath();
 ctx.fill();
 
-ctx.beginPath(); // Back Top Face
+// Back Top Face
+ctx.beginPath(); 
 ctx.moveTo( frameBackX1  - 20,  frameBackY1); // Outter Top Right
-ctx.lineTo( frameBackX1, frameBackY1);     // Inner Top Right
-ctx.lineTo( sideLeftInnX,  sideLeftInnY1);          // Inner  Top Right inner 01
+ctx.lineTo( frameBackX1,        frameBackY1);     // Inner Top Right
+ctx.lineTo( sideLeftInnX,       sideLeftInnY1);          // Inner  Top Right inner 01
 ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY1);    // Outter Top Right inner 01
 ctx.closePath();
 ctx.fill();
 
+// Back inner vertical
+ctx.beginPath();
+ctx.moveTo( sideLeftInnX - 20,  sideLeftInnY1);    // Outter Top Right inner 01
+ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY2);    // Outter Top Right InnEdge 02
+ctx.lineTo( sideLeftOutX - 20,  sideLeftOutY2); // Top Left OutEdge 02
+ctx.lineTo( sideLeftOutX, sideLeftOutY2); // Top Left OutEdge 02
+ctx.lineTo( sideLeftInnX,  sideLeftInnY2); // Top Right InnEdge 02
+ctx.lineTo( sideLeftInnX,       sideLeftInnY1);          // Inner  Top Right inner 01
+ctx.closePath();
+ctx.fill();
+
+
+ctx.fillStyle="brown"; // Front Face
+ctx.beginPath();
+ctx.moveTo( frameTopX    - 70, frameTopY + frameHeightY + 50 ); // Outter Bottom Left
+ctx.lineTo( frameTopX    - 70, frameTopY - 100 );               // Outter Top Left
+ctx.lineTo( frameTopX    - 50, frameTopY - 100 );                   // Inner  Top Left
+ctx.lineTo( frameTopX    - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Left
+ctx.closePath();
+ctx.fill();
 }
 
 function drawRightFrame() {
