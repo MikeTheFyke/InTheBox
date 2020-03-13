@@ -114,7 +114,7 @@ function drawLeftFrame() {
 
     var sideLeftOutX  = ( frameTopX - 50)  + Xspacing; // Back X1 - FrontX1 / 8
     var sideLeftOutY1 = ( frameTopY - 100) + Yspacing; // FrontY2 - FrontY1
-    var sideLeftOutY2 = ( frameTopY + frameHeightY + 50 ) - sideLeftOutY1; // FrontY2 - 1/8 of Front Length
+    var sideLeftOutY2 = ( frameTopY + frameHeightY + 50 ) - Yspacing; // FrontY2 - 1/8 of Front Length
 
     ctx.beginPath();
     ctx.moveTo( sideLeftOutX, sideLeftOutY1);
