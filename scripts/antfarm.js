@@ -72,6 +72,12 @@ function drawEverything() {
   }
 
 function drawFrame(){
+
+    drawBackFrame();
+    drawFrontFrame();
+    drawLeftFrame();
+    drawRightFrame();
+
     ctx.strokeStyle="brown"; // Back Frame
     ctx.beginPath();
     ctx.moveTo(  250 ,  90 ); // Top Left
@@ -130,4 +136,20 @@ function drawFrame(){
     ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
+}
+
+function drawBackFrame() {
+    
+}
+
+function drawFrontFrame() {
+    
+}
+
+function drawLeftFrame() {
+    
+}
+
+function drawRightFrame() {
+
 }
