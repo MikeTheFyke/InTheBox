@@ -68,16 +68,11 @@ function drawEverything() {
     ctx.lineTo( 1100 ,  590 );
     ctx.stroke();
 
-    drawFrame();
-  }
-
-function drawFrame(){
-
     drawBackFrame();
     drawFrontFrame();
     drawLeftFrame();
     drawRightFrame();
-}
+  }
 
 function drawBackFrame() {
     // Back Frame
@@ -89,7 +84,6 @@ function drawBackFrame() {
     ctx.lineTo(  250 ,  590 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
-
 }
 
 function drawFrontFrame() {
