@@ -109,10 +109,11 @@ function drawFrontFrame() {
 
 function drawLeftFrame() {
 
-    var Xspacing = (frameBackX1 - (frameTopX - 50))/ 8;
-    
-    var sideLeftOutX  = (frameTopX  - 50) + Xspacing; // Back X1 - FrontX1 / 8
-    var sideLeftOutY1 = ( (frameTopY + frameHeightY + 50) - (frameTopY - 100) )/8; // FrontY2 - FrontY1 / 8
+    var Xspacing = (frameBackX1 - (frameTopX - 50)) / 8;
+    var Yspacing = (frameBackY1 - (frameTopY - 100))/ 8; 
+
+    var sideLeftOutX  = ( frameTopX - 50)  + Xspacing; // Back X1 - FrontX1 / 8
+    var sideLeftOutY1 = ( frameTopY - 100) + Yspacing; // FrontY2 - FrontY1
     var sideLeftOutY2 = ( frameTopY + frameHeightY + 50 ) - sideLeftOutY1; // FrontY2 - 1/8 of Front Length
 
     ctx.beginPath();
