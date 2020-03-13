@@ -96,14 +96,6 @@ function drawFrame(){
     ctx.closePath();
     ctx.stroke();
 
-    ctx.beginPath(); // Left Side Frame
-    ctx.moveTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
-    ctx.lineTo( frameTopX - 50, frameTopY - 100 ); // Top Left
-    ctx.lineTo(  250 ,  90 ); // Top Left
-    ctx.lineTo(  250 ,  590 ); // Bottom Left
-    ctx.closePath();
-    ctx.stroke();
-
     ctx.beginPath(); // Right Side Frame
     ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
     ctx.lineTo( 1100 ,  90 ); // Top Right
@@ -125,17 +117,6 @@ function drawFrame(){
     ctx.closePath();
     ctx.stroke();
 
-    ctx.beginPath(); // Left side X 01
-    ctx.moveTo(frameTopX  - 50, frameTopY - 100 ); // Top Left
-    ctx.lineTo(  250 ,  590 ); // Bottom Left
-    ctx.closePath();
-    ctx.stroke();
-
-    ctx.beginPath(); // Leftt side X 02
-    ctx.moveTo(  250 ,  90 ); // Top Left
-    ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
-    ctx.closePath();
-    ctx.stroke();
 }
 
 function drawBackFrame() {
@@ -148,6 +129,31 @@ function drawFrontFrame() {
 
 function drawLeftFrame() {
     
+    // Left Side Frame
+    ctx.strokeStyle="brown";
+    ctx.beginPath();
+    ctx.moveTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
+    ctx.lineTo( frameTopX - 50, frameTopY - 100 ); // Top Left
+    ctx.lineTo(  250 ,  90 ); // Top Left
+    ctx.lineTo(  250 ,  590 ); // Bottom Left
+    ctx.closePath();
+    ctx.stroke();
+
+    // Left side X 01
+    ctx.strokeStyle="blue";
+    ctx.beginPath();
+    ctx.moveTo(frameTopX  - 50, frameTopY - 100 ); // Top Left
+    ctx.lineTo(  250 ,  590 ); // Bottom Left
+    ctx.closePath();
+    ctx.stroke();
+
+    // Leftt side X 02
+    ctx.beginPath();
+    ctx.moveTo(  250 ,  90 ); // Top Left
+    ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
+    ctx.closePath();
+    ctx.stroke();
+
 }
 
 function drawRightFrame() {
