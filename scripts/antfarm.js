@@ -173,23 +173,22 @@ ctx.lineTo( frameBackX1  - 20,  frameBackY1); // Top Right
 ctx.lineTo( frameBackX1  - 20,  frameBackY2); // Bottom Right 
 ctx.closePath();
 ctx.stroke();
-// Front Face ////////////////////////////
-ctx.fillStyle="brown";
+
+ctx.fillStyle="brown"; // Front Face
 ctx.beginPath();
-ctx.moveTo( frameTopX    - 70,  frameTopY - 100 );               // Outter Top Left
+ctx.moveTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Left
+ctx.lineTo( frameTopX    - 70,  frameTopY - 100 );               // Outter Top Left
 ctx.lineTo( frameTopX - 50, frameTopY - 100 );                   // Inner  Top Left
 ctx.lineTo( frameTopX  - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Left
-ctx.lineTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Left
 ctx.closePath();
 ctx.fill();
-// Back Face ////////////////////////////
-ctx.fillStyle="brown";
-ctx.beginPath();
-ctx.moveTo( frameBackX1, frameBackY2);                           // Inner Bottom Right
+ctx.beginPath(); // Bottom And Back Faces
+ctx.moveTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Left
+ctx.lineTo( frameTopX  - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Left
+ctx.lineTo( frameBackX1, frameBackY2);                           // Inner Bottom Right
 ctx.lineTo( frameBackX1, frameBackY1);                           // Inner  Top Right
 ctx.lineTo( frameBackX1  - 20,  frameBackY1);                    // Outter Top Right
 ctx.lineTo( frameBackX1  - 20,  frameBackY2);                    // Outter Bottom Right
-ctx.lineTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Left
 ctx.closePath();
 ctx.fill();
 
