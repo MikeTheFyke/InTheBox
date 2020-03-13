@@ -95,28 +95,6 @@ function drawFrame(){
     ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
-
-    ctx.beginPath(); // Right Side Frame
-    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
-    ctx.lineTo( 1100 ,  90 ); // Top Right
-    ctx.lineTo( 1100 ,  590 ); // Bottom Right
-    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
-    ctx.closePath();
-    ctx.stroke();
-
-    ctx.strokeStyle="blue"; // Right side X 01
-    ctx.beginPath();
-    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
-    ctx.lineTo( 1100 ,  590 ); // Bottom Right
-    ctx.closePath();
-    ctx.stroke();
-
-    ctx.beginPath(); // Right side X 02
-    ctx.moveTo( 1100 ,  90 ); // Top Right
-    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
-    ctx.closePath();
-    ctx.stroke();
-
 }
 
 function drawBackFrame() {
@@ -147,7 +125,7 @@ function drawLeftFrame() {
     ctx.closePath();
     ctx.stroke();
 
-    // Leftt side X 02
+    // Left side X 02
     ctx.beginPath();
     ctx.moveTo(  250 ,  90 ); // Top Left
     ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
@@ -157,5 +135,30 @@ function drawLeftFrame() {
 }
 
 function drawRightFrame() {
+
+    // Right Side Frame
+    ctx.strokeStyle="brown";
+    ctx.beginPath();
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
+    ctx.lineTo( 1100 ,  90 ); // Top Right
+    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
+
+    // Right side X 01
+    ctx.strokeStyle="blue";
+    ctx.beginPath();
+    ctx.moveTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
+    ctx.lineTo( 1100 ,  590 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
+
+    // Right side X 02
+    ctx.beginPath();
+    ctx.moveTo( 1100 ,  90 ); // Top Right
+    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
+    ctx.closePath();
+    ctx.stroke();
 
 }
