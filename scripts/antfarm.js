@@ -155,10 +155,10 @@ ctx.moveTo( frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
 ctx.lineTo( frameTopX - 50, frameTopY - 100 ); // Top Left
 ctx.lineTo( sideLeftOutX, sideLeftOutY1); // Top Left OutEdge 01
 ctx.lineTo( sideLeftOutX, sideLeftOutY2); // Top Left OutEdge 02
-ctx.lineTo( sideLeftInnX,  sideLeftInnY2); // Top Left InnEdge 02
-ctx.lineTo( sideLeftInnX,  sideLeftInnY1); // Top Left InnEdge 01
-ctx.lineTo( frameBackX1, frameBackY1);
-ctx.lineTo( frameBackX1, frameBackY2);
+ctx.lineTo( sideLeftInnX,  sideLeftInnY2); // Top Right InnEdge 02
+ctx.lineTo( sideLeftInnX,  sideLeftInnY1); // Top Right InnEdge 01
+ctx.lineTo( frameBackX1, frameBackY1); // Top Right
+ctx.lineTo( frameBackX1, frameBackY2); // Bottom Right
 ctx.closePath();
 ctx.stroke();
 
@@ -167,13 +167,12 @@ ctx.moveTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Bottom Left 
 ctx.lineTo( frameTopX    - 70,  frameTopY - 100 ); // Top Left
 ctx.lineTo( sideLeftOutX - 20,  sideLeftOutY1); // Top Left OutEdge 01
 ctx.lineTo( sideLeftOutX - 20,  sideLeftOutY2); // Top Left OutEdge 02
-ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY2); // Top Left InnEdge 02
-ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY1); // Top Left InnEdge 01
-ctx.lineTo( frameBackX1  - 20,  frameBackY1);
-ctx.lineTo( frameBackX1  - 20,  frameBackY2);
+ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY2); // Top Right InnEdge 02
+ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY1); // Top Right InnEdge 01
+ctx.lineTo( frameBackX1  - 20,  frameBackY1); // Top Right
+ctx.lineTo( frameBackX1  - 20,  frameBackY2); // Bottom Right 
 ctx.closePath();
 ctx.stroke();
-// Frame Work ////////////////////////////
 // Front Face ////////////////////////////
 ctx.fillStyle="brown";
 ctx.beginPath();
@@ -184,6 +183,16 @@ ctx.lineTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Botto
 ctx.closePath();
 ctx.fill();
 // Back Face ////////////////////////////
+ctx.fillStyle="brown";
+ctx.beginPath();
+ctx.moveTo(,);
+ctx.lineTo(,);
+ctx.lineTo( frameTopX    - 70,  frameTopY - 100 );               // Outter Top Right
+ctx.lineTo( frameTopX - 50, frameTopY - 100 );                   // Inner  Top Right
+ctx.lineTo( frameTopX  - 50, frameTopY + frameHeightY + 50 );    // Inner Bottom Right
+ctx.lineTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Outter Bottom Right
+ctx.closePath();
+ctx.fill();
 
 }
 
