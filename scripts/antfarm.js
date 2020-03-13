@@ -112,16 +112,40 @@ function drawLeftFrame() {
     var Xspacing = (frameBackX1 - (frameTopX - 50)) / 8;
     var Yspacing = (frameBackY1 - (frameTopY - 100))/ 8; 
 
-    var sideLeftOutX  = ( frameTopX - 50)  + Xspacing; // Back X1 - FrontX1 / 8
-    var sideLeftOutY1 = ( frameTopY - 100) + Yspacing; // FrontY2 - FrontY1
-    var sideLeftOutY2 = ( frameTopY + frameHeightY + 50 ) - Yspacing; // FrontY2 - 1/8 of Front Length
+    var sideLeftOutX  = ( frameTopX - 50 )  + Xspacing; // Back X1 - FrontX1 / 8
+    var sideLeftInnX  =   frameBackX1 - Xspacing; // BackX1 - 1/8 Side Length
+    var sideLeftInnY1 = ( frameTopY - 100 ) + ( Yspacing * 7 ); // FrontY1 + 7/8 Front Length
+    var sideLeftInnY2 =  ( frameTopY + frameHeightY + 50 ) - (Yspacing * 11); // FrontY2 - 7/8 Front Length
+    var sideLeftOutY1 = ( frameTopY - 100 ) + (Yspacing); // FrontY2 - FrontY1
+    var sideLeftOutY2 = ( frameTopY + frameHeightY + 50 ) - (Yspacing*6); // FrontY2 - 1/8 of Front Length
+// Edge ////////////////////////////
+    ctx.strokeStyle="red"; 
+    ctx.beginPath();
+    ctx.moveTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
+    ctx.lineTo( frameTopX - 50, frameTopY - 100 ); // Top Left
+    ctx.lineTo( sideLeftOutX, sideLeftOutY1); // Top Left OutEdge 01
+    ctx.lineTo( sideLeftOutX, sideLeftOutY2); // Top Left OutEdge 02
+    ctx.lineTo( sideLeftInnX,  sideLeftInnY2); // Top Left InnEdge 02
+    ctx.lineTo( sideLeftInnX,  sideLeftInnY1); // Top Left InnEdge 01
+    ctx.lineTo( frameBackX1, frameBackY1);
+    ctx.lineTo( frameBackX1, frameBackY2);
+    ctx.closePath();
+    ctx.stroke();
 
     ctx.beginPath();
-    ctx.moveTo( sideLeftOutX, sideLeftOutY1);
-    ctx.lineTo( sideLeftOutX, sideLeftOutY2);
+    ctx.moveTo( frameTopX    - 70,  frameTopY + frameHeightY + 50 ); // Bottom Left - 20
+    ctx.lineTo( frameTopX    - 70,  frameTopY - 100 ); // Top Left
+    ctx.lineTo( sideLeftOutX - 20,  sideLeftOutY1); // Top Left OutEdge 01
+    ctx.lineTo( sideLeftOutX - 20,  sideLeftOutY2); // Top Left OutEdge 02
+    ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY2); // Top Left InnEdge 02
+    ctx.lineTo( sideLeftInnX - 20,  sideLeftInnY1); // Top Left InnEdge 01
+    ctx.lineTo( frameBackX1  - 20,  frameBackY1);
+    ctx.lineTo( frameBackX1  - 20,  frameBackY2);
     ctx.closePath();
     ctx.stroke();
     
+
+// Edge ////////////////////////////
     // Left Side Frame
     ctx.strokeStyle="brown";
     ctx.beginPath();
