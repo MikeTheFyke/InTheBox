@@ -4,10 +4,19 @@ var framesPerSecond = 30;
 
 var Xcord = 0;
 var Ycord = 0;
+
+// Front Frame Variables
 var frameTopY = 20;
 var frameTopX = 20;
 const frameWidthX = 800;
 const frameHeightY = 450;
+// Back Frame Variables
+const frameBackX1 =  250;
+const frameBackX2 = 1100;
+const frameBackY1 =   90;
+const frameBackY2 =  590;
+//
+
 
 function calculateMousePos(evt){      // an event fires when mouse moves
     var rect = canvas.getBoundingClientRect();
@@ -78,10 +87,10 @@ function drawBackFrame() {
     // Back Frame
     ctx.strokeStyle="brown";
     ctx.beginPath();
-    ctx.moveTo(  250 ,  90 ); // Top Left
-    ctx.lineTo( 1100 ,  90 ); // Top Right
-    ctx.lineTo( 1100 ,  590 ); // Bottom Right
-    ctx.lineTo(  250 ,  590 ); // Bottom Left
+    ctx.moveTo( frameBackX1 , frameBackY1 ); // Top Left
+    ctx.lineTo( frameBackX2 , frameBackY1 ); // Top Right
+    ctx.lineTo( frameBackX2 , frameBackY2 ); // Bottom Right
+    ctx.lineTo( frameBackX1 , frameBackY2 ); // Bottom Left
     ctx.closePath();
     ctx.stroke();
 }
