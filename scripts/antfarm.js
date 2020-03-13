@@ -77,8 +77,11 @@ function drawFrame(){
     drawFrontFrame();
     drawLeftFrame();
     drawRightFrame();
+}
 
-    ctx.strokeStyle="brown"; // Back Frame
+function drawBackFrame() {
+    // Back Frame
+    ctx.strokeStyle="brown";
     ctx.beginPath();
     ctx.moveTo(  250 ,  90 ); // Top Left
     ctx.lineTo( 1100 ,  90 ); // Top Right
@@ -87,18 +90,6 @@ function drawFrame(){
     ctx.closePath();
     ctx.stroke();
 
-    ctx.strokeStyle="brown"; // Front Frame
-    ctx.beginPath();
-    ctx.moveTo(frameTopX  - 50, frameTopY - 100 ); // Top Left
-    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY - 100); // Top Right
-    ctx.lineTo(frameTopX + frameWidthX + 100, frameTopY + frameHeightY + 50 ); // Bottom Right
-    ctx.lineTo(frameTopX  - 50, frameTopY + frameHeightY + 50 ); // Bottom Left
-    ctx.closePath();
-    ctx.stroke();
-}
-
-function drawBackFrame() {
-    
 }
 
 function drawFrontFrame() {
