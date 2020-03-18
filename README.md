@@ -21,9 +21,12 @@ Alittle HTML5 Canvas fun
     - Target Rectile
     - Scrolling Background
 6.  Antfarm
-
+    - Left Side Farm Frame
 7.  Cubes
+    - Interior and Exterior Boxes
 8.  Spikes
+    - Reactive Spikes
 9.  Eyes
+    - 
 10. Spin
 11. Multi
