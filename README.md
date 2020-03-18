@@ -27,6 +27,6 @@ Alittle HTML5 Canvas fun
 8.  Spikes
     - Reactive Spikes
 9.  Eyes
-    - 
+    - Following Mouse Movement
 10. Spin
 11. Multi
