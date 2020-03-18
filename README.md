@@ -1,6 +1,6 @@
 Alittle HTML5 Canvas fun
 
-1.  Truck
+1.  Truck - 16 Box Truck Storage
 2.  Storage
 3.  House
 4.  Kitty
