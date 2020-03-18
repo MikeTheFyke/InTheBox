@@ -15,6 +15,11 @@ Alittle HTML5 Canvas fun
 4.  Kitty
     - Yarn (cursor) And Kitty Follows
 5.  Hud
+    - Ammo Counter (With Reload)
+    - Health / Shield Bar
+    - Radar
+    - Target Rectile
+    - Scrolling Background
 6.  Antfarm
 
 7.  Cubes
