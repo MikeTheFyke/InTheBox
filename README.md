@@ -1,7 +1,12 @@
 Alittle HTML5 Canvas fun
 
-1.  Truck - 16 Box Truck Storage
-2.  Storage
+1.  Truck 
+    - Add Up To 16 Boxes For Storage
+2.  Storage 
+    - Build Closet (LxWxH)
+    - Select # Of Doors 
+    - Select # Of Shelves
+    - Select # Of Boxes
 3.  House
 4.  Kitty
 5.  Hud
