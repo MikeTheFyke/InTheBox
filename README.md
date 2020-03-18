@@ -13,6 +13,7 @@ Alittle HTML5 Canvas fun
     - 2nd Floor
     - Attic
 4.  Kitty
+    - Yarn (cursor) And Kitty Follows
 5.  Hud
 6.  Antfarm
 
