@@ -8,6 +8,10 @@ Alittle HTML5 Canvas fun
     - Select # Of Shelves
     - Select # Of Boxes
 3.  House
+    - Basement
+    - 1st Floor
+    - 2nd Floor
+    - Attic
 4.  Kitty
 5.  Hud
 6.  Antfarm
