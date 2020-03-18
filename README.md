@@ -29,4 +29,5 @@ Alittle HTML5 Canvas fun
 9.  Eyes
     - Following Mouse Movement
 10. Spin
+    - Spinning Cubes
 11. Multi
