@@ -1,40 +1,15 @@
 body{
-    background-color:black;
+    background-color:white;
 }
 
-/* NavPad - Links Pad */
-#navPad{
-    background-image: linear-gradient( to bottom,rgb(156, 115, 115), rgb(214, 63, 63), rgb(68, 34, 34) );
-    border: 2px solid black;
-    color:black;
-    border-radius: 45px;
-    width:150px;
-    height:180px;
-    position: fixed;
-    bottom: 40px;
-    right: 20px;
-}
-
-/* //////////////////// */
-
-/*  Link Button */
-
-#linkIconLr{
-    background-color: transparent;
-    width:50px;
-    height:50px;
-}
 #indexNav{
-    display:none;
     position: fixed;
     top: 130px;
     left: 10px;
     width: 175px;
     height: 300px;
     background-color:transparent;
-
 }
-/* //////////////////// */
 
 /* links */
 #sandboxNav{
@@ -46,111 +21,16 @@ body{
     height: 300px;
     background-color:transparent;
 }
-/* //////////////////// */
+
 a{
     width: 20px;
     margin:auto;
     text-align: center;
     font-size:30px;
-    color:white;
+    color:rgb(231, 151, 3);
     text-decoration: none;
 }
 
 ul{
     list-style-type: none;
-}
-
-
-/* ///////////////////////////////////////////////// */
-
-#gameContainer{
-    border: 5px solid grey;
-    border-radius:25px;
-    width:1400px;
-    height:720px;
-}
-
-#gameCanvas{
-    border-radius:25px;
-}
-
-#gameContainer02{
-    border: 5px solid grey;
-    border-radius:25px;
-    width:1400px;
-    height:720px;
-}
-
-#gameCanvas02{
-    border-radius:25px;
-}
-
-#gameContainer03{
-    border: 5px solid grey;
-    border-radius:25px;
-    width:1000px;
-    height:620px;
-}
-
-#gameCanvas03{
-    border-radius:25px;
-}
-
-#gameContainer04{
-    display:block;
-    margin:auto;
-    border: 5px solid grey;
-    border-radius:25px;
-    width:800px;
-    height:620px;
-}
-
-#gameCanvas04{
-    margin:auto;
-    border-radius:25px;
-}
-
-#canvases{
-    display:block;
-    margin:auto;
-    text-align: center;
-}
-
-#gameContainer05{
-    display:inline-block;
-    margin:auto;
-    border: 5px solid grey;
-    border-radius:25px;
-    width:300px;
-    height:300px;
-}
-
-#gameCanvas05{
-    border-radius:25px;
-}
-
-#gameContainer06{
-    display:inline-block;
-    margin:auto;
-    border: 5px solid grey;
-    border-radius:25px;
-    width:300px;
-    height:300px;
-}
-
-#gameCanvas06{
-    border-radius:25px;
-}
-
-#gameContainer07{
-    display:inline-block;
-    margin:auto;
-    border: 5px solid grey;
-    border-radius:25px;
-    width:600px;
-    height:300px;
-}
-
-#gameCanvas07{
-    border-radius:25px;
 }
