@@ -11,9 +11,7 @@ body{
     background-color:transparent;
 }
 
-/* links */
 #sandboxNav{
-    display:none;
     position: fixed;
     top: 280px;
     left: 10px;
