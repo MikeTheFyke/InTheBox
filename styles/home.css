@@ -44,7 +44,7 @@ button{
 
   [id^=modal] {
     display: none;
-    border: 2px solid blue;
+    border: 2px solid #27AAE1;
     transform: translate(-50%,-50%);
     min-height: 3em;
     min-width: 5em;
