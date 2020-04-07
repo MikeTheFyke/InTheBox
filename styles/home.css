@@ -26,6 +26,14 @@ a{
     text-decoration: none;
 }
 
+*:focus {outline:none}
+
+button{
+    border: none;
+    background-color:transparent;
+    border-radius: 25px;
+}
+
 .modal {
     display: none;
     position: fixed; 
