@@ -64,6 +64,7 @@ ul{
 /* ///////////////////////////////////////////////// */
 
 #gameContainer{
+    cursor: none;    
     border: 5px solid grey;
     border-radius:25px;
     width:1400px;
@@ -75,6 +76,7 @@ ul{
 }
 
 #gameContainer02{
+    cursor: none;    
     border: 5px solid grey;
     border-radius:25px;
     width:1400px;
@@ -86,6 +88,7 @@ ul{
 }
 
 #gameContainer03{
+    cursor: none;    
     border: 5px solid grey;
     border-radius:25px;
     width:1000px;
@@ -97,6 +100,7 @@ ul{
 }
 
 #gameContainer04{
+    cursor: none;    
     display:block;
     margin:auto;
     border: 5px solid grey;
@@ -117,6 +121,7 @@ ul{
 }
 
 #gameContainer05{
+    cursor: none;    
     display:inline-block;
     margin:auto;
     border: 5px solid grey;
@@ -130,6 +135,7 @@ ul{
 }
 
 #gameContainer06{
+    cursor: none;    
     display:inline-block;
     margin:auto;
     border: 5px solid grey;
@@ -143,6 +149,7 @@ ul{
 }
 
 #gameContainer07{
+    cursor: none;    
     display:inline-block;
     margin:auto;
     border: 5px solid grey;

@@ -47,6 +47,7 @@ a{
 
 /* //// HUD Canvas //// */
 #antContainer{
+    cursor: none;    
     text-align:center;
     margin: 30px auto;
     border: 5px solid black;

@@ -18,6 +18,7 @@ a{
 }
 
 #truckContainer{
+    cursor: none;    
     display:block;
     margin:auto;
     text-align: center;
