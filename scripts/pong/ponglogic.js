@@ -36,7 +36,7 @@ function handleMouseClick(evt){
 }
 
 window.onload = function() {
-  canvas = document.getElementById('gameCanvas');
+  canvas = document.getElementById('pongCanvas');
   canvasContext = canvas.getContext('2d');
 
   var framesPerSecond = 30;
