@@ -52,24 +52,30 @@ button{
     }
 
   #modal1:target {
+    margin: 50px auto 50px auto;
     display: block;
     }
   #modal2:target {
+    margin: 50px auto 50px auto;
     display: block;
     }
   #modal3:target {
+    margin: 50px auto 50px auto;
     display: block;
     }
   #modal4:target {
+    margin: 50px auto 50px auto;
     display: block;
     }
   #modal5:target {
+    margin: 50px auto 50px auto;
     display: block;
     }
   #modal6:target {
+    margin: 50px auto 50px auto;
     display: block;
     }
-  [id^=modal] a {
+  [id^=modal] .modalClose {
     float: right;
     }
 
