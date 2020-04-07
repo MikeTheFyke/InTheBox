@@ -3,9 +3,14 @@ body{
 }
 
 #pongContainer{
-
+    text-align:center;
+    margin: 20px auto;
+    border-radius:25px;
+    width:900px;
+    height:700px;
 }
 
 #pongCanvas{
-    
+    display:inline-block;
+    border-radius:25px;
 }
