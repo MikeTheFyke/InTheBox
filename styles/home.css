@@ -41,8 +41,9 @@ button{
     border: 2px solid blue;
     transform: translate(-50%,-50%);
     min-height: 3em;
-    width: 300px;
+    min-width: 5em;
     max-width: 10em;
+    
     }
 
   #modal1:target {
