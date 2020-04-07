@@ -74,6 +74,9 @@ button{
     }
 
 h1{
-    margin: 0px;
+    margin: 0px auto 5px auto;
     color: white;
+    background-color: blue;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
