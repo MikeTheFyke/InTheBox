@@ -63,6 +63,9 @@ button{
   #modal5:target {
     display: block;
     }
+  #modal6:target {
+    display: block;
+    }
   [id^=modal] a {
     float: right;
     }
