@@ -48,12 +48,16 @@ button{
     transform: translate(-50%,-50%);
     min-height: 3em;
     min-width: 5em;
-    max-width: 10em;
+    padding: 20px;
+    margin: 50px auto 50px auto;
+    text-align: center;
     }
 
   #modal1:target {
     margin: 50px auto 50px auto;
     display: block;
+    background-color:white;
+    border-radius: 25px;
     }
   #modal2:target {
     margin: 50px auto 50px auto;
