@@ -62,22 +62,32 @@ button{
   #modal2:target {
     margin: 50px auto 50px auto;
     display: block;
+    background-color:white;
+    border-radius: 25px;
     }
   #modal3:target {
     margin: 50px auto 50px auto;
     display: block;
+    background-color:white;
+    border-radius: 25px;
     }
   #modal4:target {
     margin: 50px auto 50px auto;
     display: block;
+    background-color:white;
+    border-radius: 25px;
     }
   #modal5:target {
     margin: 50px auto 50px auto;
     display: block;
+    background-color:white;
+    border-radius: 25px;
     }
   #modal6:target {
     margin: 50px auto 50px auto;
     display: block;
+    background-color:white;
+    border-radius: 25px;
     }
   [id^=modal] .modalClose {
     float: right;
