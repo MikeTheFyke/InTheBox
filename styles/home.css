@@ -38,16 +38,13 @@ button{
 
   [id^=modal] {
     display: none;
-    border: 1px solid red;
+    border: 2px solid blue;
     transform: translate(-50%,-50%);
     min-height: 3em;
-    min-width: 5em;
+    width: 300px;
     max-width: 10em;
     }
-  input[type=checkbox] {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    }
+
   #modal1:target {
     display: block;
     }
