@@ -39,8 +39,6 @@ button{
   [id^=modal] {
     display: none;
     border: 1px solid red;
-    
-
     transform: translate(-50%,-50%);
     min-height: 3em;
     min-width: 5em;
