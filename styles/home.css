@@ -111,7 +111,12 @@ button{
     display: block;
     background-color:white;
     border-radius: 25px;
-    }          
+    }
+  #modal12:target {
+    display: block;
+    background-color:white;
+    border-radius: 25px;
+    }              
   [id^=modal] .modalClose {
     float: right;
     }
