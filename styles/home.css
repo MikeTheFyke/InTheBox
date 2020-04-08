@@ -18,12 +18,13 @@ body{
     left:0;
     bottom: 50px;
     width: 100vw;
-    height: 300px;
-    background-color:red;
+    height: 240px;
+    background-color:transparent;
+    padding-top: 10px;
 }
 
 #canvasNav{
-    margin-top: 100px;
+
     margin-left: auto;
     margin-right: auto;
     width: 500px;
