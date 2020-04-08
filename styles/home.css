@@ -44,6 +44,13 @@ body{
     border-radius: 25px;
 }
 
+.modalClose{
+    color: white;
+    background-color: #27AAE1;
+    border-radius: 15px;    
+    width: 40px;
+}
+
 a{
     width: 50px;
     text-align: center;
