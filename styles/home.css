@@ -51,7 +51,8 @@ body{
     border-radius: 15px;    
     width: 40px;
     font-family: 'Rubik', sans-serif;
-    opacity: 0.5;
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
 a{
@@ -80,19 +81,21 @@ button{
     height: 300px;
     border: 2px solid #27AAE1;
     border-radius: 25px;
-    background-color: #27AAE1;
+    background-color: white;
     transform: translate(-50%,-50%);
     min-height: 3em;
     min-width: 5em;
-    padding: 2px 20px;
+
     margin: 50px auto 50px auto;
     text-align: center;
     }
 
   .modalHeader{
-      background-color: white;
+      background-color: #27AAE1;
       width: 520px;
-      height: 40px;
+      height: 50px;
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
   }
 
   #modal1:target {
