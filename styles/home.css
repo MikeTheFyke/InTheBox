@@ -94,57 +94,46 @@ button{
     }
   #modal2:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal3:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal4:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal5:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal6:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal7:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal8:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal9:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal10:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }  
   #modal11:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal12:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }              
   [id^=modal] .modalClose {
