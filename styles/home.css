@@ -79,6 +79,7 @@ button{
     width: 523px;
     height: 300px;
     border: 2px solid #27AAE1;
+    border-radius: 25px;
     background-color: #27AAE1;
     transform: translate(-50%,-50%);
     min-height: 3em;
@@ -90,7 +91,6 @@ button{
 
   #modal1:target {
     display: block;
-    border-radius: 25px;
     }
   #modal2:target {
     display: block;
