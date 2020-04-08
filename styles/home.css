@@ -98,6 +98,11 @@ button{
       border-top-left-radius: 15px;
   }
 
+  #iconLG{
+    margin: 5px;
+    height: 200px;
+  }
+
   #modal1:target {
     display: block;
     }
