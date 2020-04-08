@@ -47,10 +47,11 @@ body{
 .modalClose{
     color: white;
     background-color: #27AAE1;
+    border: 2px solid white;
     border-radius: 15px;    
     width: 40px;
     font-family: 'Rubik', sans-serif;
-
+    opacity: 0.5;
 }
 
 a{
@@ -78,6 +79,7 @@ button{
     width: 523px;
     height: 300px;
     border: 2px solid #27AAE1;
+    background-color: #27AAE1;
     transform: translate(-50%,-50%);
     min-height: 3em;
     min-width: 5em;
@@ -88,7 +90,6 @@ button{
 
   #modal1:target {
     display: block;
-    background-color:white;
     border-radius: 25px;
     }
   #modal2:target {
