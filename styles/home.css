@@ -3,6 +3,10 @@ body{
     text-align: center;
 }
 
+#header{
+    background-color:#27AAE1;
+}
+
 #canvasNav{
     margin-top: 20px;
     margin-left: auto;
