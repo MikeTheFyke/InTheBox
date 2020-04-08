@@ -4,7 +4,12 @@ body{
 }
 
 #header{
+    position: absolute;
+    left: 0;
+    top: 0;
     background-color:#27AAE1;
+    width: 100vw;
+    margin-bottom: 50px;
 }
 
 #canvasNav{
