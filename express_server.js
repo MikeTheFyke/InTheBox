@@ -42,6 +42,11 @@ app.get("/house", (req, res) => {
     res.render("house");
 });
 
+/// Kitty Canvas Route
+app.get("/kitty", (req, res) => {
+    res.render("kitty");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
