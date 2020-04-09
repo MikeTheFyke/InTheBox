@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 /// Truck Canavs Route
-app.get("/", (req, res) => {
+app.get("/truck", (req, res) => {
     res.render("truck");
 });
 
