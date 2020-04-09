@@ -78,7 +78,7 @@ button{
     top: 200px;
     left: 50%;
     width: 523px;
-    height: 300px;
+    height: 330px;
     border: 5px solid #27AAE1;
     border-radius: 25px;
     background-color: white;
@@ -164,7 +164,7 @@ h1{
 }
 
 .descriptionText{
-    margin-top: 20px;
+    margin-top: 225px;
     font-size: 20px;
     color: #27AAE1;
 }
