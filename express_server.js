@@ -20,6 +20,7 @@ const urlDatabase = {
   "Pong Canvas": "./views/pong.html",
 };
 
+/// Added First Route
 app.get("/", (req, res) => {
   res.send("Hello!");
 });
@@ -33,6 +34,12 @@ app.get("/urls.json", (req, res) => {
 app.get("/hello", (req, res) => {
 res.send("<html><body>Hello <b>World</b></body></html>\n");
 });
+
+/// Added Fourth Route
+app.get("/urls", (req, res) => {
+    let templateVars = { urls : database };
+    res.render("index", templateVars);
+  });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
