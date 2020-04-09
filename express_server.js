@@ -77,6 +77,11 @@ app.get("/spin", (req, res) => {
     res.render("spin");
 });
 
+/// Multi Canvas Route
+app.get("/multi", (req, res) => {
+    res.render("multi");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
