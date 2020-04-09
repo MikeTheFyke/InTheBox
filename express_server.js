@@ -22,7 +22,7 @@ const urlDatabase = {
 };
 
 /// Index (Home) Route
-app.get("/", (req, res) => {
+app.get("/index", (req, res) => {
     let templateVars = { urls : urlDatabase };
     res.render("index", templateVars);
 });
