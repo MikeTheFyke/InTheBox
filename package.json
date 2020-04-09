@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MikeTheFyke/InTheBox/issues"
   },
-  "homepage": "https://github.com/MikeTheFyke/InTheBox#readme"
+  "homepage": "https://github.com/MikeTheFyke/InTheBox#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
