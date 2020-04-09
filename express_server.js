@@ -37,7 +37,7 @@ res.send("<html><body>Hello <b>World</b></body></html>\n");
 
 /// Added Fourth Route
 app.get("/urls", (req, res) => {
-    let templateVars = { urls : database };
+    let templateVars = { urls : urlDatabase };
     res.render("index", templateVars);
   });
 
