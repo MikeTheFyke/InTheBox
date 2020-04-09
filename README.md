@@ -32,3 +32,5 @@ Alittle HTML5 Canvas fun
     - Spinning Cubes
 11. Multi
     - Multi Canvas Screens
+12. Pong
+    - Playable game of Pong
