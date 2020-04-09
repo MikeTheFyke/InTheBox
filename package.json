@@ -1,0 +1,20 @@
+{
+  "name": "AL12-InTheBox",
+  "version": "1.0.0",
+  "description": "Alittle HTML5 Canvas fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeTheFyke/InTheBox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeTheFyke/InTheBox/issues"
+  },
+  "homepage": "https://github.com/MikeTheFyke/InTheBox#readme"
+}
