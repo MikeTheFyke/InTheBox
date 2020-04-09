@@ -52,6 +52,11 @@ app.get("/hud", (req, res) => {
     res.render("hud");
 });
 
+/// Antfarm Canvas Route
+app.get("/antfarm", (req, res) => {
+    res.render("antfarm");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
