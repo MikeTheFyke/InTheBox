@@ -1,0 +1,178 @@
+body{
+    background-color:white;
+    text-align: center;
+}
+
+#header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color:#27AAE1;
+    width: 100vw;
+    border-bottom-right-radius: 25px;
+}
+
+#headLinkContainer{
+
+}
+
+.headLink{
+  font-family: 'Lobster', cursive;
+  font-size: 14px;
+  color: white;
+}
+
+#navsContainer{
+    position: absolute;
+    left:0;
+    bottom: 50px;
+    width: 100vw;
+    height: 240px;
+    background-color:transparent;
+    padding-top: 10px;
+}
+
+#canvasNav{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 100px;
+    background-color:#27AAE1;
+    border: 2px solid #27AAE1;
+    border-radius: 25px;
+}
+
+#sandboxNav{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 100px;
+    background-color: #27AAE1;
+    border: 2px solid #27AAE1;
+    border-radius: 25px;
+}
+
+.modalClose{
+    color: white;
+    background-color: #27AAE1;
+    border: 2px solid white;
+    border-radius: 15px;    
+    width: 40px;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+a{
+    width: 50px;
+    text-align: center;
+    font-size:30px;
+    text-decoration: none;
+    color: inherit;
+}
+
+*:focus {outline:none}
+
+button{
+    border: none;
+    background-color:transparent;
+    border-radius: 25px;
+}
+
+
+  [id^=modal] {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    width: 523px;
+    height: 330px;
+    border: 5px solid #27AAE1;
+    border-radius: 25px;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    min-height: 3em;
+    min-width: 5em;
+    margin: 50px auto 50px auto;
+    text-align: center;
+    }
+
+  .modalHeader{
+      background-color: #27AAE1;
+      width: 100%;
+      height: 50px;
+      border-top-right-radius: 15px;
+      border-top-left-radius: 15px;
+  }
+
+  #iconLG{
+    margin: 5px;
+    height: 200px;
+  }
+
+  #modal1:target {
+    display: block;
+    }
+  #modal2:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal3:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal4:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal5:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal6:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal7:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal8:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal9:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal10:target {
+    display: block;
+    border-radius: 25px;
+    }  
+  #modal11:target {
+    display: block;
+    border-radius: 25px;
+    }
+  #modal12:target {
+    display: block;
+    border-radius: 25px;
+    }              
+  [id^=modal] .modalClose {
+    float: right;
+    }
+
+h1{
+    margin: 0px auto 5px auto;
+    color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+}
+
+.descriptionText{
+    margin-top: 225px;
+    font-size: 20px;
+    color: #27AAE1;
+}
