@@ -3,8 +3,19 @@ const app = express();
 const PORT = 8080; // default port 8080
 
 const urlDatabase = {
-  "b2xVn2": "http://www.lighthouselabs.ca",
-  "9sm5xK": "http://www.google.com"
+  "Truck Canvas": "./views/truck.html",
+  "Storage Canvas": "./views/store.html",
+  "House Canvas": "./views/house.html",
+  "Kitty Canvas": "./views/kitty.html",
+  "FPS Hud Canvas": "./views/hud.html",
+  "Antfarm Canvas": "./views/antfarm.html",
+
+  "Cubes Canvas": "./views/cubes.html",
+  "Spikes Canvas": "./views/spikes.html",
+  "Eyes Canvas": "./views/eyes.html",
+  "Spin Canvas": "./views/spin.html",
+  "multi Canvas": "./views/multi.html",
+  "Pong Canvas": "./views/pong.html",
 };
 
 app.get("/", (req, res) => {
