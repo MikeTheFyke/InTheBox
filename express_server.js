@@ -57,6 +57,11 @@ app.get("/antfarm", (req, res) => {
     res.render("antfarm");
 });
 
+/// Cubes Canvas Route
+app.get("/cubes", (req, res) => {
+    res.render("cubes");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
