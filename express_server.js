@@ -47,6 +47,11 @@ app.get("/kitty", (req, res) => {
     res.render("kitty");
 });
 
+/// FPD Hud Canvas Route
+app.get("/hud", (req, res) => {
+    res.render("hud");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
