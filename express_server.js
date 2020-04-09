@@ -27,9 +27,14 @@ app.get("/", (req, res) => {
     res.render("index", templateVars);
 });
 
-/// Truck Canavs Route
+/// Truck Canvas Route
 app.get("/truck", (req, res) => {
     res.render("truck");
+});
+
+/// Storage Canvas Route
+app.get("/store", (req, res) => {
+    res.render("store");
 });
 
 app.listen(PORT, () => {
