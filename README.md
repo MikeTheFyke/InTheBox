@@ -35,5 +35,5 @@ Alittle HTML5 Canvas fun
 12. Pong
     - Playable game of Pong
 
-To start express server use ...
-    - node express_server.js
+To start express server use node express_server.js
+Runs on localhost:8080/index
