@@ -27,6 +27,11 @@ app.get("/", (req, res) => {
     res.render("index", templateVars);
 });
 
+/// Truck Canavs Route
+app.get("/", (req, res) => {
+    res.render("truck");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
