@@ -34,3 +34,6 @@ Alittle HTML5 Canvas fun
     - Multi Canvas Screens
 12. Pong
     - Playable game of Pong
+
+To start express server use ...
+    - node express_server.js
