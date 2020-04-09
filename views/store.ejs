@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../styles/storestyles.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/index.css" type="text/css" />
+    <style></style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="../index.html">INDEX</a>
+        <a href="./spikes.html">SPIKEY</a>
+        <a href="./eyes.html">EYES</a>
+        <a href="./spin.html">SPIN</a>
+        <a href="./multi.html">MULTI</a>
+        <a href="./cubes.html">CUBES</a>
+        <a href="./store.html">STORAGE</a>
+    </div>
+
+    <div id="dimensionContainer">
+        <h1>LETS BUILD YOUR CLOSET</h1>
+        <input id="closetLength" type="number" placeholder="LENGTH" max="9" min="0" autofocus="true">
+        <input id="closetHeight" type="number" placeholder="HEIGHT"  max="9" min="0">
+        <input id="closetWidth" type="number" placeholder="WIDTH"  max="5" min="0">
+    </div>
+
+    <div id="doorContainer">
+        <input id="doorCount" type="number" value="1"  max="2" min="1">
+        <h1>HOW MANY DOORS?</h1>
+    </div>
+
+    <div id="shelfContainer">
+            <input id="shelfCount" type="number" value="0"  max="3" min="0">
+            <h1>ANY SHELVES ?</h1>
+    </div>
+
+    <div id="boxContainer">
+            <input id="boxCount" type="number" value="0"  max="4" min="0">
+            <h1>Boxes</h1>
+    </div>
+
+    <div id="storageContainer">
+        <canvas id="storageCanvas" width="1000px" height="600px"></canvas>
+    </div>
+
+        <script src="../scripts/store.js"></script>
+        <script src="../scripts/storeLogic.js"></script>
+        <script src="../scripts/storeGrid.js"></script>
+</body>
+</html>
