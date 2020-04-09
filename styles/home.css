@@ -164,5 +164,7 @@ h1{
 }
 
 .descriptionText{
+    margin-top: 20px;
+    font-size: 20px;
     color: #27AAE1;
 }
