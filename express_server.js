@@ -72,6 +72,11 @@ app.get("/eyes", (req, res) => {
     res.render("eyes");
 });
 
+/// Spin Canvas Route
+app.get("/spin", (req, res) => {
+    res.render("spin");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
