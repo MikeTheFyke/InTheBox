@@ -62,6 +62,11 @@ app.get("/cubes", (req, res) => {
     res.render("cubes");
 });
 
+/// Spikes Canvas Route
+app.get("/spikes", (req, res) => {
+    res.render("spikes");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
