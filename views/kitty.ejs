@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href= "/public/assets/indexStyles.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/index.css" type="text/css" />
+    <link rel="stylesheet" href="../styles/kitty.css" type="text/css" />
+
+</head>
+
+<body>
+
+    js <%- include('partials/_header') %>
+
+    <img id="yarnBall" src="../images/BallOfYarn.png" width="50px">
+
+    <div id="kittycanvasContainer">
+            <canvas id="kittyCanvas" width="1000px" height="600px"></canvas>
+    </div>
+
+        <script src="../scripts/kitty/kittyLogic.js"></script>
+        <script src="../scripts/kitty/yarnLogic.js"></script>
+</body>
+</html>
