@@ -3,6 +3,7 @@ const app = express();
 const PORT = 8080; // default port 8080
 
 app.set("view engine", "ejs")
+app.use('/public', express.static('public'));
 
 const urlDatabase = {
   "Truck Canvas": "./views/truck.html",
