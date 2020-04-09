@@ -82,6 +82,11 @@ app.get("/multi", (req, res) => {
     res.render("multi");
 });
 
+/// Pong Canvas Route
+app.get("/pong", (req, res) => {
+    res.render("pong");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
