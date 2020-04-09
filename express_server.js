@@ -22,12 +22,12 @@ app.get("/", (req, res) => {
   res.send("Hello!");
 });
 
-/// Added Second Route
+/// Added Second Route - /urls.json
 app.get("/urls.json", (req, res) => {
     res.json(urlDatabase);
   });
 
-/// Added Third Route
+/// Added Third Route - /hello
 app.get("/hello", (req, res) => {
 res.send("<html><body>Hello <b>World</b></body></html>\n");
 });
