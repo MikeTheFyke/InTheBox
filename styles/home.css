@@ -10,6 +10,9 @@ body{
     background-color:#27AAE1;
     width: 100vw;
     border-bottom-right-radius: 25px;
+}
+
+.headLink{
 
 }
 
@@ -160,7 +163,6 @@ h1{
     border-top-right-radius: 25px;
     font-family: 'Lobster', cursive;
     font-size: 30px;
-
 }
 
 .descriptionText{
