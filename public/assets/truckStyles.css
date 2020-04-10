@@ -7,7 +7,20 @@
     border-radius: 5px;
 }
 
-#packageButton{
+#boxesInput{
+    text-align: center;
+    color: white;
+    background-color: #27AAE1;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+  }
+
+#boxesButton{
     color: white;
     background-color: rgb(214, 149, 10);
     border: 1px solid white;
