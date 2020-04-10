@@ -1,3 +1,7 @@
+.truckInputContainer{
+    display: block;
+}
+
 #truckContainer{
     cursor: none;    
     display:block;
