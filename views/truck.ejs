@@ -19,9 +19,10 @@
         <canvas id="truckCanvas" width="600px" height="650px"></canvas>
     </div>
 
-    <script> var canvas = document.getElementById('truckCanvas'); </script>
-    <script> var ctx = canvas.getContext('2d'); </script>
     <script>
+        var canvas = document.getElementById('truckCanvas'); 
+        var ctx = canvas.getContext('2d'); 
+
         var framesPerSecond = 30;
 
         var roof_gradient;
@@ -49,8 +50,7 @@
         
         var vertX;
         var vertY;
-    </script>
-    <script>
+
         function calculateMousePos(evt){      // an event fires when mouse moves
         var rect = canvas.getBoundingClientRect();
         var root = document.documentElement;
@@ -61,8 +61,7 @@
           y:mouseY    // Object Literal
         };
         }
-    </script>
-    <script>
+
         window.onload = function() {
         setInterval(function() {
         drawEverything();
@@ -82,65 +81,61 @@
             frontTopX = topXCorner / 2 + 20;;
            });
         }
-    </script>
-    <script>
-    function drawTruck (){
-    ctx.strokeStyle = "black";
 
-    roof_gradient = ctx.createLinearGradient(200,40,200,300);
-    wall_gradient = ctx.createLinearGradient(200,40,200,600)
-    back_gradient = ctx.createLinearGradient(backTopX,backTopY,backTopX,backTopY + backThick);
-    floor_gradient = ctx.createLinearGradient(100,150,100,450);
-    edge_gradient = ctx.createLinearGradient(100,40,100,80);
-    bottomedge_gradient = ctx.createLinearGradient(100,540,100,580);
+        function drawTruck (){
+        ctx.strokeStyle = "black";
 
-    if(frontTopX < 80) {
-        frontTopX = 80;
-    }
-    if (frontTopX > 120){
-        frontTopX = 120;
-    }
+        roof_gradient = ctx.createLinearGradient(200,40,200,300);
+        wall_gradient = ctx.createLinearGradient(200,40,200,600)
+        back_gradient = ctx.createLinearGradient(backTopX,backTopY,backTopX,backTopY + backThick);
+        floor_gradient = ctx.createLinearGradient(100,150,100,450);
+        edge_gradient = ctx.createLinearGradient(100,40,100,80);
+        bottomedge_gradient = ctx.createLinearGradient(100,540,100,580);
+
+        if(frontTopX < 80) {
+            frontTopX = 80;
+        }
+        if (frontTopX > 120){
+            frontTopX = 120;
+        }
 
 ////////////// Roof
-    roof_gradient.addColorStop(0, "#85a3e0");
-    roof_gradient.addColorStop(1, "#142952");
+        roof_gradient.addColorStop(0, "#85a3e0");
+        roof_gradient.addColorStop(1, "#142952");
 
-    ctx.fillStyle = roof_gradient;
+        ctx.fillStyle = roof_gradient;
 
-    ctx.beginPath();
-    ctx.moveTo(frontTopX, frontTopY);
-    ctx.lineTo(frontTopX + frontWidth, frontTopY);
-    ctx.lineTo(backTopX + backThick,backTopY);
-    ctx.lineTo(backTopX,backTopY);
-    ctx.stroke();
-    ctx.closePath();
-    ctx.fill();
-
+        ctx.beginPath();
+        ctx.moveTo(frontTopX, frontTopY);
+        ctx.lineTo(frontTopX + frontWidth, frontTopY);
+        ctx.lineTo(backTopX + backThick,backTopY);
+        ctx.lineTo(backTopX,backTopY);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fill();
 ////////////// Right Side
-    wall_gradient.addColorStop(0, "#85a3e0");
-    wall_gradient.addColorStop(1, "#193366");
+        wall_gradient.addColorStop(0, "#85a3e0");
+        wall_gradient.addColorStop(1, "#193366");
 
-    ctx.fillStyle = wall_gradient;
+        ctx.fillStyle = wall_gradient;
 
-    ctx.beginPath();
-    ctx.moveTo(backTopX + backThick, backTopY);
-    ctx.lineTo(frontTopX + frontWidth, frontTopY);
-    ctx.lineTo(frontTopX + frontWidth, frontTopY + frontHeight);
-    ctx.lineTo(backTopX + backThick,backTopY + backThick);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-
+        ctx.beginPath();
+        ctx.moveTo(backTopX + backThick, backTopY);
+        ctx.lineTo(frontTopX + frontWidth, frontTopY);
+        ctx.lineTo(frontTopX + frontWidth, frontTopY + frontHeight);
+        ctx.lineTo(backTopX + backThick,backTopY + backThick);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
 ////////////// Left Side
-    ctx.beginPath();
-    ctx.moveTo(frontTopX,frontTopY);
-    ctx.lineTo(backTopX,backTopY);
-    ctx.lineTo(backTopX,backTopY + backThick);
-    ctx.lineTo(frontTopX,frontTopY + frontHeight);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-
+        ctx.beginPath();
+        ctx.moveTo(frontTopX,frontTopY);
+        ctx.lineTo(backTopX,backTopY);
+        ctx.lineTo(backTopX,backTopY + backThick);
+        ctx.lineTo(frontTopX,frontTopY + frontHeight);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
 ////////////// Floor
     floor_gradient.addColorStop(0, "#142952");
     floor_gradient.addColorStop(1, "#85a3e0");
@@ -155,9 +150,7 @@
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
-
 ////////////// Back Wall
-
     back_gradient.addColorStop(0, "#24478f");
     back_gradient.addColorStop(1, "#142952");
 
@@ -174,58 +167,57 @@
 
 ////////////// Tires
 
-        ////////////// Left Tire
-        ctx.fillStyle = "black";
-        ctx.beginPath();
-        ctx.moveTo(frontTopX - 25, frontTopY + frontHeight + 30);
-        ctx.lineTo(frontTopX - 15, frontTopY + frontHeight + 10);
-        ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 10);
-        ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 100);
-        ctx.lineTo(frontTopX - 10,frontTopY + frontHeight + 100);
-        ctx.lineTo(frontTopX - 25,frontTopY + frontHeight + 75);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
+    ////////////// Left Tire
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX - 25, frontTopY + frontHeight + 30);
+    ctx.lineTo(frontTopX - 15, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX  + 45, frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX - 10,frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX - 25,frontTopY + frontHeight + 75);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
     
-        ////////////// Left Tire Side
-        ctx.fillStyle = "grey";
-        ctx.beginPath();
-        ctx.moveTo(frontTopX + 35, frontTopY + frontHeight + 35);
-        ctx.lineTo(frontTopX + 45, frontTopY + frontHeight + 10);
-        ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 25);
-        ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 70);
-        ctx.lineTo(frontTopX + 45,frontTopY + frontHeight + 100);
-        ctx.lineTo(frontTopX + 35,frontTopY + frontHeight + 75);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
+    ////////////// Left Tire Side
+    ctx.fillStyle = "grey";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX + 35, frontTopY + frontHeight + 35);
+    ctx.lineTo(frontTopX + 45, frontTopY + frontHeight + 10);
+    ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 25);
+    ctx.lineTo(backTopX - 80, frontTopY + frontHeight + 70);
+    ctx.lineTo(frontTopX + 45,frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX + 35,frontTopY + frontHeight + 75);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
     
-        ////////////// Right Tire
-        ctx.fillStyle = "black";
-        ctx.beginPath();
-        ctx.moveTo(frontTopX + frontWidth - 45, frontTopY + frontHeight + 10);
-        ctx.lineTo(frontTopX + frontWidth + 15, frontTopY + frontHeight + 10);
-        ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 30);
-        ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 75);
-        ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 100);
-        ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
-    
-        ////////////// Right Tire Side
-        ctx.fillStyle = "grey";
-        ctx.beginPath();
-        ctx.moveTo(frontTopX + frontWidth - 20, frontTopY + frontHeight + 35);
-        ctx.lineTo(frontTopX + frontWidth -45, frontTopY + frontHeight + 10);
-        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 25);
-        ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 70);
-        ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
-        ctx.lineTo(frontTopX + frontWidth - 20,frontTopY + frontHeight + 75);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
+    ////////////// Right Tire
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX + frontWidth - 45, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX + frontWidth + 15, frontTopY + frontHeight + 10);
+    ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 30);
+    ctx.lineTo(frontTopX + frontWidth + 25, frontTopY + frontHeight + 75);
+    ctx.lineTo(frontTopX + frontWidth + 10, frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
 
+    ////////////// Right Tire Side
+    ctx.fillStyle = "grey";
+    ctx.beginPath();
+    ctx.moveTo(frontTopX + frontWidth - 20, frontTopY + frontHeight + 35);
+    ctx.lineTo(frontTopX + frontWidth -45, frontTopY + frontHeight + 10);
+    ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 25);
+    ctx.lineTo(backTopX + backThick + 25, frontTopY + frontHeight + 70);
+    ctx.lineTo(frontTopX + frontWidth - 45,frontTopY + frontHeight + 100);
+    ctx.lineTo(frontTopX + frontWidth - 20,frontTopY + frontHeight + 75);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
 ////////////// Edges
 
     ////////////// Top
@@ -285,9 +277,8 @@
     ctx.fill();
 
     }
-    </script>
-    <script>
-        function drawGrid (){
+
+    function drawGrid (){
 // Frame Outter
     ctx.strokeStyle = "red";
     ctx.beginPath();
@@ -341,21 +332,6 @@
     ctx.lineTo(backTopX + backThick,backTopY + backThick);
     ctx.closePath();
     ctx.stroke();
-
-
-    // ctx.strokeStyle = "blue";
-    // ctx.beginPath(); // Bottom Horizontal - 04 Line
-    // ctx.moveTo(frontTopX + 122,backTopY + backThick + 38);
-    // ctx.lineTo(frontTopX + frontWidth - 90,backTopY + backThick + 38);
-    // ctx.closePath();
-    // ctx.stroke();
-
-    // ctx.strokeStyle = "blue";
-    // ctx.beginPath(); // Bottom Vertical Center Line
-    // ctx.moveTo(frontTopX + (frontWidth/2),frontTopY + frontHeight);
-    // ctx.lineTo(backTopX + (backThick/2),backTopY + backThick);
-    // ctx.closePath();
-    // ctx.stroke();
 
     //  Orange Lines
     vertX = (backTopX - frontTopX)/2;
@@ -694,31 +670,31 @@ function drawBox(){
     }
 }
 
-function drawEverything() {
-    ctx.fillStyle = "lightskyblue"; // Sky
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = "green"; // Grass
-    ctx.fillRect(0,300,canvas.width,canvas.height);
-    ctx.fillStyle = "LightSlateGrey"; // Far Curb
-    ctx.fillRect(0,310,canvas.width,10);
-    ctx.fillStyle = "LightSlateGrey"; // Far Curb
-    ctx.fillRect(0,325,canvas.width,30);
-    ctx.fillStyle = "black"; // Road
-    ctx.fillRect(0,335,canvas.width,90);
-    ctx.fillStyle = "LightSlateGrey"; // Curb
-    ctx.fillRect(0,425,canvas.width,30);
-    ctx.fillStyle = "LightSlateGrey"; // Road
-    ctx.fillRect(0,460,canvas.width,30);
-    ctx.beginPath(); // Drive Way
-    ctx.moveTo(0, canvas.height);
-    ctx.lineTo(275, 300);
-    ctx.lineTo(300, 300);
-    ctx.lineTo(canvas.width,canvas.height);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-}
-    </script>
+    function drawEverything() {
+        ctx.fillStyle = "lightskyblue"; // Sky
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = "green"; // Grass
+        ctx.fillRect(0,300,canvas.width,canvas.height);
+        ctx.fillStyle = "LightSlateGrey"; // Far Curb
+        ctx.fillRect(0,310,canvas.width,10);
+        ctx.fillStyle = "LightSlateGrey"; // Far Curb
+        ctx.fillRect(0,325,canvas.width,30);
+        ctx.fillStyle = "black"; // Road
+        ctx.fillRect(0,335,canvas.width,90);
+        ctx.fillStyle = "LightSlateGrey"; // Curb
+        ctx.fillRect(0,425,canvas.width,30);
+        ctx.fillStyle = "LightSlateGrey"; // Road
+        ctx.fillRect(0,460,canvas.width,30);
+        ctx.beginPath(); // Drive Way
+        ctx.moveTo(0, canvas.height);
+        ctx.lineTo(275, 300);
+        ctx.lineTo(300, 300);
+        ctx.lineTo(canvas.width,canvas.height);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    }
+</script>
 
 </body>
 </html>
