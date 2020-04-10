@@ -1,90 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href= "/public/assets/indexStyles.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/public/assets/truckStyles.css" type="text/css" />
-</head>
+var canvas = document.getElementById('truckCanvas');
+var ctx = canvas.getContext('2d');
+var framesPerSecond = 30;
 
-<body>
+var roof_gradient;
+var wall_gradient;
+var back_gradient;
+var floor_gradient;
+var edge_gradient;
+var bottomedge_gradient;
 
-    js <%- include('partials/_header') %>
+var Xcord = 0;
+var Ycord = 0;
+var topYCorner = 20;
+var topXCorner = 20;
+const xthick = 400;
+const ythick = 500;
 
-    <input id="boxes" type="text" placeholder="How Many Boxes?">
-    <button id="packageButton" onclick="drawBox()">Click Me</button>
-    <button id="gridButton" onclick="drawGrid()">Click Me</button>
+var frontTopY = 20;
+var frontTopX = 20;
+const frontWidth = 400;
+const frontHeight = 500;
 
-    <div id="truckContainer">
-        <canvas id="truckCanvas" width="600px" height="650px"></canvas>
-    </div>
+var backTopX = 250;
+var backTopY = 250;
+var backThick = 150;
 
-    <script> var canvas = document.getElementById('truckCanvas'); </script>
-    <script> var ctx = canvas.getContext('2d'); </script>
-    <script>
-        var framesPerSecond = 30;
+var vertX;
+var vertY;
 
-        var roof_gradient;
-        var wall_gradient;
-        var back_gradient;
-        var floor_gradient;
-        var edge_gradient;
-        var bottomedge_gradient;
-        
-        var Xcord = 0;
-        var Ycord = 0;
-        var topYCorner = 20;
-        var topXCorner = 20;
-        const xthick = 400;
-        const ythick = 500;
-        
-        var frontTopY = 20;
-        var frontTopX = 20;
-        const frontWidth = 400;
-        const frontHeight = 500;
-        
-        var backTopX = 250;
-        var backTopY = 250;
-        var backThick = 150;
-        
-        var vertX;
-        var vertY;
-    </script>
-    <script>
-        function calculateMousePos(evt){      // an event fires when mouse moves
-        var rect = canvas.getBoundingClientRect();
-        var root = document.documentElement;
-        var mouseX = evt.clientX - rect.left - root.scrollLeft;
-        var mouseY = evt.clientY - rect.top - root.scrollTop;
-        return {
-          x:mouseX,   // Object Literal
-          y:mouseY    // Object Literal
-        };
-        }
-    </script>
-    <script>
-        window.onload = function() {
-        setInterval(function() {
-        drawEverything();
-        drawTruck();
-        drawGrid();
-        drawBox();
-        },1000/framesPerSecond); // Hundredth of seconds, ballX movement
-    
-        canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
-          function(evt) {
-            var mousePos = calculateMousePos(evt);
-            Xcord = mousePos.x;
-            Ycord = mousePos.y;
-            topYCorner = mousePos.y-(ythick/2); // aligns to centre with mouse
-            topXCorner = mousePos.x-(xthick/2);
-            frontTopY = 40;
-            frontTopX = topXCorner / 2 + 20;;
-           });
-        }
-    </script>
-    <script>
-    function drawTruck (){
+
+function calculateMousePos(evt){      // an event fires when mouse moves
+    var rect = canvas.getBoundingClientRect();
+    var root = document.documentElement;
+    var mouseX = evt.clientX - rect.left - root.scrollLeft;
+    var mouseY = evt.clientY - rect.top - root.scrollTop;
+    return {
+      x:mouseX,   // Object Literal
+      y:mouseY    // Object Literal
+    };
+  }
+
+window.onload = function() {
+    setInterval(function() {
+    drawEverything();
+    drawTruck();
+    drawGrid();
+    drawBox();
+    },1000/framesPerSecond); // Hundredth of seconds, ballX movement
+
+    canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
+      function(evt) {
+        var mousePos = calculateMousePos(evt);
+        Xcord = mousePos.x;
+        Ycord = mousePos.y;
+        topYCorner = mousePos.y-(ythick/2); // aligns to centre with mouse
+        topXCorner = mousePos.x-(xthick/2);
+        frontTopY = 40;
+        frontTopX = topXCorner / 2 + 20;;
+       });
+}
+
+function drawTruck (){
     ctx.strokeStyle = "black";
 
     roof_gradient = ctx.createLinearGradient(200,40,200,300);
@@ -100,6 +76,12 @@
     if (frontTopX > 120){
         frontTopX = 120;
     }
+    // if (frontTopY < 40){
+    //     frontTopY = 40;
+    // } 
+    // if (frontTopY > 50){
+    //     frontTopY = 50;
+    // }
 
 ////////////// Roof
     roof_gradient.addColorStop(0, "#85a3e0");
@@ -284,10 +266,9 @@
     ctx.stroke();
     ctx.fill();
 
-    }
-    </script>
-    <script>
-        function drawGrid (){
+}
+
+function drawGrid (){
 // Frame Outter
     ctx.strokeStyle = "red";
     ctx.beginPath();
@@ -718,7 +699,3 @@ function drawEverything() {
     ctx.stroke();
     ctx.fill();
 }
-    </script>
-
-</body>
-</html>
