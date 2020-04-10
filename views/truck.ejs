@@ -11,9 +11,11 @@
 
     js <%- include('partials/_header') %>
 
-    <input id="boxes" type="text" placeholder="How Many Boxes?">
-    <button id="packageButton" onclick="drawBox()">Click Me</button>
-    <button id="gridButton" onclick="drawGrid()">Click Me</button>
+    <div class="truckInputContainer">
+        <input id="boxes" type="text" placeholder="How Many Boxes?">
+        <button id="packageButton" onclick="drawBox()">Click Me</button>
+        <button id="gridButton" onclick="drawGrid()">Click Me</button>
+    </div>
 
     <div id="truckContainer">
         <canvas id="truckCanvas" width="600px" height="650px"></canvas>
