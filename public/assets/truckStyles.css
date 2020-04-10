@@ -4,14 +4,14 @@
     top: 80px;
     width: 200px;
     background-color: #27AAE1;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #packageButton{
     color: white;
-    background-color: #27AAE1;
+    background-color: rgb(214, 149, 10);
     border: 1px solid white;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #truckContainer{
