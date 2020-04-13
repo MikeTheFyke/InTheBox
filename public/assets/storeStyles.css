@@ -4,7 +4,7 @@
     margin:auto;
     text-align: center;
     width:1050px;
-    height:675px;
+    height:620px;
     border-radius:25px;
     background-color: #27AAE1;
 }
@@ -25,7 +25,7 @@
 
 .inputsContainer{
     width:225px;
-    height:95px;
+    height:85px;
     border-radius:25px;
     background-color: #27AAE1;
 }
@@ -40,19 +40,22 @@
     display:flex;
     justify-content: space-around;
     margin-top: 0px;
+
 }
 
 .inputsContainer input{
     color: white;
     border: 5px solid white;
-    background-color:#27AAE1;
+    background-color:rgb(214, 149, 10);
     font-size:20px;
     text-align:center;
-    width: 50px;
-    height:50px;
+    width: 40px;
+    height:40px;
     border-radius:45px;
     outline:none;
     appearance: none;
+    margin: 0px 5px;
+
 }
 
 ::-webkit-input-placeholder{
