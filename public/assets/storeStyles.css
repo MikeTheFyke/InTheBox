@@ -19,8 +19,8 @@
 }
 
 #dimensionContainer{
-    position:absolute;
-    left: 20px;
+    position:relative;
+    top: 50px;
     width:136px;
     height:187px;
     border-radius:25px;
