@@ -6,25 +6,26 @@
     width:1050px;
     height:675px;
     border-radius:25px;
-    background-color: rgb(214, 149, 10);
+    background-color: #27AAE1;
 }
 
 #storageCanvas{
     margin:5px auto;
-    border: 5px solid rgb(146, 91, 9);
+    border: 5px solid white;
     border-radius:25px;
-    background-color: rgb(218, 211, 211);
-    border-style:inset;
+    background-color: black;
 }
 
 #storageInputsContainer{
     display:flex;
     justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 5px;
 }
 
 .inputsContainer{
     width:225px;
-    height:125px;
+    height:95px;
     border-radius:25px;
     background-color: #27AAE1;
 }
