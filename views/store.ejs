@@ -193,7 +193,7 @@ function drawCloset(){
 
     //// Front Side Face & Door Logic
     if (document.getElementById("doorCount").value < 2){
-      ctx.strokeStyle = "yellow"; // Front side face
+      ctx.strokeStyle = "black"; // Front side face
       ctx.beginPath();
       ctx.moveTo(frontX1,frontY1);
       ctx.lineTo(frontX2,frontY2);
@@ -206,7 +206,7 @@ function drawCloset(){
       ctx.closePath();
       ctx.stroke();
     } else {
-      ctx.strokeStyle = "yellow"; // Front side face
+      ctx.strokeStyle = "black"; // Front side face
       ctx.beginPath();
       ctx.moveTo(frontX1,frontY1);
       ctx.lineTo(frontX2,frontY2);
@@ -288,7 +288,7 @@ function drawCloset(){
         //// GRIDS
             for (var j = 0; j < document.getElementById("closetLength").value; j++){
                 // Roof Vertical
-                ctx.strokeStyle = "green"; 
+                ctx.strokeStyle = "white"; 
                 ctx.beginPath();
                 ctx.moveTo(backX1 + (((backX3 - backX4)/document.getElementById("closetLength").value)*j), backY1);
                 ctx.lineTo(frontX1 + (((frontX2 - frontX1)/document.getElementById("closetLength").value)*j), frontY1);
