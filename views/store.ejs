@@ -231,34 +231,56 @@ function drawCloset(){
 
     console.log("Shelf  X1 : "+ shelfFrontX1 + "  Y1 : "+shelfFrontY1);
 
-    for (var i2 = 0; i2 < shelfCtr; i2++){
-      ctx.strokeStyle = "white"; // Shelf Back side face 
-      
-    //   ctx.beginPath();
-    //   ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
-    //   ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
-    //   ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
-    //   ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
-    //   ctx.closePath();
-    //   ctx.stroke();
+    if (cWidth == 2){
+        for (var i2 = 0; i2 < shelfCtr; i2++){
+            ctx.fillStyle = '#d6950a'; // Shelf Front side face 
+            ctx.beginPath();
+            ctx.moveTo( shelfFrontX1 - ((backX1 - frontX1)/2), shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+            ctx.lineTo( shelfFrontX2 + ((backX1 - frontX1)/2), shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+            ctx.lineTo( shelfFrontX2 + ((backX1 - frontX1)/2), shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+            ctx.lineTo( shelfFrontX1 - ((backX1 - frontX1)/2), shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+            ctx.closePath();
+            ctx.fill();
 
-      ctx.fillStyle = '#d6950a'; // Shelf Front side face 
-      ctx.beginPath();
-      ctx.moveTo( shelfFrontX1, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX2, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.closePath();
-      ctx.fill();
+            ctx.fillStyle = '#996b09'; // Bottom of Shelf
+            ctx.beginPath();
+            ctx.moveTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+            ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+            ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+            ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+            ctx.closePath();
+            ctx.fill();
+        }
+    } else {
+        for (var i2 = 0; i2 < shelfCtr; i2++){
+        ctx.strokeStyle = "white"; // Shelf Back side face 
+        
+        //   ctx.beginPath();
+        //   ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
+        //   ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
+        //   ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+        //   ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+        //   ctx.closePath();
+        //   ctx.stroke();
 
-      ctx.fillStyle = '#996b09'; // Bottom of Shelf
-      ctx.beginPath();
-      ctx.moveTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
-      ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
-      ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
-      ctx.closePath();
-      ctx.fill();
+        ctx.fillStyle = '#d6950a'; // Shelf Front side face 
+        ctx.beginPath();
+        ctx.moveTo( shelfFrontX1, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+        ctx.lineTo( shelfFrontX2, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+        ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+        ctx.lineTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = '#996b09'; // Bottom of Shelf
+        ctx.beginPath();
+        ctx.moveTo( shelfFrontX1, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+        ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
+        ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+        ctx.lineTo(backX4, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2) + 10);
+        ctx.closePath();
+        ctx.fill();
+        }
     } 
 
 }
