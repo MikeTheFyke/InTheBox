@@ -17,16 +17,19 @@
     border-style:inset;
 }
 
-#dimensionContainer{
-    position:relative;
-    top: 50px;
+#storageInputsContainer{
+    display:flex;
+    justify-content: space-between;
+}
+
+.inputsContainer{
     width:225px;
     height:125px;
     border-radius:25px;
     background-color: #27AAE1;
 }
 
-#dimensionContainer h1{
+.inputsContainer h1{
     color:white;
     font-size:1em;
     text-wrap:10em;
@@ -38,7 +41,7 @@
     margin-top: 0px;
 }
 
-#dimensionContainer input{
+.inputsContainer input{
     color: white;
     border: 5px solid white;
     background-color:#27AAE1;

@@ -11,36 +11,38 @@
 
     js <%- include('partials/_header') %>
     
-    <div id="dimensionContainer">
-        <h1>LETS BUILD YOUR CLOSET</h1>
-            <div id="dimensionTags">
-                <h1>Length</h1>
-                <h1>Height</h1>
-                <h1>Width</h1>
-            </div>
-        <input id="closetLength" type="number" placeholder="0" max="9" min="0" autofocus="true">
-        <input id="closetHeight" type="number" placeholder="0"  max="9" min="0">
-        <input id="closetWidth" type="number" placeholder="0"  max="5" min="0">
-    </div>
+    <div id="storageInputsContainer">
+        <div class="inputsContainer">
+            <h1>LETS BUILD YOUR CLOSET</h1>
+                <div id="dimensionTags">
+                    <h1>Length</h1>
+                    <h1>Height</h1>
+                    <h1>Width</h1>
+                </div>
+            <input id="closetLength" type="number" placeholder="0" max="9" min="0" autofocus="true">
+            <input id="closetHeight" type="number" placeholder="0"  max="9" min="0">
+            <input id="closetWidth" type="number" placeholder="0"  max="5" min="0">
+        </div>
 
-    <div id="doorContainer">
-        <h1>HOW MANY DOORS?</h1>
-        <input id="doorCount" type="number" value="1"  max="2" min="1">
-    </div>
+        <div class="inputsContainer">
+            <h1>HOW MANY DOORS?</h1>
+            <input id="doorCount" type="number" value="1"  max="2" min="1">
+        </div>
 
-    <div id="shelfContainer">
-        <h1>ANY SHELVES ?</h1>
-            <input id="shelfCount" type="number" value="0"  max="3" min="0">
-    </div>
+        <div class="inputsContainer">
+            <h1>ANY SHELVES ?</h1>
+                <input id="shelfCount" type="number" value="0"  max="3" min="0">
+        </div>
 
-    <div id="boxContainer">
-        <h1>Boxes?</h1>
-            <input id="boxCount" type="number" value="0"  max="4" min="0">
+        <div class="inputsContainer">
+            <h1>Boxes?</h1>
+                <input id="boxCount" type="number" value="0"  max="4" min="0">
+        </div>
     </div>
-
-    <div id="storageContainer">
-        <canvas id="storageCanvas" width="1000px" height="600px"></canvas>
-    </div>
+    
+        <div id="storageContainer">
+            <canvas id="storageCanvas" width="1000px" height="600px"></canvas>
+        </div>
 
         <script>
             var canvas = document.getElementById('storageCanvas');
