@@ -232,7 +232,7 @@ function drawCloset(){
     console.log("Shelf  X1 : "+ shelfFrontX1 + "  Y1 : "+shelfFrontY1);
 
     for (var i2 = 0; i2 < shelfCtr; i2++){
-      ctx.strokeStyle = "blue"; // Shelf back side face 01
+      ctx.strokeStyle = "white"; // Shelf Back side face 
       ctx.beginPath();
       ctx.moveTo(backX1, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
       ctx.lineTo(backX2, backY1 + (((backY4 - backY1)/cHeight)*3) - (((backY4 - backY1)/cHeight)*i2));
@@ -241,7 +241,8 @@ function drawCloset(){
       ctx.closePath();
       ctx.stroke();
 
-      ctx.beginPath(); // Shelf Front side face
+      ctx.strokeStyle = "black"; // Shelf Front side face 
+      ctx.beginPath();
       ctx.moveTo( shelfFrontX1, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.lineTo( shelfFrontX2, shelfFrontY1 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
       ctx.lineTo( shelfFrontX2, shelfFrontY2 - (((frontY4 - frontY1)/document.getElementById("closetHeight").value)*i2) + (12*i2) );
