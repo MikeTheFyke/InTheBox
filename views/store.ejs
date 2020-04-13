@@ -144,7 +144,7 @@ function drawCloset(){
     backX4 = frontX4 + wUnit;
     backY4 = frontY4 - wUnit;
 
-    ctx.fillStyle = "red"; // Back side face
+    ctx.fillStyle = '#d6950a'; // Back side face
     ctx.beginPath();
     ctx.moveTo(backX1,backY1);
     ctx.lineTo(backX2,backY2);
@@ -171,7 +171,7 @@ function drawCloset(){
     ctx.closePath();
     ctx.fill();
 
-    ctx.fillStyle = "darkred"; // Roof face
+    ctx.fillStyle = '#996b09'; // Roof face
     ctx.beginPath();
     ctx.moveTo(frontX1,frontY1);
     ctx.lineTo(frontX2,frontY2);
@@ -180,7 +180,7 @@ function drawCloset(){
     ctx.closePath();
     ctx.fill();
 
-    ctx.fillStyle = "darkred"; // Floor face
+    ctx.fillStyle = '#d6950a'; // Floor face
     ctx.beginPath();
     ctx.moveTo(backX4,backY4);
     ctx.lineTo(backX3,backY3);
