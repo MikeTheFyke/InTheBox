@@ -12,7 +12,7 @@
     js <%- include('partials/_header') %>
 
     <div id="scrollerContainer">
-        <canvas id="scrollerCanvas" width="800px" height="450px"></canvas>
+        <canvas id="scrollerCanvas" width="800px" height="450px" autofocus></canvas>
     </div>
 
 <script id="main">
@@ -84,7 +84,6 @@
     window.addEventListener("keydown", keyDownUp);
     window.addEventListener("keyup",   keyDownUp);
     window.addEventListener("resize",  resize);
-
     });
 </script>
 
