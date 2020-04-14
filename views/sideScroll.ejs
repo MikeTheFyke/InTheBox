@@ -20,45 +20,70 @@
 
     "use strict";
 
+        ///////////////////
+    //// FUNCTIONS ////
+    ///////////////////
+
     var keyDownUp = function(event) {
-        controller.keyDownUp(event.type, event.keyCode);
+
+    controller.keyDownUp(event.type, event.keyCode);
+
     };
 
     var resize = function(event) {
-        // Resize canvas height and width based on window size. Height scales great, width cuts out canvas.
-        // display.resize(document.documentElement.clientWidth - 32, document.documentElement.clientHeight - 32, game.world.height / game.world.width);
-        display.render();
+
+    display.resize(document.documentElement.clientWidth - 32, document.documentElement.clientHeight - 32, game.world.height / game.world.width);
+    display.render();
+
     };
 
     var render = function() {
-        display.fill(game.world.background_color);// Clear background to game's background color.
-        display.drawRectangle(game.world.player.x, game.world.player.y, game.world.player.width, game.world.player.height, game.world.player.color);
-        display.render();
+
+    display.drawMap(game.world.map, game.world.columns);
+    display.drawPlayer(game.world.player, game.world.player.color1, game.world.player.color2);
+    display.render();
+
     };
 
     var update = function() {
-        if (controller.left.active)  { game.world.player.moveLeft();  }
-        if (controller.right.active) { game.world.player.moveRight(); }
-        if (controller.up.active)    { game.world.player.jump(); controller.up.active = false; }
 
-        game.update();
+    if (controller.left.active)  { game.world.player.moveLeft();  }
+    if (controller.right.active) { game.world.player.moveRight(); }
+    if (controller.up.active)    { game.world.player.jump(); controller.up.active = false; }
+
+    game.update();
+
     };
 
+        /////////////////
+    //// OBJECTS ////
+    /////////////////
+
     var controller = new Controller();
-    var display    = new Display(document.getElementById('scrollerCanvas'));
+    var display    = new Display(document.querySelector("canvas"));
     var game       = new Game();
     var engine     = new Engine(1000/30, render, update);
+
+        ////////////////////
+    //// INITIALIZE ////
+    ////////////////////
 
     display.buffer.canvas.height = game.world.height;
     display.buffer.canvas.width = game.world.width;
 
-    window.addEventListener("keydown", keyDownUp);
-    window.addEventListener("keyup",   keyDownUp);
-    window.addEventListener("resize",  resize);
+    display.tile_sheet.image.addEventListener("load", function(event) {
 
     resize();
 
     engine.start();
+
+    }, { once:true });
+
+    display.tile_sheet.image.src = "rabbit-trap.png";
+
+    window.addEventListener("keydown", keyDownUp);
+    window.addEventListener("keyup",   keyDownUp);
+    window.addEventListener("resize",  resize);
 
     });
 </script>
@@ -103,40 +128,77 @@
 </script>
 
 <script id="display">
-    const Display = function(canvas) {
 
-        this.buffer  = document.getElementById('scrollerCanvas').getContext("2d"),
-        this.context = canvas.getContext("2d");
+const Display = function(canvas) {
 
-        this.drawRectangle = function(x, y, width, height, color) {
-            this.buffer.fillStyle = color;
-            this.buffer.fillRect(Math.floor(x), Math.floor(y), width, height);
-        };
+    this.buffer  = document.createElement("canvas").getContext("2d"),
+    this.context = canvas.getContext("2d");
 
-        this.fill = function(color) {
-            this.buffer.fillStyle = color;
-            this.buffer.fillRect(0, 0, this.buffer.canvas.width, this.buffer.canvas.height);
-        };
+    this.tile_sheet = new Display.TileSheet(16, 8);
 
-        this.render = function() { 
-            this.context.drawImage(this.buffer.canvas, 0, 0, this.buffer.canvas.width, this.buffer.canvas.height, 0, 0, this.context.canvas.width, this.context.canvas.height); 
-        };
+    /* This function draws the map to the buffer. */
+    this.drawMap = function(map, columns) {
 
-        this.resize = function(width, height, height_width_ratio) {
-            if (height / width > height_width_ratio) {
-                this.context.canvas.height = width * height_width_ratio;
-                this.context.canvas.width = width;
-            } else {
-                this.context.canvas.height = height;
-                this.context.canvas.width = height / height_width_ratio;
-            }
-            this.context.imageSmoothingEnabled = false;
-        };
+    for (let index = map.length - 1; index > -1; -- index) {
+
+        let value = map[index] - 1;
+        let source_x =           (value % this.tile_sheet.columns) * this.tile_sheet.tile_size;
+        let source_y = Math.floor(value / this.tile_sheet.columns) * this.tile_sheet.tile_size;
+        let destination_x =           (index % columns) * this.tile_sheet.tile_size;
+        let destination_y = Math.floor(index / columns) * this.tile_sheet.tile_size;
+
+        this.buffer.drawImage(this.tile_sheet.image, source_x, source_y, this.tile_sheet.tile_size, this.tile_sheet.tile_size, destination_x, destination_y, this.tile_sheet.tile_size, this.tile_sheet.tile_size);
+
+    }
+
+};
+
+    this.drawPlayer = function(rectangle, color1, color2) {
+
+    this.buffer.fillStyle = color1;
+    this.buffer.fillRect(Math.floor(rectangle.x), Math.floor(rectangle.y), rectangle.width, rectangle.height);
+    this.buffer.fillStyle = color2;
+    this.buffer.fillRect(Math.floor(rectangle.x + 2), Math.floor(rectangle.y + 2), rectangle.width - 4, rectangle.height - 4);
+
+    };
+
+    this.resize = function(width, height, height_width_ratio) {
+
+    if (height / width > height_width_ratio) {
+
+        this.context.canvas.height = width * height_width_ratio;
+        this.context.canvas.width = width;
+
+    } else {
+
+        this.context.canvas.height = height;
+        this.context.canvas.width = height / height_width_ratio;
+
+    }
+
+    this.context.imageSmoothingEnabled = false;
+
+    };
+
     };
 
     Display.prototype = {
-        constructor : Display
+
+    constructor : Display,
+
+    render:function() { this.context.drawImage(this.buffer.canvas, 0, 0, this.buffer.canvas.width, this.buffer.canvas.height, 0, 0, this.context.canvas.width, this.context.canvas.height); },
+
     };
+
+    Display.TileSheet = function(tile_size, columns) {
+
+    this.image = new Image();
+    this.tile_size = tile_size;
+    this.columns = columns;
+
+    };
+
+    Display.TileSheet.prototype = {};
 </script>
 
 <script id="game">
@@ -155,12 +217,22 @@
     width:800,
 
     collideObject:function(object) {
-
-        if (object.x < 0) { object.x = 0; object.velocity_x = 0; }
-        else if (object.x + object.width > this.width) { object.x = this.width - object.width; object.velocity_x = 0; }
-        if (object.y < 0) { object.y = 0; object.velocity_y = 0; }
-        else if (object.y + object.height > this.height) { object.jumping = false; object.y = this.height - object.height; object.velocity_y = 0; }
-
+        if (object.x < 0) {
+             object.x = 0; 
+             object.velocity_x = 0; 
+            }
+        else if (object.x + object.width > this.width) {
+             object.x = this.width - object.width; 
+             object.velocity_x = 0; 
+        }
+        if (object.y < 0) {
+             object.y = 0; 
+             object.velocity_y = 0; 
+        }
+        else if (object.y + object.height > this.height) {
+             object.jumping = false; 
+             object.y = this.height - object.height; 
+             object.velocity_y = 0; }
     },
 
     update:function() {
