@@ -87,6 +87,11 @@ app.get("/pong", (req, res) => {
     res.render("pong");
 });
 
+/// Side Scroll Canvas Route
+app.get("/sidescroll", (req, res) => {
+    res.render("sidescroll");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
