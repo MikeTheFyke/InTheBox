@@ -15,145 +15,359 @@
         <canvas id="scrollerCanvas" width="800px" height="450px"></canvas>
     </div>
 
-    <script id="main">
-        var canvas = document.getElementById('scrollerCanvas'); 
-        var ctx = canvas.getContext('2d'); 
+<script id="main">
+    window.addEventListener("load", function(event) {
 
-        var framesPerSecond = 30;
+    "use strict";
 
-        window.onload = function() {
-        setInterval(function() {
-        
-        var keyDownUp = function(event){
+        ///////////////////
+    //// FUNCTIONS ////
+    ///////////////////
 
-            controller.keyDownUp(event.type, event.keyCode);
+    /* This used to be in the Controller class, but I moved it out to the main file.
+    The reason being that later on in development I might need to do something with
+    display or processing directly on an input event in addition to updating the controller.
+    To prevent referencing those components inside of my controller logic, I moved
+    all of my event handlers here, to the main file. */
+    var keyDownUp = function(event) {
 
-        };
+    controller.keyDownUp(event.type, event.keyCode);
 
-        var render = function() {
-            display.fill(game.world.background_color);
-            display.drawRectangle(game.world.player.x, game.world.player.y,)
-        }
+    };
 
-        // drawEverything();        
-        // Controller();
-        // Display();
-        Game();
-        // Engine();
+    /* I also moved this handler out of Display since part 1 of this series. The reason
+    being that I need to reference game as well as display to resize the canvas according
+    to the dimensions of the game world. I don't want to reference game inside of my
+    Display class, so I moved the resize method into the main file. */
+    var resize = function(event) {
 
-        },1000/framesPerSecond); // Hundredth of seconds
-    
-        canvas.addEventListener("keydown", keyDownUp);  // keypress Down
-        canvas.addEventListener("keyup", keyDownUp);    // keypress Up
+    display.resize(document.documentElement.clientWidth - 32, document.documentElement.clientHeight - 32, game.world.height / game.world.width);
+    display.render();
 
-        canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
-          function(evt) {
-            var mousePos = calculateMousePos(evt);
-            Xcord = mousePos.x;
-            Ycord = mousePos.y;
-           });
-        }
+    };
 
+    var render = function() {
 
-    // function drawEverything() {
-    //     ctx.fillStyle = "lightskyblue"; // Fill Background
-    //     ctx.fillRect(0,0,canvas.width,canvas.height);
-    //     ctx.closePath();
-    //     ctx.stroke();
-    //     ctx.fill();
-    // }
+    display.fill(game.world.background_color);// Clear background to game's background color.
+    display.drawRectangle(game.world.player.x, game.world.player.y, game.world.player.width, game.world.player.height, game.world.player.color);
+    display.render();
+
+    };
+
+    var update = function() {
+
+    if (controller.left.active)  { game.world.player.moveLeft();  }
+    if (controller.right.active) { game.world.player.moveRight(); }
+    if (controller.up.active)    { game.world.player.jump(); controller.up.active = false; }
+
+    game.update();
+
+    };
+
+        /////////////////
+    //// OBJECTS ////
+    /////////////////
+
+    var controller = new Controller();
+    var display    = new Display(document.getElementById('scrollerCanvas'));
+    var game       = new Game();
+    var engine     = new Engine(1000/30, render, update);
+
+        ////////////////////
+    //// INITIALIZE ////
+    ////////////////////
+
+    /* This is very important. The buffer canvas must be pixel for pixel the same
+    size as the world dimensions to properly scale the graphics. All the game knows
+    are player location and world dimensions. We have to tell the display to match them. */
+    display.buffer.canvas.height = game.world.height;
+    display.buffer.canvas.width = game.world.width;
+
+    window.addEventListener("keydown", keyDownUp);
+    window.addEventListener("keyup",   keyDownUp);
+    window.addEventListener("resize",  resize);
+
+    resize();
+
+    engine.start();
+
+    });
 </script>
 
-<script id="controller"></script>
-<script id="display"></script>
+<script id="controller">
+        /* The keyDownUp handler was moved to the main file. */
+
+    const Controller = function() {
+
+    this.left  = new Controller.ButtonInput();
+    this.right = new Controller.ButtonInput();
+    this.up    = new Controller.ButtonInput();
+
+    this.keyDownUp = function(type, key_code) {
+
+    var down = (type == "keydown") ? true : false;
+
+    switch(key_code) {
+
+        case 37: this.left.getInput(down);  break;
+        case 38: this.up.getInput(down);    break;
+        case 39: this.right.getInput(down);
+
+    }
+
+    };
+
+    };
+
+    Controller.prototype = {
+
+    constructor : Controller
+
+    };
+
+    Controller.ButtonInput = function() {
+
+    this.active = this.down = false;
+
+    };
+
+    Controller.ButtonInput.prototype = {
+
+    constructor : Controller.ButtonInput,
+
+    getInput : function(down) {
+
+    if (this.down != down) this.active = down;
+    this.down = down;
+
+    }
+
+    };
+</script>
+
+<script id="display">
+    const Display = function(canvas) {
+
+    this.buffer  = document.getElementById('scrollerCanvas').getContext("2d"),
+    this.context = canvas.getContext("2d");
+
+    this.drawRectangle = function(x, y, width, height, color) {
+
+    this.buffer.fillStyle = color;
+    this.buffer.fillRect(Math.floor(x), Math.floor(y), width, height);
+
+    };
+
+    this.fill = function(color) {
+
+    this.buffer.fillStyle = color;
+    this.buffer.fillRect(0, 0, this.buffer.canvas.width, this.buffer.canvas.height);
+
+    };
+
+    this.render = function() { this.context.drawImage(this.buffer.canvas, 0, 0, this.buffer.canvas.width, this.buffer.canvas.height, 0, 0, this.context.canvas.width, this.context.canvas.height); };
+
+    this.resize = function(width, height, height_width_ratio) {
+
+    if (height / width > height_width_ratio) {
+
+        this.context.canvas.height = width * height_width_ratio;
+        this.context.canvas.width = width;
+
+    } else {
+
+        this.context.canvas.height = height;
+        this.context.canvas.width = height / height_width_ratio;
+
+    }
+
+    this.context.imageSmoothingEnabled = false;
+
+    };
+
+    };
+
+    Display.prototype = {
+
+    constructor : Display
+
+    };
+</script>
+
 <script id="game">
-
     const Game = function() {
-        this.world = {
 
-            background_color:"#27AAE1",    //  Draw Background Colour #27AAE1
+    this.world = {
 
-            friction: 0.9,
-            gravity: 3,
+    background_color:"rgba(40,48,56,0.25)",
 
-            player: new Game.Player(),
+    friction:0.9,
+    gravity:3,
 
-            height: 450,
-            width: 800,
+    player:new Game.Player(),
 
-            collideObject:function(object) {
+    height:450,
+    width:800,
 
-                if (object.x < 0) {
-                    object.x =0;
-                    object.velocity_x = 0;
-                } else if (object.x + object.width > this.width) {
-                    object.x = this.width;
-                }
-                if (object.y < 0) {
-                    object.y = 0;
-                    object.velocity_y = 0;
-                } else if (object.y + object.height > this.height) {
-                    object.jumping = false;
-                }
-            },
+    collideObject:function(object) {
 
-            update:function() {
+        if (object.x < 0) { object.x = 0; object.velocity_x = 0; }
+        else if (object.x + object.width > this.width) { object.x = this.width - object.width; object.velocity_x = 0; }
+        if (object.y < 0) { object.y = 0; object.velocity_y = 0; }
+        else if (object.y + object.height > this.height) { object.jumping = false; object.y = this.height - object.height; object.velocity_y = 0; }
 
-                    this.player.velocity_y += this.gavity;
-                    this.player.update();
+    },
 
-                    this.player.velocity_x += this.friction;
-                    this.player.velocity_y += this.friction;
+    update:function() {
 
-                    this.collideObject(this.player);
-            }
+        this.player.velocity_y += this.gravity;
+        this.player.update();
 
-        };
+        this.player.velocity_x *= this.friction;
+        this.player.velocity_y *= this.friction;
 
-        this.update = function() {
-            this.world.update();
-        };
+        this.collideObject(this.player);
+
+    }
+
+    };
+
+    this.update = function() {
+
+    this.world.update();
+
+    };
+
     };
 
     Game.prototype = { constructor : Game };
 
-    Game.Player = function(x, y){   // Adding Player class to Game class
+    Game.Player = function(x, y) {
 
-        this.color = "#ffoooo";
-        this.height = 16;
-        this.jumping = true;
-        this.velocity_x = 0;
-        this.velocity_y = 0;
-        this.width = 16;
-        this.x = 100;
-        this.y = 50;
+    this.color      = "#ff0000";
+    this.height     = 16;
+    this.jumping    = true;
+    this.velocity_x = 0;
+    this.velocity_y = 0;
+    this.width      = 16;
+    this.x          = 100;
+    this.y          = 50;
+
     };
 
     Game.Player.prototype = {
 
-        constructor : Game.Player,
+    constructor : Game.Player,
 
-        jump:function(){
+    jump:function() {
 
-            if (!this.jumping){
+    if (!this.jumping) {
 
-                this.jumping = true;
-                this.velocity_y -= 20;
-            }
-        },
+        this.color = "#" + Math.floor(Math.random() * 16777216).toString(16);// Change to random color
+        /* toString(16) will not add a leading 0 to a hex value, so this: #0fffff, for example,
+        isn't valid. toString would cut off the first 0. The code below inserts it. */
+        if (this.color.length != 7) {
 
-        moveLeft: function() { this.velocity_x -= 0.5; },
-        moveRight: function() { this.velocity_X += 0.5; },
-
-        update:function() {
-            
-            this.x += this.velocity_x;
-            this.y += this.velocity_y;
+        this.color = this.color.slice(0, 1) + "0" + this.color.slice(1, 6);
 
         }
+
+        this.jumping     = true;
+        this.velocity_y -= 20;
+
+    }
+
+    },
+
+    moveLeft:function()  { this.velocity_x -= 0.5; },
+    moveRight:function() { this.velocity_x += 0.5; },
+
+    update:function() {
+
+    this.x += this.velocity_x;
+    this.y += this.velocity_y;
+
+    }
+
     };
 </script>
-<script id="engine"></script>
+
+<script id="engine">
+    const Engine = function(time_step, update, render) {
+
+    this.accumulated_time        = 0;// Amount of time that's accumulated since the last update.
+    this.animation_frame_request = undefined,// reference to the AFR
+    this.time                    = undefined,// The most recent timestamp of loop execution.
+    this.time_step               = time_step,// 1000/30 = 30 frames per second
+
+    this.updated = false;// Whether or not the update function has been called since the last cycle.
+
+    this.update = update;// The update function
+    this.render = render;// The render function
+
+    this.run = function(time_stamp) {// This is one cycle of the game loop
+
+    this.accumulated_time += time_stamp - this.time;
+    this.time = time_stamp;
+
+    /* If the device is too slow, updates may take longer than our time step. If
+    this is the case, it could freeze the game and overload the cpu. To prevent this,
+    we catch a memory spiral early and never allow three full frames to pass without
+    an update. This is not ideal, but at least the user won't crash their cpu. */
+    if (this.accumulated_time >= this.time_step * 3) {
+
+        this.accumulated_time = this.time_step;
+
+    }
+
+    /* Since we can only update when the screen is ready to draw and requestAnimationFrame
+    calls the run function, we need to keep track of how much time has passed. We
+    store that accumulated time and test to see if enough has passed to justify
+    an update. Remember, we want to update every time we have accumulated one time step's
+    worth of time, and if multiple time steps have accumulated, we must update one
+    time for each of them to stay up to speed. */
+    while(this.accumulated_time >= this.time_step) {
+
+        this.accumulated_time -= this.time_step;
+
+        this.update(time_stamp);
+
+        this.updated = true;// If the game has updated, we need to draw it again.
+
+    }
+
+    /* This allows us to only draw when the game has updated. */
+    if (this.updated) {
+
+        this.updated = false;
+        this.render(time_stamp);
+
+    }
+
+    this.animation_frame_request = window.requestAnimationFrame(this.handleRun);
+
+    };
+
+    this.handleRun = (time_step) => { this.run(time_step); };
+
+    };
+
+    Engine.prototype = {
+
+    constructor:Engine,
+
+    start:function() {
+
+    this.accumulated_time = this.time_step;
+    this.time = window.performance.now();
+    this.animation_frame_request = window.requestAnimationFrame(this.handleRun);
+
+    },
+
+    stop:function() { window.cancelAnimationFrame(this.animation_frame_request); }
+
+    };
+</script>
 
 </body>
 </html>
