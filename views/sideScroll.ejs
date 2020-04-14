@@ -15,7 +15,7 @@
         <canvas id="scrollerCanvas" width="800px" height="450px"></canvas>
     </div>
 
-    <script>
+    <script id="main">
         var canvas = document.getElementById('scrollerCanvas'); 
         var ctx = canvas.getContext('2d'); 
 
@@ -35,9 +35,17 @@
         window.onload = function() {
         setInterval(function() {
         drawEverything();
+        
+        // Controller();
+        // Display();
+        Game();
+        // Engine();
 
         },1000/framesPerSecond); // Hundredth of seconds
     
+        canvas.addEventListener("keydown", keyDownUp);  // keypress Down
+        canvas.addEventListener("keyup", keyDownUp);    // keypress Up
+
         canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
           function(evt) {
             var mousePos = calculateMousePos(evt);
@@ -55,6 +63,32 @@
         ctx.fill();
     }
 </script>
+
+<script id="controller"></script>
+<script id="display"></script>
+<script id="game">
+
+    const Game = function() {
+        this.world = {
+
+            background_color:"#27AAE1",    //  Draw Background Colour #27AAE1
+
+            friction: 0.9,
+            gravity: 3,
+
+            player: new Game.Player(),
+
+            height: 450,
+            width: 800,
+
+            collideObject:function(object) {
+
+            }
+        }
+    }
+
+</script>
+<script id="engine"></script>
 
 </body>
 </html>
