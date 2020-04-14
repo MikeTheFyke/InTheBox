@@ -20,22 +20,22 @@
         var ctx = canvas.getContext('2d'); 
 
         var framesPerSecond = 30;
-        
-        function calculateMousePos(evt){      // an event fires when mouse moves
-            var rect = canvas.getBoundingClientRect();
-            var root = document.documentElement;
-            var mouseX = evt.clientX - rect.left - root.scrollLeft;
-            var mouseY = evt.clientY - rect.top - root.scrollTop;
-            return {
-            x:mouseX,   // Object Literal
-            y:mouseY    // Object Literal
-            };
-        }
 
         window.onload = function() {
         setInterval(function() {
-        drawEverything();
         
+        var keyDownUp = function(event){
+
+            controller.keyDownUp(event.type, event.keyCode);
+
+        };
+
+        var render = function() {
+            display.fill(game.world.background_color);
+            display.drawRectangle(game.world.player.x, game.world.player.y,)
+        }
+
+        // drawEverything();        
         // Controller();
         // Display();
         Game();
@@ -55,13 +55,13 @@
         }
 
 
-    function drawEverything() {
-        ctx.fillStyle = "lightskyblue"; // Fill Background
-        ctx.fillRect(0,0,canvas.width,canvas.height);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fill();
-    }
+    // function drawEverything() {
+    //     ctx.fillStyle = "lightskyblue"; // Fill Background
+    //     ctx.fillRect(0,0,canvas.width,canvas.height);
+    //     ctx.closePath();
+    //     ctx.stroke();
+    //     ctx.fill();
+    // }
 </script>
 
 <script id="controller"></script>
@@ -83,10 +83,75 @@
 
             collideObject:function(object) {
 
-            }
-        }
-    }
+                if (object.x < 0) {
+                    object.x =0;
+                    object.velocity_x = 0;
+                } else if (object.x + object.width > this.width) {
+                    object.x = this.width;
+                }
+                if (object.y < 0) {
+                    object.y = 0;
+                    object.velocity_y = 0;
+                } else if (object.y + object.height > this.height) {
+                    object.jumping = false;
+                }
+            },
 
+            update:function() {
+
+                    this.player.velocity_y += this.gavity;
+                    this.player.update();
+
+                    this.player.velocity_x += this.friction;
+                    this.player.velocity_y += this.friction;
+
+                    this.collideObject(this.player);
+            }
+
+        };
+
+        this.update = function() {
+            this.world.update();
+        };
+    };
+
+    Game.prototype = { constructor : Game };
+
+    Game.Player = function(x, y){   // Adding Player class to Game class
+
+        this.color = "#ffoooo";
+        this.height = 16;
+        this.jumping = true;
+        this.velocity_x = 0;
+        this.velocity_y = 0;
+        this.width = 16;
+        this.x = 100;
+        this.y = 50;
+    };
+
+    Game.Player.prototype = {
+
+        constructor : Game.Player,
+
+        jump:function(){
+
+            if (!this.jumping){
+
+                this.jumping = true;
+                this.velocity_y -= 20;
+            }
+        },
+
+        moveLeft: function() { this.velocity_x -= 0.5; },
+        moveRight: function() { this.velocity_X += 0.5; },
+
+        update:function() {
+            
+            this.x += this.velocity_x;
+            this.y += this.velocity_y;
+
+        }
+    };
 </script>
 <script id="engine"></script>
 
