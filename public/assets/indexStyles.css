@@ -137,6 +137,10 @@ button{
   #modal12:target {
     display: block;
     border-radius: 25px;
+    }    
+  #modal13:target {
+    display: block;
+    border-radius: 25px;
     }              
   [id^=modal] .modalClose {
     float: right;
