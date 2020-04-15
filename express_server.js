@@ -205,6 +205,26 @@ app.get("/sidescroll", (req, res) => {
     res.render("sidescroll");
 });
 
+app.get("/zone00.json", (req, res) => {
+    res.json(zone00);
+});
+
+app.get("/zone01.json", (req, res) => {
+    res.json(zone01);
+});
+
+app.get("/zone02.json", (req, res) => {
+    res.json(zone02);
+});
+
+app.get("/zone03.json", (req, res) => {
+    res.json(zone03);
+  });
+
+app.get("/zone04.json", (req, res) => {
+    res.json(zone04);
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });

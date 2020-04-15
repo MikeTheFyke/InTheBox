@@ -27,7 +27,7 @@ identifier. When loading zones, I use the game.world's zone identifier with thes
 two constants to construct a url that points to the appropriate zone file. */
 /* I updated this after I made the video. I decided to move the zone files into
 the 06 folder because I won't be using these levels again in future parts. */
-const ZONE_PREFIX = "06/zone";
+const ZONE_PREFIX = "/zone";
 const ZONE_SUFFIX = ".json";
 
     /////////////////
@@ -91,7 +91,7 @@ var keyDownUp = function(event) {
 
 var resize = function(event) {
 
-  display.resize(document.documentElement.clientWidth, document.documentElement.clientHeight, game.world.height / game.world.width);
+//   display.resize(document.documentElement.clientWidth, document.documentElement.clientHeight, game.world.height / game.world.width);
   display.render();
 
 };
@@ -164,7 +164,7 @@ assets_manager.requestJSON(ZONE_PREFIX + game.world.zone_id + ZONE_SUFFIX, (zone
 
   game.world.setup(zone);
 
-  assets_manager.requestImage("rabbit-trap.png", (image) => {
+  assets_manager.requestImage("public/amns-BG-01.png", (image) => {
 
     assets_manager.tile_set_image = image;
 
