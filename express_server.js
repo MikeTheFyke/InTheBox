@@ -205,6 +205,11 @@ app.get("/sidescroll", (req, res) => {
     res.render("sidescroll");
 });
 
+/// T & P Canvas Route
+app.get("/tandp", (req, res) => {
+    res.render("tandp");
+});
+
 app.get("/zone00.json", (req, res) => {
     res.json(zone00);
 });
