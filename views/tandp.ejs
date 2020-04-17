@@ -23,6 +23,8 @@
     var Xcord = 0;
     var Ycord = 0;
 
+    var ctr = 0;
+
     function calculateMousePos(evt){      // an event fires when mouse moves
         var rect = canvas.getBoundingClientRect();
         var root = document.documentElement;
@@ -50,6 +52,8 @@
     function drawEverything() {
         ctx.fillStyle = '#27aae1';
         ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctr = ctr + 0.03;
+        console.log ("Counter = " + ctr);
     }
 </script>
 
