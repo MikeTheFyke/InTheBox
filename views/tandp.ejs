@@ -12,18 +12,23 @@
     js <%- include('partials/_header') %>
     
     <div id="TandPContainer">
-        <canvas id="TandPCanvas" width="600px" height="500px"></canvas>
+        <canvas id="TandPCanvas" width="700px" height="500px"></canvas>
     </div>
 
     <div id="TandPImageContainer">
-        <img src="/public/TandP/T01.png">
-        <img src="/public/TandP/P01.png">
+        <img id="Terrance" src="/public/TandP/T01.png">
+        <img id="Phillip" src="/public/TandP/P01.png">
+        <img id="Terrance2" src="/public/TandP/gifs/T-Fart-T.gif">
+        <img id="Phillip2" src="/public/TandP/gifs/P-Fart-P.gif">
     </div>
 
 <script>
     var canvas = document.getElementById('TandPCanvas');
     var ctx = canvas.getContext('2d');
     var framesPerSecond = 30;
+
+    var imgT = document.getElementById("Terrance");
+    var imgP = document.getElementById("Phillip");
 
     var Xcord = 0;
     var Ycord = 0;
@@ -43,7 +48,9 @@
 
     window.onload = function() {
         setInterval(function() {
-            drawEverything();
+            drawEverything();            
+            drawTandP();
+            console.log(Xcord)
         },1000/framesPerSecond);
 
         canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
@@ -58,8 +65,25 @@
         ctx.fillStyle = '#27aae1';
         ctx.fillRect(0,0,canvas.width,canvas.height);
         ctr = ctr + 0.03;
-        console.log ("Counter = " + ctr);
+        // console.log ("Counter = " + ctr);
     }
+
+    function handleMouseClick(evt){
+        setTimeout(function (){
+            if(Xcord <=350) {
+                imgT = document.getElementById("Terrance2");
+            }
+            if(Xcord > 350) {
+                imgP = document.getElementById("Phillip2");
+            }
+        })
+    };
+
+    function drawTandP() {
+        ctx.drawImage(imgT, 0, 10);
+        ctx.drawImage(imgP, 350, 10);
+    }
+
 </script>
 
 </body>
