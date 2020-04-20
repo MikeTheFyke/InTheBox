@@ -170,5 +170,5 @@ function handleMouseClick(evt){
     ctx.closePath();
     ctx.fill();
     }
-  }, 300)
+  }, 1000)
 }
