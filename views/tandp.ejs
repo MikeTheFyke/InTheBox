@@ -31,7 +31,11 @@
     var Xcord = 0;
     var Ycord = 0;
 
-    var ctr = 0;
+    var terranceFrame = "public/TandP/TFartFrames/T---Fart-T"
+    var phillipFrame = "public/TandP/TFartFrames/T---Fart-P"
+
+    var terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T"
+    var phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P"
 
     function calculateMousePos(evt){      // an event fires when mouse moves
         var rect = canvas.getBoundingClientRect();
@@ -48,7 +52,6 @@
         setInterval(function() {
             drawEverything();            
 
-            console.log(Xcord)
         },1000/framesPerSecond);
 
         canvas.addEventListener ('mousedown', handleMouseClick); // handles mouseclick
@@ -64,18 +67,12 @@
     function drawEverything() {
         ctx.fillStyle = '#27aae1';
         ctx.fillRect(0,0,canvas.width,canvas.height);
-        ctr = ctr + 0.03;
-        // console.log ("Counter = " + ctr);
-        drawTandP();
+        ctx.drawImage(imgT, 0, 10);
+        ctx.drawImage(imgP, 350, 10);
     }
 
     function handleMouseClick(evt){
-        var terranceFrame = "public/TandP/TFartFrames/T---Fart-T"
-        var phillipFrame = "public/TandP/TFartFrames/T---Fart-P"
-
-        var terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T"
-        var phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P"
-
+        setTimeout(function (){
             if(Xcord <=350) {
                 for (var a = 1; a < 14; a ++){
                     terranceFrame = terranceFrame + a +".png";
@@ -84,6 +81,12 @@
                     console.log(phillipFrame);
                     imgT.src = terranceFrame;
                     imgP.src = phillipFrame;
+
+                        ctx.fillStyle = '#27aae1';
+                        ctx.fillRect(0,0,canvas.width,canvas.height);
+                        ctx.drawImage(imgT, 0, 10);
+                        ctx.drawImage(imgP, 350, 10);
+
                     terranceFrame = "public/TandP/TFartFrames/T---Fart-T";
                     phillipFrame = "public/TandP/TFartFrames/T---Fart-P";
                 }
@@ -96,10 +99,17 @@
                     console.log(phillipFrame2);
                     imgT.src = terranceFrame2;
                     imgP.src = phillipFrame2;
+                        
+                        ctx.fillStyle = '#27aae1';
+                        ctx.fillRect(0,0,canvas.width,canvas.height);
+                        ctx.drawImage(imgT, 0, 10);
+                        ctx.drawImage(imgP, 350, 10);
+
                     terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T";
                     phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P";
                 }
             }
+        }, 300)
     };
 
     function calculateMousePos(evt){      // an event fires when mouse moves
@@ -111,11 +121,6 @@
         x:mouseX,   // Object Literal
         y:mouseY    // Object Literal
         };
-    }
-
-    function drawTandP() {
-        ctx.drawImage(imgT, 0, 10);
-        ctx.drawImage(imgP, 350, 10);
     }
 
 </script>
