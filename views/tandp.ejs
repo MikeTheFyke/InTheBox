@@ -53,6 +53,8 @@
             console.log(Xcord)
         },1000/framesPerSecond);
 
+        canvas.addEventListener ('mousedown', handleMouseClick); // handles mouseclick
+
         canvas.addEventListener ('mousemove',   // keypress, mouseclick, mousemove
         function(evt) {
             var mousePos = calculateMousePos(evt);
