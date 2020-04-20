@@ -73,8 +73,14 @@
     }
 
     function handleMouseClick(evt){
+        var terranceFrame = "public/TandP/TFartFrames/T---Fart-T0"
             if(Xcord <=350) {
-                imgT = document.getElementById("Terrance2");
+                for (var a = 1; a < 13; a ++){
+                    terranceFrame = terranceFrame + a +".png";
+                    console.log(terranceFrame);
+                    imgT = document.getElementById("Terrance2");
+                    terranceFrame = "public/TandP/TFartFrames/T---Fart-T0"
+                }
             }
             if(Xcord > 350) {
                 imgP = document.getElementById("Phillip2");
