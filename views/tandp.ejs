@@ -73,14 +73,14 @@
 
     function handleMouseClick(evt){
         setTimeout(function (){
-            if(Xcord <=350) {
                 for (var a = 1; a < 14; a ++){
-                    terranceFrame = terranceFrame + a +".png";
-                    phillipFrame = phillipFrame + a +".png";
-                    console.log(terranceFrame);
-                    console.log(phillipFrame);
-                    imgT.src = terranceFrame;
-                    imgP.src = phillipFrame;
+                    if(Xcord <=350) {
+                        terranceFrame = terranceFrame + a +".png";
+                        phillipFrame = phillipFrame + a +".png";
+                        console.log(terranceFrame);
+                        console.log(phillipFrame);
+                        imgT.src = terranceFrame;
+                        imgP.src = phillipFrame;
 
                         ctx.fillStyle = '#27aae1';
                         ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -89,25 +89,23 @@
 
                     terranceFrame = "public/TandP/TFartFrames/T---Fart-T";
                     phillipFrame = "public/TandP/TFartFrames/T---Fart-P";
-                }
-            }
-            if(Xcord > 350) {
-                for (var a = 1; a < 14; a ++){
-                    terranceFrame2 = terranceFrame2 + a +".png";
-                    phillipFrame2 = phillipFrame2 + a +".png";
-                    console.log(terranceFrame2);
-                    console.log(phillipFrame2);
-                    imgT.src = terranceFrame2;
-                    imgP.src = phillipFrame2;
-                        
-                        ctx.fillStyle = '#27aae1';
-                        ctx.fillRect(0,0,canvas.width,canvas.height);
-                        ctx.drawImage(imgT, 0, 10);
-                        ctx.drawImage(imgP, 350, 10);
+                    }
+                    if(Xcord > 350) {
+                        terranceFrame2 = terranceFrame2 + a +".png";
+                        phillipFrame2 = phillipFrame2 + a +".png";
+                        console.log(terranceFrame2);
+                        console.log(phillipFrame2);
+                        imgT.src = terranceFrame2;
+                        imgP.src = phillipFrame2;
+                            
+                            ctx.fillStyle = '#27aae1';
+                            ctx.fillRect(0,0,canvas.width,canvas.height);
+                            ctx.drawImage(imgT, 0, 10);
+                            ctx.drawImage(imgP, 350, 10);
 
-                    terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T";
-                    phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P";
-                }
+                        terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T";
+                        phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P";
+                    }
             }
         }, 300)
     };
