@@ -16,11 +16,8 @@
     </div>
 
     <div id="TandPImageContainer">
-        <img id="Terrance" src="/public/TandP/TFartFrames/T---Fart-T01.png">
-        <img id="Phillip" src="/public/TandP/TFartFrames/T---Fart-P01.png">
-
-        <img id="Terrance2" src="/public/TandP/TFartFrames/T---Fart-T02.png">
-        <img id="Phillip2" src="/public/TandP/TFartFrames/T---Fart-P02.png">
+        <img id="Terrance" src="/public/TandP/TFartFrames/T---Fart-T1.png">
+        <img id="Phillip" src="/public/TandP/TFartFrames/T---Fart-P1.png">
     </div>
 
 <script>
@@ -73,17 +70,35 @@
     }
 
     function handleMouseClick(evt){
-        var terranceFrame = "public/TandP/TFartFrames/T---Fart-T0"
+        var terranceFrame = "public/TandP/TFartFrames/T---Fart-T"
+        var phillipFrame = "public/TandP/TFartFrames/T---Fart-P"
+
+        var terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T"
+        var phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P"
+
             if(Xcord <=350) {
-                for (var a = 1; a < 13; a ++){
+                for (var a = 1; a < 14; a ++){
                     terranceFrame = terranceFrame + a +".png";
+                    phillipFrame = phillipFrame + a +".png";
                     console.log(terranceFrame);
-                    imgT = document.getElementById("Terrance2");
-                    terranceFrame = "public/TandP/TFartFrames/T---Fart-T0"
+                    console.log(phillipFrame);
+                    imgT.src = terranceFrame;
+                    imgP.src = phillipFrame;
+                    terranceFrame = "public/TandP/TFartFrames/T---Fart-T";
+                    phillipFrame = "public/TandP/TFartFrames/T---Fart-P";
                 }
             }
             if(Xcord > 350) {
-                imgP = document.getElementById("Phillip2");
+                for (var a = 1; a < 14; a ++){
+                    terranceFrame2 = terranceFrame2 + a +".png";
+                    phillipFrame2 = phillipFrame2 + a +".png";
+                    console.log(terranceFrame2);
+                    console.log(phillipFrame2);
+                    imgT.src = terranceFrame2;
+                    imgP.src = phillipFrame2;
+                    terranceFrame2 = "public/TandP/PFartFrames/P---Fart-T";
+                    phillipFrame2 = "public/TandP/PFartFrames/P---Fart-P";
+                }
             }
     };
 
