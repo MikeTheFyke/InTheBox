@@ -49,7 +49,7 @@
     window.onload = function() {
         setInterval(function() {
             drawEverything();            
-            drawTandP();
+
             console.log(Xcord)
         },1000/framesPerSecond);
 
@@ -68,17 +68,16 @@
         ctx.fillRect(0,0,canvas.width,canvas.height);
         ctr = ctr + 0.03;
         // console.log ("Counter = " + ctr);
+        drawTandP();
     }
 
     function handleMouseClick(evt){
-        setTimeout(function (){
             if(Xcord <=350) {
                 imgT = document.getElementById("Terrance2");
             }
             if(Xcord > 350) {
                 imgP = document.getElementById("Phillip2");
             }
-        })
     };
 
     function calculateMousePos(evt){      // an event fires when mouse moves
