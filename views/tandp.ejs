@@ -79,6 +79,17 @@
         })
     };
 
+    function calculateMousePos(evt){      // an event fires when mouse moves
+        var rect = canvas.getBoundingClientRect();
+        var root = document.documentElement;
+        var mouseX = evt.clientX - rect.left - root.scrollLeft;
+        var mouseY = evt.clientY - rect.top - root.scrollTop;
+        return {
+        x:mouseX,   // Object Literal
+        y:mouseY    // Object Literal
+        };
+    }
+
     function drawTandP() {
         ctx.drawImage(imgT, 0, 10);
         ctx.drawImage(imgP, 350, 10);
